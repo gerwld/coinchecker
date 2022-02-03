@@ -1,4 +1,6 @@
 .dashboard_overlay {
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -7,8 +9,12 @@
 
 .main_dash {
     padding: 0.5vw 2vw 1.5vw 1.5vw;
-    height: 100vh;
+    height: calc(100vh - 60px);
     overflow-y: scroll;
+}
+
+.dashboard_content {
+
 }
 
 .content_block {
@@ -26,7 +32,7 @@
 /* header section */
 
 .header_dash {
-    width: 100vw;
+    width: 100%;
     height: 60px;
     background-color: var(--color-bg-primary);
     border-bottom: var(--border-lightgray);
