@@ -1,23 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import MainContainer from './components/MainScreen/MainContainer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header className="header-content">
+        <div className="header-overlay content-wrapper">
+          <img src={logo} className="header-logo" alt="logo" />
+          <nav className="main_nav">
+            <ul>
+              <li><a href="#">Main</a></li>
+              <li><a href="#">Balance</a></li>
+              <li><a href="#">Budget</a></li>
+              <li><a href="#">Market</a></li>
+              <li><a href="#">Nft</a></li>
+            </ul>
+          </nav>
+        </div>
       </header>
+      <MainContainer />
+
     </div>
   );
 }
