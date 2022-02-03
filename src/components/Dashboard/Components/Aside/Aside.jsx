@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Aside.module.css';
 import { RiMenuFoldLine } from 'react-icons/ri';
 import { MdOutlineSpaceDashboard } from 'react-icons/md';
 
 const AsideBlock = (props) => {
+
+    const [isAsideHide, setAside] = useState(false);
+    const asideBtn = () => {
+        setAside(!isAsideHide);
+      };
+
     return (
-        <aside className={s.aside_overlay}>
-            <div className={s.logo}>CoinChecker</div>
-            <button className={s.toggleAside}><RiMenuFoldLine/></button>
+        <aside className={`${s.aside_overlay} ${isAsideHide ? s.aside_hidden : ''}`}>
+            <div className={s.logo}>{isAsideHide ? 'CC' : 'CoinChecker'}</div>
+            <button onClick={asideBtn} className={s.toggleAside}><RiMenuFoldLine/></button>
 
             <nav className={s.aside_menu}>
                 <ul>
