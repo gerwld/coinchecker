@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Aside.module.css';
 import { RiMenuFoldLine } from 'react-icons/ri';
+import { MdOutlineSpaceDashboard } from 'react-icons/md';
 
 const AsideBlock = (props) => {
     return (
@@ -11,9 +12,9 @@ const AsideBlock = (props) => {
 
             <nav className={s.aside_menu}>
                 <ul>
-                    <li><NavLink exact to="/dashboard" className={(e) => e.isActive ? s.active_a : '' }>Dashboard</NavLink></li>
-                    <li><NavLink to="/Inventory">Inventory</NavLink></li>
-                    <li><NavLink to="/">CRM</NavLink></li>
+                    <li><NavLink exact to="/dashboard" className={(e) => e.isActive ? s.active_a : '' }><MdOutlineSpaceDashboard/>Dashboard</NavLink></li>
+                    <li><NavLink to="/Inventory" className={s.dropdown}>Inventory</NavLink></li>
+                    <li><NavLink to="/" className={s.dropdown}>CRM</NavLink></li>
                     <li><NavLink to="/">Orders</NavLink></li>
                     <li><NavLink to="/">Stocks</NavLink></li>
                 </ul>

@@ -7,6 +7,7 @@
     height: 100vh;
     background-color: #fff;
     border-right: 1px solid rgb(214, 214, 214);
+    z-index: 100;
 }
 
 .logo {
@@ -26,14 +27,35 @@
 }
 
 .aside_menu ul a {
+    position: relative;
     display: block;
-    padding: 10px 15px 10px 50px;
+    padding: 10px 1.8vw 10px 50px;
     font-size: 15px;
     text-decoration: none;
     font-weight: 500;
     color: var(--color-second-text);
     border-radius: 50px 0 0 50px;
     transition: background-color 0.05s ease-in;
+}
+
+a.dropdown::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    position: absolute;
+    right: 1.2vw;
+    bottom: 19px;
+    border: 1px solid gray;
+    border-width: 0 0 2px 2px;
+    transform: rotate(-45deg);
+}
+
+.aside_menu a > svg {
+    position: absolute;
+    left: 20px;
+    bottom: 11px;
+    width: 22px;
+    height: 22px;
 }
 
 .aside_menu li {
@@ -64,7 +86,7 @@
     border: none;
     border-radius: 7px 0 0 7px;
     background-color: var(--color-primary-blue);
-    transition: background-color 0.25s ease-in;
+    transition: background-color 0.1s ease-in;
 }
 
 .toggleAside svg {
