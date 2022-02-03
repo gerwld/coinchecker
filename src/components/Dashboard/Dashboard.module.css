@@ -6,7 +6,28 @@
 }
 
 .main_dash {
-    padding: 0.5vw 0.5vw 1.5vw 1.5vw;
-    height: 120vh;
-    overflow: scroll;
+    padding: 0.5vw 2vw 1.5vw 1.5vw;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.content_block {
+    width: 33%;
+    min-height: 200px;
+    padding: 20px;
+    border-radius: 1vw;
+    background-color: var(--color-bg-primary);
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 90px 0 rgba(163, 171, 185,0.25);
+    border: var(--border-lightgray);
+}
+
+/* header section */
+
+.header_dash {
+    width: 100vw;
+    height: 60px;
+    background-color: var(--color-bg-primary);
+    border-bottom: var(--border-lightgray);
 }

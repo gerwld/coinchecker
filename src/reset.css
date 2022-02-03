@@ -25,6 +25,10 @@ button {
   cursor: pointer;
 }
 
+button:focus {
+  outline: none;
+}
+
 ol, ul {
   list-style: none;
 }
