@@ -1,3 +1,27 @@
+:root {
+  --color-bg-primary: #fff;
+  --color-bg-lightgray: #EFF3F7;
+  --color-primary-blue: #003AD2;
+  --color-primary-darkblue: #204173;
+  --color-header-text: #1F4173;
+  --color-basic-text: #1F4173;
+  --color-second-text: #8FA0B9;
+  --color-primary-gray: #717A8A;
+  --color-primary-lightgray: #E9F0FF;
+  --color-primary-lightgray2:#F0F4FC;
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: -apple-system, "SF Pro Text", "SF Pro Icons", "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
+    color: #1e1e1e;
+    line-height: 1.47059;
+    font-weight: 400;
+  }
+
 .content-wrapper {
   max-width: 980px;
   margin-left: auto;

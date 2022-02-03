@@ -1,8 +1,78 @@
 .aside_overlay {
     position: fixed;
+    padding-left: 0.5vw;
     top: 0;
     left: 0;
-    width: 25vw;
+    width: 11vw;
     height: 100vh;
-    background-color: gray;
+    background-color: #fff;
+    border-right: 1px solid rgb(214, 214, 214);
+}
+
+.logo {
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    height: 60px;
+    font-weight: 600;
+    color: var(--color-primary-blue);
+    user-select: none;
+    cursor: pointer;
+}
+
+.aside_menu {
+    margin: 5px 0;
+}
+
+.aside_menu ul a {
+    display: block;
+    padding: 10px 15px 10px 50px;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--color-second-text);
+    border-radius: 50px 0 0 50px;
+    transition: background-color 0.05s ease-in;
+}
+
+.aside_menu li {
+    margin-bottom: 5px;
+}
+
+.aside_menu ul a:hover {
+    background-color: var(--color-primary-lightgray2);
+}
+
+.aside_menu ul a.active_a:hover,
+.active_a {
+    background-color: var(--color-primary-lightgray);
+    color: var(--color-primary-blue)!important;
+}
+
+.active_a {
+    font-weight: 600;
+}
+
+.toggleAside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5vw;
+    height: 2.5vw;
+    margin-left: auto;
+    border: none;
+    border-radius: 7px 0 0 7px;
+    background-color: var(--color-primary-blue);
+    transition: background-color 0.25s ease-in;
+}
+
+.toggleAside svg {
+    width: 1.2vw;
+    height: 1.2vw;
+    color: #fff;
+}
+
+.toggleAside:hover {
+    background-color: var(--color-primary-darkblue);
 }
