@@ -1,6 +1,6 @@
 :root {
   --color-bg-primary: #fff;
-  --color-bg-lightgray: #EFF3F7;
+  --color-bg-lightgray: #F3F4F8;
   --color-primary-blue: #003AD2;
   --color-primary-darkblue: #204173;
   --color-header-text: #1F4173;
@@ -20,6 +20,8 @@ body {
     color: #1e1e1e;
     line-height: 1.47059;
     font-weight: 400;
+    overflow: visible;
+    height: auto;
   }
 
 .content-wrapper {

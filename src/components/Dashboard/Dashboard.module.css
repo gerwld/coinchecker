@@ -1,0 +1,12 @@
+.dashboard_overlay {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: var(--color-bg-lightgray);
+}
+
+.main_dash {
+    padding: 0.5vw 0.5vw 1.5vw 1.5vw;
+    height: 120vh;
+    overflow: scroll;
+}
