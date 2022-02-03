@@ -44,3 +44,7 @@
 .main_nav li a:hover {
   background-color: #fff;
 }
+
+.active_a{
+  background-color: rgb(255, 255, 255);
+}

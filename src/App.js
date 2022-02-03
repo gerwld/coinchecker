@@ -1,28 +1,32 @@
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import MainContainer from './components/MainScreen/MainContainer';
+import store from './redux/redux-store';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   return (
     <div>
-      <header className="header-content">
-        <div className="header-overlay content-wrapper">
-          <img src={logo} className="header-logo" alt="logo" />
-          <nav className="main_nav">
-            <ul>
-              <li><a href="#">Main</a></li>
-              <li><a href="#">Balance</a></li>
-              <li><a href="#">Budget</a></li>
-              <li><a href="#">Market</a></li>
-              <li><a href="#">Nft</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-      <MainContainer />
-
+      <Routes>
+      <Route path="/"exact element={<MainContainer />} />
+      <Route path="dashboard/*" element={<Dashboard />} />
+      </Routes>
     </div>
   );
 }
 
-export default App;
+
+const AppContainer = App;
+
+let CryptoChecker = () => {
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <AppContainer />
+      </BrowserRouter>
+    </Provider>
+  );
+}
+
+export default CryptoChecker;
