@@ -20,6 +20,8 @@ body {
     color: #1e1e1e;
     line-height: 1.47059;
     font-weight: 400;
+    overflow: visible;
+    height: auto;
   }
 
 .content-wrapper {
