@@ -37,3 +37,8 @@
     background-color: var(--color-bg-primary);
     border-bottom: var(--border-lightgray);
 }
+
+.header_dash span {
+    display: inline-block;
+    margin: 10px;
+}
