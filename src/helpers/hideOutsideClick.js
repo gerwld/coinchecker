@@ -2,7 +2,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 
-export default function useOutsideClickHide(ref, hideElement) {
+export default function useOutsideClickHide(ref, hideElement, changeClass) {
     useEffect(() => {
         // Alert if clicked on outside of element
         function handleClickOutside(event) {

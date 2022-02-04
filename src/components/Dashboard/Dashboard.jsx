@@ -24,6 +24,7 @@ const Dashboard = (props) => {
     useOutsideClickHide(profsetBlock, setProfSet);
 
 
+
     return (
         <div className={s.dashboard_overlay}>
             <AsideBlock />
@@ -34,9 +35,9 @@ const Dashboard = (props) => {
                         <input onFocus={resultsShow} type="text" id="db_search" />
                         <div className={`${s.search_results} ${showResult}`}><SearchResultsDrop /></div>
                     </div>
-                    <div className={s.dashboard_notifications}>
-                        <button className={s.dash_notific}>Notifications</button>
-                    </div>
+
+                        <LastNotifications />
+
                     <div className={`${s.dashboard_cuser} ${profSetShow}`} onClick={showProfSet} ref={profsetBlock}>
                         <div className={s.cuser_avatar}><img src="aboba" alt="" /></div>
                         <span className={s.cuser_name + ' ic-dropdown'}>Tomas Rohan</span>
@@ -117,6 +118,25 @@ const ProfSettings = (props) => {
             <div>egeee</div>
             <div>egeee</div>
             <div>egeee</div>
+        </div>
+    )
+}
+
+const LastNotifications = () => {
+    const [isNotifShow, setNotif] = useState(false);
+    const toggleNotif = () => setNotif(!isNotifShow);
+
+    const e = useRef(null);
+    useOutsideClickHide(e, setNotif);
+
+    return (
+        <div ref={e} className={s.dashboard_notifications}>
+                        <button className={s.dash_notific} onClick={toggleNotif}>Notifications</button>
+        <div className={`${s.notif_block} ${isNotifShow ? "show_block" : ''}`}>
+            <div>egeee</div>
+            <div>egeee</div>
+            <div>egeee</div>
+        </div>
         </div>
     )
 }
