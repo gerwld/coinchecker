@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 export default function useOutsideClickHide(ref, hideElement) {
     useEffect(() => {
-        /* Alert if clicked on outside of element */
+        // Alert if clicked on outside of element
         function handleClickOutside(event) {
             if (ref.current && !ref.current.contains(event.target)) {
                 // alert("You clicked outside of me!");

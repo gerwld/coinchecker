@@ -96,6 +96,7 @@
 }
 
 .dashboard_cuser {
+    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -105,7 +106,7 @@
     cursor: pointer;
     user-select: none;
 }
-
+.dashboard_cuser.show_settings,
 .dashboard_cuser:hover {
     background-color: var(--color-primary-lightgray2);
 }
@@ -126,3 +127,16 @@
     right: 0;
     bottom: 40%;
 }
+
+.cuser_settings {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+.show_settings .cuser_settings {
+    display: block;
+}
+
