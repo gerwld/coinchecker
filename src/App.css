@@ -89,3 +89,10 @@ body {
   border-width: 0 0 2px 2px;
   transform: rotate(-45deg);
 }
+
+/* Show for not unique block */
+
+.show_block {
+  display: block!important;
+  opacity: 1!important;
+}

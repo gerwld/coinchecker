@@ -77,6 +77,25 @@
     display: block;
 }
 
+/* Dropdown styles */
+
+.drop_overlay {
+    width: 100%;
+    padding: 10px 15px 25px;
+    background-color: #fff;
+    border: var(--border-lightgray);
+}
+
+.drop_t {
+    margin: 0 0 6px 0;
+    padding: 0!important;
+    font-size: 15px;
+    color: var(--color-primary-gray);
+    text-transform: capitalize;
+}
+
+/* Dropdown styles end */
+
 .dashboard_search input {
     flex: 0 0 270px;
     width: 270px;
@@ -95,18 +114,23 @@
     background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.16669 1.66663C13.3067 1.66663 16.6667 5.02663 16.6667 9.16663C16.6667 13.3066 13.3067 16.6666 9.16669 16.6666C5.02669 16.6666 1.66669 13.3066 1.66669 9.16663C1.66669 5.02663 5.02669 1.66663 9.16669 1.66663ZM9.16669 15C12.3892 15 15 12.3891 15 9.16663C15 5.94329 12.3892 3.33329 9.16669 3.33329C5.94335 3.33329 3.33335 5.94329 3.33335 9.16663C3.33335 12.3891 5.94335 15 9.16669 15ZM16.2375 15.0591L18.595 17.4158L17.4159 18.595L15.0592 16.2375L16.2375 15.0591V15.0591Z' fill='%231F4173'/%3E%3C/svg%3E%0A");
 }
 
-.dashboard_cuser {
+.dashboard_wrapper {
     position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 0 4px;
-    padding: 0 12px;
     height: 100%;
-    cursor: pointer;
-    user-select: none;
 }
-.dashboard_cuser.show_settings,
+
+.dashboard_cuser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  height: 100%;
+  user-select: none;
+  cursor: pointer;
+}
+
+.show_settings .dashboard_cuser,
+.show_block .dash_notific,
 .dashboard_cuser:hover,
 .dash_notific:hover {
     background-color: var(--color-primary-lightgray2);
@@ -144,7 +168,12 @@
 /* Notifications */
 
 .dashboard_notifications {
+    position: relative;
     margin: 0 15px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dash_notific {
@@ -161,6 +190,24 @@
     background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 17H22V19H2V17H4V10C4 7.87827 4.84285 5.84344 6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10V17ZM18 17V10C18 8.4087 17.3679 6.88258 16.2426 5.75736C15.1174 4.63214 13.5913 4 12 4C10.4087 4 8.88258 4.63214 7.75736 5.75736C6.63214 6.88258 6 8.4087 6 10V17H18ZM9 21H15V23H9V21Z' fill='%231F4173' fill-opacity='0.5'/%3E%3C/svg%3E%0A");
     border-radius: 50%;
 }
+
+.notif_block {
+    display: none;
+    position: absolute;
+    width: 200px;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    padding: 15px 20px;
+    border: var(--border-lightgray);
+    border-radius: 2px;
+}
+
+.show_block .notif_block {
+    display: block;
+}
+
+/* Notifications end */
 
 /* Last selected styles */
 

@@ -1,28 +1,11 @@
 import React, { useRef, useState } from 'react';
 import useOutsideClickHide from '../../helpers/hideOutsideClick';
-import dropDownMenu from '../../hoc/DropDown/dropDownMenu';
 import AsideBlock from './Components/Aside/Aside';
 import s from './Dashboard.module.css';
 
 
 
 const Dashboard = (props) => {
-    //state & show results
-    const [isResultsShow, setResults] = useState(false);
-    const resultsShow = () => setResults(true);
-    const showResult = isResultsShow ? s.show_results : '';
-    //hide results
-    const searchBlock = useRef(null);
-    useOutsideClickHide(searchBlock, setResults);
-
-    //show profile menu
-    const [isProfSetShow, setProfSet] = useState(false);
-    const showProfSet = () => setProfSet(!isProfSetShow);
-    const profSetShow = isProfSetShow ? s.show_settings : '';
-    //hide menu
-    const profsetBlock = useRef(null);
-    useOutsideClickHide(profsetBlock, setProfSet);
-
 
     return (
         <div className={s.dashboard_overlay}>
@@ -30,18 +13,11 @@ const Dashboard = (props) => {
             <div className={s.dashboard_content}>
                 <header className={s.header_dash}>
                     <span>Header</span>
-                    <div className={s.dashboard_search} ref={searchBlock}>
-                        <input onFocus={resultsShow} type="text" id="db_search" />
-                        <div className={`${s.search_results} ${showResult}`}><SearchResultsDrop /></div>
-                    </div>
-                    <div className={s.dashboard_notifications}>
-                        <button className={s.dash_notific}>Notifications</button>
-                    </div>
-                    <div className={`${s.dashboard_cuser} ${profSetShow}`} onClick={showProfSet} ref={profsetBlock}>
-                        <div className={s.cuser_avatar}><img src="aboba" alt="" /></div>
-                        <span className={s.cuser_name + ' ic-dropdown'}>Tomas Rohan</span>
-                        <div className={s.cuser_settings}><ProfSettingsDrop /></div>
-                    </div>
+
+                    <SearchResults />
+                    <LastNotifications />
+
+                    <ProfSettings />
                 </header>
                 <main className={s.main_dash}><h1>Header text</h1>
                     <div className={s.content_block}>123123</div>
@@ -106,23 +82,63 @@ const LastSectedItems = (props) => {
 
 
 const SearchResults = (props) => {
-    return (
-        <div>ege</div>
-    )
-}
+    const [isShow, set] = useState(false);
+    //hide results
+    const e = useRef(null);
+    useOutsideClickHide(e, set);
 
-const ProfSettings = (props) => {
     return (
-        <div>
-            <div>egeee</div>
-            <div>egeee</div>
-            <div>egeee</div>
+        <div className={s.dashboard_search} ref={e}>
+            <input onFocus={() => set(true)} type="text" id="db_search" />
+            <div className={`${s.search_results} ${isShow ? s.show_results : ''}`}>
+                <div className={s.drop_overlay}><span className={s.drop_t}>Search:</span>
+                    <div>ege</div>
+                </div>
+            </div>
         </div>
     )
 }
 
+const ProfSettings = (props) => {
+      const [isShow, set] = useState(false);
+      //hide menu
+      const e = useRef(null);
+      useOutsideClickHide(e, set);
+    return (
+        <div className={`${s.dashboard_wrapper} ${isShow ? s.show_settings : ''}`} ref={e}>
+            <div className={s.dashboard_cuser} onClick={() => set(!isShow)}>
+                <div className={s.cuser_avatar}><img src="aboba" alt="" /></div>
+                <span className={s.cuser_name + ' ic-dropdown'}>Tomas Rohan</span>
+            </div>
+            <div className={s.cuser_settings}>
+                <div className={s.drop_overlay}><span className={s.drop_t}>Settings:</span>
+                    <div>
+                        <div>egeee</div>
+                        <div>egeee</div>
+                        <div>egeee</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-const SearchResultsDrop = dropDownMenu(SearchResults, 'results:');
-const ProfSettingsDrop = dropDownMenu(ProfSettings, 'settings');
+    )
+}
+
+const LastNotifications = () => {
+    const [isShow, set] = useState(false);
+    const e = useRef(null);
+    useOutsideClickHide(e, set);
+
+    return (
+        <div ref={e} className={`${s.dashboard_notifications} ${isShow ? s.show_block : ''}`}>
+            <button className={s.dash_notific} onClick={() => set(!isShow)}>Notifications</button>
+            <div className={s.notif_block}>
+                <div>egeee</div>
+                <div>egeee</div>
+                <div>egeee</div>
+            </div>
+        </div>
+    )
+}
 
 export default Dashboard;
