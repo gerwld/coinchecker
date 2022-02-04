@@ -14,9 +14,9 @@ const Dashboard = (props) => {
                         <input type="text" id="db_search"/>
                         <div className={s.results}></div>
                     </div>
-                    <div className="dashboard_cuser">
-                        <div className="cuser_avatar"><img src="aboba" alt="" /></div>
-                        <span className="cuser_name">Tomas Rohan</span>
+                    <div className={s.dashboard_cuser}>
+                        <div className={s.cuser_avatar}><img src="aboba" alt="" /></div>
+                        <span className={s.cuser_name + ' ic-dropdown'}>Tomas Rohan</span>
                     </div>
                 </header>
                 <main className={s.main_dash}><h1>Header text</h1>
