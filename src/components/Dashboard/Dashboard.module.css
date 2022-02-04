@@ -129,7 +129,8 @@
   cursor: pointer;
 }
 
-.dashboard_cuser.show_settings,
+.show_settings .dashboard_cuser,
+.show_block .dash_notific,
 .dashboard_cuser:hover,
 .dash_notific:hover {
     background-color: var(--color-primary-lightgray2);
@@ -200,6 +201,10 @@
     padding: 15px 20px;
     border: var(--border-lightgray);
     border-radius: 2px;
+}
+
+.show_block .notif_block {
+    display: block;
 }
 
 /* Notifications end */

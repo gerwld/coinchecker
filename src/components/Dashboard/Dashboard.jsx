@@ -130,9 +130,9 @@ const LastNotifications = () => {
     useOutsideClickHide(e, set);
 
     return (
-        <div ref={e} className={s.dashboard_notifications}>
+        <div ref={e} className={`${s.dashboard_notifications} ${isShow ? s.show_block : ''}`}>
             <button className={s.dash_notific} onClick={() => set(!isShow)}>Notifications</button>
-            <div className={`${s.notif_block} ${isShow ? "show_block" : ''}`}>
+            <div className={s.notif_block}>
                 <div>egeee</div>
                 <div>egeee</div>
                 <div>egeee</div>
