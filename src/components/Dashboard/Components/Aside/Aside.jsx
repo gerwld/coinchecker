@@ -19,7 +19,7 @@ const AsideBlock = (props) => {
 
             <nav className={s.aside_menu}>
                 <ul>
-                    <li><NavLink exact to="/dashboard" className={(e) => e.isActive ? s.active_a : ''}><MdOutlineSpaceDashboard />Dashboard</NavLink></li>
+                    <li><NavLink to="/dashboard" className={(e) => e.isActive ? s.active_a : ''}><MdOutlineSpaceDashboard />Dashboard</NavLink></li>
                     <li><NavLink to="/Inventory" className={s.dropdown}>Inventory</NavLink></li>
                     <li><NavLink to="/" className={s.dropdown}>CRM</NavLink></li>
                     <li><NavLink to="/">Orders</NavLink></li>

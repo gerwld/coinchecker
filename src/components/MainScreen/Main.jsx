@@ -11,7 +11,7 @@ const Main = (props) => {
                     <img src={logo} className="header-logo" alt="logo" />
                         <nav className="main_nav">
                         <ul>
-                            <li><NavLink to="/" exact className={(e) => e.isActive ? 'active_a':'' }>Main</NavLink></li>
+                            <li><NavLink to="/" className={(e) => e.isActive ? 'active_a':'' }>Main</NavLink></li>
                             <li><NavLink to="/dashboard" className={(e) => e.isActive ? 'active_a':'' }>Dashboard</NavLink></li>
                             <li><a href="#">Budget</a></li>
                             <li><a href="#">Market</a></li>

@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <Routes>
-      <Route path="/"exact element={<MainContainer />} />
+      <Route path="/" element={<MainContainer />} />
       <Route path="dashboard/*" element={<Dashboard />} />
       </Routes>
     </div>
