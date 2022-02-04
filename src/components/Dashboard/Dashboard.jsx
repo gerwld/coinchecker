@@ -17,7 +17,7 @@ const Dashboard = (props) => {
 
     //show profile menu
     const [isProfSetShow, setProfSet] = useState(false);
-    const showProfSet = () => setProfSet(true);
+    const showProfSet = () => setProfSet(!isProfSetShow);
     const profSetShow = isProfSetShow ? s.show_settings : '';
     //hide menu
     const profsetBlock = useRef(null);
