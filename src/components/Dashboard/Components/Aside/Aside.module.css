@@ -103,3 +103,8 @@ a.dropdown::after {
 .toggleAside:hover {
     background-color: var(--color-primary-darkblue);
 }
+
+.aside_hidden .toggleAside svg {
+    -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}

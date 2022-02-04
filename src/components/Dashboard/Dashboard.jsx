@@ -24,9 +24,6 @@ const Dashboard = (props) => {
     useOutsideClickHide(profsetBlock, setProfSet);
 
 
-
-
-
     return (
         <div className={s.dashboard_overlay}>
             <AsideBlock />
