@@ -15,6 +15,18 @@ const Dashboard = (props) => {
     const searchBlock = useRef(null);
     useOutsideClickHide(searchBlock, setResults);
 
+    //show profile menu
+    const [isProfSetShow, setProfSet] = useState(false);
+    const showProfSet = () => setProfSet(true);
+    const profSetShow = isProfSetShow ? s.show_settings : '';
+    //hide menu
+    const profsetBlock = useRef(null);
+    useOutsideClickHide(profsetBlock, setProfSet);
+
+
+
+
+
     return (
         <div className={s.dashboard_overlay}>
             <AsideBlock />
@@ -25,9 +37,10 @@ const Dashboard = (props) => {
                         <input onFocus={resultsShow} type="text" id="db_search" />
                         <div className={`${s.search_results} ${showResult}`}><SearchResultsDrop /></div>
                     </div>
-                    <div className={s.dashboard_cuser}>
+                    <div className={`${s.dashboard_cuser} ${profSetShow}`} onClick={showProfSet} ref={profsetBlock}>
                         <div className={s.cuser_avatar}><img src="aboba" alt="" /></div>
                         <span className={s.cuser_name + ' ic-dropdown'}>Tomas Rohan</span>
+                        <div className={s.cuser_settings}><ProfSettingsDrop /></div>
                     </div>
                 </header>
                 <main className={s.main_dash}><h1>Header text</h1>
@@ -49,13 +62,23 @@ const Dashboard = (props) => {
 
 
 const SearchResults = (props) => {
-
     return (
         <div>ege</div>
     )
 }
 
+const ProfSettings = (props) => {
+    return (
+        <div>
+            <div>egeee</div>
+            <div>egeee</div>
+            <div>egeee</div>
+        </div>
+    )
+}
 
-const SearchResultsDrop = dropDownMenu(SearchResults);
+
+const SearchResultsDrop = dropDownMenu(SearchResults, 'results:');
+const ProfSettingsDrop = dropDownMenu(ProfSettings, 'settings');
 
 export default Dashboard;
