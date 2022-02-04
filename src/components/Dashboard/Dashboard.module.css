@@ -61,7 +61,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    margin: 0 10px;
+    margin: 0 15px;
     height: 100%;
 }
 
@@ -100,8 +100,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 0 5px;
-    padding: 0 10px;
+    margin: 0 4px;
+    padding: 0 12px;
     height: 100%;
     cursor: pointer;
     user-select: none;
