@@ -54,8 +54,27 @@
     padding-left: 15px;
 }
 
+/* Search */
+
 .dashboard_search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     margin: 0 10px;
+    height: 100%;
+}
+
+.search_results {
+    display: none;
+    position: absolute;
+    width: 110%;
+    top: 100%;
+    left: -5%;
+}
+
+.show_results {
+    display: block;
 }
 
 .dashboard_search input {
