@@ -34,6 +34,9 @@ const Dashboard = (props) => {
                         <input onFocus={resultsShow} type="text" id="db_search" />
                         <div className={`${s.search_results} ${showResult}`}><SearchResultsDrop /></div>
                     </div>
+                    <div className={s.dashboard_notifications}>
+                        <button className={s.dash_notific}>Notifications</button>
+                    </div>
                     <div className={`${s.dashboard_cuser} ${profSetShow}`} onClick={showProfSet} ref={profsetBlock}>
                         <div className={s.cuser_avatar}><img src="aboba" alt="" /></div>
                         <span className={s.cuser_name + ' ic-dropdown'}>Tomas Rohan</span>
