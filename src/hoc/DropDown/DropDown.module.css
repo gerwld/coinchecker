@@ -1,0 +1,13 @@
+.drop_overlay {
+    width: 100%;
+    padding: 10px 15px 25px;
+    background-color: #fff;
+    border: var(--border-lightgray);
+}
+
+.drop_t {
+    margin: 0 0 6px 0;
+    padding: 0!important;
+    font-size: 15px;
+    color: var(--color-primary-gray);
+}
