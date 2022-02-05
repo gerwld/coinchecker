@@ -7,7 +7,7 @@ class MainContainer extends React.Component {
 
     render() {
         return (
-            <Main props=""></Main>
+            <Main props=""/>
         )
     }
 }
