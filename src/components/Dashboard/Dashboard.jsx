@@ -43,7 +43,7 @@ const LastSectedItems = ({ items }) => {
     items = items.map(e => {
         return (
             <tr key={e.id} className={s.selected_item}>
-                <td className={s.cell}><span>{e.name}</span></td>
+                <td className={s.cell}><img class={s.prev} src={e.logoUrl} alt={e.name}/><span>{e.name}</span></td>
                 <td className={s.cell}><span>${e.price}</span></td>
                 <td className={s.cell}><span>{e.source}</span></td>
                 <td className={s.cell}><span>{e.daychange.diff}{e.daychange.isUp ? ' +' : ' -'}</span></td>

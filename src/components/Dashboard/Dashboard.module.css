@@ -232,6 +232,21 @@
     color: var(--color-primary-darkblue);
 }
 
+.selected_item {
+    position: relative;
+}
+
+.selected_item .prev {
+    position: absolute;
+    left: 15px;
+    bottom: calc(50% - 9px);
+    display: inline-block;
+    width: 20px;
+    font-size: 0;
+    margin-right: 10px;
+    line-height: 20px;
+}
+
 .selected_overlay {
     padding: 20px 0 0;
 }
