@@ -1,7 +1,7 @@
 import React from 'react';
 
-const TOGGLE_THEME = 'soc-net-pjaw/app-reducer/TOGGLE_THEME';
-export const setInitializingSuccess = () => ({type: TOGGLE_THEME});
+const LOAD_LAST_ITEMS = 'coinchecker/dash-reducer/LOAD_LAST_ITEMS';
+export const loadItems = (items) => ({type: LOAD_LAST_ITEMS, items});
 
 let initialState = {
     name: 'Test redux'
@@ -9,12 +9,22 @@ let initialState = {
 
 const dashReducer = (state = initialState, action) => {
     switch(action.type) {
-            case TOGGLE_THEME:
+            case LOAD_LAST_ITEMS:
                 return {
-                    ...state
+                    ...state,
+                    aboba: action.items
                 }
         default:
             return state;
+    }
+}
+
+//Thunk Creator
+export const getUserInfo = () => {
+    debugger;
+    return (dispatch) => {
+        alert('get into thunk!');
+       dispatch(loadItems('aboba1'));
     }
 }
 
