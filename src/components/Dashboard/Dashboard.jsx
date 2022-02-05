@@ -12,7 +12,7 @@ const Dashboard = (props) => {
             <AsideBlock />
             <div className={s.dashboard_content}>
                 <header className={s.header_dash}>
-                    <span>Header</span>
+                    <span>{props.name}</span>
 
                     <SearchResults />
                     <LastNotifications />
