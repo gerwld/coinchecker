@@ -238,7 +238,7 @@
 
 .selected_item .prev {
     position: absolute;
-    left: 15px;
+    left: 25px;
     bottom: calc(50% - 9px);
     display: inline-block;
     width: 20px;
@@ -260,8 +260,8 @@ table.selected_list {
 
 .selected_list td:nth-child(1),
 .selected_list th:nth-child(1) {
-    text-align: center;
-    padding-left: 20px;
+    text-align: left;
+    padding-left: 55px;
 }
 
 .selected_list td {
@@ -281,7 +281,7 @@ table.selected_list {
 
 .selected_list td:nth-last-child(1),
 .selected_list th:nth-last-child(1) {
-    padding-right: 20px;
+    padding-right: 25px;
 }
 
 .selected_list td:nth-child(2),

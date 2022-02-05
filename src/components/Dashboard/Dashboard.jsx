@@ -41,10 +41,11 @@ const Dashboard = (props) => {
 const LastSectedItems = ({ items }) => {
     //map items
     items = items.map(e => {
+        let price = e.price.length <= 2 ? e.price + '.00' : e.price
         return (
             <tr key={e.id} className={s.selected_item}>
                 <td className={s.cell}><img class={s.prev} src={e.logoUrl} alt={e.name}/><span>{e.name}</span></td>
-                <td className={s.cell}><span>${e.price}</span></td>
+                <td className={s.cell}><span>${price}</span></td>
                 <td className={s.cell}><span>{e.source}</span></td>
                 <td className={s.cell}><span>{e.daychange.diff}{e.daychange.isUp ? ' +' : ' -'}</span></td>
                 <td className={s.cell}><span>${e.holdings}</span></td>
