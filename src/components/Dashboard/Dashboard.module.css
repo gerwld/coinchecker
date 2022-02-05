@@ -1,5 +1,6 @@
 .dashboard_overlay {
     width: 100vw;
+    min-width: 1000px;
     height: 100vh;
     display: flex;
     justify-content: flex-start;
@@ -117,6 +118,7 @@
 .dashboard_wrapper {
     position: relative;
     height: 100%;
+    margin: 0 5px;
 }
 
 .dashboard_cuser {

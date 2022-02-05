@@ -4,14 +4,14 @@ import './reset.css';
 import './App.css';
 import MainContainer from './components/MainScreen/MainContainer';
 import store from './redux/redux-store';
-import Dashboard from './components/Dashboard/Dashboard';
+import DashContainer from './components/Dashboard/DashContainer';
 
 function App() {
   return (
     <div>
       <Routes>
       <Route path="/" element={<MainContainer />} />
-      <Route path="dashboard/*" element={<Dashboard />} />
+      <Route path="dashboard/*" element={<DashContainer />} />
       </Routes>
     </div>
   );
