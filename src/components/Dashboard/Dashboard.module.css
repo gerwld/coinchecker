@@ -15,7 +15,7 @@
 }
 
 .dashboard_content {
-
+    flex: 1 0;
 }
 
 .content_block {

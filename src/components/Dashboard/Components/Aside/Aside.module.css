@@ -1,5 +1,5 @@
 .aside_overlay {
-    flex: 1 0 11vw;
+    flex: 0 0 11vw;
     padding-left: 0.5vw;
     width: 11vw;
     height: 100vh;
@@ -11,7 +11,7 @@
 
 /* hide aside navbar */
 .aside_overlay.aside_hidden {
-    flex: 1 0 50px;
+    flex: 0 0 50px;
     width: 50px;
 }
 
