@@ -57,23 +57,25 @@ const LastSectedItems = ({ items }) => {
                 <h2 className={s.title}>Last added positions:</h2>
                 <div className={s.prop_block}>
                     <div className={s.prop_search}>
-                        <input type="text" id="search_selected" placeholder="Search..td." />
+                        <input type="text" id="search_selected" placeholder="Search..." />
                     </div>
                     <div className={s.prop_selected}>
                         "buttons or dropdown menu"
                     </div>
                 </div>
             </header>
-            <table className={s.selected_list}>
-                <tr className={s.selected_head}>
-                    <th className={s.cell}><span>Coin</span></th>
-                    <th className={s.cell}><span>Price</span></th>
-                    <th className={s.cell}><span>Source</span></th>
-                    <th className={s.cell}><span>24h</span></th>
-                    <th className={s.cell}><span>Holdings</span></th>
-                </tr>
-                {items}
-            </table>
+            <div className={s.selected_overlay}>
+                <table className={s.selected_list}>
+                    <tr className={s.selected_head}>
+                        <th className={s.cell}><span>Coin</span></th>
+                        <th className={s.cell}><span>Price</span></th>
+                        <th className={s.cell}><span>Source</span></th>
+                        <th className={s.cell}><span>24h</span></th>
+                        <th className={s.cell}><span>Holdings</span></th>
+                    </tr>
+                    {items}
+                </table>
+            </div>
         </div>
     )
 }

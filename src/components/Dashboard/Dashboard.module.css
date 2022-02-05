@@ -220,13 +220,53 @@
 /* Last selected styles */
 
 .selected_view {
-    width: 50%;
-    min-width: 600px;
+    width: 700px;
+    padding: 20px 0 20px;
+    font-size: 15px;
 }
+
+.selected_view h2 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.033em;
+    color: var(--color-primary-darkblue);
+}
+
+.selected_overlay {
+    padding: 20px 0 0;
+}
+
+table.selected_list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
 
 .selected_list td:nth-child(1),
 .selected_list th:nth-child(1) {
     text-align: center;
+    padding-left: 20px;
+}
+
+.selected_list td {
+    color: #1e1e1e;
+    font-weight: 300;
+}
+
+.selected_list th {
+    color: var(--color-primary-darkblue);
+    font-weight: 500;
+}
+
+.selected_list td:nth-child(1) {
+    color: var(--color-primary-gray);
+    font-weight: 500;
+}
+
+.selected_list td:nth-last-child(1),
+.selected_list th:nth-last-child(1) {
+    padding-right: 20px;
 }
 
 .selected_list td:nth-child(2),
@@ -243,14 +283,14 @@
 .selected_list td:nth-child(4),
 .selected_list th:nth-child(4) {
     text-align: right;
-    width: 15%;
+    width: 18%;
 }
 
 .selected_list td:nth-child(2) span,
 .selected_list th:nth-child(2) span,
 .selected_list td:nth-child(4) span,
 .selected_list th:nth-child(4) span {
-    margin-right: 20px;
+    margin-right: 25%;
 }
 
 .selected_list td:nth-child(5),
@@ -258,10 +298,49 @@
     text-align: center;
 }
 
-.selected_list {
-    width: 100%;
-    padding: 15px 0;
+.selected_list tr {
+    border-bottom: var(--border-lightgray);
+}
+
+table .selected_head  {
+    border-width: 2px;
+}
+
+.selected_list tr:nth-last-child(1) {
+    border-bottom: 0;
+}
+
+.selected_list th,
+.selected_list td {
+    padding: 11px 0;
+}
+
+.selected_view header {
+    padding: 0 20px;
 }
 
 
 /* Last selected styles end */
+
+/* prop search */
+
+.prop_block {
+    margin-top: 15px;
+}
+
+.prop_search input {
+    padding: 10px 35px 10px 0;
+    width: 100%;
+    min-width: 250px;
+    font-size: inherit;
+    box-sizing: border-box;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #e3e3e3;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 96% 50%;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.16669 1.66663C13.3067 1.66663 16.6667 5.02663 16.6667 9.16663C16.6667 13.3066 13.3067 16.6666 9.16669 16.6666C5.02669 16.6666 1.66669 13.3066 1.66669 9.16663C1.66669 5.02663 5.02669 1.66663 9.16669 1.66663ZM9.16669 15C12.3892 15 15 12.3891 15 9.16663C15 5.94329 12.3892 3.33329 9.16669 3.33329C5.94335 3.33329 3.33335 5.94329 3.33335 9.16663C3.33335 12.3891 5.94335 15 9.16669 15ZM16.2375 15.0591L18.595 17.4158L17.4159 18.595L15.0592 16.2375L16.2375 15.0591V15.0591Z' fill='%23717a8a'/%3E%3C/svg%3E%0A");
+}
+
+/* prop search end */
