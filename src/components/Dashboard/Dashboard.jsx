@@ -44,7 +44,7 @@ const LastSectedItems = ({ items }) => {
         return (
             <div key={e.id} className={s.lastSelected_item}>
                 <div className={s.cell}>{e.name}</div>
-                <div className={s.cell}>{e.price}</div>
+                <div className={s.cell}>${e.price}</div>
                 <div className={s.cell}>{e.source}</div>
                 <div className={s.cell}>{e.daychange.diff}{e.daychange.isUp ? ' +' : ' -'}</div>
                 <div className={s.cell}>${e.holdings}</div>
