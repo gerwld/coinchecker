@@ -1,3 +1,17 @@
+:root {
+  --color-bg-primary: #fff;
+  --color-bg-lightgray: #F3F4F8;
+  --color-primary-blue: #003AD2;
+  --color-primary-darkblue: #1F4173;
+  --color-header-text: #1F4173;
+  --color-basic-text: #1F4173;
+  --color-second-text: #8FA0B9;
+  --color-primary-gray: #717A8A;
+  --color-primary-lightgray: #E9F0FF;
+  --color-primary-lightgray2:#F0F4FC;
+  --border-lightgray: 1px solid #e9e9e9;
+  }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getUserInfo } from '../../redux/dashboard-reducer';
+import { getCoinOutput } from '../../redux/dashboard-reducer';
 import Dashboard from './Dashboard';
 
 class DashContainer extends React.Component {
     componentDidMount() {
-        this.props.getUserInfo();
-        // alert('component did mount');
+        this.props.getCoinOutput();
     }
 
     render() {
@@ -23,4 +22,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {getUserInfo})(DashContainer);
+export default connect(mapStateToProps, {getCoinOutput})(DashContainer);

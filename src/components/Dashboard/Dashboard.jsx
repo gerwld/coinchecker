@@ -42,37 +42,39 @@ const LastSectedItems = ({ items }) => {
     //map items
     items = items.map(e => {
         return (
-            <div className={s.lastSelected_item}>
-                <div className={s.cell}>{e.name}</div>
-                <div className={s.cell}>{e.price}</div>
-                <div className={s.cell}>{e.source}</div>
-                <div className={s.cell}>{e.daychange.diff}{e.daychange.isUp ? ' +' : ' -'}</div>
-                <div className={s.cell}>${e.holdings}</div>
-            </div>
+            <tr key={e.id} className={s.selected_item}>
+                <td className={s.cell}><span>{e.name}</span></td>
+                <td className={s.cell}><span>${e.price}</span></td>
+                <td className={s.cell}><span>{e.source}</span></td>
+                <td className={s.cell}><span>{e.daychange.diff}{e.daychange.isUp ? ' +' : ' -'}</span></td>
+                <td className={s.cell}><span>${e.holdings}</span></td>
+            </tr>
         );
     })
     return (
-        <div className={`${s.content_block} ${s.lastSelected_view}`}>
+        <div className={`${s.content_block} ${s.selected_view}`}>
             <header>
                 <h2 className={s.title}>Last added positions:</h2>
                 <div className={s.prop_block}>
                     <div className={s.prop_search}>
-                        <input type="text" id="search_lastSelected" placeholder="Search..." />
+                        <input type="text" id="search_selected" placeholder="Search..." />
                     </div>
-                    <div className={s.prop_select}>
+                    <div className={s.prop_selected}>
                         "buttons or dropdown menu"
                     </div>
                 </div>
             </header>
-            <div className={s.lastSelected_content}>
-                <div className={s.lastSelected_head}>
-                    <div className={s.cell}>Coin</div>
-                    <div className={s.cell}>Price</div>
-                    <div className={s.cell}>Source</div>
-                    <div className={s.cell}>24h</div>
-                    <div className={s.cell}>Holdings</div>
-                </div>
-               {items}
+            <div className={s.selected_overlay}>
+                <table className={s.selected_list}>
+                    <tr className={s.selected_head}>
+                        <th className={s.cell}><span>Coin</span></th>
+                        <th className={s.cell}><span>Price</span></th>
+                        <th className={s.cell}><span>Source</span></th>
+                        <th className={s.cell}><span>24h</span></th>
+                        <th className={s.cell}><span>Holdings</span></th>
+                    </tr>
+                    {items}
+                </table>
             </div>
         </div>
     )
