@@ -1,4 +1,5 @@
 import React from 'react';
+import { dashboardAPI } from '../api/api';
 
 const LOAD_LAST_ITEMS = 'coinchecker/dash-reducer/LOAD_LAST_ITEMS';
 export const loadItems = (items) => ({ type: LOAD_LAST_ITEMS, items });
@@ -7,6 +8,7 @@ let initialState = {
     name: 'Test redux',
     last_added: [
         {
+            id: 'plc_1!',
             name: "BTC",
             price: 40000,
             source: 'Google. inc',
@@ -14,6 +16,7 @@ let initialState = {
             holdings: 100
         },
         {
+            id: 'plc_2!',
             name: "ETH",
             price: 2000,
             source: 'Google. inc',
@@ -28,7 +31,7 @@ const dashReducer = (state = initialState, action) => {
         case LOAD_LAST_ITEMS:
             return {
                 ...state,
-                aboba: action.items
+                last_added: [...state.last_added, ...action.items]
             }
         default:
             return state;
@@ -36,11 +39,12 @@ const dashReducer = (state = initialState, action) => {
 }
 
 //Thunk Creator
-export const getUserInfo = () => {
-    // debugger;
-    return (dispatch) => {
-        // alert('get into thunk!');
-        dispatch(loadItems('aboba1'));
+export const getCoinOutput = () => {
+    return async (dispatch) => {
+        let data = await dashboardAPI.getData().then(r => {
+            return r.map(r => ({ id: r.id, name: r.ticker, price: r.price, logoUrl: r.logoUrl,  daychange: { diff: '1.1', isUp: false } }))
+        })
+        dispatch(loadItems(data));
     }
 }
 

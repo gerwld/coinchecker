@@ -1,26 +1,21 @@
 import axios from "axios";
 
 const instance = axios.create({
-    withCredentials: true,
+    // withCredentials: true,
     headers: {
-       
+
     },
-    baseURL: ""
+    baseURL: "http://46.101.162.26:8000/api/core/"
 });
 
 export const dashboardAPI = {
-    getUser(id) {
-        if(id !== undefined){
-            return instance.get(`profile/${id}`).then(r => r.data);
-        } else {
-            return undefined;
-        }
-    },
-    getData(id) {
-        if(id !== undefined){
-            return instance.get(`profile/${id}`).then(r => r.data);
-        } else {
-            return undefined;
-        }
+    getData() {
+        return instance.get('coins').then(r => {
+            if (r.status === 200) {
+                return r.data
+            } else {
+                console.log('Responce status: ' + r.status);
+            }
+        }).catch(error => { alert('Error ' + error.response.data.error); });
     }
 }

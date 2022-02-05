@@ -42,7 +42,7 @@ const LastSectedItems = ({ items }) => {
     //map items
     items = items.map(e => {
         return (
-            <div className={s.lastSelected_item}>
+            <div key={e.id} className={s.lastSelected_item}>
                 <div className={s.cell}>{e.name}</div>
                 <div className={s.cell}>{e.price}</div>
                 <div className={s.cell}>{e.source}</div>
@@ -72,7 +72,7 @@ const LastSectedItems = ({ items }) => {
                     <div className={s.cell}>24h</div>
                     <div className={s.cell}>Holdings</div>
                 </div>
-               {items}
+                {items}
             </div>
         </div>
     )
