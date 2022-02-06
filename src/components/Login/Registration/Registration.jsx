@@ -7,56 +7,58 @@ const Register = (props) => {
         <div className={s.login_content}>
             <div className={s.register_block}>
                 <h1>Registration</h1>
-                <RegisterFormRedux handleSubmit={props.regSubmit} />
+                <RegisterFormRedux onSubmit={props.regSubmit} />
             </div>
         </div>
     )
 }
 
-const RegisterForm = ({handleSubmit}) => {
+const RegisterForm = ({ handleSubmit }) => {
     return (
         <form onSubmit={handleSubmit}>
-             <div className={s.login_field}>
+            <div className={s.login_field}>
                 <label>Login:</label>
-                    <Field
-                        name="log_login"
-                        component="input"
-                        type="text"
-                        autoComplete="username"
-                        placeholder="Login"
-                    />
+                <Field
+                    name="login"
+                    component="input"
+                    type="text"
+                    autoComplete="username"
+                    placeholder="Login"
+                />
             </div>
             <div className={s.login_field}>
                 <label>Email:</label>
-                    <Field
-                        name="log_email"
-                        component="input"
-                        type="email"
-                        autoComplete="email"
-                        placeholder="john.smith@yahoo.com"
-                    />
+                <Field
+                    name="email"
+                    component="input"
+                    type="email"
+                    autoComplete="email"
+                    placeholder="john.smith@yahoo.com"
+                />
             </div>
             <div className={s.login_field}>
                 <label>Password:</label>
-                    <Field
-                        name="log_password"
-                        component="input"
-                        type="password"
-                        autoComplete="new-password"
-                        placeholder="Password"
-                    />
+                <Field
+                    name="password"
+                    component="input"
+                    type="password"
+                    autoComplete="new-password"
+                    placeholder="Password"
+                />
             </div>
-            <div className={s.login_field}>
+            {/* <div className={s.login_field}>
                 <label>Repeat password:</label>
-                    <Field
-                        name="log_password2"
-                        component="input"
-                        type="password"
-                        autoComplete="new-password"
-                        placeholder="Password"
-                    />
+                <Field
+                    name="password2"
+                    component="input"
+                    type="password"
+                    autoComplete="new-password"
+                    placeholder="Repeat your password"
+                />
+            </div> */}
+            <div className={s.login_buttons}>
+                <button type="submit" className={s.btn_login}>Sign Up</button>
             </div>
-            <button type="submit" className={s.btn_login}>Sign Up</button>
         </form>
     )
 }

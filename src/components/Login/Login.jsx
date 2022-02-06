@@ -2,14 +2,18 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import s from './Login.module.css';
 import { NavLink } from 'react-router-dom';
-import { RiGithubFill } from 'react-icons/ri';
+import LoginGithub from 'react-login-github';
 
 const Login = (props) => {
     return (
         <div className={s.login_content}>
             <div className={s.login_block}>
                 <h1>Login</h1>
-                <LoginFormRedux onSubmit={props.loginAction} authGit={props.authGit} />
+                <LoginFormRedux onSubmit={props.loginAction} authWithServer={props.authWithServer} />
+
+                <LoginGithub clientId="826daa3627e56e610860"
+                    onSuccess={props.authWithServer}
+                    onFailure={() => alert('Some error occured.Please, try another method.')} />
 
                 <div className={s.more_links}>
                     <NavLink to='/register'>Sign Up</NavLink>
@@ -20,7 +24,7 @@ const Login = (props) => {
     )
 }
 
-const LoginForm = ({ handleSubmit, authGit }) => {
+const LoginForm = ({ handleSubmit }) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className={s.login_field}>
@@ -29,6 +33,7 @@ const LoginForm = ({ handleSubmit, authGit }) => {
                     name="log_login"
                     component="input"
                     type="email"
+                    autoComplete="email"
                     placeholder="Enter your email"
                 />
             </div>
@@ -38,12 +43,12 @@ const LoginForm = ({ handleSubmit, authGit }) => {
                     name="log_password"
                     component="input"
                     type="password"
+                    autoComplete="current-password"
                     placeholder="Enter your password"
                 />
             </div>
             <div className={s.login_buttons}>
-            <button type="submit" className={s.btn_login}>Log In</button>
-            <button onClick={authGit} type="button" className={s.btn_github} alt="Login via GitHub"><RiGithubFill /></button>
+                <button type="submit" className={s.btn_login}>Log In</button>
             </div>
         </form>
     )

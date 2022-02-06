@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { userAuth, authGithub } from '../../redux/auth-reducer';
+import { userAuth, authWithServer } from '../../redux/auth-reducer';
 import Login from './Login';
 
 class LoginContainer extends React.Component {
@@ -10,7 +10,7 @@ class LoginContainer extends React.Component {
 
     render() {
         return(
-            <Login loginAction={this.loginAction} authGit={this.props.authGithub} />
+            <Login loginAction={this.loginAction} authWithServer={this.props.authWithServer} />
         )
     }
 }
@@ -21,4 +21,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {userAuth, authGithub})(LoginContainer);
+export default connect(mapStateToProps, {userAuth, authWithServer})(LoginContainer);

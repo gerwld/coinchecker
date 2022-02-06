@@ -27,10 +27,17 @@ export const authAPI = {
             alert(error);
         });
     },
-    authGithub(link) {
-        return instance.get(`auth/oauth/github/oauth-url?feBaseUri=${link}`).catch(e => {
+    getToken(code) {
+        return instance.get(`auth/oauth/github/token?code=${code}`).catch(e => {
+            debugger;
             const error = e.response.data.cause1.split(': ')[1];
             alert(error);
         });
-    }
+    },
+    getReg(inputDto) {
+        return instance.post('users', inputDto).catch(e => {
+            const error = e.response.data.cause1.split(': ')[1];
+            alert(error);
+        });
+    },
 }
