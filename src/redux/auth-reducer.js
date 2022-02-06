@@ -1,8 +1,7 @@
-import { formValueSelector } from "redux-form";
 import { authAPI } from "../api/api";
 
-const LOAD_LAST_ITEMS = 'coinchecker/dash-reducer/LOAD_LAST_ITEMS';
-export const loadItems = (items) => ({ type: LOAD_LAST_ITEMS, items });
+const SET_USER = 'coinchecker/dash-reducer/SET_USER';
+export const setUser = (id) => ({ type: SET_USER, id });
 
 let initialState = {
     isAuth: false,
@@ -11,33 +10,53 @@ let initialState = {
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOAD_LAST_ITEMS:
+        case SET_USER:
             return {
                 ...state,
-                list: [...state.list, action.commentData]
+                isAuth: true,
+                userId: action.id
             }
         default:
             return state;
-        }
+    }
 }
 
-//Thunk Creator
+//***** Thunk Creators *****//
 export const userAuth = (authData) => {
     return async (dispatch) => {
-        let authObj = {password: authData.log_password, username: authData.log_login}
+        let authObj = { password: authData.log_password, username: authData.log_login }
         authAPI.getAuth(authObj).then(e => {
             //get response and set it to state
+            // dispatch(setUser(e.data.id));
         })
     }
 }
 
-export const authGithub = () => {
+export const authWithServer = (data) => {
     return async (dispatch) => {
-       alert('gittt');
-       authAPI.authGithub('localhost:3000').then(e => {
-           console.log(e.data);
-       });
+        authAPI.getToken(data.code).then(e => {
+            console.log(e);
+            debugger;
+        });
     }
 }
+
+export const userRegister = (data) => {
+    return (dispatch) => {
+
+    let datainputDto = {
+        email: data.email,
+        password: data.password,
+        username: data.login
+    }
+      authAPI.getReg(datainputDto).then(e => {
+        console.log(e);
+        debugger;
+      });
+    }
+}
+
+
+
 
 export default authReducer;

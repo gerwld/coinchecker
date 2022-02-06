@@ -1,12 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { userRegister } from '../../../redux/auth-reducer';
 import Register from './Registration';
 
 
 class RegContainer extends React.Component {
-    regSubmit(e) {
-        e.preventDefault();
-        alert('registration');
+    regSubmit = (e) => {
+        this.props.userRegister(e);
     }
+    
     render() {
         return (
             <Register regSubmit={this.regSubmit} />
@@ -14,4 +16,5 @@ class RegContainer extends React.Component {
     }
 }
 
-export default RegContainer;
+
+export default connect(null, { userRegister })(RegContainer);
