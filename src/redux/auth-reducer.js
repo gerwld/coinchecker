@@ -31,4 +31,13 @@ export const userAuth = (authData) => {
     }
 }
 
+export const authGithub = () => {
+    return async (dispatch) => {
+       alert('gittt');
+       authAPI.authGithub('localhost:3000').then(e => {
+           console.log(e.data);
+       });
+    }
+}
+
 export default authReducer;

@@ -2,13 +2,14 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import s from './Login.module.css';
 import { NavLink } from 'react-router-dom';
+import { RiGithubFill } from 'react-icons/ri';
 
 const Login = (props) => {
     return (
         <div className={s.login_content}>
             <div className={s.login_block}>
                 <h1>Login</h1>
-                <LoginFormRedux onSubmit={props.loginAction} />
+                <LoginFormRedux onSubmit={props.loginAction} authGit={props.authGit} />
 
                 <div className={s.more_links}>
                     <NavLink to='/register'>Sign Up</NavLink>
@@ -19,7 +20,7 @@ const Login = (props) => {
     )
 }
 
-const LoginForm = ({ handleSubmit }) => {
+const LoginForm = ({ handleSubmit, authGit }) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className={s.login_field}>
@@ -40,7 +41,10 @@ const LoginForm = ({ handleSubmit }) => {
                     placeholder="Enter your password"
                 />
             </div>
+            <div className={s.login_buttons}>
             <button type="submit" className={s.btn_login}>Log In</button>
+            <button onClick={authGit} type="button" className={s.btn_github} alt="Login via GitHub"><RiGithubFill /></button>
+            </div>
         </form>
     )
 }
