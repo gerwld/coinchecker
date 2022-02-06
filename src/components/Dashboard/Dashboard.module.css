@@ -317,6 +317,10 @@ table.selected_list {
     width: 15%;
 }
 
+.selected_list th:nth-child(4) {
+    padding-right: 15px;
+}
+
 .selected_list td:nth-child(2) span,
 .selected_list th:nth-child(2) span,
 .selected_list td:nth-child(4) span,
