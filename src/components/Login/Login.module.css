@@ -1,0 +1,35 @@
+.login_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    min-width: 300px;
+    min-height: 400px;
+}
+
+.login_block {
+    width: 300px;
+    padding: 30px;
+    border: var(--border-lightgray);
+}
+
+.login_block input {
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    margin-top: 3px;
+    font-size: inherit;
+    border: var(--border-lightgray);
+    box-sizing: border-box;
+}
+
+.login_field {
+    margin-top: 15px;
+}
+
+.btn_login {
+    padding: 5px 15px;
+    margin-top: 15px;
+    font-size: inherit;
+}
