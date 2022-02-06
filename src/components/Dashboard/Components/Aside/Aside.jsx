@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Aside.module.css';
-import { RiMenuFoldLine } from 'react-icons/ri';
+import { RiMenuFoldLine, RiSettings3Line } from 'react-icons/ri';
 import { MdOutlineSpaceDashboard } from 'react-icons/md';
 
 const AsideBlock = (props) => {
@@ -24,7 +24,7 @@ const AsideBlock = (props) => {
                     <li><NavLink to="/" className={s.dropdown}>CRM</NavLink></li>
                     <li><NavLink to="/">Orders</NavLink></li>
                     <li><NavLink to="/">Stocks</NavLink></li>
-                    <li><NavLink to="settings/*">Settings</NavLink></li>
+                    <li><NavLink to="/settings"><RiSettings3Line/>Settings</NavLink></li>
                 </ul>
             </nav>
         </aside>
