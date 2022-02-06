@@ -7,7 +7,8 @@ const Login = (props) => {
     return (
         <div className={s.login_content}>
             <div className={s.login_block}>
-                <LoginFormRedux handleSubmit={props.loginAction} />
+                <h1>Login</h1>
+                <LoginFormRedux onSubmit={props.loginAction} />
 
                 <div className={s.more_links}>
                     <NavLink to='/register'>Sign Up</NavLink>

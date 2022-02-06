@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { userAuth } from '../../redux/auth-reducer';
 import Login from './Login';
 
 class LoginContainer extends React.Component {
     loginAction = (e) => {
-        e.preventDefault();
-        alert('submit');
+        this.props.userAuth(e);
    }
 
     render() {
@@ -14,4 +15,10 @@ class LoginContainer extends React.Component {
     }
 }
 
-export default LoginContainer;
+const mapStateToProps = (state) => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, {userAuth})(LoginContainer);
