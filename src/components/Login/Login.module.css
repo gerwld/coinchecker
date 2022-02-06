@@ -17,11 +17,12 @@
 .login_block input {
     display: block;
     width: 100%;
-    padding: 5px 10px;
+    padding: 8px 10px;
     margin-top: 3px;
-    font-size: inherit;
+    font-size: 15px;
     border: var(--border-lightgray);
     box-sizing: border-box;
+    background-color: rgb(240, 244, 248);
 }
 
 .login_field {
@@ -30,6 +31,9 @@
 
 .btn_login {
     padding: 5px 15px;
-    margin-top: 15px;
-    font-size: inherit;
+    margin-top: 20px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #4646c5;
+    border: none;
 }

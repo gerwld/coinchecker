@@ -6,15 +6,15 @@ const Login = (props) => {
     return (
         <div className={s.login_content}>
             <div className={s.login_block}>
-                <LoginFormRedux />
+                <LoginFormRedux handleSubmit={props.loginAction} />
             </div>
         </div>
     )
 }
 
-const LoginForm = props => {
+const LoginForm = ({handleSubmit}) => {
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className={s.login_field}>
                 <label>Login:</label>
                     <Field
