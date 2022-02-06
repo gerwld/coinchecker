@@ -1,0 +1,12 @@
+import React from 'react';
+import Login from './Login';
+
+class LoginContainer extends React.Component {
+    render() {
+        return(
+            <Login props="" />
+        )
+    }
+}
+
+export default LoginContainer;
