@@ -6,6 +6,7 @@ import MainContainer from './components/MainScreen/MainContainer';
 import store from './redux/redux-store';
 import DashContainer from './components/Dashboard/DashContainer';
 import LoginContainer from './components/Login/LoginContainer';
+import RegContainer from './components/Login/Registration/RegContainer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/" element={<MainContainer />} />
       <Route path="dashboard/*" element={<DashContainer />} />
       <Route path="login/*" element={<LoginContainer />} />
+      <Route path="register/*" element={<RegContainer />} />
       </Routes>
     </div>
   );
