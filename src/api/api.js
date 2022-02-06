@@ -19,3 +19,18 @@ export const dashboardAPI = {
         }).catch(error => { alert('Error ' + error.response.data.error); });
     }
 }
+
+export const authAPI = {
+    getAuth(authObject) {
+        return instance.post('auth/basic/token', authObject).catch(e => {
+            const error = e.response.data.cause1.split(': ')[1];
+            alert(error);
+        });
+    },
+    authGithub(link) {
+        return instance.get(`auth/oauth/github/oauth-url?feBaseUri=${link}`).catch(e => {
+            const error = e.response.data.cause1.split(': ')[1];
+            alert(error);
+        });
+    }
+}
