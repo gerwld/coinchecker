@@ -5,6 +5,7 @@ import './App.css';
 import MainContainer from './components/MainScreen/MainContainer';
 import store from './redux/redux-store';
 import DashContainer from './components/Dashboard/DashContainer';
+import LoginContainer from './components/Login/LoginContainer';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
       <Route path="/" element={<MainContainer />} />
       <Route path="dashboard/*" element={<DashContainer />} />
+      <Route path="login/*" element={<LoginContainer />} />
       </Routes>
     </div>
   );
