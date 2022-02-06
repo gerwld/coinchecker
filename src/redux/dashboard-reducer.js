@@ -42,7 +42,6 @@ const dashReducer = (state = initialState, action) => {
 export const getCoinOutput = () => {
     return async (dispatch) => {
         let data = await dashboardAPI.getData().then(r => {
-            console.log(r[0].price);
             return r.map(r => ({ id: r.id, name: r.ticker, price: r.price, logoUrl: r.logoUrl, holdings: 600,  daychange: { diff: '1.1', isUp: false } }))
         })
         dispatch(loadItems(data));

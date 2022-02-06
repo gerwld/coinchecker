@@ -41,10 +41,10 @@ const Dashboard = (props) => {
 const LastSectedItems = ({ items }) => {
     //map items
     items = items.map(e => {
-        let price = e.price.length <= 2 ? e.price + '.00' : e.price
+        let price = e.price.length <= 2 ? e.price + '.00' : e.price;
         return (
             <tr key={e.id} className={s.selected_item}>
-                <td className={s.cell}><img class={s.prev} src={e.logoUrl} alt={e.name}/><span>{e.name}</span></td>
+                <td className={s.cell}><img className={s.prev} src={e.logoUrl} alt={e.name}/><span>{e.name}</span></td>
                 <td className={s.cell}><span>${price}</span></td>
                 <td className={s.cell}><span>{e.source}</span></td>
                 <td className={s.cell}><span>{e.daychange.diff}{e.daychange.isUp ? ' +' : ' -'}</span></td>
@@ -67,6 +67,7 @@ const LastSectedItems = ({ items }) => {
             </header>
             <div className={s.selected_overlay}>
                 <table className={s.selected_list}>
+                <tbody>
                     <tr className={s.selected_head}>
                         <th className={s.cell}><span>Coin</span></th>
                         <th className={s.cell}><span>Price</span></th>
@@ -75,6 +76,7 @@ const LastSectedItems = ({ items }) => {
                         <th className={s.cell}><span>Holdings</span></th>
                     </tr>
                     {items}
+                    </tbody>
                 </table>
             </div>
         </div>
