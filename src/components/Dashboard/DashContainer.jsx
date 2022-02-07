@@ -10,14 +10,14 @@ class DashContainer extends React.Component {
 
     render() {
         return (
-            <Dashboard name={this.props.name} last={this.props.last_added} />
+            <Dashboard last={this.props.last_added} userData={this.props.userData} />
         )
     }
 }
 
 let mapStateToProps = (state) => {
     return {
-        name: state.dashboard.name,
+        userData: state.auth.authUser,
         last_added: state.dashboard.last_added
     }
 }

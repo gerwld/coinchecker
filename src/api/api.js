@@ -27,7 +27,7 @@ export const authAPI = {
             alert(error);
         });
     },
-    getToken(code) {
+    getGitToken(code) {
         return instance.get(`auth/oauth/github/token?code=${code}`).catch(e => {
             debugger;
             const error = e.response.data.cause1.split(': ')[1];
@@ -40,4 +40,11 @@ export const authAPI = {
             alert(error);
         });
     },
+    getCurrentUser(token) {
+        return axios.get('http://46.101.162.26:8000/api/core/users/current', token)
+            .catch(error => {
+                console.log(error);
+                debugger;
+            })
+    }
 }
