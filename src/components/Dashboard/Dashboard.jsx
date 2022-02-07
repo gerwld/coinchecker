@@ -3,7 +3,8 @@ import useOutsideClickHide from '../../helpers/hideOutsideClick';
 import AsideBlock from './Components/Aside/Aside';
 import s from './Dashboard.module.css';
 import ShowImage from '../../utils/ShowImage';
-
+import { RiSettings3Line, RiLogoutBoxRLine } from 'react-icons/ri';
+import { BiHelpCircle } from 'react-icons/bi';
 
 
 const Dashboard = (props) => {
@@ -13,18 +14,17 @@ const Dashboard = (props) => {
             <AsideBlock />
             <div className={s.dashboard_content}>
                 <header className={s.header_dash}>
-                    <span>Header</span>
+                    <span className={s.header_title}></span>
 
                     <SearchResults />
                     <LastNotifications />
-
-                    <ProfSettings userData={props.userData} />
+                    <ProfSettings userData={props.userData} logOut={props.logOut} />
                 </header>
-                <main className={s.main_dash}><h1>Header text</h1>
-                    <div className={s.content_block}>123123</div>
+                <main className={s.main_dash}>
+                    <h1>Dashboard</h1>
                     <LastSectedItems items={props.last} />
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, dignissimos at, consectetur assumenda explicabo maiores quod dolor sed iure exercitationem reprehenderit autem eius tempora cupiditate in perspiciatis neque recusandae unde vero quas officia. Voluptate officia sapiente saepe non eos impedit atque sint. Saepe beatae consequatur illo, placeat dolor, fuga fugit in aliquid sunt atque labore incidunt. Repellendus laboriosam libero amet. Ipsa unde, dignissimos accusantium nostrum sunt suscipit dolorum quas placeat nesciunt molestiae tempore debitis natus reiciendis iure architecto rerum corporis ab. Excepturi enim facere nam eos delectus eveniet perferendis eligendi quo iste, a molestiae adipisci. Saepe, itaque voluptatem nisi tempora officia aspernatur expedita quaerat voluptates accusamus, ullam quam similique nesciunt blanditiis iusto ab temporibus quasi recusandae, illum possimus quisquam! Excepturi nihil iure quod! Aliquam excepturi, facere voluptatum, modi dolorum perspiciatis quae corporis iste eaque, sapiente nemo commodi ducimus quod tempore tempora. Modi aspernatur dolorum iste deleniti eos aliquid blanditiis illum nam, vel sapiente nesciunt veritatis quas ipsa! Fuga error ad delectus nobis molestiae exercitationem quibusdam possimus deserunt reiciendis ducimus libero enim omnis nesciunt pariatur iure iste doloribus harum nihil laboriosam, beatae nulla corporis eum. Vero facere, minus, at odio nam in similique assumenda commodi harum voluptatem libero amet mollitia omnis eveniet repellat tenetur accusamus? Asperiores cumque laboriosam excepturi voluptate vitae accusantium sapiente itaque ea iure debitis eos, maxime id! Ratione, possimus quis! Ipsam at, sed saepe harum debitis a. In totam ab repudiandae hic quibusdam enim itaque voluptatibus necessitatibus. Cumque provident rerum in sunt sit minus dolor tempora repudiandae rem culpa! Nam necessitatibus corporis dolor, quo eos vel error dignissimos nisi sapiente unde similique nemo repellendus quibusdam a quis cum repudiandae soluta voluptas ipsam magnam reiciendis in mollitia! Veniam hic quod nobis error corrupti cum incidunt possimus maxime sint sapiente, reprehenderit repellendus vel quis! Ex, voluptatem ea illo mollitia accusamus perspiciatis vitae ipsum. Possimus delectus ducimus ipsam cum explicabo dolor vitae tempore blanditiis earum at magnam totam, praesentium officiis a pariatur aliquam unde sint cumque molestias voluptate asperiores, laboriosam excepturi. Debitis in asperiores, ullam optio cum rerum doloremque doloribus, facere consectetur officiis unde ipsa assumenda consequuntur ea suscipit similique eaque, corporis blanditiis quasi natus quis nobis amet. Sapiente illum fuga temporibus laboriosam reprehenderit in, culpa fugiat laborum? Est ad laudantium architecto exercitationem ipsa quisquam natus temporibus voluptatibus quibusdam sit, libero corporis et tempore omnis neque odit autem blanditiis dignissimos alias voluptates ducimus iure. Nam, ex recusandae possimus, nisi culpa laudantium, expedita laborum inventore eos odio quasi voluptatum ipsam labore tenetur dicta modi aperiam natus? Eveniet hic nobis quibusdam delectus doloribus fugiat, iure autem corrupti ratione blanditiis atque aliquam tenetur minus quod molestiae, aspernatur quae laboriosam, eaque et. Alias accusamus mollitia dolorum similique perspiciatis distinctio repellendus eius est hic blanditiis labore esse maiores accusantium magni at necessitatibus, consectetur doloremque velit. Dolor magni itaque iste hic? Magnam ea id, iusto sed unde modi accusantium obcaecati a iste non praesentium sapiente doloribus dignissimos consectetur! Accusamus maxime magni eveniet, harum architecto voluptatum. Numquam nihil doloremque consequuntur consequatur sunt veritatis error maxime vitae libero quisquam.</p>
+
                 </main>
                 <footer className={s.footer_dash}></footer>
             </div>
@@ -106,7 +106,7 @@ const SearchResults = (props) => {
     )
 }
 
-const ProfSettings = (props) => {
+const ProfSettings = ({logOut, userData}) => {
     const [isShow, set] = useState(false);
     //hide menu
     const e = useRef(null);
@@ -114,16 +114,16 @@ const ProfSettings = (props) => {
     return (
         <div className={`${s.dashboard_wrapper} ${isShow ? s.show_settings : ''}`} ref={e}>
             <div className={s.dashboard_cuser} onClick={() => set(!isShow)}>
-                <div className={s.cuser_avatar}><img src="aboba" alt="" /></div>
-                <span className={s.cuser_name + ' ic-dropdown'}>{props.userData ? props.userData.username : ''}</span>
+                <div className={s.cuser_avatar}><img src="/img/user.svg" alt="User Avatar" /></div>
+                <span className={s.cuser_name + ' ic-dropdown'}>{userData ? userData.username : ''}</span>
             </div>
             <div className={s.cuser_settings}>
                 <div className={s.drop_overlay}><span className={s.drop_t}>Settings:</span>
-                    <div>
-                        <div>egeee</div>
-                        <div>egeee</div>
-                        <div>egeee</div>
-                    </div>
+                    <ul>
+                        <li><button><RiSettings3Line />Profile Settings</button></li>
+                        <li><button><BiHelpCircle />Help</button></li>
+                        <li><button onClick={logOut}><RiLogoutBoxRLine />Log Out</button></li>
+                    </ul>
                 </div>
             </div>
         </div>
