@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import withRouter from '../../../hoc/DropDown/withRouter';
 import { userRegister } from '../../../redux/auth-reducer';
 import Register from './Registration';
 
@@ -11,10 +13,13 @@ class RegContainer extends React.Component {
     
     render() {
         return (
-            <Register regSubmit={this.regSubmit} />
+            <Register regSubmit={this.regSubmit} regStatus={this.props.router.params.status === 'success'} />
         )
     }
 }
 
 
-export default connect(null, { userRegister })(RegContainer);
+export default compose(
+    connect(null, { userRegister }),
+    withRouter
+)(RegContainer);
