@@ -13,12 +13,12 @@ const Dashboard = (props) => {
             <AsideBlock />
             <div className={s.dashboard_content}>
                 <header className={s.header_dash}>
-                    <span>{props.name}</span>
+                    <span>Header</span>
 
                     <SearchResults />
                     <LastNotifications />
 
-                    <ProfSettings />
+                    <ProfSettings userData={props.userData} />
                 </header>
                 <main className={s.main_dash}><h1>Header text</h1>
                     <div className={s.content_block}>123123</div>
@@ -115,7 +115,7 @@ const ProfSettings = (props) => {
         <div className={`${s.dashboard_wrapper} ${isShow ? s.show_settings : ''}`} ref={e}>
             <div className={s.dashboard_cuser} onClick={() => set(!isShow)}>
                 <div className={s.cuser_avatar}><img src="aboba" alt="" /></div>
-                <span className={s.cuser_name + ' ic-dropdown'}>Tomas Rohan</span>
+                <span className={s.cuser_name + ' ic-dropdown'}>{props.userData ? props.userData.username : ''}</span>
             </div>
             <div className={s.cuser_settings}>
                 <div className={s.drop_overlay}><span className={s.drop_t}>Settings:</span>

@@ -9,10 +9,10 @@ const Login = (props) => {
         <div className={s.login_content}>
             <div className={s.login_block}>
                 <h1>Login</h1>
-                <LoginFormRedux onSubmit={props.loginAction} authWithServer={props.authWithServer} />
+                <LoginFormRedux onSubmit={props.loginAction} />
 
                 <LoginGithub clientId="826daa3627e56e610860"
-                    onSuccess={props.authWithServer}
+                    onSuccess={props.sendGitCodeToServ}
                     onFailure={() => alert('Some error occured.Please, try another method.')} />
 
                 <div className={s.more_links}>
@@ -32,7 +32,7 @@ const LoginForm = ({ handleSubmit }) => {
                 <Field
                     name="log_login"
                     component="input"
-                    type="email"
+                    type="text"
                     autoComplete="email"
                     placeholder="Enter your email"
                 />
