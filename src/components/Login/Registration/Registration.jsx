@@ -1,16 +1,31 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import s from '../Login.module.css';
+import { NavLink, Navigate } from 'react-router-dom';
 
-const Register = (props) => {
-    return (
-        <div className={s.login_content}>
-            <div className={s.register_block}>
-                <h1>Registration</h1>
-                <RegisterFormRedux onSubmit={props.regSubmit} />
+const Register = ({ regSubmit, regStatus, regSuccess }) => {
+
+    if (regStatus) {
+        return (
+            <div className={s.login_content}>
+                <div className={s.register_block}>
+                    <div className={s.reg_success}>
+                        <span className={s.reg_title}>Registration succeed.</span>
+                        <NavLink className={s.btn_login} to="/login">Log In</NavLink></div>
+                    </div>
+            </div>)
+    } else {
+        return (
+            <div className={s.login_content}>
+                <div className={s.register_block}>
+                    <h1>Registration</h1>
+                    <RegisterFormRedux onSubmit={regSubmit} />
+                </div>
+                {regSuccess && <Navigate to="/register/success" replace={true}/>}
+
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 const RegisterForm = ({ handleSubmit }) => {
@@ -22,8 +37,11 @@ const RegisterForm = ({ handleSubmit }) => {
                     name="login"
                     component="input"
                     type="text"
-                    autoComplete="username"
+                    autoComplete="off"
+                    autoCorrect="off"
+                    spellCheck="off"
                     placeholder="Login"
+                    required="true"
                 />
             </div>
             <div className={s.login_field}>
@@ -32,7 +50,10 @@ const RegisterForm = ({ handleSubmit }) => {
                     name="email"
                     component="input"
                     type="email"
-                    autoComplete="email"
+                    autoComplete="off"
+                    autoCorrect="off"
+                    spellCheck="off"
+                    required="true"
                     placeholder="john.smith@yahoo.com"
                 />
             </div>
@@ -42,20 +63,13 @@ const RegisterForm = ({ handleSubmit }) => {
                     name="password"
                     component="input"
                     type="password"
-                    autoComplete="new-password"
+                    autoComplete="off"
+                    autoCorrect="off"
+                    spellCheck="off"
+                    required="true"
                     placeholder="Password"
                 />
             </div>
-            {/* <div className={s.login_field}>
-                <label>Repeat password:</label>
-                <Field
-                    name="password2"
-                    component="input"
-                    type="password"
-                    autoComplete="new-password"
-                    placeholder="Repeat your password"
-                />
-            </div> */}
             <div className={s.login_buttons}>
                 <button type="submit" className={s.btn_login}>Sign Up</button>
             </div>

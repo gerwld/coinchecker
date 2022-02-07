@@ -15,7 +15,8 @@ function App() {
       <Route path="/" element={<MainContainer />} />
       <Route path="dashboard/*" element={<DashContainer />} />
       <Route path="login/*" element={<LoginContainer />} />
-      <Route path="register/*" element={<RegContainer />} />
+      <Route path="register/:status" element={<RegContainer />} />
+      <Route path="register" element={<RegContainer />} />
       </Routes>
     </div>
   );

@@ -35,6 +35,7 @@ const LoginForm = ({ handleSubmit }) => {
                     type="text"
                     autoComplete="email"
                     placeholder="Enter your email"
+                    required="true"
                 />
             </div>
             <div className={s.login_field}>
@@ -45,6 +46,7 @@ const LoginForm = ({ handleSubmit }) => {
                     type="password"
                     autoComplete="current-password"
                     placeholder="Enter your password"
+                    required="true"
                 />
             </div>
             <div className={s.login_buttons}>

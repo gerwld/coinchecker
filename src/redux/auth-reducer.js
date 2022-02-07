@@ -3,8 +3,10 @@ import { authAPI } from "../api/api";
 
 const SET_USER_TK = 'coinchecker/dash-reducer/SET_USER_TK';
 const SET_USER_DATA = 'coinchecker/dash-reducer/SET_USER_DATA';
+const SET_REG_STATUS = 'coinchecker/dash-reducer/SET_REG_STATUS';
 export const setUserToken = (token) => ({ type: SET_USER_TK, token });
-export const setUserData = (data) => ({ type: SET_USER_DATA, data });
+export const setUserData = (data, isAuth) => ({ type: SET_USER_DATA, data, isAuth });
+export const setRegStatus = (status) => ({ type: SET_REG_STATUS, status });
 
 let initialState = {
     isAuth: false,
@@ -14,6 +16,7 @@ let initialState = {
         username: null,
         email: null
     },
+    regSuccess: false
 }
 
 const authReducer = (state = initialState, action) => {
@@ -26,8 +29,13 @@ const authReducer = (state = initialState, action) => {
         case SET_USER_DATA:
             return {
                 ...state,
-                isAuth: true,
+                isAuth: action.isAuth,
                 authUser: action.data
+            }
+        case SET_REG_STATUS:
+            return {
+                ...state,
+                regSuccess: action.status
             }
         default:
             return state;
@@ -53,9 +61,16 @@ export const userAuth = (authData) => {
         //get user data
         await authAPI.getCurrentUser(getState().auth.userToken).then(e => {
             if (e.status === 200) {
-                dispatch(setUserData(e.data));
+                dispatch(setUserData(e.data, true));
             }
         })
+    }
+}
+
+export const userLogOut = () => {
+    return (dispatch) => {
+        dispatch(setUserData(null, false));
+        dispatch(setUserToken(null));
     }
 }
 
@@ -69,14 +84,15 @@ export const sendGitCodeToServ = (data) => {
 
 export const userRegister = (data) => {
     return (dispatch) => {
-
         let datainputDto = {
             email: data.email,
             password: data.password,
             username: data.login
         }
         authAPI.getReg(datainputDto).then(e => {
-            console.log(e);
+            if (e.status === 200) {
+                dispatch(setRegStatus(true));
+            }
         });
     }
 }
