@@ -5,8 +5,6 @@ import { NavLink, Navigate } from 'react-router-dom';
 
 const Register = ({ regSubmit, regStatus, regSuccess }) => {
 
-    console.log(regStatus)
-
     if (regStatus) {
         return (
             <div className={s.login_content}>
@@ -43,6 +41,7 @@ const RegisterForm = ({ handleSubmit }) => {
                     autoCorrect="off"
                     spellCheck="off"
                     placeholder="Login"
+                    required="true"
                 />
             </div>
             <div className={s.login_field}>
@@ -54,6 +53,7 @@ const RegisterForm = ({ handleSubmit }) => {
                     autoComplete="off"
                     autoCorrect="off"
                     spellCheck="off"
+                    required="true"
                     placeholder="john.smith@yahoo.com"
                 />
             </div>
@@ -66,6 +66,7 @@ const RegisterForm = ({ handleSubmit }) => {
                     autoComplete="off"
                     autoCorrect="off"
                     spellCheck="off"
+                    required="true"
                     placeholder="Password"
                 />
             </div>
