@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { getCoinOutput } from '../../redux/dashboard-reducer';
 import Dashboard from './Dashboard';
-import { withAuthRedirect } from '../../hoc/DropDown/withAuthRedirect';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { userLogOut } from '../../redux/auth-reducer';
 
 class DashContainer extends React.Component {

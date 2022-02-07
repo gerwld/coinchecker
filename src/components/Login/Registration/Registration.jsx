@@ -1,9 +1,11 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import s from '../Login.module.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Navigate } from 'react-router-dom';
 
-const Register = ({ regSubmit, regStatus }) => {
+const Register = ({ regSubmit, regStatus, regSuccess }) => {
+
+    console.log(regStatus)
 
     if (regStatus) {
         return (
@@ -21,6 +23,8 @@ const Register = ({ regSubmit, regStatus }) => {
                     <h1>Registration</h1>
                     <RegisterFormRedux onSubmit={regSubmit} />
                 </div>
+                {regSuccess && <Navigate to="/register/success" replace={true}/>}
+
             </div>
         )
     }
