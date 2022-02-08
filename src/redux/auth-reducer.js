@@ -71,6 +71,8 @@ export const userLogOut = () => {
     return (dispatch) => {
         dispatch(setUserData(null, false));
         dispatch(setUserToken(null));
+        axios.defaults.headers.post['Authorization'] = ''; // for POST requests
+        axios.defaults.headers.common['Authorization'] = ''; // for all requests
     }
 }
 
