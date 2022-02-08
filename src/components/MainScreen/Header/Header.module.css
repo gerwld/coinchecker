@@ -35,7 +35,6 @@
     font-size: 15px;
     font-weight: 500;
     height: 70px;
-    overflow: hidden;
   }
 
   .main_nav .element {
@@ -100,12 +99,7 @@
     font-size: 26px;
     font-weight: bold;
   }
-  
-  .main_nav div {
-    margin-left: 5px;
-    box-sizing: border-box;
-    text-align: center;
-  }
+
 
   /* Nav buttons */
 
@@ -115,6 +109,7 @@
   }
 
   div.element_lang {
+      position: relative;
       align-items: center;
   }
 
@@ -134,12 +129,14 @@
     transition: border-color 0.15s ease-in;
 }
 
-  .element_lang button::after {
+
+.element_lang button::after {
       right: 6px;
       bottom: calc(50% - 2.5px);
       border-color: var(--color-primary-black);
   }
 
+  .show_block .btn_lang,
   .element_lang button:hover {
       border-color: #999999;
   }
@@ -194,4 +191,47 @@
       border-radius: 5px;
       transition: background-color 0.15s ease-in;
       user-select: none;
+  }
+
+  /* Language button & dropdown */
+
+
+  .lang_drop {
+      position: absolute;
+      display: none;
+      width: 135px;
+      top: 85%;
+      left: -25%;
+      border: var(--border-lightgray);
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: left;
+  }
+
+  .show_block .lang_drop {
+      display: block;
+  }
+
+  .lang_drop_option {
+    padding: 10px 12px;
+    font-weight: 400;
+    font-size: 14px;
+    border-bottom: var(--border-lightgray);
+    cursor: pointer;
+  }
+
+  .lang_drop_option:nth-last-child(1) {
+      border-bottom: none;
+  }
+
+  .lang_drop_option svg {
+      font-size: 18px;
+      margin-bottom: -3px;
+      margin-right: 4px;
+      filter: saturate(0.6);
+  }
+
+  .lang_drop_option:hover {
+      background-color: var(--color-primary-lightgray2);
   }
