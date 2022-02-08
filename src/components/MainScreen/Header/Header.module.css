@@ -129,12 +129,14 @@
     transition: border-color 0.15s ease-in;
 }
 
-  .element_lang button::after {
+
+.element_lang button::after {
       right: 6px;
       bottom: calc(50% - 2.5px);
       border-color: var(--color-primary-black);
   }
 
+  .show_block .btn_lang,
   .element_lang button:hover {
       border-color: #999999;
   }
@@ -194,12 +196,11 @@
   /* Language button & dropdown */
 
 
-
   .lang_drop {
       position: absolute;
       display: none;
       width: 135px;
-      top: 75%;
+      top: 85%;
       left: -25%;
       border: var(--border-lightgray);
       background-color: #fff;
@@ -214,6 +215,8 @@
 
   .lang_drop_option {
     padding: 10px 12px;
+    font-weight: 400;
+    font-size: 14px;
     border-bottom: var(--border-lightgray);
     cursor: pointer;
   }
@@ -226,6 +229,7 @@
       font-size: 18px;
       margin-bottom: -3px;
       margin-right: 4px;
+      filter: saturate(0.6);
   }
 
   .lang_drop_option:hover {
