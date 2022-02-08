@@ -12,16 +12,18 @@ const Register = ({ regSubmit, regStatus, regSuccess }) => {
                     <div className={s.reg_success}>
                         <span className={s.reg_title}>Registration succeed.</span>
                         <NavLink className={s.btn_login} to="/login">Log In</NavLink></div>
-                    </div>
+                </div>
             </div>)
     } else {
         return (
             <div className={s.login_content}>
-                <div className={s.register_block}>
-                    <h1>Registration</h1>
-                    <RegisterFormRedux onSubmit={regSubmit} />
+                <div className={s.sect_overlay}>
+                    <h1 className={s.title}>Create your account</h1>
+                    <div className={s.register_block}>
+                        <RegisterFormRedux onSubmit={regSubmit} />
+                    </div>
                 </div>
-                {regSuccess && <Navigate to="/register/success" replace={true}/>}
+                {regSuccess && <Navigate to="/register/success" replace={true} />}
 
             </div>
         )
