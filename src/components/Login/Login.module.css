@@ -133,7 +133,7 @@
 .more_links a {
     text-decoration: none;
     margin-right: 20px;
-    color: rgb(27, 27, 187);
+    color: var(--color-primary-blue);
 }
 
 .more_links a:nth-last-child(1) {
