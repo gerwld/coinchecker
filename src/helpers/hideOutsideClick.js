@@ -2,7 +2,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 
-export default function useOutsideClickHide(ref, hideElement, changeClass) {
+export default function useOutsideClickHide(ref, hideElement, changeClass, onMouseOut) {
     useEffect(() => {
         // Alert if clicked on outside of element
         function handleClickOutside(event) {
@@ -13,9 +13,15 @@ export default function useOutsideClickHide(ref, hideElement, changeClass) {
         }
         // Bind the event listener
         document.addEventListener("mousedown", handleClickOutside);
+        if(onMouseOut) {
+            document.addEventListener("mouseout", handleClickOutside);
+        }
         return () => {
         // Unbind the event listener on clean up
-            document.removeEventListener("mousedown", handleClickOutside);
+        document.removeEventListener("mousedown", handleClickOutside);
+        if(onMouseOut) {
+            document.removeEventListener("mouseout", handleClickOutside);
+        }
         };
     }, [ref, hideElement]);
 }
