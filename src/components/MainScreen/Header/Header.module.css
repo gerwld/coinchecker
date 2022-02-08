@@ -153,7 +153,41 @@
     transition: background-color 0.2s ease-in;
   }
 
+  /* Btn hovers */
+  .explore:hover,
   .element_btn a:hover {
     background-color: var(--color-primary-darkblue);
   }
   
+  /* Section 1 */
+
+  .header_section1 {
+      padding: 20vh 0;
+      text-align: center;
+      border-bottom: var(--border-lightgray);
+  }
+
+  .header_title {
+      font-size: 34px;
+      margin: 20px 0;
+      font-weight: 600;
+  }
+
+  .header_subtitle {
+      font-size: 18px;
+  }
+
+  .header_subtitle span {
+      display: block;
+  }
+
+  .explore {
+      padding: 0.8vw 1vw;
+      margin-top: 3vh;
+      font-size: 1em;
+      color: #fff;
+      background-color: var(--color-primary-blue);
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.15s ease-in;
+  }
