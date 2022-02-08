@@ -19,6 +19,7 @@
     font-size: 17px;
     font-weight: 600;
     color: var(--color-primary-blue);
+    user-select: none;
 }
 
 /* Main menu */
@@ -74,6 +75,11 @@
 
   .main_nav a:hover:after {
       opacity: 1;
+  }
+
+  .main_nav a:active {
+    background-color: var(--color-primary-lightgray2);
+      
   }
   
   .main_nav span{
