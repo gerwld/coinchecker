@@ -41,7 +41,7 @@
   .main_nav .element {
     cursor: pointer;
   }
-  
+  .main_nav .element_btn,
   .main_nav .element,
   .main_nav .nav-button {
     display: flex;
@@ -61,7 +61,7 @@
     color: var(--color-primary-black);
   }
 
-  .main_nav a::after {
+  .main_nav .element a::after {
       content: "";
       opacity: 0;
       position: absolute;
@@ -73,11 +73,11 @@
       transition: opacity 0.15s ease-in;
     }
 
-  .main_nav a:hover:after {
+  .main_nav .element a:hover:after {
       opacity: 1;
   }
 
-  .main_nav a:active {
+  .main_nav .element a:active {
     background-color: var(--color-primary-lightgray2);
       
   }
@@ -104,5 +104,23 @@
     margin-left: 5px;
     box-sizing: border-box;
     text-align: center;
+  }
+
+  .element_btn {
+      align-items: center;
+      margin-left: 10px;
+  }
+
+  .element_btn a {
+    color: #fff;
+    background-color: var(--color-primary-blue);
+    height: 50%;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in;
+  }
+
+  .element_btn a:hover {
+    background-color: var(--color-primary-darkblue);
   }
   

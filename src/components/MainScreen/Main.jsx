@@ -22,6 +22,9 @@ const Main = (props) => {
                             <div className={s.element}>
                                 <NavLink to="/" className={(e) => e.isActive ? 'active_a':'' }><span>Market</span></NavLink>
                             </div>
+                            <div className={s.element_btn}>
+                                <NavLink to="/login" className={(e) => e.isActive ? 'active_a':'' }><span>Get Started</span></NavLink>
+                            </div>
                         </nav>
                 </div>
             </header>
