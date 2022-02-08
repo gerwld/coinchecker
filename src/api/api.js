@@ -1,5 +1,4 @@
 import axios from "axios";
-import store from '../redux/redux-store';
 
 const instance = axios.create({
     baseURL: "http://46.101.162.26:8000/api/core/"
