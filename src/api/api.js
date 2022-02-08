@@ -1,16 +1,14 @@
 import axios from "axios";
+import store from '../redux/redux-store';
 
 const instance = axios.create({
-    // withCredentials: true,
-    headers: {
-
-    },
     baseURL: "http://46.101.162.26:8000/api/core/"
 });
 
+
 export const dashboardAPI = {
     getData() {
-        return instance.get('coins').then(r => {
+        return axios.get('http://46.101.162.26:8000/api/core/coins').then(r => {
             if (r.status === 200) {
                 return r.data
             } else {
@@ -40,11 +38,10 @@ export const authAPI = {
             alert(error);
         });
     },
-    getCurrentUser(token) {
-        return axios.get('http://46.101.162.26:8000/api/core/users/current', token)
+    getCurrentUser() {
+        return axios.get('http://46.101.162.26:8000/api/core/users/current')
             .catch(error => {
                 console.log(error);
-                debugger;
             })
     }
 }
