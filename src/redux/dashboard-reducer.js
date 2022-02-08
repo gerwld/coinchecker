@@ -31,7 +31,7 @@ const dashReducer = (state = initialState, action) => {
         case LOAD_LAST_ITEMS:
             return {
                 ...state,
-                last_added: [...state.last_added, ...action.items]
+                last_added: [...action.items]
             }
         default:
             return state;
