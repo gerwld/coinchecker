@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './Header.module.css';
 import { NavLink } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 const HeaderMain = (props) => {
     return (
@@ -41,7 +42,7 @@ const HeaderMain = (props) => {
             <div className="content-wrapper">
             <h1 className={s.header_title}>Start and Build Your Crypto Portfolio Here</h1>
             <p className={s.header_subtitle}><span>Only at CoinChecker, you can build a good portfolio and learn</span><span>best practices about cryptocurrency.</span></p>
-            <button className={s.explore}>Get started</button>
+            <Link to="#about_us" className={s.explore}>Get started</Link>
             </div>
         </div>
         </>
