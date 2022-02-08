@@ -106,9 +106,9 @@
     text-align: center;
   }
 
-  .element_btn {
+  div.element_btn {
       align-items: center;
-      margin-left: 10px;
+      margin-left: 20px;
   }
 
   .element_btn a {
