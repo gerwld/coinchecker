@@ -153,7 +153,45 @@
     transition: background-color 0.2s ease-in;
   }
 
+  /* Btn hovers */
+  .explore:hover,
   .element_btn a:hover {
     background-color: var(--color-primary-darkblue);
   }
   
+  /* Section 1 */
+
+  .header_section1 {
+      padding: 20vh 0;
+      text-align: center;
+      border-bottom: var(--border-lightgray);
+      background: radial-gradient(rgba(100, 139, 230, 0.45), transparent);
+  }
+
+  .header_title {
+      font-size: 34px;
+      margin: 20px 0;
+      font-weight: 600;
+  }
+
+  .header_subtitle {
+      font-size: 18px;
+  }
+
+  .header_subtitle span {
+      display: block;
+  }
+
+  .explore {
+      display: inline-block;
+      padding: 0.6vw 1.4vw;
+      margin-top: 3vh;
+      font-size: 1em;
+      text-decoration: none;
+      color: #fff;
+      background-color: var(--color-primary-blue);
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.15s ease-in;
+      user-select: none;
+  }
