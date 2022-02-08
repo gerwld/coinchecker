@@ -9,9 +9,10 @@
 }
 
 .main_dash {
-    padding: 0.5vw 2vw 1.5vw 1.5vw;
-    height: calc(100vh - 60px);
-    overflow-y: scroll;
+    width: 350px;
+    padding: 25px 40px 10px;
+    border: var(--border-lightgray);
+    border-radius: 10px;
 }
 .main_dash h1 {
     color: #3d434e;

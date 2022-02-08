@@ -7,19 +7,23 @@ import LoginGithub from 'react-login-github';
 const Login = (props) => {
     return (
         <div className={s.login_content}>
-            <div className={s.login_block}>
-                <h1>Login</h1>
-                <LoginFormRedux onSubmit={props.loginAction} />
 
-                <LoginGithub clientId="826daa3627e56e610860"
-                    onSuccess={props.sendGitCodeToServ}
-                    onFailure={() => alert('Some error occured.Please, try another method.')} />
-
-                <div className={s.more_links}>
-                    <NavLink to='/register'>Sign Up</NavLink>
-                    <NavLink to='forgot'>Forgot password?</NavLink>
+            <div className={s.sect_overlay}>
+                <h1 className={s.title}>Sign in to CoinChecker</h1>
+                <div className={s.login_block}>
+                    <div class={s.overlay}>
+                        <LoginFormRedux onSubmit={props.loginAction} />
+                        <LoginGithub className={s.btn_github} clientId="826daa3627e56e610860"
+                            onSuccess={props.sendGitCodeToServ}
+                            onFailure={() => alert('Some error occured.Please, try another method.')} />
+                    </div>
+                    <div className={s.more_links}>
+                        <NavLink to='/register'>Sign Up</NavLink>
+                        <NavLink to='forgot'>Forgot password?</NavLink>
+                    </div>
                 </div>
             </div>
+
         </div>
     )
 }
