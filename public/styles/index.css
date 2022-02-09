@@ -26,3 +26,45 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+body {
+  min-width: 1000px;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: -apple-system, "SF Pro Text", "SF Pro Icons", "Helvetica Neue",
+      "Helvetica", "Arial", sans-serif;
+    color: #1e1e1e;
+    line-height: 1.47059;
+    font-weight: 400;
+    overflow: visible;
+    height: auto;
+  }
+
+.content-wrapper {
+  max-width: 1210px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* show more icon */
+
+.ic-dropdown::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  right: 1.2vw;
+  bottom: 19px;
+  border: 1px solid gray;
+  border-width: 0 0 2px 2px;
+  transform: rotate(-45deg);
+}
+
+/* Show for not unique block */
+
+.show_block {
+  display: block!important;
+  opacity: 1!important;
+}

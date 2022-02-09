@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import s from './Header.module.css';
 import {NavLink} from 'react-router-dom';
 import {HashLink as Link} from 'react-router-hash-link';
-import useOutsideClickHide from '../../../helpers/hideOutsideClick';
+import useOutsideClickHide from '../../../hooks/useOutsideClick';
 import {Pl, Ua, Us} from 'react-flags-select';
 import HeaderTrends from './HeaderTrends/HeaderTrends';
 
@@ -54,7 +54,7 @@ export const HeaderSection = ({blueMode}) => {
     <div ref={jumpFix} className={s.header_floatfix}></div>
     <header ref={headBar} className={`${s.main_header} ${isFixed ? s.fixed : ''} ${blueMode ? s.blue_mode : ''}`}>
       <div className={`${s.header_overlay} content-wrapper`}>
-        <span className={s.header_logo}>CoinChecker</span>
+        <span className={s.header_logo}><NavLink to="/">CoinChecker</NavLink></span>
         <nav className={s.main_nav} role="navigation">
           <button className={s.mobile_menu}>☰ Menu</button>
           <div className={s.element}>
