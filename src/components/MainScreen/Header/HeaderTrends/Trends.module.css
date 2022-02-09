@@ -1,6 +1,6 @@
 .sect2_block {
     display: inline-block;
-    padding: 25px;
+    padding: 20px;
     background-color: #fff;
     border: var(--border-lightgray);
     border-radius: 18px;
@@ -79,4 +79,8 @@
     display: flex;
     justify-content: space-between;
     padding: 2vh 0;
+}
+
+.chart {
+    padding-top: 10px;
 }
