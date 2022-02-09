@@ -11,7 +11,7 @@ const Login = (props) => {
             <div className={s.sect_overlay}>
                 <h1 className={s.title}>Sign in to CoinChecker</h1>
                 <div className={s.login_block}>
-                    <div class={s.overlay}>
+                    <div className={s.overlay}>
                         <LoginFormRedux onSubmit={props.loginAction} />
                         <LoginGithub className={s.btn_github} clientId="826daa3627e56e610860"
                             onSuccess={props.sendGitCodeToServ}
@@ -39,7 +39,7 @@ const LoginForm = ({ handleSubmit }) => {
                     type="text"
                     autoComplete="email"
                     placeholder="Enter your email"
-                    required="true"
+                    required={true}
                 />
             </div>
             <div className={s.login_field}>
@@ -50,7 +50,7 @@ const LoginForm = ({ handleSubmit }) => {
                     type="password"
                     autoComplete="current-password"
                     placeholder="Enter your password"
-                    required="true"
+                    required={true}
                 />
             </div>
             <div className={s.login_buttons}>

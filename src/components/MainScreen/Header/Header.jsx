@@ -54,7 +54,7 @@ const LangSelect = (props) => {
     //hide lang
     const [isShow, set] = useState(false);
     const e = useRef(null);
-    useOutsideClickHide(e, set, null, true);
+    useOutsideClickHide(e, set, null);
 
     return (
         <div ref={e} className={`${s.element_lang} ${isShow ? s.show_block : ''}`}>

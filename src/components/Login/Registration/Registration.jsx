@@ -43,7 +43,7 @@ const RegisterForm = ({ handleSubmit }) => {
                     autoCorrect="off"
                     spellCheck="off"
                     placeholder="Login"
-                    required="true"
+                    required={true}
                 />
             </div>
             <div className={s.login_field}>
@@ -55,7 +55,7 @@ const RegisterForm = ({ handleSubmit }) => {
                     autoComplete="off"
                     autoCorrect="off"
                     spellCheck="off"
-                    required="true"
+                    required={true}
                     placeholder="john.smith@yahoo.com"
                 />
             </div>
@@ -68,7 +68,7 @@ const RegisterForm = ({ handleSubmit }) => {
                     autoComplete="off"
                     autoCorrect="off"
                     spellCheck="off"
-                    required="true"
+                    required={true}
                     placeholder="Password"
                 />
             </div>
