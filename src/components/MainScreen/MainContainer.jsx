@@ -7,14 +7,14 @@ class MainContainer extends React.Component {
 
     render() {
         return (
-            <Main props=""/>
+            <Main headTrends={this.props.headTrends}/>
         )
     }
 }
 
 let mapStateToProps = (state) => {
     return {
-
+        headTrends: state.app.headTrends
     }
 }
 
