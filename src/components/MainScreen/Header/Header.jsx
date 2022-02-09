@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
 import useOutsideClickHide from '../../../helpers/hideOutsideClick';
 import { Pl, Ua, Us } from 'react-flags-select';
+import HeaderTrends from './HeaderTrends/HeaderTrends';
 
 const HeaderMain = (props) => {
     return (
@@ -44,19 +45,20 @@ const HeaderMain = (props) => {
                     <Link to="#about_us" className={s.explore}>Get started</Link>
                 </div>
             </div>
+            <HeaderTrends headTrends={props.headTrends} />
         </>
     )
 }
 
 const LangSelect = (props) => {
+    //hide lang
     const [isShow, set] = useState(false);
-    //hide results
     const e = useRef(null);
     useOutsideClickHide(e, set, null, true);
 
     return (
         <div ref={e} className={`${s.element_lang} ${isShow ? s.show_block : ''}`}>
-            <button onMouseOver={() => set(true)} className={`${s.btn_lang} ic-dropdown`}>EN</button>
+            <button onClick={() => set(!isShow)} className={`${s.btn_lang} ic-dropdown`}>EN</button>
             <div className={s.lang_drop}>
                 <div className={s.lang_drop_option}><Us /> English</div>
                 <div className={s.lang_drop_option}><Ua /> Ukraininan</div>
