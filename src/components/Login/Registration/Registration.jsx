@@ -3,6 +3,8 @@ import { Field, reduxForm } from "redux-form";
 import s from "../Login.module.css";
 import { NavLink, Navigate } from "react-router-dom";
 import { HeaderSection } from "../../MainScreen/Header/Header";
+import { AiOutlineCheckCircle } from 'react-icons/ai';
+
 
 const Register = ({ regSubmit, regStatus, regSuccess }) => {
   if (regStatus) {
@@ -12,7 +14,9 @@ const Register = ({ regSubmit, regStatus, regSuccess }) => {
         <div className={s.login_content}>
           <div className={s.register_block}>
             <div className={s.reg_success}>
-              <span className={s.reg_title}>Registration succeed.</span>
+            <span className={s.reg_icon}><AiOutlineCheckCircle /></span>
+              <span className={s.reg_title}>Registration completed successfully.</span>
+              <span className={s.reg_subtitle}>Please check your email for email verification.</span>
               <NavLink className={s.btn_login} to="/login">
                 Log In
               </NavLink>
