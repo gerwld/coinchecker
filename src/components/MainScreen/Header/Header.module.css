@@ -5,16 +5,22 @@
 .main_header.fixed {
   width: 100vw;
   position: fixed;
-  top: 0;
+  top: -80px;
   left: 0;
   background-color: #fff;
-  transition: top 1s ease-in;
+  transition: top 0.3s ease-in-out 0.1s;
+}
+
+.header_floatfix {
+  height: 0;
+  width: 100%;
 }
 
 /* Header container & logo styles */
 
 .main_header {
-    border-bottom: var(--border-lightgray);
+  position: static;
+  border-bottom: var(--border-lightgray);
 }
 
 .header_overlay {

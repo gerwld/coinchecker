@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import s from './Header.module.css';
 import {NavLink} from 'react-router-dom';
 import {HashLink as Link} from 'react-router-hash-link';
@@ -24,9 +24,34 @@ const HeaderMain = (props) => {
 
 const HeaderSection = (props) => {
   const headBar = useRef(0);
+  const jumpFix = useRef(0);
+  const headHeight = headBar.current.clientHeight
+  const [scrollPosition, setScrollPosition] = useState(0);
   const [isFixed, setFixed] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.pageYOffset);
+      if(scrollPosition > headHeight + 20) {
+        setFixed(true);
+        jumpFix.current.style = `height: ${headHeight}px`;
+        headBar.current.style = `top: 0px`;
+
+      } else if (scrollPosition < headHeight + 80) {
+        setFixed(false);
+        jumpFix.current.style = `height: 0!important`;
+        headBar.current.style = `top: -${headHeight + 30}px`;
+      }
+    }
+
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrollPosition, headHeight]);
+
   return (
+    <>
+    <div ref={jumpFix} className={s.header_floatfix}></div>
     <header ref={headBar} className={`${s.main_header} ${isFixed ? s.fixed : ''}`}>
       <div className={`${s.header_overlay} content-wrapper`}>
         <span className={s.header_logo}>CoinChecker</span>
@@ -56,6 +81,7 @@ const HeaderSection = (props) => {
         </nav>
       </div>
     </header>
+    </>
   );
 };
 
