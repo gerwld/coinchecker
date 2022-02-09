@@ -2,6 +2,15 @@
     background-color: #fff;
 }
 
+.main_header.fixed {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  transition: top 1s ease-in;
+}
+
 /* Header container & logo styles */
 
 .main_header {
@@ -223,7 +232,7 @@
     padding: 10px 12px;
     font-weight: 400;
     font-size: 14px;
-    border-bottom: var(--border-lightgray);
+    border-bottom: 1px solid #e8ebf0;
     cursor: pointer;
   }
 
