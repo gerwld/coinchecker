@@ -31,7 +31,7 @@
 }
 
 .register_block {
-    width: 400px;
+    width: 500px;
     padding: 30px;
 }
 
@@ -63,7 +63,20 @@
 
 .reg_title {
     display: block;
-    font-size: 20px;
+    font-size: 26px;
+    margin: 10px 0;
+}
+
+.reg_icon {
+    font-size: 90px;
+    line-height: 10px;
+    color: var(--color-primary-blue);
+}
+
+.reg_subtitle {
+    font-size: 17px;
+    color: var(--color-primary-gray);
+    margin-bottom: 10px;
 }
 
 .reg_success a {
