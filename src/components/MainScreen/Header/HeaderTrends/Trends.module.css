@@ -88,3 +88,9 @@
 .chart {
     padding-top: 10px;
 }
+
+.chart,
+.icon,
+.trend {
+    user-select: none;
+}
