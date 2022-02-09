@@ -2,10 +2,25 @@
     background-color: #fff;
 }
 
+.main_header.fixed {
+  width: 100vw;
+  position: fixed;
+  top: -80px;
+  left: 0;
+  background-color: #fff;
+  transition: top 0.3s ease-in-out 0.1s;
+}
+
+.header_floatfix {
+  height: 0;
+  width: 100%;
+}
+
 /* Header container & logo styles */
 
 .main_header {
-    border-bottom: var(--border-lightgray);
+  position: static;
+  border-bottom: var(--border-lightgray);
 }
 
 .header_overlay {
@@ -223,7 +238,7 @@
     padding: 10px 12px;
     font-weight: 400;
     font-size: 14px;
-    border-bottom: var(--border-lightgray);
+    border-bottom: 1px solid #e8ebf0;
     cursor: pointer;
   }
 
