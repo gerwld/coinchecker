@@ -112,13 +112,20 @@
       transition: opacity 0.15s ease-in;
     }
 
+    .blue_mode .main_nav .element a::after {
+      background-color: #fff;
+    }
+
   .main_nav .element a:hover:after {
       opacity: 1;
   }
 
   .main_nav .element a:active {
-    background-color: var(--color-primary-lightgray2);
-      
+    background-color: var(--color-primary-lightgray2); 
+  }
+
+  .blue_mode .main_nav .element a:active {
+    background-color: rgba(0, 0, 0, 0.1);
   }
   
   .main_nav span{
