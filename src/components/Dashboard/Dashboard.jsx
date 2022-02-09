@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import useOutsideClickHide from '../../helpers/hideOutsideClick';
+import useOutsideClickHide from '../../hooks/useOutsideClick';
 import AsideBlock from './Components/Aside/Aside';
 import s from './Dashboard.module.css';
 import ShowImage from '../../utils/ShowImage';

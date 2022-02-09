@@ -47,11 +47,15 @@
 .header_logo {
     font-size: 17px;
     font-weight: 600;
-    color: var(--color-primary-blue);
     user-select: none;
 }
 
-.blue_mode .header_logo {
+.header_logo a {
+  color: var(--color-primary-blue);
+  text-decoration: none;
+}
+
+.blue_mode .header_logo a {
   color: #fff;
 }
 
