@@ -37,7 +37,7 @@ const HeaderSection = (props) => {
         jumpFix.current.style = `height: ${headHeight}px`;
         headBar.current.style = `top: 0px`;
 
-      } else if (scrollPosition < headHeight + 80) {
+      } else if (scrollPosition < headHeight - 40 ) {
         setFixed(false);
         jumpFix.current.style = `height: 0!important`;
         headBar.current.style = `top: -${headHeight + 30}px`;
