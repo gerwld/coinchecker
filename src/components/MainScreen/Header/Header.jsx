@@ -22,7 +22,7 @@ const HeaderMain = (props) => {
   );
 };
 
-const HeaderSection = (props) => {
+export const HeaderSection = ({blueMode}) => {
   const headBar = useRef(0);
   const jumpFix = useRef(0);
   const headHeight = headBar.current.clientHeight
@@ -52,7 +52,7 @@ const HeaderSection = (props) => {
   return (
     <>
     <div ref={jumpFix} className={s.header_floatfix}></div>
-    <header ref={headBar} className={`${s.main_header} ${isFixed ? s.fixed : ''}`}>
+    <header ref={headBar} className={`${s.main_header} ${isFixed ? s.fixed : ''} ${blueMode ? s.blue_mode : ''}`}>
       <div className={`${s.header_overlay} content-wrapper`}>
         <span className={s.header_logo}>CoinChecker</span>
         <nav className={s.main_nav} role="navigation">

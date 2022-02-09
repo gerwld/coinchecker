@@ -3,6 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import s from "./Login.module.css";
 import { NavLink } from "react-router-dom";
 import LoginGithub from "react-login-github";
+import { HeaderSection } from "../MainScreen/Header/Header";
 
 const Login = (props) => {
   return (
