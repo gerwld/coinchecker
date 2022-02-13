@@ -2,7 +2,7 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import s from "../Login.module.css";
 import { NavLink, Navigate } from "react-router-dom";
-import { HeaderSection } from "../../MainScreen/Header/Header";
+import { HeaderSection } from "../MainScreen/Header/Header";
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 

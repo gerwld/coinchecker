@@ -3,7 +3,7 @@ import { BiHelpCircle } from 'react-icons/bi';
 import { RiLogoutBoxRLine, RiSettings3Line } from 'react-icons/ri';
 import useOutsideClickHide from '../../hooks/useOutsideClick';
 import ShowImage from '../../utils/ShowImage';
-import AsideBlock from './Components/Aside/Aside';
+import AsideBlock from '../../UI/Aside/Aside';
 import s from './Dashboard.module.css';
 
 

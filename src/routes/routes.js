@@ -1,6 +1,6 @@
 
 import LoginContainer from '../components/pages/Login/LoginContainer';
-import RegContainer from '../components/pages/Login/Registration/RegContainer';
+import RegContainer from '../components/pages/Registration/RegContainer';
 import MainContainer from '../components/pages/MainScreen/MainContainer';
 import DashContainer from '../components/pages/Dashboard/DashContainer';
 
