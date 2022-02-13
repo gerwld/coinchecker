@@ -1,6 +1,6 @@
 import Dinero from 'dinero.js';
 import React from 'react';
-import ShowImage from '../../../../../utils/ShowImage';
+import ShowImage from '../../../../utils/ShowImage';
 import s from './Trends.module.css';
 
 

@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Pl, Ua, Us } from 'react-flags-select';
 import { NavLink } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
-import useOutsideClickHide from '../../../../hooks/useOutsideClick';
+import useOutsideClickHide from '../../../hooks/useOutsideClick';
+import HeaderTrends from '../../pages/MainScreen/HeaderTrends/HeaderTrends';
 import s from './Header.module.css';
-import HeaderTrends from './HeaderTrends/HeaderTrends';
 
 const HeaderMain = (props) => {
   return (

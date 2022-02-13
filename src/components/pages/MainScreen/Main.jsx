@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderMain from './Header/Header';
+import HeaderMain from '../../UI/Header/Header';
 import s from './Main.module.css';
 
 const Main = (props) => {

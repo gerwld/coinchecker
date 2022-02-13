@@ -1,9 +1,9 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-import s from "../Login.module.css";
+import s from '../Login/Login.module.css';
 import { NavLink, Navigate } from "react-router-dom";
-import { HeaderSection } from "../MainScreen/Header/Header";
 import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { HeaderSection } from "../../UI/Header/Header";
 
 
 const Register = ({ regSubmit, regStatus, regSuccess }) => {
