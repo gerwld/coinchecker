@@ -1,15 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { BiHelpCircle } from 'react-icons/bi';
 import { RiLogoutBoxRLine, RiSettings3Line } from 'react-icons/ri';
 import withClickOutside from '../../../hoc/withClickOutside';
-import useOutsideClickHide from '../../../hooks/useOutsideClick';
 import AsideBlock from '../../UI/Aside/Aside';
 import LastSectedItems from './blocks/LastSelected';
 import s from './Dashboard.module.css';
 
 
 const Dashboard = (props) => {
-
     return (
         <div className={s.dashboard_overlay}>
             <AsideBlock />

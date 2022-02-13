@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Pl, Ua, Us } from 'react-flags-select';
 import { NavLink } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
+import withClickOutside from '../../../hoc/withClickOutside';
 import useOutsideClickHide from '../../../hooks/useOutsideClick';
 import HeaderTrends from '../../pages/MainScreen/HeaderTrends/HeaderTrends';
 import s from './Header.module.css';
@@ -85,15 +86,10 @@ export const HeaderSection = ({blueMode}) => {
   );
 };
 
-const LangSelect = (props) => {
-  // hide lang
-  const [isShow, set] = useState(false);
-  const e = useRef(null);
-  useOutsideClickHide(e, set, null);
-
+const LangSelect = withClickOutside(({refE, setShow, isShow, ...props}) => {
   return (
-    <div ref={e} className={`${s.element_lang} ${isShow ? s.show_block : ''}`}>
-      <button onClick={() => set(!isShow)} className={`${s.btn_lang} ic-dropdown`}>EN</button>
+    <div ref={refE} className={`${s.element_lang} ${isShow ? s.show_block : ''}`}>
+      <button onClick={() => setShow(!isShow)} className={`${s.btn_lang} ic-dropdown`}>EN</button>
       <div className={s.lang_drop}>
         <div className={s.lang_drop_option}><Us /> English</div>
         <div className={s.lang_drop_option}><Ua /> Ukraininan</div>
@@ -101,7 +97,7 @@ const LangSelect = (props) => {
       </div>
     </div>
   );
-};
+})
 
 
 export default HeaderMain;
