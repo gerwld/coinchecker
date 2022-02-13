@@ -13,11 +13,9 @@ class LoginContainer extends React.Component {
   };
 
   render() {
-    if (this.props.isAuth === true) return <Navigate to="/dashboard" replace={true} />;
-    else
-      return (
-        <Login loginAction={this.loginAction} sendGitCodeToServ={this.props.sendGitCodeToServ} />
-      );
+    return (
+      <Login loginAction={this.loginAction} sendGitCodeToServ={this.props.sendGitCodeToServ} />
+    );
   }
 }
 
