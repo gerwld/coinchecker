@@ -57,17 +57,17 @@ export const userAuth = (authData) => {
             }
         });
 
-       await dispatch(getUserDataAndAddHeader(token));
+       await dispatch(getUser(token));
     }
 }
 
-export const getUserDataAndAddHeader = (token) => {
-    return (dispatch) => {
+export const getUser = (token) => {
+    return async (dispatch) => {
         dispatch(setUserToken(token));
         axios.defaults.headers.post['Authorization'] = token;
         axios.defaults.headers.common['Authorization'] = token;
 
-        AuthService.getCurrentUser(token).then(e => {
+        await AuthService.getCurrentUser(token).then(e => {
             if (e.status === 200) {
                 dispatch(setUserData(e.data, true));
             }

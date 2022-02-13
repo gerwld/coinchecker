@@ -15,8 +15,8 @@ class DashContainer extends React.Component {
   logOut = () => {
     setTimeout(() => {
       this.props.router.navigate("/");
-      this.props.userLogOut();
       localStorage.removeItem('session');
+      this.props.userLogOut();
     }, 500);
   };
 

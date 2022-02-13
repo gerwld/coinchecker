@@ -1,10 +1,10 @@
 import React from 'react'
-const SET_INITIALIZING = 'coinchecker/app-reducer/SET_INITIALIZING';
-export const setInitializingSuccess = () => ({ type: SET_INITIALIZING });
+const SET_LOAD = 'coinchecker/app-reducer/SET_LOAD';
+export const setLoading = (isLoad) => ({ type: SET_LOAD, isLoad });
 
 
 let initialState = {
-    initialized: true,
+    isLoading: true,
     headTrends: [
         {
             id: 1,
@@ -39,18 +39,15 @@ let initialState = {
 
 const appReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_INITIALIZING:
+        case SET_LOAD:
             return {
                 ...state,
-                initialized: true
+                isLoading: action.isLoad
             }
         default:
             return state;
     }
 }
 
-export const initializeApp = () => {
-
-}
 
 export default appReducer;

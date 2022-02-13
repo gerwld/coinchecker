@@ -1,0 +1,56 @@
+.preloader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100vw;
+	height: 100vh;
+	background: #ffffff;
+	z-index: 100000;
+	user-select: none
+}
+
+.preloader_ld {
+	position: relative;
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	animation: show 1.2s linear forwards
+}
+
+.preloader_ld:after {
+	content: " ";
+	display: block;
+	width: 64px;
+	height: 64px;
+	margin: 8px;
+	border-radius: 50%;
+	border: 3px solid #2e49c4;
+	border-color: #2e49c4 transparent #2e49c4 transparent;
+	animation: lds-dual-ring 1.2s linear infinite
+}
+
+@keyframes lds-dual-ring {
+	0% {
+		transform: rotate(0)
+	}
+	100% {
+		transform: rotate(360deg)
+	}
+}
+
+@keyframes show {
+	0% {
+		opacity: 0
+	}
+	35% {
+		opacity: 0
+	}
+	100% {
+		opacity: 1
+	}
+}
