@@ -5,7 +5,7 @@ import AuthService from '../api/AuthService';
 const SET_USER_TK = 'coinchecker/dash-reducer/SET_USER_TK';
 const SET_USER_DATA = 'coinchecker/dash-reducer/SET_USER_DATA';
 const SET_REG_STATUS = 'coinchecker/dash-reducer/SET_REG_STATUS';
-export const setUserToken = (token) => ({ type: SET_USER_TK, token });
+export const setUserToken = (token, isAuth) => ({ type: SET_USER_TK, token });
 export const setUserData = (data, isAuth) => ({ type: SET_USER_DATA, data, isAuth });
 export const setRegStatus = (status) => ({ type: SET_REG_STATUS, status });
 
@@ -47,20 +47,27 @@ const authReducer = (state = initialState, action) => {
 
 //User authentication
 export const userAuth = (authData) => {
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
         let authObj = { password: authData.log_password, username: authData.log_login };
-        //get auth token
+        let token;
         await AuthService.getAuth(authObj).then(res => {
             if (res.status === 200) {
-                //set it to state & add to all new requests
-                let token = `Bearer ${res.data}`;
-                dispatch(setUserToken(token));
-                axios.defaults.headers.post['Authorization'] = token; // for POST requests
-                axios.defaults.headers.common['Authorization'] = token; // for all requests
+                token = `Bearer ${res.data}`;
+                localStorage.setItem('session', token);
             }
-        })
-        //get user data
-        await AuthService.getCurrentUser(getState().auth.userToken).then(e => {
+        });
+
+       await dispatch(getUserDataAndAddHeader(token));
+    }
+}
+
+export const getUserDataAndAddHeader = (token) => {
+    return (dispatch) => {
+        dispatch(setUserToken(token));
+        axios.defaults.headers.post['Authorization'] = token;
+        axios.defaults.headers.common['Authorization'] = token;
+
+        AuthService.getCurrentUser(token).then(e => {
             if (e.status === 200) {
                 dispatch(setUserData(e.data, true));
             }
@@ -68,12 +75,13 @@ export const userAuth = (authData) => {
     }
 }
 
+
 export const userLogOut = () => {
     return (dispatch) => {
         dispatch(setUserData(null, false));
         dispatch(setUserToken(null));
-        axios.defaults.headers.post['Authorization'] = ''; // for POST requests
-        axios.defaults.headers.common['Authorization'] = ''; // for all requests
+        axios.defaults.headers.post['Authorization'] = '';
+        axios.defaults.headers.common['Authorization'] = '';
     }
 }
 

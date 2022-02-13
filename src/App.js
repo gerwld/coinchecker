@@ -1,12 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { getUserDataAndAddHeader } from "./redux/auth-reducer";
 import store from "./redux/redux-store";
 import { globalRoutes, privateRoutes, publicRoutes } from "./routes/routes";
 
 
-function App({isAuth}) {
+function App({isAuth, getUser}) {
+
+  useEffect(() => {
+    const session = localStorage.getItem('session');
+    if(session) {
+      getUser(session);
+    }
+  },[])
+
   return (
     <div>
       <Routes>
@@ -36,9 +46,9 @@ function App({isAuth}) {
   );
 }
 
-const AppContainer = (props) => {
+const AppContainer = ({isAuth, getUserDataAndAddHeader}) => {
   return (
-    <App isAuth={props.isAuth}/>
+    <App isAuth={isAuth} getUser={getUserDataAndAddHeader}/>
   )
 };
 
@@ -48,7 +58,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const AppContainerConnect = connect(mapStateToProps, {})(AppContainer);
+const AppContainerConnect = connect(mapStateToProps, {getUserDataAndAddHeader})(AppContainer);
 
 let CryptoChecker = () => {
   return (
