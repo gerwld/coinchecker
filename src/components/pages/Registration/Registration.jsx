@@ -14,7 +14,7 @@ const Register = ({ regSubmit, regStatus, regSuccess }) => {
         <div className={s.login_content}>
           <div className={s.register_block}>
             <div className={s.reg_success}>
-            <span className={s.reg_icon}><AiOutlineCheckCircle /></span>
+              <span className={s.reg_icon}><AiOutlineCheckCircle /></span>
               <span className={s.reg_title}>Registration completed successfully.</span>
               <span className={s.reg_subtitle}>Please check your email for email verification.</span>
               <NavLink className={s.btn_login} to="/login">

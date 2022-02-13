@@ -6,21 +6,23 @@ import { privateRoutes, publicRoutes } from "./routes/routes";
 
 
 function App() {
-  const [isAuth, setAuth] = useState(true);
+  const [isAuth, setAuth] = useState(false);
   return (
     <div>
       <Routes>
         {isAuth
           ? privateRoutes.map((route) => (
               <Route
+                key={route.path}
                 path={route.path}
-                component={<route.component to={route.toUrl ? route.toUrl : ""} />}
+                element={<route.element to={route.toUrl ? route.toUrl : ""} />}
               />
             ))
           : publicRoutes.map((route) => (
               <Route
+                key={route.path}
                 path={route.path}
-                component={<route.component to={route.toUrl ? route.toUrl : ""} />}
+                element={<route.element to={route.toUrl ? route.toUrl : ""} />}
               />
             ))}
       </Routes>

@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { userRegister } from '../../../../redux/auth-reducer';
-import withRouter from '../../../hoc/withRouter';
 import Register from './Registration';
+import withRouter from './../../../../hoc/withRouter';
 
 
 
