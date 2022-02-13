@@ -1,25 +1,32 @@
-import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import MainContainer from './components/MainScreen/MainContainer';
-import store from './redux/redux-store';
-import DashContainer from './components/Dashboard/DashContainer';
-import LoginContainer from './components/Login/LoginContainer';
-import RegContainer from './components/Login/Registration/RegContainer';
+import React, { useState } from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import store from "./redux/redux-store";
+import { privateRoutes, publicRoutes } from "./routes/routes";
+
 
 function App() {
+  const [isAuth, setAuth] = useState(true);
   return (
     <div>
       <Routes>
-      <Route path="/" element={<MainContainer />} />
-      <Route path="dashboard/*" element={<DashContainer />} />
-      <Route path="login/*" element={<LoginContainer />} />
-      <Route path="register/:status" element={<RegContainer />} />
-      <Route path="register" element={<RegContainer />} />
+        {isAuth
+          ? privateRoutes.map((route) => (
+              <Route
+                path={route.path}
+                component={<route.component to={route.toUrl ? route.toUrl : ""} />}
+              />
+            ))
+          : publicRoutes.map((route) => (
+              <Route
+                path={route.path}
+                component={<route.component to={route.toUrl ? route.toUrl : ""} />}
+              />
+            ))}
       </Routes>
     </div>
   );
 }
-
 
 const AppContainer = App;
 
@@ -31,6 +38,6 @@ let CryptoChecker = () => {
       </BrowserRouter>
     </Provider>
   );
-}
+};
 
 export default CryptoChecker;

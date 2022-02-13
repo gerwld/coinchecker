@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { MdOutlineSpaceDashboard } from 'react-icons/md';
+import { RiMenuFoldLine, RiSettings3Line } from 'react-icons/ri';
 import { NavLink } from 'react-router-dom';
 import s from './Aside.module.css';
-import { RiMenuFoldLine, RiSettings3Line } from 'react-icons/ri';
-import { MdOutlineSpaceDashboard } from 'react-icons/md';
 
 const AsideBlock = (props) => {
     //Aside toggle

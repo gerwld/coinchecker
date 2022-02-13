@@ -1,6 +1,6 @@
 import React from 'react';
-import s from './Main.module.css';
 import HeaderMain from './Header/Header';
+import s from './Main.module.css';
 
 const Main = (props) => {
     return (

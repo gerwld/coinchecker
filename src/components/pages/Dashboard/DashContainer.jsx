@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import withRouter from "../../hoc/withRouter";
+import { userLogOut } from "../../redux/auth-reducer";
 import { getCoinOutput } from "../../redux/dashboard-reducer";
 import Dashboard from "./Dashboard";
-import { withAuthRedirect } from "../../hoc/withAuthRedirect";
-import { userLogOut } from "../../redux/auth-reducer";
-import withRouter from "../../hoc/withRouter";
 
 class DashContainer extends React.Component {
   componentDidMount() {
