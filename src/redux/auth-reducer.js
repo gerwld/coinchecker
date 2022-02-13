@@ -1,5 +1,6 @@
 import axios from "axios";
-import { authAPI } from "../api/api";
+
+import AuthService from '../api/AuthService';
 
 const SET_USER_TK = 'coinchecker/dash-reducer/SET_USER_TK';
 const SET_USER_DATA = 'coinchecker/dash-reducer/SET_USER_DATA';
@@ -49,7 +50,7 @@ export const userAuth = (authData) => {
     return async (dispatch, getState) => {
         let authObj = { password: authData.log_password, username: authData.log_login };
         //get auth token
-        await authAPI.getAuth(authObj).then(res => {
+        await AuthService.getAuth(authObj).then(res => {
             if (res.status === 200) {
                 //set it to state & add to all new requests
                 let token = `Bearer ${res.data}`;
@@ -59,7 +60,7 @@ export const userAuth = (authData) => {
             }
         })
         //get user data
-        await authAPI.getCurrentUser(getState().auth.userToken).then(e => {
+        await AuthService.getCurrentUser(getState().auth.userToken).then(e => {
             if (e.status === 200) {
                 dispatch(setUserData(e.data, true));
             }
@@ -78,7 +79,7 @@ export const userLogOut = () => {
 
 export const sendGitCodeToServ = (data) => {
     return async (dispatch) => {
-        authAPI.getGitToken(data.code).then(e => {
+        AuthService.getGitToken(data.code).then(e => {
             console.log(e);
         });
     }
@@ -91,7 +92,7 @@ export const userRegister = (data) => {
             password: data.password,
             username: data.login
         }
-        authAPI.getReg(datainputDto).then(e => {
+        AuthService.getReg(datainputDto).then(e => {
             if (e.status === 200) {
                 dispatch(setRegStatus(true));
             }
