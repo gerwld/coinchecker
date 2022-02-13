@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -44,6 +43,7 @@ function App({ isAuth, getUser, setLoading, isLoading }) {
   );
 }
 
+// Get state params to app container
 const AppContainer = ({ isAuth, getUser, isLoading, setLoading }) => {
   return (
     <App isAuth={isAuth} getUser={getUser} isLoading={isLoading} setLoading={setLoading} />
