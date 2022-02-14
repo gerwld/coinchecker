@@ -29,7 +29,7 @@ const LastSectedItems = ({ block_last }) => {
                         <ShowImage url={coin.image} alt={coin.symbol} newUrl="img/coin.svg" />
                     </div>
                     <span>{coin.name}</span>
-                    <span>{coin.symbol}</span>
+                    <span className={s.coin_symb}>{coin.symbol}</span>
                 </td>
 
                 <td className={s.column_2}><span>${coin.currentPrice}</span></td>
