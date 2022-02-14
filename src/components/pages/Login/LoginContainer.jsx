@@ -1,22 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Navigate } from "react-router";
-
-import { compose } from "redux";
-
 import { sendGitCodeToServ, userAuth } from "../../../redux/auth-reducer";
 import Login from "./Login";
 
-class LoginContainer extends React.Component {
-  loginAction = (e) => {
-    this.props.userAuth(e);
-  };
+export function LoginContainer({ userAuth, sendGitCodeToServ }) {
 
-  render() {
-    return (
-      <Login loginAction={this.loginAction} sendGitCodeToServ={this.props.sendGitCodeToServ} />
-    );
-  }
+  return (
+    <Login loginAction={userAuth} sendGitCodeToServ={sendGitCodeToServ} />
+  );
+
 }
 
 const mapStateToProps = (state) => {
@@ -25,4 +17,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default compose(connect(mapStateToProps, { userAuth, sendGitCodeToServ }))(LoginContainer);
+export default connect(mapStateToProps, { userAuth, sendGitCodeToServ })(LoginContainer);

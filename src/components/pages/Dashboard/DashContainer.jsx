@@ -4,18 +4,17 @@ import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
-import withRouter from "../../../hoc/withRouter";
 import { userLogOut } from "../../../redux/auth-reducer";
 import { getCoinOutput } from "../../../redux/dashboard-reducer";
 import Dashboard from "./Dashboard";
 
-export function DashContainer({getCoinOutput, userLogOut, ...props}) {
-  let navigate = useNavigate();
+export function DashContainer({ getCoinOutput, userLogOut, ...props }) {
+  const navigate = useNavigate();
   useEffect(() => {
     getCoinOutput();
   }, [])
 
-  let logOut = () => {
+  const logOut = () => {
     setTimeout(() => {
       navigate('/');
       userLogOut();
