@@ -152,6 +152,10 @@ table.last_list {
   box-sizing: border-box;
 }
 
+.last_row:nth-last-child(1) {
+  border-bottom: 0;
+}
+
 .last_row:hover {
   background-color: rgb(240, 243, 248);
 }
