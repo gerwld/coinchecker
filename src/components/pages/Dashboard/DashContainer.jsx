@@ -1,5 +1,7 @@
 import React from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 import withRouter from "../../../hoc/withRouter";
@@ -7,22 +9,20 @@ import { userLogOut } from "../../../redux/auth-reducer";
 import { getCoinOutput } from "../../../redux/dashboard-reducer";
 import Dashboard from "./Dashboard";
 
-class DashContainer extends React.Component {
-  componentDidMount() {
-    this.props.getCoinOutput();
-  }
+export function DashContainer({getCoinOutput, userLogOut, ...props}) {
+  let navigate = useNavigate();
+  useEffect(() => {
+    getCoinOutput();
+  }, [])
 
-  logOut = () => {
+  let logOut = () => {
     setTimeout(() => {
-      this.props.router.navigate("/");
-      localStorage.removeItem('session');
-      this.props.userLogOut();
+      navigate('/');
+      userLogOut();
     }, 500);
   };
 
-  render() {
-    return <Dashboard last={this.props.last_added} userData={this.props.userData} logOut={this.logOut} />;
-  }
+  return <Dashboard last={props.last_added} userData={props.userData} logOut={logOut} />;
 }
 
 let mapStateToProps = (state) => {
@@ -32,4 +32,4 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default compose(connect(mapStateToProps, { getCoinOutput, userLogOut }), withAuthRedirect, withRouter)(DashContainer);
+export default compose(connect(mapStateToProps, { getCoinOutput, userLogOut }), withAuthRedirect)(DashContainer);

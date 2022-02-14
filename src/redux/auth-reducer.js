@@ -80,6 +80,7 @@ export const userLogOut = () => {
     return (dispatch) => {
         dispatch(setUserData(null, false));
         dispatch(setUserToken(null));
+        localStorage.removeItem('session');
         axios.defaults.headers.post['Authorization'] = '';
         axios.defaults.headers.common['Authorization'] = '';
     }

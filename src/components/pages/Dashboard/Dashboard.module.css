@@ -19,6 +19,9 @@
 
 .dashboard_content {
     flex: 1 0;
+    height: 100vh;
+    min-height: 500px;
+    overflow: hidden;
 }
 
 .content_block {

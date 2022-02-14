@@ -26,13 +26,6 @@ const Dashboard = (props) => {
                 </main>
                 <footer className={s.footer_dash}></footer>
             </div>
-
-            <style>{"\
-        body{\
-          overflow:hidden;\
-          height:100vh;\
-        }\
-      "}</style>
         </div>
     )
 };
