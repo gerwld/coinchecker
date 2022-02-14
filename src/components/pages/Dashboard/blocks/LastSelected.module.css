@@ -14,7 +14,7 @@
 
 .last_view {
   width: 700px;
-  padding: 20px 0 20px;
+  padding: 0;
   font-size: 15px;
 }
 
@@ -25,13 +25,9 @@
   color: var(--color-primary-darkblue);
 }
 
-.last_row {
-  position: relative;
-}
-
 .last_row .coin_img img {
   position: absolute;
-  left: 15px;
+  left: 0;
   bottom: calc(50% - 9px);
   display: inline-block;
   width: 20px;
@@ -88,7 +84,8 @@ table.last_list {
 /* prop search end */
 
 .column_1 {
-  padding-left: 50px;
+  position: relative;
+  padding-left: 30px;
   text-align: left;
 }
 
@@ -105,6 +102,54 @@ table.last_list {
 }
 
 .column_5 {
-  padding-right: 20px;
   text-align: right;
+}
+
+.head_0 {
+  text-align: center;
+}
+.head_1 {
+  text-align: left;
+}
+.head_2 {
+  text-align: right;
+}
+.head_3 {
+  padding-left: 10px;
+  text-align: center;
+}
+.head_4 {
+  padding-right: 10px;
+  text-align: right;
+}
+.head_5 {
+  text-align: center;
+}
+
+.last_row {
+  padding: 10px 15px;
+  border-bottom: var(--border-lightgray);
+  box-sizing: border-box;
+}
+
+/* left & right paddings */
+.last_row td:nth-child(1),
+.last_row th:nth-child(1) {
+  padding-left: 20px;
+}
+
+.last_row td:nth-last-child(1),
+.last_row th:nth-last-child(1) {
+  padding-right: 20px;
+}
+
+/* Top block margin */
+
+.last_view header {
+  margin: 20px;
+}
+
+.last_row td {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

@@ -21,6 +21,7 @@ const LastSectedItems = ({ block_last }) => {
         return (
             <tr key={coin.id} className={s.last_row}>
                 <td className={s.column_0}>
+                    <span>star</span>
                     <span>{coin.id}.</span>
                 </td>
                 <td className={s.column_1}>
@@ -58,11 +59,12 @@ const LastSectedItems = ({ block_last }) => {
                 <table className={s.last_list}>
                     <tbody>
                         <tr className={s.last_head}>
-                            <th><span>Coin</span></th>
-                            <th><span>Price</span></th>
-                            <th><span>24h</span></th>
-                            <th><span>24h Volume</span></th>
-                            <th><span>Capitalization</span></th>
+                            <th className={s.head_0}><span>#</span></th>
+                            <th className={s.head_1}><span>Coin</span></th>
+                            <th className={s.head_2}><span>Price</span></th>
+                            <th className={s.head_3}><span>24h</span></th>
+                            <th className={s.head_4}><span>24h Volume</span></th>
+                            <th className={s.head_5}><span>Capitalization</span></th>
                         </tr>
                         {items}
                     </tbody>
