@@ -1,5 +1,4 @@
 import React from "react";
-
 import BoardService from "../api/BoardService";
 
 const LOAD_LAST_ITEMS = "coinchecker/dash-reducer/LOAD_LAST_ITEMS";
@@ -42,16 +41,8 @@ const dashReducer = (state = initialState, action) => {
 //Thunk Creator
 export const getCoinOutput = () => {
   return async (dispatch) => {
-    let data = await BoardService.getData().then((r) => {
-      return r.data.map((r) => ({
-        id: r.id,
-        name: r.ticker,
-        price: r.price,
-        logoUrl: r.logoUrl,
-        holdings: 600,
-        daychange: { diff: "1.1", isUp: false },
-      }));
-    });
+    let data = await BoardService.getData().then(r => r.data.content);
+    console.log(data[0]);
     dispatch(loadItems(data));
   };
 };

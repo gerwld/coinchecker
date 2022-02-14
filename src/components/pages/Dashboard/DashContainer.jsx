@@ -21,7 +21,10 @@ export function DashContainer({ getCoinOutput, userLogOut, ...props }) {
     }, 500);
   };
 
-  return <Dashboard last={props.last_added} userData={props.userData} logOut={logOut} />;
+  return <Dashboard block_last={props.last_added} 
+                    userData={props.userData} 
+                    logOut={logOut} 
+          />;
 }
 
 let mapStateToProps = (state) => {

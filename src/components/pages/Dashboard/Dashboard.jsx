@@ -7,7 +7,7 @@ import LastSectedItems from './blocks/LastSelected';
 import s from './Dashboard.module.css';
 
 
-const Dashboard = (props) => {
+const Dashboard = ({block_last, ...props}) => {
     return (
         <div className={s.dashboard_overlay}>
             <AsideBlock />
@@ -21,7 +21,7 @@ const Dashboard = (props) => {
                 </header>
                 <main className={s.main_dash}>
                     <h1>Dashboard</h1>
-                    <LastSectedItems items={props.last} />
+                    <LastSectedItems block_last={block_last} />
 
                 </main>
                 <footer className={s.footer_dash}></footer>

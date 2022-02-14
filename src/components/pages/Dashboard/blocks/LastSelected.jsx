@@ -2,20 +2,19 @@ import React from 'react'
 import ShowImage from '../../../../utils/ShowImage';
 import s from './LastSelected.module.css';
 
-const LastSectedItems = ({ items }) => {
+const LastSectedItems = ({ block_last }) => {
 
   //map items
-  items = items.map(e => {
-      let price = e.price.length <= 2 ? e.price + '.00' : e.price;
+  const items = block_last.map(coin => {
       return (
-          <tr key={e.id} className={s.selected_item}>
+          <tr key={coin.id} className={s.selected_item}>
               <td className={s.cell}>
-                  <div className={s.prev}><ShowImage url={e.logoUrl} alt={e.alt} newUrl="img/coin.svg" /></div>
-                  <span>{e.name}</span></td>
-              <td className={s.cell}><span>${price}</span></td>
-              <td className={s.cell}><span>{e.source}</span></td>
-              <td className={s.cell}><span>{e.daychange.diff}{e.daychange.isUp ? ' +' : ' -'}</span></td>
-              <td className={s.cell}><span>${e.holdings}</span></td>
+                  <div className={s.prev}><ShowImage url={coin.image} alt={coin.symbol} newUrl="img/coin.svg" /></div>
+                  <span>{coin.name}</span></td>
+              <td className={s.cell}><span>${coin.currentPrice}</span></td>
+              {/* <td className={s.cell}><span>{coin.source}</span></td> */}
+              {/* <td className={s.cell}><span>{coin.daychange.diff}{coin.daychange.isUp ? ' +' : ' -'}</span></td> */}
+              {/* <td className={s.cell}><span>${coin.holdings}</span></td> */}
           </tr>
       );
   })

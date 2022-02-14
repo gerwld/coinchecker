@@ -6,6 +6,6 @@ const instance = axios.create({
 
 export default class BoardService {
   static async getData() {
-    return instance.get("coins");
+    return axios.get("http://164.90.236.61:8000/api/core/coins");
   }
 }

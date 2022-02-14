@@ -10,6 +10,8 @@
 
 .main_dash {
     padding: 15px 25px 0;
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
 }
 .main_dash h1 {
     color: #3d434e;
