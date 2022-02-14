@@ -159,7 +159,7 @@ table.last_list {
 /* left & right paddings */
 .last_row td:nth-child(1),
 .last_row th:nth-child(1) {
-  padding-left: 15px;
+  padding-left: 10px;
 }
 
 .last_row td:nth-last-child(1),
@@ -174,21 +174,26 @@ table.last_list {
 }
 
 .last_row td {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .fav_btn {
-  padding: 0;
+  padding: 5px;
   font-size: 19px;
   line-height: 0;
   border: none;
   background-color: transparent;
   color: var(--color-primary-gray);
+  transition: color 0.3s ease;
+}
+
+.fav_btn:hover {
+  color: #000;
 }
 
 .last_row .column_0 {
-  padding-top: 12px;
+  padding-top: 9px;
   padding-bottom: 8px;
 }
 
@@ -196,6 +201,6 @@ table.last_list {
   font-size: 0.9em;
   font-weight: 400;
   line-height: 0.9em;
-  margin-left: 12px;
+  margin-left: 5px;
   margin-right: 5px;
 }
