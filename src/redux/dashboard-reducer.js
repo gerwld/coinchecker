@@ -5,7 +5,6 @@ const LOAD_LAST_ITEMS = "coinchecker/dash-reducer/LOAD_LAST_ITEMS";
 export const loadItems = (items) => ({ type: LOAD_LAST_ITEMS, items });
 
 let initialState = {
-  name: "Test redux",
   last_added: [],
 };
 
@@ -21,7 +20,7 @@ const dashReducer = (state = initialState, action) => {
   }
 };
 
-//Thunk Creator
+
 export const getCoinOutput = () => {
   return async (dispatch) => {
     let data = await BoardService.getData().then(r => r.data.content);

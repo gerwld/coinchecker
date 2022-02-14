@@ -3,14 +3,13 @@ import { Pl, Ua, Us } from 'react-flags-select';
 import { NavLink } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
 import withClickOutside from '../../../hoc/withClickOutside';
-import useOutsideClickHide from '../../../hooks/useOutsideClick';
 import HeaderTrends from '../../pages/MainScreen/HeaderTrends/HeaderTrends';
 import s from './Header.module.css';
 
-const HeaderMain = (props) => {
+const HeaderMain = ({isAuth, logOut, ...props}) => {
   return (
     <>
-      <HeaderSection />
+      <HeaderSection isAuth={isAuth} logOut={logOut} />
       <div className={s.header_section1}>
         <div className="content-wrapper">
           <h1 className={s.header_title}>Start and Build Your Crypto Portfolio Here</h1>
@@ -23,7 +22,7 @@ const HeaderMain = (props) => {
   );
 };
 
-export const HeaderSection = ({blueMode}) => {
+export const HeaderSection = ({isAuth = false, logOut, blueMode}) => {
   const headBar = useRef(0);
   const jumpFix = useRef(0);
   const headHeight = headBar.current.clientHeight
@@ -77,7 +76,9 @@ export const HeaderSection = ({blueMode}) => {
         <nav className={s.main_nav} role="navigation">
           <LangSelect currLang='EN' />
           <div className={s.element_btn}>
-            <NavLink to="/login" className={(e) => e.isActive ? 'active_a' : ''}><span>Sign In</span></NavLink>
+          {isAuth 
+           ? <button onClick={logOut}>Sign Out</button>
+           : <NavLink to="/login"><span>Sign In</span></NavLink>}
           </div>
         </nav>
       </div>

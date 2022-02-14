@@ -97,11 +97,16 @@
     flex-basis: 100%;
   }
   
-  .main_nav a {
+  .main_nav a,
+  .element_btn button {
     position: relative;
     padding: 10px 20px;
     text-decoration: none;
     color: var(--color-primary-black);
+  }
+
+  .element_btn button {
+    line-height: 0;
   }
 
   .main_nav .element a::after {
@@ -199,13 +204,16 @@
     border-color: #fff;
   }
 
-  .element_btn a {
+  .element_btn a,
+  .element_btn button {
     color: #fff;
     background-color: var(--color-primary-blue);
     height: 50%;
+    font-weight: 500;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.2s ease-in;
+    border: none;
   }
 
   .blue_mode .element_btn a {
@@ -219,7 +227,8 @@
 
   /* Btn hovers */
   .explore:hover,
-  .element_btn a:hover {
+  .element_btn a:hover,
+  .element_btn button:hover {
     background-color: var(--color-primary-darkblue);
   }
   

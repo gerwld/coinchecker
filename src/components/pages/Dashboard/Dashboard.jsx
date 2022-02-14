@@ -7,7 +7,7 @@ import LastSectedItems from './blocks/LastSelected';
 import s from './Dashboard.module.css';
 
 
-const Dashboard = ({block_last, ...props}) => {
+const Dashboard = ({block_last, logOut, ...props}) => {
     return (
         <div className={s.dashboard_overlay}>
             <AsideBlock />
@@ -17,7 +17,7 @@ const Dashboard = ({block_last, ...props}) => {
 
                     <SearchResults />
                     <LastNotifications />
-                    <ProfSettings userData={props.userData} logOut={props.logOut} />
+                    <ProfSettings userData={props.userData} logOut={logOut} />
                 </header>
                 <main className={s.main_dash}>
                     <LastSectedItems block_last={block_last} />
@@ -55,7 +55,7 @@ const ProfSettings = withClickOutside(({refE, setShow, isShow, userData, logOut,
                     <ul>
                         <li><button><RiSettings3Line />Profile Settings</button></li>
                         <li><button><BiHelpCircle />Help</button></li>
-                        <li><button onClick={logOut}><RiLogoutBoxRLine />Log Out</button></li>
+                        <li><button onClick={logOut}><RiLogoutBoxRLine />Sign Out</button></li>
                     </ul>
                 </div>
             </div>
