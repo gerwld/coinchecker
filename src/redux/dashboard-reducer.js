@@ -6,24 +6,7 @@ export const loadItems = (items) => ({ type: LOAD_LAST_ITEMS, items });
 
 let initialState = {
   name: "Test redux",
-  last_added: [
-    {
-      id: "plc_1!",
-      name: "BTC",
-      price: 40000,
-      source: "Google. inc",
-      daychange: { diff: "2.23", isUp: true },
-      holdings: 100,
-    },
-    {
-      id: "plc_2!",
-      name: "ETH",
-      price: 2000,
-      source: "Google. inc",
-      daychange: { diff: "1.1", isUp: false },
-      holdings: 300,
-    },
-  ],
+  last_added: [],
 };
 
 const dashReducer = (state = initialState, action) => {

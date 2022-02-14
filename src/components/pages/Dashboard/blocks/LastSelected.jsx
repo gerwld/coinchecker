@@ -2,6 +2,7 @@ import React from 'react'
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import ShowImage from '../../../../utils/ShowImage';
 import s from './LastSelected.module.css';
+import Loader from '../../../UI/Loader/Loader';
 
 const LastSectedItems = ({ block_last }) => {
 
@@ -68,7 +69,8 @@ const LastSectedItems = ({ block_last }) => {
                             <th className={s.head_4}><span>24h Volume</span></th>
                             <th className={s.head_5}><span>Capitalization</span></th>
                         </tr>
-                        {items}
+                        {items.length > 0 ? items : <tr className={s.loader}><Loader /></tr>}
+                        
                     </tbody>
                 </table>
             </div>
