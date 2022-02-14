@@ -50,6 +50,7 @@
 
 table.last_list {
   width: 100%;
+  font-size: 0.95em;
   border-collapse: collapse;
 }
 
@@ -168,7 +169,7 @@ table.last_list {
 
 .last_row td:nth-last-child(1),
 .last_row th:nth-last-child(1) {
-  padding-right: 20px;
+  padding-right: 25px;
 }
 
 /* Top block margin */
