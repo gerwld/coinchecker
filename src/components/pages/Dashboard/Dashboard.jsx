@@ -20,7 +20,7 @@ const Dashboard = ({block_last, ...props}) => {
                     <ProfSettings userData={props.userData} logOut={props.logOut} />
                 </header>
                 <main className={s.main_dash}>
-                    <h1>Dashboard</h1>
+                    {/* <h1>Dashboard</h1> */}
                     <LastSectedItems block_last={block_last} />
 
                 </main>
