@@ -11,6 +11,7 @@
   --color-primary-lightgray: #E9F0FF;
   --color-primary-lightgray2:#F0F4FC;
   --border-lightgray: 1px solid rgba(91,97,110,0.2);
+  --border-radius-block: 0.8vw;
   }
 
 body {

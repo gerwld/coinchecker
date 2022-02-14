@@ -1,4 +1,5 @@
 import React from 'react'
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import ShowImage from '../../../../utils/ShowImage';
 import s from './LastSelected.module.css';
 
@@ -16,13 +17,14 @@ const LastSectedItems = ({ block_last }) => {
         const formatter = new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD',
-      
         });
+
+        // <AiFillStar/>
         return (
             <tr key={coin.id} className={s.last_row}>
                 <td className={s.column_0}>
-                    <span>star</span>
-                    <span>{coin.id}.</span>
+                    <button className={s.fav_btn}><AiOutlineStar /></button>
+                    <span className={s.id}>{coin.id}</span>
                 </td>
                 <td className={s.column_1}>
                     <div className={s.coin_img}>
