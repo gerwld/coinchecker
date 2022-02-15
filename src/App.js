@@ -62,7 +62,7 @@ const AppContainerConnect = connect(mapStateToProps, { getUser, setLoading })(Ap
 let CryptoChecker = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter>
         <AppContainerConnect />
       </BrowserRouter>
     </Provider>
