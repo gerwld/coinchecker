@@ -1,13 +1,15 @@
 import React from 'react';
 import { BiHelpCircle } from 'react-icons/bi';
 import { RiLogoutBoxRLine, RiSettings3Line } from 'react-icons/ri';
+import { Route, Routes } from 'react-router';
 import withClickOutside from '../../../hoc/withClickOutside';
 import AsideBlock from '../../UI/Aside/Aside';
 import LastSectedItems from './blocks/LastSelected';
 import s from './Dashboard.module.css';
+import DashFav from './DashFav';
 
 
-const Dashboard = ({block_last, logOut, ...props}) => {
+const Dashboard = ({ block_last, logOut, ...props }) => {
     return (
         <div className={s.dashboard_overlay}>
             <AsideBlock />
@@ -19,10 +21,14 @@ const Dashboard = ({block_last, logOut, ...props}) => {
                     <LastNotifications />
                     <ProfSettings userData={props.userData} logOut={logOut} />
                 </header>
-                <main className={s.main_dash}>
-                    <LastSectedItems block_last={block_last} />
 
+                <main className={s.main_dash}>
+                    <Routes>
+                        <Route path="/" element={<LastSectedItems block_last={block_last} />} />
+                        <Route path="/fav" element={<DashFav />} />
+                    </Routes>
                 </main>
+                
                 <footer className={s.footer_dash}></footer>
             </div>
         </div>
@@ -30,7 +36,9 @@ const Dashboard = ({block_last, logOut, ...props}) => {
 };
 
 
-const SearchResults = withClickOutside(({refE, setShow, isShow, ...props}) => {
+
+
+const SearchResults = withClickOutside(({ refE, setShow, isShow, ...props }) => {
     return (
         <div className={s.dashboard_search} ref={refE}>
             <input onFocus={() => setShow(true)} type="text" id="db_search" />
@@ -43,7 +51,7 @@ const SearchResults = withClickOutside(({refE, setShow, isShow, ...props}) => {
     )
 });
 
-const ProfSettings = withClickOutside(({refE, setShow, isShow, userData, logOut, ...props}) => {
+const ProfSettings = withClickOutside(({ refE, setShow, isShow, userData, logOut, ...props }) => {
     return (
         <div className={`${s.dashboard_wrapper} ${isShow ? s.show_settings : ''}`} ref={refE}>
             <div className={s.dashboard_cuser} onClick={() => setShow(!isShow)}>
@@ -64,7 +72,7 @@ const ProfSettings = withClickOutside(({refE, setShow, isShow, userData, logOut,
     )
 });
 
-const LastNotifications = withClickOutside(({refE, setShow, isShow, ...props}) => {
+const LastNotifications = withClickOutside(({ refE, setShow, isShow, ...props }) => {
     return (
         <div ref={refE} className={`${s.dashboard_notifications} ${isShow ? s.show_block : ''}`}>
             <button className={s.dash_notific} onClick={() => setShow(!isShow)}>Notifications</button>
