@@ -24,3 +24,11 @@ export default class BoardService {
     return axios.delete(`http://164.90.236.61:8000/api/core/coins/${coinId}/delete-from-favorites`);
   }
 }
+
+export const fetchFavCoin = (coinId, isFav) => {
+  if(isFav) {
+    BoardService.setFavCoin(coinId);
+  } else {
+    BoardService.delFavCoin(coinId);
+  }
+}
