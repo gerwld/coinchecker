@@ -4,7 +4,7 @@ import ShowImage from '../../../../../utils/ShowImage';
 import s from './ShowCoinsBlock.module.css';
 import Loader from '../../../../UI/Loader/Loader';
 
-const ShowCoinsBlock = ({ title, items }) => {
+const ShowCoinsBlock = ({ title, items, total }) => {
 
     function getChangeClass(price) {
         const priceSign = Math.sign(price);
@@ -13,7 +13,7 @@ const ShowCoinsBlock = ({ title, items }) => {
     }
 
     //map items
-    const itemsMap = items.map(coin => {
+    const itemsMap = items?.map(coin => {
         const perc = coin.priceChangePercentage24h ? coin.priceChangePercentage24h : 0;
         const formatter = new Intl.NumberFormat('en-US', {
             style: 'currency',
@@ -24,7 +24,7 @@ const ShowCoinsBlock = ({ title, items }) => {
         return (
             <tr key={coin.id} className={s.last_row}>
                 <td className={s.column_0}>
-                    <button className={s.fav_btn}><AiOutlineStar /></button>
+                    <button className={s.fav_btn}>{coin.favorite ? <AiFillStar/> : <AiOutlineStar /> }</button>
                     <span className={s.id}>{coin.id}</span>
                 </td>
                 <td className={s.column_1}>
@@ -69,7 +69,8 @@ const ShowCoinsBlock = ({ title, items }) => {
                             <th className={s.head_4}><span>24h Volume</span></th>
                             <th className={s.head_5}><span>Capitalization</span></th>
                         </tr>
-                        {itemsMap.length > 0 ? itemsMap : <tr className={s.loader}><Loader /></tr>}
+                        {items && itemsMap.length > 0 || total === 0 ? itemsMap : <tr className={s.loader}><Loader /></tr>}
+                        {total === 0 ? <tr><td colSpan={6} className={s.no_items}>No items to show.</td></tr> : ''}
 
                     </tbody>
                 </table>

@@ -25,7 +25,7 @@ const Dashboard = ({ block_last, logOut, ...props }) => {
                 <main className={s.main_dash}>
                     <Routes>
                         <Route path="/" element={<MainPage block_last={block_last} />} />
-                        <Route path="/fav" element={<FavPage block_last={block_last} />} />
+                        <Route path="/fav" element={<FavPage />} />
                     </Routes>
                 </main>
 
