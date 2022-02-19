@@ -1,8 +1,8 @@
 import React from 'react'
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import ShowImage from '../../../../utils/ShowImage';
+import ShowImage from '../../../../../utils/ShowImage';
 import s from './LastSelected.module.css';
-import Loader from '../../../UI/Loader/Loader';
+import Loader from '../../../../UI/Loader/Loader';
 
 const LastSectedItems = ({ block_last }) => {
 

@@ -4,9 +4,9 @@ import { RiLogoutBoxRLine, RiSettings3Line } from 'react-icons/ri';
 import { Route, Routes } from 'react-router';
 import withClickOutside from '../../../hoc/withClickOutside';
 import AsideBlock from '../../UI/Aside/Aside';
-import LastSectedItems from './blocks/LastSelected';
+import LastSectedItems from './blocks/LastSelected/LastSelected';
 import s from './Dashboard.module.css';
-import DashFav from './DashFav';
+import DashFav from './blocks/DashFav/DashFav';
 
 
 const Dashboard = ({ block_last, logOut, ...props }) => {
@@ -28,7 +28,7 @@ const Dashboard = ({ block_last, logOut, ...props }) => {
                         <Route path="/fav" element={<DashFav />} />
                     </Routes>
                 </main>
-                
+
                 <footer className={s.footer_dash}></footer>
             </div>
         </div>
