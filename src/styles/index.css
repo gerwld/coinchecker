@@ -110,8 +110,6 @@ body {
   width: 6px;
   height: 6px;
   position: absolute;
-  right: 1.2vw;
-  bottom: 19px;
   border: 1px solid gray;
   border-width: 0 0 2px 2px;
   transform: rotate(-45deg);

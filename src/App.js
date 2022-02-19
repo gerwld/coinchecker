@@ -8,6 +8,7 @@ import { setLoading } from "./redux/app-reducer";
 import { getUser } from "./redux/auth-reducer";
 import store from "./redux/redux-store";
 import { globalRoutes, privateRoutes, publicRoutes } from "./routes/routes";
+import "./styles/index.css";
 
 
 function App({ isAuth, getUser, setLoading, isLoading }) {
