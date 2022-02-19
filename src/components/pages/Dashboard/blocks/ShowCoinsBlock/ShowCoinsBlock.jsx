@@ -69,9 +69,8 @@ const ShowCoinsBlock = ({ title, items, total }) => {
                             <th className={s.head_4}><span>24h Volume</span></th>
                             <th className={s.head_5}><span>Capitalization</span></th>
                         </tr>
-                        {items && itemsMap.length > 0 || total === 0 ? itemsMap : <tr className={s.loader}><Loader /></tr>}
-                        {total === 0 ? <tr><td colSpan={6} className={s.no_items}>No items to show.</td></tr> : ''}
-
+                        {items && itemsMap.length > 0 || total === 0 ? itemsMap : <tr><td colSpan="6" className={s.loader}><Loader /></td></tr>}
+                        {total === 0 ? <tr><td colSpan="6" className={s.no_items}>No items to show.</td></tr> : null}
                     </tbody>
                 </table>
             </div>
