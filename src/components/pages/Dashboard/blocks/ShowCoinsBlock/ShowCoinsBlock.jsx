@@ -1,10 +1,10 @@
 import React from 'react'
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import ShowImage from '../../../../../utils/ShowImage';
-import s from './LastSelected.module.css';
+import s from './ShowCoinsBlock.module.css';
 import Loader from '../../../../UI/Loader/Loader';
 
-const LastSectedItems = ({ block_last }) => {
+const ShowCoinsBlock = ({ title, items }) => {
 
     function getChangeClass(price) {
         const priceSign = Math.sign(price);
@@ -13,7 +13,7 @@ const LastSectedItems = ({ block_last }) => {
     }
 
     //map items
-    const items = block_last.map(coin => {
+    const itemsMap = items.map(coin => {
         const perc = coin.priceChangePercentage24h ? coin.priceChangePercentage24h : 0;
         const formatter = new Intl.NumberFormat('en-US', {
             style: 'currency',
@@ -48,7 +48,7 @@ const LastSectedItems = ({ block_last }) => {
     return (
         <div className={`${s.content_block} ${s.last_view}`}>
             <header>
-                <h2 className={s.title}>Top 20 Cap Coins</h2>
+                <h2 className={s.title}>{title}</h2>
                 <div className={s.prop_block}>
                     <div className={s.prop_search}>
                         <input type="text" id="search_last" placeholder="Search..." />
@@ -69,8 +69,8 @@ const LastSectedItems = ({ block_last }) => {
                             <th className={s.head_4}><span>24h Volume</span></th>
                             <th className={s.head_5}><span>Capitalization</span></th>
                         </tr>
-                        {items.length > 0 ? items : <tr className={s.loader}><Loader /></tr>}
-                        
+                        {itemsMap.length > 0 ? itemsMap : <tr className={s.loader}><Loader /></tr>}
+
                     </tbody>
                 </table>
             </div>
@@ -78,4 +78,4 @@ const LastSectedItems = ({ block_last }) => {
     )
 }
 
-export default LastSectedItems;
+export default ShowCoinsBlock;
