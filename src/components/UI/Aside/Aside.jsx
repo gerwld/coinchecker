@@ -24,7 +24,7 @@ const AsideBlock = (props) => {
                     <li><NavLink to="/dashboard" className={s.dropdown}>CRM</NavLink></li>
                     <li><NavLink to="/dashboard">Orders</NavLink></li>
                     <li><NavLink to="/dashboard">Stocks</NavLink></li>
-                    <li><NavLink to="/dashboard/settings"><RiSettings3Line/>Settings</NavLink></li>
+                    <li><NavLink to="/dashboard/settings" className={(e) => e.isActive ? s.active_a : ''}><RiSettings3Line/>Settings</NavLink></li>
                 </ul>
             </nav>
         </aside>
