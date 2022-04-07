@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MdOutlineSpaceDashboard } from 'react-icons/md';
 import { RiMenuFoldLine, RiSettings3Line } from 'react-icons/ri';
-import { AiFillStar } from 'react-icons/ai';
+import { AiOutlineStar } from 'react-icons/ai';
 import { NavLink, useLocation } from 'react-router-dom';
 import s from './Aside.module.css';
 
@@ -20,7 +20,7 @@ const AsideBlock = (props) => {
             <nav className={s.aside_menu}>
                 <ul>
                     <li><NavLink to="/dashboard" className={isBaseUrl ? s.active_a : ''}><MdOutlineSpaceDashboard />Dashboard</NavLink></li>
-                    <li><NavLink to="/dashboard/fav" className={(e) => e.isActive ? s.active_a : ''}><AiFillStar />Saved Coins</NavLink></li>
+                    <li><NavLink to="/dashboard/fav" className={(e) => e.isActive ? s.active_a : ''}><AiOutlineStar />Saved Coins</NavLink></li>
                     <li><NavLink to="/dashboard" className={s.dropdown}>CRM</NavLink></li>
                     <li><NavLink to="/dashboard">Orders</NavLink></li>
                     <li><NavLink to="/dashboard">Stocks</NavLink></li>
