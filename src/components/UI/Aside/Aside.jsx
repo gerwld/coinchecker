@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { MdOutlineSpaceDashboard } from 'react-icons/md';
 import { RiMenuFoldLine, RiSettings3Line } from 'react-icons/ri';
-import { NavLink } from 'react-router-dom';
+import { AiFillStar } from 'react-icons/ai';
+import { NavLink, useLocation } from 'react-router-dom';
 import s from './Aside.module.css';
 
 const AsideBlock = (props) => {
     //Aside toggle
     const [isAsideHide, setAside] = useState(false);
+    const isBaseUrl = useLocation().pathname === "/dashboard";
+    console.log(isBaseUrl);
     const logoText = isAsideHide ? 'CC' : 'CoinChecker';
 
     return (
@@ -16,12 +19,12 @@ const AsideBlock = (props) => {
 
             <nav className={s.aside_menu}>
                 <ul>
-                    <li><NavLink to="/dashboard" className={(e) => e.isActive ? s.active_a : ''}><MdOutlineSpaceDashboard />Dashboard</NavLink></li>
-                    <li><NavLink to="/dashboard/fav" className={s.dropdown}>Saved Coins</NavLink></li>
-                    <li><NavLink to="/" className={s.dropdown}>CRM</NavLink></li>
-                    <li><NavLink to="/">Orders</NavLink></li>
-                    <li><NavLink to="/">Stocks</NavLink></li>
-                    <li><NavLink to="/settings"><RiSettings3Line/>Settings</NavLink></li>
+                    <li><NavLink to="/dashboard" className={isBaseUrl ? s.active_a : ''}><MdOutlineSpaceDashboard />Dashboard</NavLink></li>
+                    <li><NavLink to="/dashboard/fav" className={(e) => e.isActive ? s.active_a : ''}><AiFillStar />Saved Coins</NavLink></li>
+                    <li><NavLink to="/dashboard" className={s.dropdown}>CRM</NavLink></li>
+                    <li><NavLink to="/dashboard">Orders</NavLink></li>
+                    <li><NavLink to="/dashboard">Stocks</NavLink></li>
+                    <li><NavLink to="/dashboard/settings"><RiSettings3Line/>Settings</NavLink></li>
                 </ul>
             </nav>
         </aside>

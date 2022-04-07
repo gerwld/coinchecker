@@ -7,7 +7,6 @@ const MainPage = ({ block_last }) => {
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(getCoinOutput());
-    console.log('я родился');
   }, [])
   return (
     <div>

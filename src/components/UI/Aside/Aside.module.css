@@ -68,6 +68,11 @@ a.dropdown::after {
     margin-bottom: 5px;
 }
 
+.aside_menu li,
+.aside_menu a {
+    height: 43px;
+}
+
 .aside_menu ul a:hover {
     background-color: var(--color-primary-lightgray2);
 }
