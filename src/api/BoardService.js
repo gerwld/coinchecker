@@ -9,12 +9,11 @@ export default class BoardService {
     return axios.get("http://159.223.218.84:8000/api/core/coins");
   }
 
-  static async getFavCoins(page = 1, size = 10, sort = '') {
+  static async getFavCoins(page = 0, size = 10, sort = '') {
     return axios.get("http://159.223.218.84:8000/api/core/coins/favorites", {
       params: {
         page,
         size,
-        sort
       }}).then(r => r.data)
   }
   static async setFavCoin(coinId) {
