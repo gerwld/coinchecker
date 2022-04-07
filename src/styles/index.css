@@ -129,3 +129,40 @@ body {
 .change_red {
   color: red;
 }
+
+/* Pagination styles */
+
+.rc-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 15px 0;
+}
+
+.rc-pagination button {
+  line-height: 17px;
+  font-size: 17px;
+}
+
+.rc-pagination-prev button:after {
+  content: '‹';
+  display: block;
+}
+
+.rc-pagination-next button:after {
+  content: '›';
+  display: block;
+}
+
+.rc-pagination li a {
+  display: block;
+  width: 25px;
+  height: auto;
+  margin: 0 5px;
+
+  text-align: center;
+  border: 1px solid #e3e3e3;
+}
+
+/* Pagination styles end */

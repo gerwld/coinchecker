@@ -6,9 +6,10 @@ import ShowImage from '../../../../../utils/ShowImage';
 import Loader from '../../../../UI/Loader/Loader';
 import { fetchFavCoin } from '../../../../../api/BoardService';
 import {FiRefreshCw} from "react-icons/fi"
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { selectShowCount } from '../../../../../redux/reducers/dashboard-reducer';
+
+import Pagination from 'rc-pagination';
 
 
 const ShowCoinsBlock = ({ title, items, total, onRefresh, show_last = 15 }) => {
@@ -54,6 +55,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, show_last = 15 }) => {
                     </tbody>
                 </table>
             </div>
+            <Pagination />
         </div>
     )
 }
