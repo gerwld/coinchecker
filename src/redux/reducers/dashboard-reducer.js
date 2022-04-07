@@ -1,5 +1,5 @@
 import React from "react";
-import BoardService from "../api/BoardService";
+import BoardService from "../../api/BoardService";
 
 const LOAD_LAST_ITEMS = "coinchecker/dash-reducer/LOAD_LAST_ITEMS";
 const GET_FAV_COINS = "coinchecker/dash-reducer/GET_FAV_COINS";

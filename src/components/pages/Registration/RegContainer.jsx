@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { userRegister } from '../../../redux/auth-reducer';
+import { userRegister } from '../../../redux/reducers/auth-reducer';
 import Register from './Registration';
 import withRouter from '../../../hoc/withRouter';
 

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react'
 import { useEffect } from 'react'
-import { getFavCoins } from '../../../../redux/dashboard-reducer';
+import { getFavCoins } from '../../../../redux/reducers/dashboard-reducer';
 import ShowCoinsBlock from '../blocks/ShowCoinsBlock/ShowCoinsBlock'
 
 const FavPage = ({ getFavCoins, favCoins, totalCount }) => {

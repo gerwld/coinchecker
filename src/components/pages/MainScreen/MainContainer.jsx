@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { userLogOut } from '../../../redux/auth-reducer';
+import { userLogOut } from '../../../redux/reducers/auth-reducer';
 import Main from './Main';
 
 const MainContainer = ({ headTrends, isAuth, userLogOut }) => {

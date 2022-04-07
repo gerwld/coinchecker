@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import AuthService from '../api/AuthService';
+import AuthService from '../../api/AuthService';
 
 const SET_USER_TK = 'coinchecker/dash-reducer/SET_USER_TK';
 const SET_USER_DATA = 'coinchecker/dash-reducer/SET_USER_DATA';

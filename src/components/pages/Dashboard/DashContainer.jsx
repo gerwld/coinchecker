@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
-import { userLogOut } from "../../../redux/auth-reducer";
-import { getCoinOutput } from "../../../redux/dashboard-reducer";
+import { userLogOut } from "../../../redux/reducers/auth-reducer";
+import { getCoinOutput } from "../../../redux/reducers/dashboard-reducer";
 import Dashboard from "./Dashboard";
 
 export function DashContainer({ getCoinOutput, userLogOut, ...props }) {
