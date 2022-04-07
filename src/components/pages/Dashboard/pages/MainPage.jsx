@@ -5,12 +5,18 @@ import ShowCoinsBlock from '../blocks/ShowCoinsBlock/ShowCoinsBlock';
 
 const MainPage = ({ block_last }) => {
   const dispatch = useDispatch();
-  React.useEffect(() => {
+
+  const onGetCoinOutput = () => {
     dispatch(getCoinOutput());
+  } 
+
+  React.useEffect(() => {
+    onGetCoinOutput();
   }, [])
+
   return (
     <div>
-      <ShowCoinsBlock items={block_last} title="Top 20 Cap Coins"/>
+      <ShowCoinsBlock items={block_last} onRefresh={onGetCoinOutput} title="Top 20 Cap Coins"/>
     </div>
   )
 }

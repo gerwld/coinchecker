@@ -7,7 +7,7 @@ import Loader from '../../../../UI/Loader/Loader';
 import { fetchFavCoin } from '../../../../../api/BoardService';
 
 
-const ShowCoinsBlock = ({ title, items, total }) => {
+const ShowCoinsBlock = ({ title, items, total, onRefresh }) => {
     const itemsMap = items?.map(coin => <ShowCoinsItem key={coin.id + coin.symbol} coin={coin} />)
 
     return (
@@ -20,6 +20,7 @@ const ShowCoinsBlock = ({ title, items, total }) => {
                     </div>
                     <div className={s.prop_last}>
                         "buttons or dropdown menu"
+                        <button onClick={onRefresh}>Refresh</button>
                     </div>
                 </div>
             </header>
