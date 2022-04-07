@@ -10,7 +10,7 @@ export const selectShowCount = (payload) => ({ type: SELECT_SHOW_COUNT, payload 
 
 let initialState = {
   last_added: null,
-  show_last: 20,
+  show_last: 15,
   favCoins: {
     items: null,
     totalCount: null
