@@ -43,7 +43,7 @@ const dashReducer = (state = initialState, action) => {
 };
 
 
-export const getCoinOutput = (showLast = 15) => {
+export const getCoinOutput = (showLast) => {
   return async (dispatch) => {
     dispatch(loadItems([]));
     let data = await BoardService.getData(showLast).then(r => r.data.content);
@@ -51,9 +51,9 @@ export const getCoinOutput = (showLast = 15) => {
   };
 };
 
-export const getFavCoins = () => {
+export const getFavCoins = (showLast) => {
   return async (dispatch) => {
-    let data = await BoardService.getFavCoins();
+    let data = await BoardService.getFavCoins(showLast);
     dispatch(getFavCoinsAC(data.content, data.totalElements));
     console.log(data);
   }

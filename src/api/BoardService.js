@@ -13,7 +13,7 @@ export default class BoardService {
     });
   }
 
-  static async getFavCoins(page = 0, size = 10, sort = '') {
+  static async getFavCoins(size = 10, page = 0) {
     return axios.get("http://159.223.218.84:8000/api/core/coins/favorites", {
       params: {
         page,

@@ -1,13 +1,10 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getCoinOutput } from "../../../../redux/reducers/dashboard-reducer";
 import ShowCoinsBlock from "../blocks/ShowCoinsBlock/ShowCoinsBlock";
 
-const MainPage = ({ block_last }) => {
+const MainPage = ({ block_last, show_last }) => {
   const dispatch = useDispatch();
-  const {show_last} = useSelector(({dashboard}) => ({
-    show_last: dashboard.show_last 
-}))
 
   const onGetCoinOutput = () => {
     dispatch(getCoinOutput(show_last));

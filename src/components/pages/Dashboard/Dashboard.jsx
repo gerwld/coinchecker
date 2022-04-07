@@ -10,9 +10,14 @@ import MainPage from './pages/MainPage';
 import FavPage from './pages/FavPage';
 import Settings from './pages/Settings';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 const Dashboard = ({ block_last, logOut, ...props }) => {
+    const {show_last} = useSelector(({dashboard}) => ({
+        show_last: dashboard.show_last 
+    }))
+    
     return (
         <div className={s.dashboard_overlay}>
             <AsideBlock />
@@ -27,8 +32,8 @@ const Dashboard = ({ block_last, logOut, ...props }) => {
 
                 <main className={s.main_dash}>
                     <Routes>
-                        <Route path="/" element={<MainPage block_last={block_last} />} />
-                        <Route path="/fav" element={<FavPage />} />
+                        <Route path="/" element={<MainPage block_last={block_last} show_last={show_last} />} />
+                        <Route path="/fav" element={<FavPage show_last={show_last} />} />
                         <Route path="/settings" element={<Settings />} />
                     </Routes>
                 </main>
