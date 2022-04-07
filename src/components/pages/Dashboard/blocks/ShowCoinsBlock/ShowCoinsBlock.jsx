@@ -5,6 +5,7 @@ import s from './ShowCoinsBlock.module.css';
 import ShowImage from '../../../../../utils/ShowImage';
 import Loader from '../../../../UI/Loader/Loader';
 import { fetchFavCoin } from '../../../../../api/BoardService';
+import {FiRefreshCw} from "react-icons/fi"
 
 
 const ShowCoinsBlock = ({ title, items, total, onRefresh }) => {
@@ -20,7 +21,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh }) => {
                     </div>
                     <div className={s.prop_last}>
                         "buttons or dropdown menu"
-                        <button onClick={onRefresh}>Refresh</button>
+                        <button onClick={onRefresh} className={s.refresh}><FiRefreshCw/>Refresh</button>
                     </div>
                 </div>
             </header>

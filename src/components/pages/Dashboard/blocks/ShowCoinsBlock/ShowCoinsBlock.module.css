@@ -27,6 +27,32 @@
   animation: show 0.2s linear forwards;
 }
 
+.refresh {
+  padding: 5px;
+  margin: 0 0 0 15px;
+
+  font-size: 0;
+  line-height: 0;
+  color: var(--color-primary-darkblue);
+
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+}
+
+.refresh:hover {
+  background-color: var(--color-primary-lightgray);
+}
+
+.refresh:active {
+  background-color: rgb(211, 220, 240);
+}
+
+.refresh svg {
+  font-size: 20px;
+  line-height: 0;
+}
+
 .no_items {
   padding: 80px 0;
   text-align: center;
