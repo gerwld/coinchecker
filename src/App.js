@@ -1,13 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Provider } from "react-redux";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Loader from "./components/UI/Loader/Loader";
 import useSession from "./hooks/useSession";
 import { setLoading } from "./redux/reducers/app-reducer";
 import { getUser } from "./redux/reducers/auth-reducer";
 import store from "./redux/redux-store";
 import { globalRoutes, privateRoutes, publicRoutes } from "./routes/routes";
+import ChangeTitle from "./services/ChangeTitle";
+import { changeTitle } from "./services/title";
 import "./styles/index.css";
 
 
@@ -40,9 +42,11 @@ function App({ isAuth, getUser, setLoading, isLoading }) {
             />
           ))}
       </Routes>
+      <ChangeTitle/>
     </div>
   );
 }
+
 
 // Get state params to app container
 const AppContainer = ({ isAuth, getUser, isLoading, setLoading }) => {

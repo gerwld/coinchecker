@@ -176,7 +176,8 @@
     padding: 5px 0;
 }
 
-.cuser_settings li button {
+.cuser_settings li button,
+.cuser_settings li a {
     display: block;
     width: 100%;
     position: relative;
@@ -186,11 +187,13 @@
     color: #464646;
     border: none;
     text-align: left;
+    text-decoration: none;
     background-color: transparent;
 }
 
 
-.cuser_settings li:nth-child(1) button {
+.cuser_settings li:nth-child(1) button,
+.cuser_settings li:nth-child(1) a {
     margin-top: 0;
 }
 

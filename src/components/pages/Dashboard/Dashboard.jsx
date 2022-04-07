@@ -9,6 +9,7 @@ import s from './Dashboard.module.css';
 import MainPage from './pages/MainPage';
 import FavPage from './pages/FavPage';
 import Settings from './pages/Settings';
+import { NavLink } from 'react-router-dom';
 
 
 const Dashboard = ({ block_last, logOut, ...props }) => {
@@ -65,7 +66,7 @@ const ProfSettings = withClickOutside(({ refE, setShow, isShow, userData, logOut
                 <div className={s.drop_overlay}><span className={s.drop_t}>Settings:</span>
                     <ul>
                         <li><button><RiSettings3Line />Profile Settings</button></li>
-                        <li><button><BiHelpCircle />Help</button></li>
+                        <li><NavLink to="/dashboard/settings"><BiHelpCircle />Help</NavLink></li>
                         <li><button onClick={logOut}><RiLogoutBoxRLine />Sign Out</button></li>
                     </ul>
                 </div>
