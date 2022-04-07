@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import ShowImage from '../../../../../utils/ShowImage';
 import s from './ShowCoinsBlock.module.css';
+import ShowImage from '../../../../../utils/ShowImage';
 import Loader from '../../../../UI/Loader/Loader';
 import { fetchFavCoin } from '../../../../../api/BoardService';
+
 
 const ShowCoinsBlock = ({ title, items, total }) => {
     const itemsMap = items?.map(coin => <ShowCoinsItem key={coin.id + coin.symbol} coin={coin} />)
@@ -43,15 +45,16 @@ const ShowCoinsBlock = ({ title, items, total }) => {
 
 const ShowCoinsItem = ({ coin }) => {
     let [isFav, setFav] = useState(coin.favorite);
+
     const perc = coin.priceChangePercentage24h || 0;
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
     });
 
-    function setFavHandler(id) {
+    function setFavHandler() {
         setFav(!isFav);
-        fetchFavCoin(id, !isFav);
+        fetchFavCoin(coin.id, isFav);
     }
 
     function changeClass(price) {
@@ -63,7 +66,7 @@ const ShowCoinsItem = ({ coin }) => {
     return (
         <tr key={coin.id} className={s.last_row}>
             <td className={s.column_0}>
-                <button onClick={() => setFavHandler(coin.id)} className={s.fav_btn}>{isFav ? <AiFillStar /> : <AiOutlineStar />}</button>
+                <button onClick={setFavHandler} className={s.fav_btn}>{isFav ? <AiFillStar /> : <AiOutlineStar />}</button>
                 <span className={s.id}>{coin.id}</span>
             </td>
             <td className={s.column_1}>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://164.90.236.61:8000/api/core/",
+  baseURL: "http://159.223.218.84:8000/api/core/",
 });
 
 export default class AuthService {
@@ -15,6 +15,6 @@ export default class AuthService {
     return instance.post("users", inputDto);
   }
   static async getCurrentUser() {
-    return axios.get("http://164.90.236.61:8000/api/core/users/current");
+    return axios.get("http://159.223.218.84:8000/api/core/users/current");
   }
 }
