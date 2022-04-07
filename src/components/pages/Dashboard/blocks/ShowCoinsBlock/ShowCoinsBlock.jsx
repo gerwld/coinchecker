@@ -21,7 +21,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh }) => {
                     </div>
                     <div className={s.prop_last}>
                         "buttons or dropdown menu"
-                        <button onClick={onRefresh} className={s.refresh}><FiRefreshCw/>Refresh</button>
+                        {onRefresh && <button onClick={onRefresh} className={s.refresh}><FiRefreshCw/>Refresh</button>}
                     </div>
                 </div>
             </header>
