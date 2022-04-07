@@ -6,10 +6,18 @@ import ShowImage from '../../../../../utils/ShowImage';
 import Loader from '../../../../UI/Loader/Loader';
 import { fetchFavCoin } from '../../../../../api/BoardService';
 import {FiRefreshCw} from "react-icons/fi"
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { selectShowCount } from '../../../../../redux/reducers/dashboard-reducer';
 
 
-const ShowCoinsBlock = ({ title, items, total, onRefresh }) => {
+const ShowCoinsBlock = ({ title, items, total, onRefresh, show_last = 15 }) => {
     const itemsMap = items?.map(coin => <ShowCoinsItem key={coin.id + coin.symbol} coin={coin} />)
+    const dispatch = useDispatch();
+
+    const onShowChange = (e) => {
+        dispatch(selectShowCount(e.target.value));
+    }
 
     return (
         <div className={`${s.content_block} ${s.last_view}`}>
@@ -20,11 +28,11 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh }) => {
                         <input type="text" id="search_last" placeholder="Search..." />
                     </div>
                     <div className={s.prop_last}>
-                        <select>
-                        <option selected disabled>Show options:</option>
-                            <option>Last 10 items</option>
-                            <option>Last 15 items</option>
-                            <option>Last 20 items</option>
+                        <select defaultValue={show_last} onChange={onShowChange}>
+                        <option disabled>Show options:</option>
+                            <option value={10}>Last 10 items</option>
+                            <option value={15}>Last 15 items</option>
+                            <option value={20}>Last 20 items</option>
                         </select>
                         {onRefresh && <button onClick={onRefresh} className={s.refresh}><FiRefreshCw/>Refresh</button>}
                     </div>
