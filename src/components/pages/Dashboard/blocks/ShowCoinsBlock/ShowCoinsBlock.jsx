@@ -20,7 +20,12 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh }) => {
                         <input type="text" id="search_last" placeholder="Search..." />
                     </div>
                     <div className={s.prop_last}>
-                        "buttons or dropdown menu"
+                        <select>
+                        <option selected disabled>Show options:</option>
+                            <option>Last 10 items</option>
+                            <option>Last 15 items</option>
+                            <option>Last 20 items</option>
+                        </select>
                         {onRefresh && <button onClick={onRefresh} className={s.refresh}><FiRefreshCw/>Refresh</button>}
                     </div>
                 </div>
