@@ -37,6 +37,7 @@ const dashReducer = (state = initialState, action) => {
 
 export const getCoinOutput = () => {
   return async (dispatch) => {
+    dispatch(loadItems([]));
     let data = await BoardService.getData().then(r => r.data.content);
     dispatch(loadItems(data));
   };
