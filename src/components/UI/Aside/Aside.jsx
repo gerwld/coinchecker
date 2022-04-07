@@ -5,11 +5,10 @@ import { AiOutlineStar } from 'react-icons/ai';
 import { NavLink, useLocation } from 'react-router-dom';
 import s from './Aside.module.css';
 
-const AsideBlock = (props) => {
+const AsideBlock = () => {
+    const isBaseUrl = useLocation().pathname === "/dashboard";
     //Aside toggle
     const [isAsideHide, setAside] = useState(false);
-    const isBaseUrl = useLocation().pathname === "/dashboard";
-    console.log(isBaseUrl);
     const logoText = isAsideHide ? 'CC' : 'CoinChecker';
 
     return (

@@ -8,6 +8,7 @@ import AsideBlock from '../../UI/Aside/Aside';
 import s from './Dashboard.module.css';
 import MainPage from './pages/MainPage';
 import FavPage from './pages/FavPage';
+import Settings from './pages/Settings';
 
 
 const Dashboard = ({ block_last, logOut, ...props }) => {
@@ -27,6 +28,7 @@ const Dashboard = ({ block_last, logOut, ...props }) => {
                     <Routes>
                         <Route path="/" element={<MainPage block_last={block_last} />} />
                         <Route path="/fav" element={<FavPage />} />
+                        <Route path="/settings" element={<Settings />} />
                     </Routes>
                 </main>
 
