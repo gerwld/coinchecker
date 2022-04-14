@@ -52,7 +52,7 @@
 /* content-wrapper right side */
 
 .header_dash {
-    padding-right: 1.5em;
+    padding-right: 1.5vw;
 }
 
 
@@ -113,8 +113,10 @@
     font-size: 16px;
     font-family: inherit;
     box-sizing: border-box;
-    background-color: var(--color-primary-lightgray);
-    border: none;
+    
+    background-color: #f1f5ff;
+    border: 1px solid #cfd9f0;
+
     border-radius: 6px;
     background-repeat: no-repeat;
     background-size: 20px;
@@ -256,6 +258,11 @@
 
 /* Notifications end */
 
+@media only screen and (max-width: 1130px) {
+    .main_dash {
+        padding: 10px 10px 0;
+    }
+}
 
 @media only screen and (max-width: 820px) {
     .dashboard_wrapper {
@@ -264,5 +271,9 @@
     
     .cuser_name {
         display: none;
+    }
+
+    .dashboard_notifications {
+        margin: 0 5px;
     }
 }
