@@ -84,7 +84,7 @@ code {
 
 
 body {
-  /* min-width: 1000px; */
+  min-width: 270px;
     margin: 0;
     padding: 0;
     font-size: 16px;

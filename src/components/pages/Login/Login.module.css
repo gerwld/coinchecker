@@ -5,9 +5,16 @@
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-    min-width: 300px;
+    min-width: 270px;
     min-height: 400px;
     background-color: var(--color-primary-blue);
+}
+
+.sect_overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .sect_overlay .title {
@@ -26,7 +33,9 @@
 }
 
 .login_block {
-    min-width: 350px;
+    min-width: 270px;
+    width: 350px;
+    max-width: 95vw;
     padding: 30px 30px 10px;
 }
 
@@ -157,4 +166,10 @@
     padding: 10px 0;
     margin: 5px 0;
     text-align: center;
+}
+
+@media only screen and (max-width: 375px) {
+    .login_block {
+    padding: 30px 10px 10px;
+    }
 }

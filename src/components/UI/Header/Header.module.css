@@ -322,7 +322,7 @@
 
   .explore {
       display: inline-block;
-      padding: 0.6vw 1.4vw;
+      padding: 10px 20px;
       margin-top: 3vh;
       font-size: 1em;
       text-decoration: none;
@@ -449,5 +449,10 @@
     .mobile_menu {
       display: block;
     }
-   
+  }
+
+  @media only screen and (max-width: 768px) {
+    .header_section1 {
+      padding: 30vh 0;
+  }
   }
