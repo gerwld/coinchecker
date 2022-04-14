@@ -14,6 +14,7 @@ const AsideBlock = () => {
     return (
         <aside className={`${s.aside_overlay} ${isAsideHide ? s.aside_hidden : ''}`}>
             <div className={s.logo}>{logoText}</div>
+            <div className={`${s.logo} ${s.logo_mob}`}>CC</div>
             <button onClick={() => setAside(!isAsideHide)} className={s.toggleAside}><RiMenuFoldLine /></button>
 
             <nav className={s.aside_menu}>

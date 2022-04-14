@@ -28,6 +28,9 @@
     user-select: none;
     cursor: pointer;
 }
+.logo_mob {
+    display: none;
+}
 
 .aside_menu {
     margin: 5px 0;
@@ -126,4 +129,24 @@ a.dropdown::after {
     .aside_overlay {
         min-width: 160px;
     }
+}
+
+@media only screen and (max-width: 768px) {
+    .toggleAside {
+        display: none;
+    }
+    .logo {
+        display: none;
+    }
+    .logo_mob {
+        display: block;
+    }
+    .aside_overlay {
+        flex: 0 0 50px;
+        width: 50px;
+        min-width: 50px;
+    }
+    .aside_menu a::after {
+        content: none;
+      }
 }
