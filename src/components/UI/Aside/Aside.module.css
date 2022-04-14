@@ -2,6 +2,7 @@
     flex: 0 0 11vw;
     padding-left: 6px;
     width: 11vw;
+    min-width: 175px;
     height: 100vh;
     background-color: #fff;
     border-right: var(--border-lightgray);
@@ -13,6 +14,7 @@
 .aside_overlay.aside_hidden {
     flex: 0 0 50px;
     width: 50px;
+    min-width: 50px;
 }
 
 .logo {
@@ -91,8 +93,8 @@ a.dropdown::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 2.5vw;
-    height: 2.5vw;
+    width: 40px;
+    height: 40px;
     margin-left: auto;
     border: none;
     border-radius: 7px 0 0 7px;
@@ -101,8 +103,8 @@ a.dropdown::after {
 }
 
 .toggleAside svg {
-    width: 1.2vw;
-    height: 1.2vw;
+    width: 23px;
+    height: 23px;
     color: #fff;
 }
 
@@ -117,4 +119,11 @@ a.dropdown::after {
 
 .aside_hidden .aside_menu a::after {
   content: none;
+}
+
+
+@media only screen and (max-width: 820px) {
+    .aside_overlay {
+        min-width: 160px;
+    }
 }
