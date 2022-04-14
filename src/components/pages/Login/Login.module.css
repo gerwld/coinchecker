@@ -41,6 +41,7 @@
 
 .register_block {
     width: 500px;
+    max-width: 95vw;
     padding: 30px;
 }
 
@@ -170,6 +171,9 @@
 
 @media only screen and (max-width: 375px) {
     .login_block {
-    padding: 30px 10px 10px;
+        padding: 30px 10px 10px;
+    }
+    .register_block {
+        padding: 30px 10px;
     }
 }
