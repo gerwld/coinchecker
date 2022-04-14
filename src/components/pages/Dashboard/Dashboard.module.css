@@ -278,3 +278,8 @@
     }
 }
 
+@media only screen and (max-width: 500px) { 
+    .dashboard_search {
+        display: none;
+    }
+}
