@@ -135,6 +135,11 @@
         padding-left: 15px;
         padding-right: 15px;
     }
+
+    .header_section2 {
+        padding: 3vh 0!important;
+    }
+    
     .sect2_blocks {
         justify-content: center;
     }
