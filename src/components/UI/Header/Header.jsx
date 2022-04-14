@@ -28,6 +28,11 @@ export const HeaderSection = ({isAuth = false, logOut, blueMode}) => {
   const headHeight = headBar.current.clientHeight
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isFixed, setFixed] = useState(false);
+  const [isMenuShow, setMenu] = useState(false);
+
+  const onMenuClick = () => {
+    setMenu(!isMenuShow);
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,12 +57,14 @@ export const HeaderSection = ({isAuth = false, logOut, blueMode}) => {
   return (
     <>
     <div ref={jumpFix} className={s.header_floatfix}></div>
-    <header ref={headBar} className={`${s.main_header} ${isFixed ? s.fixed : ''} ${blueMode ? s.blue_mode : ''}`}>
+    <header ref={headBar} className={`${s.main_header} ${isMenuShow && s.opened} ${isFixed ? s.fixed : ''} ${blueMode ? s.blue_mode : ''}`}>
       <div className={`${s.header_overlay} content-wrapper`}>
+        <div className={s.header_block_1}>
         <span className={s.header_logo}><NavLink to="/">CoinChecker</NavLink></span>
+        <button onClick={onMenuClick} className={s.mobile_menu}></button>
+        </div>
         <div className={s.header_nav}>
           <nav className={`${s.main_nav} ${s.main_nav__1}`} role="navigation">
-            <button className={s.mobile_menu}>☰ Menu</button>
             <div className={s.element}>
               <NavLink to="/" className={(e) => e.isActive ? 'active_a' : ''}><span>Main</span></NavLink>
             </div>
