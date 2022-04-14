@@ -46,7 +46,8 @@
 }
 
 .opened.blue_mode {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(43, 52, 75, 0.8);
+  backdrop-filter: blur(5px);
 }
 
 .blue_mode .mobile_menu::before,
