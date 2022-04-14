@@ -4,7 +4,7 @@ export const setLoading = (isLoad) => ({ type: SET_LOAD, isLoad });
 
 
 let initialState = {
-    isLoading: true,
+    isLoading: false,
     headTrends: [
         {
             id: 1,

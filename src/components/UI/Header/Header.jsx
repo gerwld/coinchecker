@@ -55,32 +55,34 @@ export const HeaderSection = ({isAuth = false, logOut, blueMode}) => {
     <header ref={headBar} className={`${s.main_header} ${isFixed ? s.fixed : ''} ${blueMode ? s.blue_mode : ''}`}>
       <div className={`${s.header_overlay} content-wrapper`}>
         <span className={s.header_logo}><NavLink to="/">CoinChecker</NavLink></span>
-        <nav className={s.main_nav} role="navigation">
-          <button className={s.mobile_menu}>☰ Menu</button>
-          <div className={s.element}>
-            <NavLink to="/" className={(e) => e.isActive ? 'active_a' : ''}><span>Main</span></NavLink>
-          </div>
-          <div className={s.element}>
-            <NavLink to="/dashboard" className={(e) => e.isActive ? 'active_a' : ''}><span>Dashboard</span></NavLink>
-          </div>
-          <div className={s.element}>
-            <NavLink to="/" className={(e) => e.isActive ? 'active_a' : ''}><span>Budget</span></NavLink>
-          </div>
-          <div className={s.element}>
-            <NavLink to="/" className={(e) => e.isActive ? 'active_a' : ''}><span>Market</span></NavLink>
-          </div>
-          <div className={s.element}>
-            <NavLink to="/" className={(e) => e.isActive ? 'active_a' : ''}><span>About</span></NavLink>
-          </div>
-        </nav>
-        <nav className={s.main_nav} role="navigation">
-          <LangSelect currLang='EN' />
-          <div className={s.element_btn}>
-          {isAuth 
-           ? <button onClick={logOut}>Sign Out</button>
-           : <NavLink to="/login"><span>Sign In</span></NavLink>}
-          </div>
-        </nav>
+        <div className={s.header_nav}>
+          <nav className={`${s.main_nav} ${s.main_nav__1}`} role="navigation">
+            <button className={s.mobile_menu}>☰ Menu</button>
+            <div className={s.element}>
+              <NavLink to="/" className={(e) => e.isActive ? 'active_a' : ''}><span>Main</span></NavLink>
+            </div>
+            <div className={s.element}>
+              <NavLink to="/dashboard" className={(e) => e.isActive ? 'active_a' : ''}><span>Dashboard</span></NavLink>
+            </div>
+            <div className={s.element}>
+              <NavLink to="/" className={(e) => e.isActive ? 'active_a' : ''}><span>Budget</span></NavLink>
+            </div>
+            <div className={s.element}>
+              <NavLink to="/" className={(e) => e.isActive ? 'active_a' : ''}><span>Market</span></NavLink>
+            </div>
+            <div className={s.element}>
+              <NavLink to="/" className={(e) => e.isActive ? 'active_a' : ''}><span>About</span></NavLink>
+            </div>
+          </nav>
+          <nav className={`${s.main_nav} ${s.main_nav__2}`} role="navigation">
+            <LangSelect currLang='EN' />
+            <div className={s.element_btn}>
+            {isAuth 
+            ? <button onClick={logOut}>Sign Out</button>
+            : <NavLink to="/login"><span>Sign In</span></NavLink>}
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
     </>
