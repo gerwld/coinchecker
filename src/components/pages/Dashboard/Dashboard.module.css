@@ -333,12 +333,15 @@
     .main_dash {
         width: 100vw;
         height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        overflow: hidden;
+        scroll-behavior: unset;
+
         height: -webkit-fill-available;
-       display: flex;
-       flex-direction: column;
-       padding: 0;
-       overflow: hidden;
-       scroll-behavior: unset;
+        max-height: -webkit-fill-available;
+        min-height: -webkit-fill-available;
     }
 
     .main_dash > div:nth-child(2) {
@@ -346,7 +349,7 @@
     }
 
     .main_dash_content {
-        flex: 1 1 100%;
+        flex: 0 1 100%;
         overflow-y: scroll;
     }
 

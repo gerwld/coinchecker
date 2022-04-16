@@ -7,3 +7,8 @@ ReactDOM.render(
     <App />,
   document.getElementById('root')
 );
+
+window.onresize = function() {
+  document.body.height = window.innerHeight;
+}
+window.onresize();
