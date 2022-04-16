@@ -22,6 +22,7 @@
 .dashboard_content {
     flex: 1 0;
     height: 100vh;
+    height: -webkit-fill-available;
     overflow: hidden;
 }
 
@@ -332,10 +333,11 @@
     .main_dash {
         max-width: 100vw;
         height: calc(100% - 120px);
-       
+        height: -webkit-fill-available;
         margin: 65px 5px;
+        
         padding: 0;
-        overflow: scroll;
+        overflow-y: scroll;
     }
     .dashboard_notifications {
         order: -1;
