@@ -306,7 +306,12 @@
         right: auto;
     }
     .header_dash {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
         padding: 0 10px;
+        z-index: 100;
     }
 
     .header_dash .header_title {
@@ -314,6 +319,14 @@
     }
     .mob_logo {
         display: block;
+    }
+
+    .main_dash {
+        max-width: 100vw;
+        max-height: 100vh;
+        height: 100vh;
+        padding: 70px 10px 60px;
+        overflow: scroll;
     }
 }
 
