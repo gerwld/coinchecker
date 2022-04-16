@@ -329,5 +329,21 @@
     .dashboard_notifications {
         order: -1;
     }
+
+    .dashboard_cuser:hover {
+        background-color: transparent;
+    }
+    .cuser_avatar {
+        width: 35px;
+        height: 35px;
+    }
+    .cuser_settings {
+        min-width: 190px;
+    }
+    .notif_block,
+    .drop_overlay {
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+    }
 }
 
