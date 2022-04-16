@@ -14,7 +14,14 @@ const MainPage = ({ block_last, show_last }) => {
     onGetCoinOutput();
   }, [show_last]);
 
-  return <ShowCoinsBlock items={block_last} onRefresh={onGetCoinOutput} show_last={show_last} title="Cryptocurrency Prices by Market Cap" />;
+  return (
+    <ShowCoinsBlock
+      items={block_last}
+      onRefresh={onGetCoinOutput}
+      show_last={show_last}
+      title="Cryptocurrency Prices by Market Cap"
+    />
+  );
 };
 
 export default MainPage;

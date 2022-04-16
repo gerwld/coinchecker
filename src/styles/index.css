@@ -161,3 +161,10 @@ body {
 }
 
 /* Pagination styles end */
+
+/* Mob fix */
+
+.mob_fix {
+  width: 100vw;
+  height: 60px;
+}

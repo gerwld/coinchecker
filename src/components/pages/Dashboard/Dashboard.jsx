@@ -19,30 +19,32 @@ const Dashboard = ({ block_last, logOut, ...props }) => {
     }))
     
     return (
-        <div className={s.dashboard_overlay}>
-            <AsideBlock />
-            <MobileBarBlock/>
-            <div className={s.dashboard_content}>
-                <header className={s.header_dash}>
-                    <span className={s.header_title}></span>
-                    <div className={s.mob_logo}>CoinChecker</div>
-                    <SearchResults />
-                    <LastNotifications />
-                    <ProfSettings userData={props.userData} logOut={logOut} />
-                </header>
+      <div className={s.dashboard_overlay}>
+        <AsideBlock />
+        <MobileBarBlock />
+        <div className={s.dashboard_content}>
+          <header className={s.header_dash}>
+            <span className={s.header_title}></span>
+            <div className={s.mob_logo}>CoinChecker</div>
+            <SearchResults />
+            <LastNotifications />
+            <ProfSettings userData={props.userData} logOut={logOut} />
+          </header>
 
-                <main className={s.main_dash}>
-                    <Routes>
-                        <Route path="/" element={<MainPage block_last={block_last} show_last={show_last} />} />
-                        <Route path="/fav" element={<FavPage show_last={show_last} />} />
-                        <Route path="/settings" element={<Settings />} />
-                    </Routes>
-                </main>
+          <main className={s.main_dash}>
+            <div className="mob_fix" />
+            <Routes>
+              <Route path="/" element={<MainPage block_last={block_last} show_last={show_last} />}/>
+              <Route path="/fav" element={<FavPage show_last={show_last} />} />
+              <Route path="/settings" element={<Settings />} />
+            </Routes>
+            <div className="mob_fix" />
+          </main>
 
-                <footer className={s.footer_dash}></footer>
-            </div>
+          <footer className={s.footer_dash}></footer>
         </div>
-    )
+      </div>
+    );
 };
 
 
