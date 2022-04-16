@@ -238,8 +238,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    order: -1;
-
     height: 100%;
     margin: 0 10px;
 }
@@ -327,6 +325,9 @@
         height: 100vh;
         padding: 70px 10px 60px;
         overflow: scroll;
+    }
+    .dashboard_notifications {
+        order: -1;
     }
 }
 
