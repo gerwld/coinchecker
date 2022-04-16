@@ -33,11 +33,13 @@ const Dashboard = ({ block_last, logOut, ...props }) => {
 
           <main className={s.main_dash}>
             <div className="mob_fix" />
+            <div className={s.main_dash_content}>
             <Routes>
               <Route path="/" element={<MainPage block_last={block_last} show_last={show_last} />}/>
               <Route path="/fav" element={<FavPage show_last={show_last} />} />
               <Route path="/settings" element={<Settings />} />
             </Routes>
+            </div>
             <div className="mob_fix" />
           </main>
 
