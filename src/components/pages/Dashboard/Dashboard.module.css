@@ -1,6 +1,7 @@
 .dashboard_overlay {
     width: 100vw;
-    height: 100vh;  
+    height: 100vh;
+    height: -webkit-fill-available;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -22,7 +23,7 @@
 .dashboard_content {
     flex: 1 0;
     height: 100vh;
-    
+    height: -webkit-fill-available;
     overflow: hidden;
 }
 
@@ -302,14 +303,7 @@
 }
 
 @media only screen and (max-width: 500px) { 
-    body,
-    .main_dash,
     .dashboard_overlay {
-        max-height: -webkit-fill-available;
-        overflow: hidden;
-    }
-    .dashboard_overlay {
-        height: auto;
         overflow: hidden;
         scroll-behavior: unset;
     }
@@ -344,6 +338,11 @@
         flex-direction: column;
         padding: 0;
         overflow: hidden;
+        scroll-behavior: unset;
+
+        height: -webkit-fill-available;
+        max-height: -webkit-fill-available;
+        min-height: -webkit-fill-available;
     }
 
     .main_dash > div:nth-child(2) {
