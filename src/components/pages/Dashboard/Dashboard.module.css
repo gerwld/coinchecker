@@ -301,6 +301,11 @@
 }
 
 @media only screen and (max-width: 500px) { 
+    .dashboard_overlay {
+        overflow: hidden;
+        scroll-behavior: unset;
+    }
+
     .dashboard_search {
         display: none;
     }
@@ -327,9 +332,10 @@
     .main_dash {
         max-width: 100vw;
         max-height: 100vh;
-        height: 100vh;
-        padding: 70px 10px 60px;
+        height: calc(100vh - 120px);
+        margin: 60px 0;
         overflow: scroll;
+        box-sizing: border-box;
     }
     .dashboard_notifications {
         order: -1;
@@ -345,5 +351,7 @@
     .cuser_settings {
         min-width: 190px;
     }
+
 }
+
 
