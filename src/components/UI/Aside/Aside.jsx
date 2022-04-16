@@ -22,8 +22,6 @@ export const AsideBlock = () => {
                     <li><NavLink to="/dashboard" className={isBaseUrl ? s.active_a : ''}><MdOutlineSpaceDashboard />Dashboard</NavLink></li>
                     <li><NavLink to="/dashboard/fav" className={(e) => e.isActive ? s.active_a : ''}><AiOutlineStar />Saved Coins</NavLink></li>
                     <li><NavLink to="/dashboard/wallet" className={(e) => e.isActive ? s.active_a : ''}><AiOutlineWallet/>Wallet</NavLink></li>
-                    <li><NavLink to="/dashboard">Orders</NavLink></li>
-                    <li><NavLink to="/dashboard">Stocks</NavLink></li>
                     <li><NavLink to="/dashboard/settings" className={(e) => e.isActive ? s.active_a : ''}><RiSettings3Line/>Settings</NavLink></li>
                 </ul>
             </nav>

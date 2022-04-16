@@ -65,7 +65,9 @@ body {
   --color-primary-lightgray: #E9F0FF;
   --color-primary-lightgray2:#F0F4FC;
   --border-lightgray: 1px solid rgba(56,80,133,0.2);
+  --border-lightgray2: 1px solid rgb(108, 131, 182, 0.2);
   --border-radius-block: 0.8vw;
+  --shadow-main: rgba(0, 0, 0, 0.06) 0px 2px 7px;
   }
 
 code {

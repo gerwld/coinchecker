@@ -184,7 +184,7 @@
 .cuser_settings {
     display: none;
     width: 100%;
-    min-width: 160px;
+    min-width: 230px;
     position: absolute;
     top: 100%;
     right: 0;
@@ -199,14 +199,14 @@
     display: block;
     width: 100%;
     position: relative;
-    padding: 9px 10px 9px 30px;
-    margin-top: 3px;
-    font-size: 16px;
-    color: #464646;
+    padding: 15px 10px 15px 35px;
+    font-size: 14.5px;
+    color: #525252;
     border: none;
     text-align: left;
     text-decoration: none;
     background-color: transparent;
+    border-top: 1px solid #eeeeee;
 }
 
 
@@ -222,8 +222,9 @@
 
 .cuser_settings li svg {
     position: absolute;
-    bottom: calc(50% - 7px);
-    left: 10px;
+    bottom: calc(50% - 0.5em);
+    left: 9px;
+    font-size: 1.32em;
 }
 
 .show_settings .cuser_settings {
@@ -268,10 +269,10 @@
 .notif_block,
 .drop_overlay {
     background-color: #fff;
-    border-top: var(--border-lightgray);
+    border: var(--border-lightgray2);
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
-    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    box-shadow: var(--shadow-main);
 }
 
 .show_block .notif_block {
@@ -349,7 +350,8 @@
         height: 35px;
     }
     .cuser_settings {
-        min-width: 190px;
+        min-width: 230px;
+        max-width: 100vh;
     }
 
 }
