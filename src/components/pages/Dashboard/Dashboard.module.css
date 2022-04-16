@@ -333,6 +333,7 @@
     .main_dash {
         width: 100vw;
         height: 100vh;
+        height: -webkit-fill-available;
        display: flex;
        flex-direction: column;
        padding: 0;
