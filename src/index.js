@@ -14,3 +14,5 @@ const appHeight = () => {
  }
  window.addEventListener("resize", appHeight);
  appHeight();
+
+ setTimeout(function () {   window.scrollTo(0, 1); }, 1000);
