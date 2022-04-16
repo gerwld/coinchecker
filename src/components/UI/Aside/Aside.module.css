@@ -1,6 +1,6 @@
 .aside_overlay {
     flex: 0 0 11vw;
-    padding-left: 6px;
+    padding-left: 5px;
     width: 11vw;
     min-width: 200px;
     height: 100vh;
@@ -12,9 +12,9 @@
 
 /* hide aside navbar */
 .aside_overlay.aside_hidden {
-    flex: 0 0 50px;
-    width: 50px;
-    min-width: 50px;
+    flex: 0 0 55px;
+    width: 55px;
+    min-width: 55px;
 }
 
 .logo {
@@ -39,19 +39,25 @@
 }
 
 .aside_menu {
-    margin: 5px 0;
+    margin: 12px 0;
 }
 
 .aside_menu ul a {
     position: relative;
     display: block;
-    padding: 10px 1.5vw 10px 45px;
+    padding: 19px 1.5vw 19px 49px;
     font-size: 15px;
+    line-height: 17px;
     text-decoration: none;
     font-weight: 500;
     color: var(--color-second-text);
     border-radius: 50px 0 0 50px;
     transition: background-color 0.05s ease-in;
+}
+
+.aside_hidden .aside_menu li a {
+    font-size: 0;
+    line-height: 17px;
 }
 
 a.dropdown::after {
@@ -68,20 +74,15 @@ a.dropdown::after {
 
 .aside_menu a > svg {
     position: absolute;
-    left: 12px;
+    left: 14px;
     bottom: 11px;
-    bottom: calc(50% - 11px);
-    width: 22px;
-    height: 22px;
+    bottom: calc(50% - 11.5px);
+    width: 24px;
+    height: 24px;
 }
 
 .aside_menu li {
     margin-bottom: 5px;
-}
-
-.aside_menu li,
-.aside_menu a {
-    height: 43px;
 }
 
 .aside_menu ul a:hover {
@@ -103,7 +104,7 @@ a.dropdown::after {
     justify-content: center;
     align-items: center;
     width: 40px;
-    height: 40px;
+    height: 45px;
     margin-left: auto;
     border: none;
     border-radius: 7px 0 0 7px;
