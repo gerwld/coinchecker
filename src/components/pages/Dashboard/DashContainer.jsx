@@ -18,12 +18,9 @@ export function DashContainer({ getCoinOutput, userLogOut, ...props }) {
 
   useEffect(() => {
     document.body.style.background = "#f7f8ff";
-    document.body.style.height = "-webkit-fill-available";
 
     return () => {
       document.body.style.background = "#fff";
-      document.body.style.height = "auto";
-
     }
   }, [])
   
