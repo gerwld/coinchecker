@@ -103,8 +103,6 @@
 .drop_overlay {
     width: 100%;
     padding: 10px 0 10px;
-    background-color: #fff;
-    border: var(--border-lightgray);
 }
 
 .drop_t {
@@ -263,10 +261,16 @@
     width: 200px;
     top: 100%;
     right: 0;
-    background-color: #fff;
     padding: 15px 20px;
-    border: var(--border-lightgray);
-    border-radius: 2px;
+}
+
+.notif_block,
+.drop_overlay {
+    background-color: #fff;
+    border-top: var(--border-lightgray);
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
 }
 
 .show_block .notif_block {
@@ -339,11 +343,6 @@
     }
     .cuser_settings {
         min-width: 190px;
-    }
-    .notif_block,
-    .drop_overlay {
-        border-bottom-left-radius: 7px;
-        border-bottom-right-radius: 7px;
     }
 }
 
