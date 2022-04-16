@@ -4,13 +4,13 @@ import { RiLogoutBoxRLine, RiSettings3Line } from 'react-icons/ri';
 
 import { Route, Routes } from 'react-router';
 import withClickOutside from '../../../hoc/withClickOutside';
-import AsideBlock from '../../UI/Aside/Aside';
 import s from './Dashboard.module.css';
 import MainPage from './pages/MainPage';
 import FavPage from './pages/FavPage';
 import Settings from './pages/Settings';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { AsideBlock, MobileBarBlock } from '../../UI/Aside/Aside';
 
 
 const Dashboard = ({ block_last, logOut, ...props }) => {
@@ -21,6 +21,7 @@ const Dashboard = ({ block_last, logOut, ...props }) => {
     return (
         <div className={s.dashboard_overlay}>
             <AsideBlock />
+            <MobileBarBlock/>
             <div className={s.dashboard_content}>
                 <header className={s.header_dash}>
                     <span className={s.header_title}></span>

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { MdOutlineSpaceDashboard } from 'react-icons/md';
 import { RiMenuFoldLine, RiSettings3Line } from 'react-icons/ri';
-import { AiOutlineStar } from 'react-icons/ai';
+import { AiOutlineStar, AiOutlineWallet } from 'react-icons/ai';
 import { NavLink, useLocation } from 'react-router-dom';
 import s from './Aside.module.css';
 
-const AsideBlock = () => {
+export const AsideBlock = () => {
     const isBaseUrl = useLocation().pathname === "/dashboard";
     //Aside toggle
     const [isAsideHide, setAside] = useState(false);
@@ -21,7 +21,7 @@ const AsideBlock = () => {
                 <ul>
                     <li><NavLink to="/dashboard" className={isBaseUrl ? s.active_a : ''}><MdOutlineSpaceDashboard />Dashboard</NavLink></li>
                     <li><NavLink to="/dashboard/fav" className={(e) => e.isActive ? s.active_a : ''}><AiOutlineStar />Saved Coins</NavLink></li>
-                    <li><NavLink to="/dashboard" className={s.dropdown}>CRM</NavLink></li>
+                    <li><NavLink to="/dashboard/wallet" className={(e) => e.isActive ? s.active_a : ''}><AiOutlineWallet/>Wallet</NavLink></li>
                     <li><NavLink to="/dashboard">Orders</NavLink></li>
                     <li><NavLink to="/dashboard">Stocks</NavLink></li>
                     <li><NavLink to="/dashboard/settings" className={(e) => e.isActive ? s.active_a : ''}><RiSettings3Line/>Settings</NavLink></li>
@@ -31,4 +31,19 @@ const AsideBlock = () => {
     )
 };
 
-export default AsideBlock;
+export const MobileBarBlock = () => {
+    const isBaseUrl = useLocation().pathname === "/dashboard";
+    return (
+        <aside className={s.mobile_overlay}>
+            <div className={s.logo}>CC</div>
+            <nav className={s.mobile_menu}>
+                <ul>
+                    <li><NavLink to="/dashboard" className={isBaseUrl ? s.active_a : ''}><MdOutlineSpaceDashboard /></NavLink></li>
+                    <li><NavLink to="/dashboard/fav" className={(e) => e.isActive ? s.active_a : ''}><AiOutlineStar /></NavLink></li>
+                    <li><NavLink to="/dashboard/wallet" className={(e) => e.isActive ? s.active_a : ''}><AiOutlineWallet/></NavLink></li>
+                    <li><NavLink to="/dashboard/settings" className={(e) => e.isActive ? s.active_a : ''}><RiSettings3Line/></NavLink></li>
+                </ul>
+            </nav>
+        </aside>
+    )
+};

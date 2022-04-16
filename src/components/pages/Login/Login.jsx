@@ -1,5 +1,4 @@
 import React from "react";
-import LoginGithub from "react-login-github";
 import { NavLink } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 
@@ -13,12 +12,7 @@ const Login = (props) => {
         <div className={s.login_block}>
           <div className={s.overlay}>
             <LoginFormRedux onSubmit={props.loginAction} />
-            <LoginGithub
-              className={s.btn_github}
-              clientId="826daa3627e56e610860"
-              onSuccess={props.sendGitCodeToServ}
-              onFailure={() => alert("Some error occured.Please, try another method.")}
-            />
+            
           </div>
           <div className={s.more_links}>
             <NavLink to="/register">Sign Up</NavLink>
