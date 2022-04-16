@@ -1,6 +1,7 @@
 .dashboard_overlay {
     width: 100vw;
     height: 100vh;
+    height: -webkit-fill-available;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
