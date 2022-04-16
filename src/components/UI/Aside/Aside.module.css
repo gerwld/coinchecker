@@ -103,7 +103,7 @@ a.dropdown::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
+    width: 42px;
     height: 45px;
     margin-left: auto;
     border: none;

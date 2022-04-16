@@ -67,6 +67,7 @@ const ShowCoinsItem = ({ coin }) => {
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
+        // maximumSignificantDigits: 8
     });
 
     function setFavHandler() {
@@ -94,13 +95,13 @@ const ShowCoinsItem = ({ coin }) => {
                 <span className={s.coin_symb}>{coin.symbol}</span>
             </td>
 
-            <td className={s.column_2}><span>${coin.currentPrice}</span></td>
+            <td className={s.column_2}><span>${coin.currentPrice && coin.currentPrice.toString().substring(0, 7)}</span></td>
 
             <td className={`${s.column_3} ${changeClass(perc)}`}>
-                <span>{perc.toFixed(2)} %</span>
+                <span>{perc.toFixed(1)} %</span>
             </td>
-            <td className={s.column_4}><span>{formatter.format(coin.totalVolume).replace(/\D00$/, '')}</span></td>
-            <td className={s.column_5}><span>{formatter.format(coin.marketCap).replace(/\D00$/, '')}</span></td>
+            <td className={s.column_4}><span>{formatter.format(coin.totalVolume).replace(/\D00(?=\D*$)/, '')}</span></td>
+            <td className={s.column_5}><span>{formatter.format(coin.marketCap).replace(/\D00(?=\D*$)/, '')}</span></td>
         </tr>
     );
 }
