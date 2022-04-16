@@ -53,6 +53,7 @@ body {
 
 
 :root {
+  --app-height: 100%;
   --color-bg-primary: #fff;
   --color-bg-lightgray: #f7f8ff;
   --color-primary-blue: #003AD2;
@@ -168,5 +169,6 @@ body {
   .mob_fix {
     flex: 0 0 60px;
     height: 60px;
+    border: 1px solid red;
   }
 }

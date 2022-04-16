@@ -8,7 +8,9 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-window.onresize = function() {
-  document.body.height = window.innerHeight;
-}
-window.onresize();
+const appHeight = () => {
+  const doc = document.documentElement
+  doc.style.setProperty("--app-height", `${window.innerHeight}px`)
+ }
+ window.addEventListener("resize", appHeight);
+ appHeight();

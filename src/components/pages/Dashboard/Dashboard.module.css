@@ -340,9 +340,9 @@
         overflow: hidden;
         scroll-behavior: unset;
 
-        height: -webkit-fill-available;
-        max-height: -webkit-fill-available;
-        min-height: -webkit-fill-available;
+        height: var(--app-height);
+        max-height: var(--app-height);
+        min-height: var(--app-height);;
     }
 
     .main_dash > div:nth-child(2) {
