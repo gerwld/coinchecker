@@ -25,7 +25,7 @@ const Dashboard = ({ block_last, logOut, ...props }) => {
             <div className={s.dashboard_content}>
                 <header className={s.header_dash}>
                     <span className={s.header_title}></span>
-
+                    <div className={s.mob_logo}>CoinChecker</div>
                     <SearchResults />
                     <LastNotifications />
                     <ProfSettings userData={props.userData} logOut={logOut} />
