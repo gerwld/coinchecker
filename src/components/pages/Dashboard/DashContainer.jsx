@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { compose } from "redux";
@@ -15,6 +15,14 @@ export function DashContainer({ getCoinOutput, userLogOut, ...props }) {
       userLogOut();
     }, 500);
   };
+
+  useEffect(() => {
+    document.body.style.background = "#f7f8ff";
+    return () => {
+      document.body.style.background = "#fff";
+    }
+  }, [])
+  
 
   return <Dashboard block_last={props.last_added} userData={props.userData} logOut={logOut} />;
 }

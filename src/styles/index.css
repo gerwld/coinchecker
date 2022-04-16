@@ -75,10 +75,6 @@ code {
     monospace;
 }
 
-body, html {
-  background: var(--color-bg-lightgray);
-}
-
 body {
   min-width: 270px;
     padding: 0;
