@@ -77,8 +77,8 @@ const ProfSettings = withClickOutside(({ refE, setShow, isShow, userData, logOut
             <div className={s.cuser_settings}>
                 <div className={s.drop_overlay}><span className={s.drop_t}>Settings:</span>
                     <ul>
-                        <li><button><RiSettings3Line />Profile Settings</button></li>
-                        <li><NavLink to="/dashboard/settings"><BiHelpCircle />Help</NavLink></li>
+                        <li><button><BiHelpCircle />Help</button></li>
+                        <li><NavLink to="/dashboard/settings"><RiSettings3Line />Profile Settings</NavLink></li>
                         <li><button onClick={logOut}><RiLogoutBoxRLine />Sign Out</button></li>
                     </ul>
                 </div>
