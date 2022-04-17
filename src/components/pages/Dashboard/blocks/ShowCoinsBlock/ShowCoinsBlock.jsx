@@ -55,7 +55,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
                     </tbody>
                 </table>
             </div>
-            <Pagination total={total} current={currPage} pageSize={curr_pagination} onChange={onChangePage} />
+            <Pagination total={total} current={currPage} pageSize={curr_pagination} onChange={onChangePage} showPrevNextJumpers={false} />
         </div>
     )
 }
