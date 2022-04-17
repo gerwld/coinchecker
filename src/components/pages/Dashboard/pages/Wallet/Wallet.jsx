@@ -1,4 +1,3 @@
-import { connect } from "react-redux";
 import React from "react";
 import s from "./Wallet.module.css";
 
@@ -10,10 +9,4 @@ const Wallet = () => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    favCoins: state.dashboard.favCoins.items,
-  };
-};
-
-export default connect(mapStateToProps, {})(Wallet);
+export default Wallet;
