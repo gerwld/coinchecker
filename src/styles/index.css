@@ -136,32 +136,78 @@ body {
   margin: 15px 0;
 }
 
-.rc-pagination button {
-  line-height: 17px;
-  font-size: 17px;
-}
-
 .rc-pagination-prev button:after {
   content: '‹';
   display: block;
+  transform: translateY(-2px);
 }
 
 .rc-pagination-next button:after {
   content: '›';
   display: block;
+  transform: translateY(-2px);
+}
+
+.rc-pagination button,
+.rc-pagination li a {
+  display: block;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 29px;
+  font-size: 25px;
+  border: var(--border-lightgray);
+}
+
+.rc-pagination button {
+  background-color: rgb(236, 238, 245);
+  color:rgb(98, 116, 126);
+  transition: 0.2s ease;
+}
+
+.rc-pagination button:hover {
+  background-color: rgb(213, 216, 226);
+}
+
+.rc-pagination li {
+  text-align: center;
+  user-select: none;
+}
+
+.rc-pagination li:not(:last-child) {
+  margin-right: 5px;
 }
 
 .rc-pagination li a {
-  display: block;
-  width: 25px;
-  height: auto;
-  margin: 0 5px;
-
-  text-align: center;
-  border: 1px solid #e3e3e3;
+  font-size: 18px;
+  line-height: 29px;
 }
 
 /* Pagination styles end */
+
+select {
+  border: var(--border-lightgray);
+  padding: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+/* For IE <= 11 */
+select::-ms-expand {
+  display: none; 
+}
+
+select:hover {
+  color: #1f4173;
+  background-color: white;
+  border-color: #1f4173;
+}
+
+select:hover,
+select:focus {
+  outline: none!important;
+
+}
 
 /* Mob fix */
 
