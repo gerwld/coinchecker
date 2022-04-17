@@ -157,6 +157,7 @@ body {
   line-height: 29px;
   font-size: 25px;
   border: var(--border-lightgray);
+  border-radius: 4px;
 }
 
 .rc-pagination button {
@@ -188,6 +189,7 @@ body {
   background-color: var(--color-primary-blue);
   color: #fff;
   cursor: default;
+  border-radius: 4px;
 }
 
 /* Pagination styles end */
