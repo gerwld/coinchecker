@@ -12,6 +12,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { AsideBlock, MobileBarBlock } from '../../UI/Aside/Aside';
 import Wallet from './pages/Wallet/Wallet';
+import Buysell from './pages/Buysell';
 
 
 const Dashboard = ({ block_last, logOut, ...props }) => {
@@ -40,6 +41,7 @@ const Dashboard = ({ block_last, logOut, ...props }) => {
               <Route path="/fav" element={<FavPage curr_pagination={curr_pagination} />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/wallet" element={<Wallet />} />
+              <Route path="/transactions" element={<Buysell />} />
             </Routes>
             </div>
             <div className="mob_fix" />
