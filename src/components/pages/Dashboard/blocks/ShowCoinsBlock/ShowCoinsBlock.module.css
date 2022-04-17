@@ -420,6 +420,17 @@ table.last_list {
     font-size: 1em;
   }
 
+  .prop_block {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .prop_search {
+    margin-bottom: 15px;
+  }
+  .prop_last {
+    align-self: flex-end;
+  }
 }
 
 @media only screen and (max-width: 320px) {
