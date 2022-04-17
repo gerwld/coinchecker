@@ -8,7 +8,6 @@ import Dashboard from "./Dashboard";
 
 export function DashContainer({ getCoinOutput, userLogOut, ...props }) {
   const navigate = useNavigate();
-
   const logOut = () => {
     setTimeout(() => {
       navigate("/");
@@ -18,20 +17,18 @@ export function DashContainer({ getCoinOutput, userLogOut, ...props }) {
 
   useEffect(() => {
     document.body.style.background = "#f7f8ff";
-
     return () => {
       document.body.style.background = "#fff";
     }
   }, [])
   
 
-  return <Dashboard block_last={props.last_added} userData={props.userData} logOut={logOut} />;
+  return <Dashboard userData={props.userData} logOut={logOut} />;
 }
 
 let mapStateToProps = (state) => {
   return {
-    userData: state.auth.authUser,
-    last_added: state.dashboard.last_added,
+    userData: state.auth.authUser
   };
 };
 

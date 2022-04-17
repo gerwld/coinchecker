@@ -1,26 +1,34 @@
-import { connect } from 'react-redux';
-import React from 'react'
-import { useEffect } from 'react'
-import { getFavCoins } from '../../../../redux/reducers/dashboard-reducer';
-import ShowCoinsBlock from '../blocks/ShowCoinsBlock/ShowCoinsBlock'
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getFavCoins } from "../../../../redux/reducers/dashboard-reducer";
+import ShowCoinsBlock from "../blocks/ShowCoinsBlock/ShowCoinsBlock";
 
-const FavPage = ({ getFavCoins, favCoins, totalCount, show_last }) => {
+const FavPage = ({ curr_pagination }) => {
+  const [page, setPage] = useState(1);
+  const dispatch = useDispatch();
+  const { total, elements } = useSelector(({ dashboard }) => ({
+    elements: dashboard.favCoins.items,
+    total: dashboard.favCoins.totalCount,
+  }));
+
   useEffect(() => {
-    getFavCoins(show_last);
-  }, [show_last]);
+    dispatch(getFavCoins(curr_pagination, page - 1));
+  }, [curr_pagination, page]);
 
   return (
     <div>
-      <ShowCoinsBlock items={favCoins} total={totalCount} show_last={show_last} title="Saved coins" />
+      <ShowCoinsBlock
+        curr_pagination={curr_pagination}
+        total={total}
+        currPage={page}
+        onChangePage={setPage}
+
+        items={elements}
+        title="Saved coins"
+      />
     </div>
-  )
-}
+  );
+};
 
-const mapStateToProps = (state) => {
-  return {
-    favCoins: state.dashboard.favCoins.items,
-    totalCount: state.dashboard.favCoins.totalCount
-  }
-}
 
-export default connect(mapStateToProps, { getFavCoins })(FavPage);
+export default FavPage;

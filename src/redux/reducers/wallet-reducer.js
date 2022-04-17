@@ -7,7 +7,7 @@ const walletState = {
 const walletReducer = (state = walletState, action) => {
   switch(action.type) {
     default:
-      break;
+      return state;
   }
 }
 

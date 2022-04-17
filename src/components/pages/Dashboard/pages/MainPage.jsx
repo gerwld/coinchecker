@@ -1,24 +1,33 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { getCoinOutput } from "../../../../redux/reducers/dashboard-reducer";
 import ShowCoinsBlock from "../blocks/ShowCoinsBlock/ShowCoinsBlock";
 
-const MainPage = ({ block_last, show_last }) => {
+const MainPage = ({ curr_pagination }) => {
+  const [page, setPage] = useState(1);
   const dispatch = useDispatch();
+  const {total, items} = useSelector(({dashboard}) => ({
+    items: dashboard.last_coins,
+    total: dashboard.totalLastCount
+  }))
 
   const onGetCoinOutput = () => {
-    dispatch(getCoinOutput(show_last));
+    dispatch(getCoinOutput(curr_pagination, page - 1));
   };
 
   React.useEffect(() => {
     onGetCoinOutput();
-  }, [show_last]);
+  }, [curr_pagination, page]);
 
   return (
     <ShowCoinsBlock
-      items={block_last}
+      curr_pagination={curr_pagination}
+      total={total}
+      currPage={page}
+      onChangePage={setPage}
+
+      items={items}
       onRefresh={onGetCoinOutput}
-      show_last={show_last}
       title="Cryptocurrency Prices by Market Cap"
     />
   );

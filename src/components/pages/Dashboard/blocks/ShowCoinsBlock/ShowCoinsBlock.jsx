@@ -12,7 +12,7 @@ import { selectShowCount } from '../../../../../redux/reducers/dashboard-reducer
 import Pagination from 'rc-pagination';
 
 
-const ShowCoinsBlock = ({ title, items, total, onRefresh, show_last = 15 }) => {
+const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, currPage, onChangePage }) => {
     const itemsMap = items?.map(coin => <ShowCoinsItem key={coin.id + coin.symbol} coin={coin} />)
     const dispatch = useDispatch();
 
@@ -29,7 +29,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, show_last = 15 }) => {
                         <input type="text" id="search_last" placeholder="Search..." />
                     </div>
                     <div className={s.prop_last}>
-                        <select defaultValue={show_last} onChange={onShowChange}>
+                        <select defaultValue={curr_pagination} onChange={onShowChange}>
                         <option disabled>Show options:</option>
                             <option value={10}>Last 10 items</option>
                             <option value={15}>Last 15 items</option>
@@ -55,7 +55,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, show_last = 15 }) => {
                     </tbody>
                 </table>
             </div>
-            <Pagination />
+            <Pagination total={total} current={currPage} pageSize={curr_pagination} onChange={onChangePage} />
         </div>
     )
 }

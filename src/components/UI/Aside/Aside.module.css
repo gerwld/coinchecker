@@ -8,6 +8,7 @@
     border-right: var(--border-lightgray);
     z-index: 100;
     overflow: hidden;
+    user-select: none;
 }
 
 /* hide aside navbar */

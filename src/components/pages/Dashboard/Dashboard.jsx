@@ -15,8 +15,8 @@ import Wallet from './pages/Wallet/Wallet';
 
 
 const Dashboard = ({ block_last, logOut, ...props }) => {
-    const {show_last} = useSelector(({dashboard}) => ({
-        show_last: dashboard.show_last 
+    const {curr_pagination} = useSelector(({dashboard}) => ({
+        curr_pagination: dashboard.curr_pagination 
     }))
     
     return (
@@ -36,8 +36,8 @@ const Dashboard = ({ block_last, logOut, ...props }) => {
             <div className="mob_fix" />
             <div className={s.main_dash_content}>
             <Routes>
-              <Route path="/" element={<MainPage block_last={block_last} show_last={show_last} />}/>
-              <Route path="/fav" element={<FavPage show_last={show_last} />} />
+              <Route path="/" element={<MainPage curr_pagination={curr_pagination} />}/>
+              <Route path="/fav" element={<FavPage curr_pagination={curr_pagination} />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/wallet" element={<Wallet />} />
             </Routes>
