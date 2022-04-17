@@ -181,6 +181,13 @@ body {
 .rc-pagination li a {
   font-size: 18px;
   line-height: 29px;
+  cursor: pointer;
+}
+
+.rc-pagination-item-active {
+  background-color: var(--color-primary-blue);
+  color: #fff;
+  cursor: default;
 }
 
 /* Pagination styles end */
