@@ -7,10 +7,11 @@ import withClickOutside from '../../../hoc/withClickOutside';
 import s from './Dashboard.module.css';
 import MainPage from './pages/MainPage';
 import FavPage from './pages/FavPage';
-import Settings from './pages/Settings';
+import Settings from './pages/Settings/Settings';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { AsideBlock, MobileBarBlock } from '../../UI/Aside/Aside';
+import Wallet from './pages/Wallet/Wallet';
 
 
 const Dashboard = ({ block_last, logOut, ...props }) => {
@@ -38,6 +39,7 @@ const Dashboard = ({ block_last, logOut, ...props }) => {
               <Route path="/" element={<MainPage block_last={block_last} show_last={show_last} />}/>
               <Route path="/fav" element={<FavPage show_last={show_last} />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/wallet" element={<Wallet />} />
             </Routes>
             </div>
             <div className="mob_fix" />
