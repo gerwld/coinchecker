@@ -69,12 +69,13 @@ const SearchResults = withClickOutside(({ refE, setShow, isShow, ...props }) => 
     )
 });
 
-const ProfSettings = withClickOutside(({ refE, setShow, isShow, userData, logOut, ...props }) => {
+const ProfSettings = withClickOutside(({ refE, setShow, isShow, userData, logOut }) => {
+    const username = userData?.username.length > 12 ? userData?.username.slice(0, 12) + "..." : userData?.username;
     return (
         <div className={`${s.dashboard_wrapper} ${isShow ? s.show_settings : ''}`} ref={refE}>
             <div className={s.dashboard_cuser} onClick={() => setShow(!isShow)}>
                 <div className={s.cuser_avatar}><img src="/img/user.svg" alt="User Avatar" /></div>
-                <span className={s.cuser_name + ' ic-dropdown'}>{userData ? userData.username : ''}</span>
+                <span className={s.cuser_name + ' ic-dropdown'}>{username}</span>
             </div>
             <div className={s.cuser_settings}>
                 <div className={s.drop_overlay}><span className={s.drop_t}>Settings:</span>
