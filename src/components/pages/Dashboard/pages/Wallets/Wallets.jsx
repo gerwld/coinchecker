@@ -49,15 +49,15 @@ const Wallets = () => {
               <button>{content[walletId].name}<RiArrowDropDownLine /></button>
             </div>
             <div className={s.current_block}>
-              <span>${content[walletId].currentUsdPrice}</span>
+              <span>{isDataVisible ? '$' + content[walletId].currentUsdPrice : "..."}</span>
               <span>Total Balance</span>
             </div>
             <div className={s.current_block}>
-              <span>$0.00</span>
+              <span>{isDataVisible ? '$' + "0.00" : "..."}</span>
               <span>24h Portfolio Change (+0%)</span>
             </div>
             <div className={s.current_block}>
-              <span>${content[walletId].startUsdPrice}</span>
+              <span>{isDataVisible ? '$' + content[walletId].startUsdPrice : "..."}</span>
               <span>Total Profit / Loss (-)</span>
             </div>
           </div>

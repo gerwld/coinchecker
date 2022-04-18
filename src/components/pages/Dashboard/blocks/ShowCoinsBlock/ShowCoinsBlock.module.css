@@ -17,6 +17,14 @@
   text-align: right;
 }
 
+.wallet_styles .head_0 {
+  text-align: left;
+}
+
+.wallet_styles .head_0 span {
+  margin-left: 32%;
+}
+
 .wallet_styles .head_5 span {
   margin-right: 0;
 }
