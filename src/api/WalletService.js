@@ -1,8 +1,10 @@
+import axios from "axios";
+
 export default class WalletService {
-  static async getWallet() {
+  static async getAllWallets() {
     return axios.get("http://159.223.218.84:8000/api/core/wallets");
   }
-  static async addWalletCoin(name) {
+  static async createWallet(name) {
     return axios.post("http://159.223.218.84:8000/api/core/wallets", {
       params: {
         name

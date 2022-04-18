@@ -50,3 +50,16 @@
 }
 
 /* Current Wallet block end */
+
+/* Create new block */
+
+.create_new {
+  text-align: center;
+  margin: 20% 0;
+}
+
+.create_new button {
+  margin-top: 20px;
+}
+
+/* Create new block end */
