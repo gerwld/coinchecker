@@ -22,6 +22,7 @@
  display: flex;
  justify-content: space-between;
  align-items: stretch;
+ flex-wrap: wrap;
 
  margin-top: 36px;
 }
@@ -94,4 +95,28 @@
 .i_block a svg {
  margin-bottom: -4px;
  font-size: 18px;
+}
+
+@media only screen and (max-width: 768px) {
+ .i_block {
+  flex-basis: 49%;
+ }
+
+ .i_block:nth-child(1),
+ .i_block:nth-child(2) {
+  margin-bottom: 10px;
+ }
+}
+
+@media only screen and (max-width: 450px) {
+ .i_block {
+  padding: 12px;
+ }
+}
+
+@media only screen and (max-width: 400px) {
+ .i_block {
+  flex-basis: 100%;
+  margin-bottom: 10px;
+ }
 }
