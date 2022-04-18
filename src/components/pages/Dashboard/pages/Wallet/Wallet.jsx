@@ -1,4 +1,5 @@
 import React from "react";
+import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
 import s from "./Wallet.module.css";
 
 const Wallet = () => {
@@ -27,6 +28,7 @@ const Wallet = () => {
         <button>Add New Coin</button>
       </div>
     </div>
+    <ShowCoinsBlock isWallet/>
     </div>
   );
 };

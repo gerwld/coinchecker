@@ -1,3 +1,15 @@
+/* Wallet styles */
+
+.content_block.wallet_styles {
+  width: 100%;
+  max-width: 100%;
+  box-shadow: none;
+  border: none;
+}
+
+/* Wallet styles end */
+
+
 /* Last last styles */
 
 .content_block {
@@ -193,8 +205,13 @@ table.last_list {
   text-align: right;
 }
 .head_5 {
-  text-align: center;
+  text-align: right;
 }
+
+.head_5 span {
+  margin-right: 15%;
+}
+
 
 .last_row {
   padding: 10px 15px;
