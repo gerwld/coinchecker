@@ -8,31 +8,31 @@ let initialState = {
     headTrends: [
         {
             id: 1,
-            logoUrl: "https://assets.coingecko.com/coins/images/1/small/bitcoin.png?1547033579",
+            logoUrl: "/img/main_coins/btc.png",
             name: "Bitcoin",
             price: "42000",
             ticker: "BTC"
         },
         {
             id: 2,
-            logoUrl: "https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880",
+            logoUrl: "/img/main_coins/eth.png",
             name: "Etherium",
             price: "3000",
             ticker: "ETH",
         },
         {
+            id: 4,
+            logoUrl: "/img/main_coins/bnb.png",
+            name: "Tether",
+            price: "14",
+            ticker: "BNB",
+        },
+        {
             id: 3,
-            logoUrl: "https://assets.coingecko.com/coins/images/325/small/Tether-logo.png?1598003707",
+            logoUrl: "/img/main_coins/usdt.png",
             name: "Tether",
             price: "1",
             ticker: "USDT",
-        },
-        {
-            id: 4,
-            logoUrl: "https://assets.coingecko.com/coins/images/10365/small/near_icon.png?1601359077",
-            name: "Near",
-            price: "14",
-            ticker: "NEAR",
         }
     ]
 };

@@ -19,8 +19,8 @@ const Main = () => {
     <>
       <HeaderMain isAuth={isAuth} logOut={onLogOut} />
       <main className="content-wrapper">
-        <Features/>
         <HeaderTrends headTrends={headTrends} />
+        <Features/>
       </main>
       <footer>
         Footer
