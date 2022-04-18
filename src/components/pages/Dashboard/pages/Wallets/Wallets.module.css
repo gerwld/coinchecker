@@ -32,9 +32,9 @@
 }
 
 .current_wallet {
-  flex: 0 1 600px;
+  flex: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-end;
   flex-wrap: wrap;
 }
@@ -71,6 +71,10 @@
   padding: 15px 25px 15px 15px;
   border: var(--border-lightgray);
   border-radius: 17px;
+}
+
+.current_block:not(:last-child) {
+  margin-right: 12px;
 }
 
 .current_block span:nth-child(1) {
