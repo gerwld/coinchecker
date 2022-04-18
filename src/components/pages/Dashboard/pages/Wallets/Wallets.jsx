@@ -55,7 +55,7 @@ const Wallets = () => {
             <div className={s.wallet_select}>
               <button onClick={onSelectWallet} className={`${s.btn_selected} ${isShowSelect && s.active}`}>{content[walletId].name}<RiArrowDropDownLine /></button>
               {isShowSelect && <ul>
-                {content.map((wall, i) => <li><span>{wall.name}{i === walletId && <span className={s.act}><BsCheckLg/></span>}</span></li>)}
+                {content.map((wall, i) => <li onClick={() => setWallet(i)}><span>{wall.name}{i === walletId && <span className={s.act}><BsCheckLg/></span>}</span></li>)}
                 <li><button onClick={() => setShowNew(true)} className={s.btn_new}><AiOutlinePlus/>Add New Wallet</button></li>
               </ul>}
             </div>

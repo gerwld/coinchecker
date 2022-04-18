@@ -7,6 +7,7 @@ import s from "./Add.module.css";
 const AddNewWalletPopup = ({ setClose }) => {
   const dispatch = useDispatch();
   const input = useRef(null);
+
   const onCreate = async () => {
     if(input.current.value.length) {
       await WalletService.createWallet(input.current.value);
@@ -14,7 +15,6 @@ const AddNewWalletPopup = ({ setClose }) => {
       setClose();
     }
   }
-
 
   return (
     <div className={s.popup_wrapper}>
