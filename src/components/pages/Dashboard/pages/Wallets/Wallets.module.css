@@ -71,6 +71,7 @@
   padding: 15px 25px 15px 15px;
   border: var(--border-lightgray);
   border-radius: 17px;
+  box-shadow: var(--shadow-main);
 }
 
 .current_block:not(:last-child) {
