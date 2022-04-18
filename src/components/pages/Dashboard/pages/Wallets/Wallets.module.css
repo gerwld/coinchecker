@@ -79,7 +79,7 @@
   border: 1px solid #d9dfe4;
   border-top: none;
   overflow: hidden;
-  box-shadow: var(--shadow-main);
+  box-shadow: var(--shadow-main2);
 }
 
 .wallet_select li {

@@ -14,7 +14,7 @@ const AddNewWalletPopup = ({ setClose }) => {
       <input type="text" placeholder="My Wallet" />
       </div>
       <div className={s.action_popup}>
-      <button>Cancel</button>
+      <button onClick={setClose}>Cancel</button>
       <button>Create</button>
       </div>
       </div>
