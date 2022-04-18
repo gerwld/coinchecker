@@ -1,18 +1,19 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import WalletService from "../../../../../api/WalletService";
 import { getAllWalletsTC } from "../../../../../redux/reducers/wallets-reducer";
 import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
 import BuyCoinPopup from "./BuyCoinPopup/BuyCoinPopup";
 import s from "./Wallets.module.css";
 
+import { RiArrowDropDownLine } from "react-icons/ri";
+
+
 const Wallets = () => {
   const [walletId, setWallet] = useState(0);
   const [isShowAddCoin, setShowCoin] = useState(false);
-  
+
   const dispatch = useDispatch();
   const { content } = useSelector(({ wallets }) => ({
     content: wallets.content,
@@ -38,7 +39,9 @@ const Wallets = () => {
       ? <div className="wallets_content">
         <div className={s.head_block}>
           <div className={s.current_wallet}>
-            <div className={s.wallet_select}>{content[walletId].name}(select)</div>
+            <div className={s.wallet_select}>
+              <button>{content[walletId].name}<RiArrowDropDownLine /></button>
+            </div>
             <div className={s.current_block}>
               <span>${content[walletId].currentUsdPrice}</span>
               <span>Total Balance</span>

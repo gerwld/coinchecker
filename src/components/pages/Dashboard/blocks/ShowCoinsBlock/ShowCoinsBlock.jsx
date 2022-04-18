@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import s from './ShowCoinsBlock.module.css';
 import ShowImage from '../../../../../utils/ShowImage';
 import Loader from '../../../../UI/Loader/Loader';
 import { fetchFavCoin } from '../../../../../api/BoardService';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import {FiRefreshCw} from "react-icons/fi"
-import { useDispatch } from 'react-redux';
-import { selectShowCount } from '../../../../../redux/reducers/dashboard-reducer';
 
+import { selectShowCount } from '../../../../../redux/reducers/dashboard-reducer';
 import Pagination from 'rc-pagination';
 
 
@@ -54,7 +54,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
                             <th className={s.head_3}><span>24h</span></th>
                             <th className={s.head_4}><span>24h Volume</span></th>
                             <th className={s.head_5}><span>Capitalization</span></th>
-                            {isWallet && <th className={s.column_6}><span>Amount</span></th>}
+                            {isWallet && <th className={s.head_6}><span>Amount</span></th>}
                         </tr>
                         {items && itemsMap.length > 0 || total === 0 ? itemsMap : <tr><td colSpan="6" className={s.loader}><Loader /></td></tr>}
                         {total === 0 ? <tr><td colSpan="6" className={s.no_items}>No items to show.</td></tr> : null}
@@ -73,7 +73,6 @@ const ShowCoinsItem = ({ coin, amount }) => {
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
-        // maximumSignificantDigits: 8
     });
 
     function setFavHandler() {

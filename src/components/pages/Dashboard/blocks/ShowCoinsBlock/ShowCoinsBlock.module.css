@@ -7,6 +7,11 @@
   border: none;
 }
 
+.wallet_styles .last_overlay {
+  border-top: var(--border-lightgray2);
+  padding-top: 15px;
+}
+
 /* Wallet styles end */
 
 
@@ -210,6 +215,14 @@ table.last_list {
 
 .head_5 span {
   margin-right: 15%;
+}
+
+.head_6 {
+  text-align: right;
+}
+
+.head_6 span {
+  margin-right: 15px;
 }
 
 

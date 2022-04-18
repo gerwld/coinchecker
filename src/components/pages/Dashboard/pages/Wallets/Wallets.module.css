@@ -27,26 +27,58 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
+  margin-bottom: 10px;
 }
 
 .current_wallet {
-  width: 540px;
+  flex: 0 1 600px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   flex-wrap: wrap;
-  border: 1px solid gray;
 }
 
 .wallet_select {
   flex: 1 0 100%;
+  margin-bottom: 10px;
+  text-transform:capitalize;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.wallet_select button {
+  padding: 0px;
+  line-height: 40px;
+  border: none;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.wallet_select button svg {
+  font-size: 30px;
+  margin-bottom: -8px;
+}
+
+.wallet_select button:active {
+  outline: none;
+  background-color: rgb(226, 234, 238);
 }
 
 .current_block {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  border: 1px solid gray;
+  padding: 15px 25px 15px 15px;
+  border: var(--border-lightgray);
+  border-radius: 17px;
+}
+
+.current_block span:nth-child(1) {
+  font-size: 19px;
+}
+.current_block span:nth-child(2) {
+  font-size: 14px;
+  color: #1d1d1d;
 }
 
 /* Current Wallet block end */
