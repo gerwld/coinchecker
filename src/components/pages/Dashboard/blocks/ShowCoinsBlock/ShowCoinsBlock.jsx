@@ -21,6 +21,10 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
         return <ShowCoinsItem key={coin.id + coin.symbol} coin={coin} />
     });
 
+    if(isWallet) {
+        total = items.length;
+    }
+
     const onShowChange = (e) => {
         dispatch(selectShowCount(e.target.value));
     }
@@ -56,8 +60,8 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
                             <th className={s.head_5}><span>Capitalization</span></th>
                             {isWallet && <th className={s.head_6}><span>Amount</span></th>}
                         </tr>
-                        {items && itemsMap.length > 0 || total === 0 ? itemsMap : <tr><td colSpan="6" className={s.loader}><Loader /></td></tr>}
-                        {total === 0 ? <tr><td colSpan="6" className={s.no_items}>No items to show.</td></tr> : null}
+                        {items && itemsMap.length > 0 || total === 0 ? itemsMap : <tr><td colSpan={isWallet ? 8 : 6} className={s.loader}><Loader /></td></tr>}
+                        {total === 0 ? <tr><td colSpan={isWallet ? 8 : 6} className={s.no_items}>No items to show.</td></tr> : null}
                     </tbody>
                 </table>
             </div>
