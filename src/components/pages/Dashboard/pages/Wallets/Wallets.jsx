@@ -12,10 +12,12 @@ import s from "./Wallets.module.css";
 const Wallets = () => {
   const [walletId, setWallet] = useState(0);
   const [isShowAddCoin, setShowCoin] = useState(false);
+  
   const dispatch = useDispatch();
   const { content } = useSelector(({ wallets }) => ({
     content: wallets.content,
   }));
+
   useEffect(() => {
     dispatch(getAllWalletsTC());
   }, []);

@@ -289,6 +289,14 @@ table.last_list {
   align-items: center;
 }
 
+/* Wallet styles */
+.column_6 {
+ text-align: end;
+}
+
+/* Wallet styles end */
+
+
 
 @media only screen and (max-width: 820px) {
   .last_row td:nth-last-child(1),

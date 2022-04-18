@@ -14,11 +14,12 @@ import Pagination from 'rc-pagination';
 
 const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, currPage, onChangePage, isWallet }) => {
     const dispatch = useDispatch();
-    var itemsMap;
-    if(!isWallet) {
-        itemsMap = items?.map(coin => <ShowCoinsItem key={coin.id + coin.symbol} coin={coin} />)
-    } else itemsMap = items?.map(coin => <ShowCoinsItem key={coin.coin.id + coin.coin.symbol} coin={coin.coin} />);
     
+    const itemsMap = items?.map(coin => {
+        if(isWallet)
+        return <ShowCoinsItem key={coin.coin.id + coin.coin.symbol} coin={coin.coin} amount={coin.amount}/>;
+        return <ShowCoinsItem key={coin.id + coin.symbol} coin={coin} />
+    });
 
     const onShowChange = (e) => {
         dispatch(selectShowCount(e.target.value));
@@ -53,6 +54,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
                             <th className={s.head_3}><span>24h</span></th>
                             <th className={s.head_4}><span>24h Volume</span></th>
                             <th className={s.head_5}><span>Capitalization</span></th>
+                            {isWallet && <th className={s.column_6}><span>Amount</span></th>}
                         </tr>
                         {items && itemsMap.length > 0 || total === 0 ? itemsMap : <tr><td colSpan="6" className={s.loader}><Loader /></td></tr>}
                         {total === 0 ? <tr><td colSpan="6" className={s.no_items}>No items to show.</td></tr> : null}
@@ -64,7 +66,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
     )
 }
 
-const ShowCoinsItem = ({ coin }) => {
+const ShowCoinsItem = ({ coin, amount }) => {
     let [isFav, setFav] = useState(coin.favorite);
 
     const perc = coin.priceChangePercentage24h || 0;
@@ -106,6 +108,7 @@ const ShowCoinsItem = ({ coin }) => {
             </td>
             <td className={s.column_4}><span>{formatter.format(coin.totalVolume).replace(/\D00(?=\D*$)/, '')}</span></td>
             <td className={s.column_5}><span>{formatter.format(coin.marketCap).replace(/\D00(?=\D*$)/, '')}</span></td>
+            {amount && <td className={s.column_6}><span>{amount}</span></td>}
         </tr>
     );
 }
