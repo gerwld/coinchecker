@@ -11,7 +11,7 @@ import Settings from './pages/Settings/Settings';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { AsideBlock, MobileBarBlock } from '../../UI/Aside/Aside';
-import Wallet from './pages/Wallet/Wallet';
+import Wallets from './pages/Wallets/Wallets';
 import Buysell from './pages/Buysell/Buysell';
 
 
@@ -40,7 +40,7 @@ const Dashboard = ({ block_last, logOut, ...props }) => {
               <Route path="/" element={<MainPage curr_pagination={curr_pagination} />}/>
               <Route path="/fav" element={<FavPage curr_pagination={curr_pagination} />} />
               <Route path="/settings" element={<Settings />} />
-              <Route path="/wallet" element={<Wallet />} />
+              <Route path="/wallet" element={<Wallets />} />
               <Route path="/transactions" element={<Buysell />} />
             </Routes>
             </div>

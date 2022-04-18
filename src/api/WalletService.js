@@ -6,19 +6,13 @@ export default class WalletService {
   }
   static async createWallet(name) {
     return axios.post("http://159.223.218.84:8000/api/core/wallets", {
-      params: {
         name
-      }
     });
   }
-  static async getWalletCoin(id) {
-    return axios.get("http://159.223.218.84:8000/api/core/wallets/" + id);
-  }
-  static async buyWalletCoin(id) {
-    return axios.post("http://159.223.218.84:8000/api/core/wallets/" + id);
-  }
-  static async getWalletState(id) {
-    return axios.post("http://159.223.218.84:8000/api/core/wallets/" + id);
+  static async buyCoinInWalletId(walletId, buyCoinInputDto) {
+    return axios.post(`http://159.223.218.84:8000/api/core/wallets/${walletId}/buy`, {
+      buyCoinInputDto
+    });
   }
   
 }

@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 
 import s from "./Login.module.css";
-
 const Login = (props) => {
   return (
     <div className={s.login_content}>
@@ -19,7 +18,7 @@ const Login = (props) => {
             <NavLink to="forgot">Forgot password?</NavLink>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   );
 };
