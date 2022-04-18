@@ -10,12 +10,24 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlinePlus } from "react-icons/ai";
 import { BsThreeDotsVertical, BsCheckLg } from "react-icons/bs";
 import AddNewCoinPopup from "./AddNewCoinPopup/AddNewCoinPopup";
+import AddNewWalletPopup from "./AddNewWalletPopup copy/AddNewWalletPopup";
 
 
 const Wallets = () => {
   const [walletId, setWallet] = useState(0);
+
   const [isShowAddCoin, setShowCoin] = useState(false);
+  const [isShowSelect, setShowWall] = useState(false);
+  const [isNewWall, setShowNew] = useState(false);
   const [isDataVisible, setVisible] = useState(true);
+
+  const onOpenAddCoin = () => setShowCoin(true);
+  const toggleVisibility = () => setVisible(!isDataVisible);
+  const onSelectWallet = () => setShowWall(!isShowSelect);
+  const setClosedNew = () => {
+    setShowNew(false);
+    setShowWall(false);
+  }
 
   const dispatch = useDispatch();
   const { content } = useSelector(({ wallets }) => ({
@@ -31,12 +43,7 @@ const Wallets = () => {
     dispatch(getAllWalletsTC());
   }
 
-  const onOpenAddCoin = () => {
-    setShowCoin(true);
-  }
-  const toggleVisibility =() => {
-    setVisible(!isDataVisible);
-  }
+
 
   return (
     <div className={s.content_block}>
@@ -46,11 +53,11 @@ const Wallets = () => {
         <div className={s.head_block}>
           <div className={s.current_wallet}>
             <div className={s.wallet_select}>
-              <button className={s.btn_selected}>{content[walletId].name}<RiArrowDropDownLine /></button>
-              <ul>
+              <button onClick={onSelectWallet} className={`${s.btn_selected} ${isShowSelect && s.active}`}>{content[walletId].name}<RiArrowDropDownLine /></button>
+              {isShowSelect && <ul>
                 {content.map((wall, i) => <li><span>{wall.name}{i === walletId && <span className={s.act}><BsCheckLg/></span>}</span></li>)}
-                <li><button className={s.btn_new}><AiOutlinePlus/>Add New Wallet</button></li>
-              </ul>
+                <li><button onClick={() => setShowNew(true)} className={s.btn_new}><AiOutlinePlus/>Add New Wallet</button></li>
+              </ul>}
             </div>
             <div className={s.current_block}>
               <span>{isDataVisible ? '$' + content[walletId].currentUsdPrice : "..."}</span>
@@ -69,12 +76,15 @@ const Wallets = () => {
             <button onClick={toggleVisibility} className={s.btn_visibility}>{isDataVisible ? <AiOutlineEye/> : <AiOutlineEyeInvisible/>}</button>
             <button className={s.btn_menu}><BsThreeDotsVertical/></button>
             <button onClick={onOpenAddCoin} className={s.btn_addcoin}>Add New Coin</button>
-            {isShowAddCoin && <AddNewCoinPopup id={content[walletId].id} setShow={setShowCoin}  />}
+            
           </div>
         </div>
         <ShowCoinsBlock isWallet items={content[walletId].coins} />
       </div>
       : <CreateNewWallet onCreate={onCreateWallet}/>}
+
+      {isNewWall && <AddNewWalletPopup setClose={setClosedNew} />}
+      {isShowAddCoin && <AddNewCoinPopup id={content[walletId].id} setShow={setShowCoin}  />}
     </div>
   );
 };
