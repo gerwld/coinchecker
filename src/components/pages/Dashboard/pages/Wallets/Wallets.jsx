@@ -8,11 +8,14 @@ import BuyCoinPopup from "./BuyCoinPopup/BuyCoinPopup";
 import s from "./Wallets.module.css";
 
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 
 const Wallets = () => {
   const [walletId, setWallet] = useState(0);
   const [isShowAddCoin, setShowCoin] = useState(false);
+  const [isDataVisible, setVisible] = useState(true);
 
   const dispatch = useDispatch();
   const { content } = useSelector(({ wallets }) => ({
@@ -30,6 +33,9 @@ const Wallets = () => {
 
   const onOpenAddCoin = () => {
     setShowCoin(true);
+  }
+  const toggleVisibility =() => {
+    setVisible(!isDataVisible);
   }
 
   return (
@@ -56,9 +62,9 @@ const Wallets = () => {
             </div>
           </div>
           <div className={s.wallet_controls}>
-            <button>visib</button>
-            <button>3 dots menu</button>
-            <button onClick={onOpenAddCoin}>Add New Coin</button>
+            <button onClick={toggleVisibility} className={s.btn_visibility}>{isDataVisible ? <AiOutlineEye/> : <AiOutlineEyeInvisible/>}</button>
+            <button className={s.btn_menu}><BsThreeDotsVertical/></button>
+            <button onClick={onOpenAddCoin} className={s.btn_addcoin}>Add New Coin</button>
             {isShowAddCoin && <BuyCoinPopup id={content[walletId].id} setShow={setShowCoin}  />}
           </div>
         </div>
