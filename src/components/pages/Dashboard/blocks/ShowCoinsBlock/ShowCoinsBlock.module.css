@@ -12,6 +12,15 @@
   padding-top: 15px;
 }
 
+.wallet_styles .head_5,
+.wallet_styles .head_3 {
+  text-align: right;
+}
+
+.wallet_styles .head_5 span {
+  margin-right: 0;
+}
+
 /* Wallet styles end */
 
 
