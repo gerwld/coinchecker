@@ -33,14 +33,14 @@ export const getAllWalletsTC = () => {
 
 export const buyCoinInWalletIdTC = (id, data) => {
   const buyCoinInputDto = {
-    amount: parseInt(data.amount),
-    coinId: parseInt(data.coinId),
+    amount: data.amount,
+    coinId: data.coinId,
     comment: data.comment,
-    usdAmount: parseInt(data.usdAmount),
+    usdAmount: data.usdAmount,
   };
   return async (dispatch) => {
     try {
-      await WalletService.buyCoinInWalletId(id, buyCoinInputDto);
+      await WalletService.buyCoinInWalletId(id, data);
       dispatch(getAllWalletsTC());
     } catch (error) {
       alert(error);

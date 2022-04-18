@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import WalletService from "../../../../../api/WalletService";
 import { getAllWalletsTC } from "../../../../../redux/reducers/wallets-reducer";
 import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
-import BuyCoinPopup from "./BuyCoinPopup/BuyCoinPopup";
+import BuyCoinPopup from "./TransactionCoinPopup/TransactionCoinPopup";
 import s from "./Wallets.module.css";
 
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import AddNewCoinPopup from "./AddNewCoinPopup/AddNewCoinPopup";
 
 
 const Wallets = () => {
@@ -65,7 +66,7 @@ const Wallets = () => {
             <button onClick={toggleVisibility} className={s.btn_visibility}>{isDataVisible ? <AiOutlineEye/> : <AiOutlineEyeInvisible/>}</button>
             <button className={s.btn_menu}><BsThreeDotsVertical/></button>
             <button onClick={onOpenAddCoin} className={s.btn_addcoin}>Add New Coin</button>
-            {isShowAddCoin && <BuyCoinPopup id={content[walletId].id} setShow={setShowCoin}  />}
+            {isShowAddCoin && <AddNewCoinPopup id={content[walletId].id} setShow={setShowCoin}  />}
           </div>
         </div>
         <ShowCoinsBlock isWallet items={content[walletId].coins} />

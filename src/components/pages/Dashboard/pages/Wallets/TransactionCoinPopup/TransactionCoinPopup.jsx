@@ -1,9 +1,9 @@
 import React from "react";
-import s from "./Buy.module.css";
-import { Form, Field } from "react-final-form";
-import { buyCoinInWalletIdTC } from "../../../../../../redux/reducers/wallets-reducer";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { Form, Field } from "react-final-form";
+
+import s from "./Buy.module.css";
+import { buyCoinInWalletIdTC } from "../../../../../../redux/reducers/wallets-reducer";
 
 const BuyCoinPopup = ({ id, setShow }) => {
   const dispatch = useDispatch();
