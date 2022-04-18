@@ -9,6 +9,7 @@
   left: 0;
   background-color: #fff;
   transition: top 0.3s ease-in-out 0.1s;
+  z-index: 100;
 }
 
 .header_floatfix {

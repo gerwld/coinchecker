@@ -64,6 +64,7 @@
  transform: rotate(15deg);
  border: 2px solid var(--color-primary-blue);
  border-radius: 50%;
+ z-index: 0;
 }
 
 .i_block h3 {
