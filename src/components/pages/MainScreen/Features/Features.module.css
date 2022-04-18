@@ -1,6 +1,15 @@
+.content {
+ padding: 50px 0 30px;
+}
+
 .title {
- font-size: 34px;
+ font-size: 28px;
  font-weight: 500;
+}
+
+.subtitle {
+ font-size: 16px;
+ color:rgb(71, 71, 71);
 }
 
 .title,
@@ -14,7 +23,7 @@
  justify-content: space-between;
  align-items: center;
 
- margin-top: 25px;
+ margin-top: 36px;
 }
 
 .i_block {
@@ -22,7 +31,7 @@
  flex-direction: column;
  width: 23%;
  flex: 0 1 23%;
- padding: 18px 15px;
+ padding: 20px;
  border-radius: 18px;
  border: var(--border-lightgray);
 }
@@ -34,33 +43,46 @@
  justify-content: center;
  align-items: center;
  
- width: 70px;
- height: 70px;
+ width: 60px;
+ height: 60px;
 
  margin-bottom: 15px;
 
  border-radius: 50%;
  overflow: hidden;
- background-color: #dbe1f3;
+ background-color: #eceff8;
+}
+
+.i_block .icon svg {
+ font-size: 29px;
+ color: var(--color-primary-blue);
+}
+
+.i_block .icon_btc svg {
+ padding: 2px;
+ transform: rotate(15deg);
+ border: 2px solid var(--color-primary-blue);
+ border-radius: 50%;
 }
 
 .i_block h3 {
  margin: 0 0 10px;
- font-size: 19px;
+ font-size: 18px;
  font-weight: 500;
 }
 
 .i_block p {
  margin: 0 0 15px;
- font-size: 14.5px;
+ font-size: 14.2px;
  font-weight: 400;
  color: rgb(71, 71, 71);
 }
 
 .i_block a {
+ padding: 2px 0;
  text-decoration: none;
  color: var(--color-primary-blue);
- font-size: 16px;
+ font-size: 15px;
  transition: margin 0.3s ease;
 }
 
@@ -69,6 +91,6 @@
 }
 
 .i_block a svg {
- margin-bottom: -3px;
+ margin-bottom: -4px;
  font-size: 18px;
 }
