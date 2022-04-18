@@ -80,6 +80,7 @@
   border-top: none;
   overflow: hidden;
   box-shadow: var(--shadow-main2);
+  z-index: 100;
 }
 
 .wallet_select li {
