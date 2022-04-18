@@ -24,7 +24,7 @@ const Features = () => {
         </div>
         <div className={s.i_block}>
           <h3>Protected Securely</h3>
-          <p>All cash balances are covered by FDIC insurance, up to a maximum of $250,000.</p>
+          <p>All cash balances are covered by SOME insurance, up to a maximum of $0,250,000.</p>
           <div className={s.icon}><IoShieldCheckmarkOutline/></div>
           <NavLink to="#explain">
             See Explained <RiArrowRightLine />
