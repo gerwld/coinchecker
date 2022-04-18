@@ -40,6 +40,7 @@
 }
 
 .wallet_select {
+  position: relative;
   flex: 1 0 100%;
   margin-bottom: 10px;
   text-transform:capitalize;
@@ -47,7 +48,7 @@
   font-weight: 600;
 }
 
-.wallet_select button {
+.btn_selected {
   padding: 0px;
   line-height: 40px;
   border: none;
@@ -55,14 +56,71 @@
   border-radius: 5px;
 }
 
-.wallet_select button svg {
+.btn_selected svg {
   font-size: 30px;
   margin-bottom: -8px;
 }
-
-.wallet_select button:active {
+ 
+.btn_selected:active {
   outline: none;
   background-color: rgb(226, 234, 238);
+}
+
+.wallet_select ul {
+  display: inline-block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  background-color: #fff;
+  border: 1px solid #d9dfe4;
+  border-top: none;
+  overflow: hidden;
+  box-shadow: var(--shadow-main);
+}
+
+.wallet_select li {
+  cursor: pointer;
+}
+
+.wallet_select li > span,
+.wallet_select ul button {
+  display: block;
+  padding: 18px 45px 18px 20px;
+  font-size: 16px;
+  text-align: left;
+  border-top: 1px solid #d9dfe4;
+}
+
+.wallet_select li {
+  position: relative;
+}
+
+.wallet_select .act {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  color: green;
+  
+}
+
+.wallet_select li:hover,
+.btn_new:hover {
+  background-color: rgb(221, 227, 231);
+}
+
+.btn_new {
+  width: 100%;
+  border: none;
+  background-color: #fff;
+}
+
+.btn_new svg {
+  font-size: 19px;
+  line-height: 0;
+  margin-bottom: -3px;
+  margin-right: 5px;
+  margin-left: -5px;
 }
 
 .current_block {

@@ -1,11 +1,14 @@
 import WalletService from "../../api/WalletService";
 
 const GET_ALL_WALLETS = "coinchecker/wallet-reducer/GET_ALL_WALLETS";
+const SEARCH_COIN = "coinchecker/wallet-reducer/SEARCH_COIN";
 const getAllWalletsAC = (payload) => ({ type: GET_ALL_WALLETS, payload });
+const getCoinsByQuery = (payload) => ({type: SEARCH_COIN, payload})
 
 const walletsState = {
   isLoaded: false,
   content: null,
+  addCoinSearchResults: null,
 };
 
 const walletsReducer = (state = walletsState, action) => {
@@ -47,5 +50,16 @@ export const buyCoinInWalletIdTC = (id, data) => {
     }
   };
 };
+
+const getCoinsByQueryTC = (query) => {
+  return (dispatch) => {
+    try {
+      const data = WalletService.buyCoinInWalletId(query);
+      dispatch(getCoinsByQuery(data));
+    } catch(error) {
+      alert(error);
+    }
+  }
+}
 
 export default walletsReducer;

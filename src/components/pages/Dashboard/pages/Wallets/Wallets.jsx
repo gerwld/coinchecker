@@ -4,12 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import WalletService from "../../../../../api/WalletService";
 import { getAllWalletsTC } from "../../../../../redux/reducers/wallets-reducer";
 import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
-import BuyCoinPopup from "./TransactionCoinPopup/TransactionCoinPopup";
 import s from "./Wallets.module.css";
 
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlinePlus } from "react-icons/ai";
+import { BsThreeDotsVertical, BsCheckLg } from "react-icons/bs";
 import AddNewCoinPopup from "./AddNewCoinPopup/AddNewCoinPopup";
 
 
@@ -47,7 +46,11 @@ const Wallets = () => {
         <div className={s.head_block}>
           <div className={s.current_wallet}>
             <div className={s.wallet_select}>
-              <button>{content[walletId].name}<RiArrowDropDownLine /></button>
+              <button className={s.btn_selected}>{content[walletId].name}<RiArrowDropDownLine /></button>
+              <ul>
+                {content.map((wall, i) => <li><span>{wall.name}{i === walletId && <span className={s.act}><BsCheckLg/></span>}</span></li>)}
+                <li><button className={s.btn_new}><AiOutlinePlus/>Add New Wallet</button></li>
+              </ul>
             </div>
             <div className={s.current_block}>
               <span>{isDataVisible ? '$' + content[walletId].currentUsdPrice : "..."}</span>
