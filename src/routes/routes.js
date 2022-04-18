@@ -1,7 +1,7 @@
 
 import LoginContainer from '../components/pages/Login/LoginContainer';
 import RegContainer from '../components/pages/Registration/RegContainer';
-import MainContainer from '../components/pages/MainScreen/MainContainer';
+import Main from '../components/pages/MainScreen/MainScreen';
 import DashContainer from '../components/pages/Dashboard/DashContainer';
 import { Navigate } from 'react-router-dom';
 
@@ -20,5 +20,5 @@ export const privateRoutes = [
 ]
 
 export const globalRoutes = [
-  {path: '/', element: MainContainer},
+  {path: '/', element: Main},
 ]

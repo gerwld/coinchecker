@@ -6,7 +6,7 @@ import s from './Trends.module.css';
 
 const HeaderTrends = ({ headTrends }) => {
     return (
-        <div className={`${s.header_section2} content-wrapper`}>
+        <div className={s.header_section2}>
 
             <h2>Market trends</h2>
             <div className={s.sect2_blocks}>

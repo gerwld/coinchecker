@@ -226,3 +226,17 @@ select:focus {
     height: 60px;
   }
 }
+
+@media only screen and (max-width: 590px) {
+  .content-wrapper {
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .content-wrapper {
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+}

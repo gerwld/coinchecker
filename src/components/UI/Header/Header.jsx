@@ -17,7 +17,6 @@ const HeaderMain = ({isAuth, logOut, ...props}) => {
           <Link to="#about_us" className={s.explore}>Get started</Link>
         </div>
       </div>
-      <HeaderTrends headTrends={props.headTrends} />
     </>
   );
 };
