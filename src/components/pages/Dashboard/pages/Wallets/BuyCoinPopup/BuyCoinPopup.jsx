@@ -1,34 +1,65 @@
-import React from 'react'
+import React from "react";
 import s from "./Buy.module.css";
-import { Form, Field } from 'react-final-form'
-import { buyCoinInWalletIdTC } from '../../../../../../redux/reducers/wallets-reducer';
-import { useDispatch } from 'react-redux';
+import { Form, Field } from "react-final-form";
+import { buyCoinInWalletIdTC } from "../../../../../../redux/reducers/wallets-reducer";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 
-const BuyCoinPopup = ({id}) => {
- const dispatch = useDispatch();
- const onSubmit = (data) => {
-  dispatch(buyCoinInWalletIdTC(id, data));
- }
+const BuyCoinPopup = ({ id, setShow }) => {
+  const dispatch = useDispatch();
+  const onSubmit = (data) => {
+    dispatch(buyCoinInWalletIdTC(id, data));
+  };
   return (
-    <div>
-     <Form
-    onSubmit={onSubmit}
-    render={({ handleSubmit }) => (
-      <form onSubmit={handleSubmit}>
-        <h2>Buy coin popup</h2>
-        <div>
-          <label>First Name</label>
-          <Field name="amount" component="input" type="number" placeholder="Amount" required />
-          <Field name="coinId" component="input" type="number" placeholder="Coin id" required/>
-          <Field name="comment" component="input" placeholder="Comment" />
-          <Field name="usdAmount" component="input" type="number" placeholder="Usd Amount" required/>
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-    )}
-  />
+    <div className={s.popup_wrapper}>
+      <div className={s.popup_content}>
+        <Form
+          onSubmit={onSubmit}
+          render={({ handleSubmit }) => (
+            <form onSubmit={handleSubmit}>
+              <h2>Buy coin popup</h2>
+              <div>
+                <label>Amount</label>
+                <Field
+                  name="amount"
+                  component="input"
+                  type="number"
+                  placeholder="Amount"
+                  required
+                />
+              </div>
+              <div>
+                <label>Coin id</label>
+                <Field
+                  name="coinId"
+                  component="input"
+                  type="number"
+                  placeholder="Coin id"
+                  required
+                />
+              </div>
+              <div>
+                <label>Comment</label>
+                <Field name="comment" component="input" placeholder="Comment" />
+              </div>
+              <div>
+                <label>Usd Amount</label>
+                <Field
+                  name="usdAmount"
+                  component="input"
+                  type="number"
+                  placeholder="Usd Amount"
+                  required
+                />
+              </div>
+              <button onClick={() => setShow(false)}type="button">Cancel</button>
+              <button type="submit">Submit</button>
+            </form>
+          )}
+        />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default BuyCoinPopup
+export default BuyCoinPopup;

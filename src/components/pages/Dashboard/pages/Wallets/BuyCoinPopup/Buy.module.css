@@ -1,0 +1,30 @@
+.popup_wrapper {
+ position: absolute;
+ width: 100vw;
+ height: 100vh;
+ top: 0;
+ left: 0;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-color: rgba(0, 0, 0, 0.534);
+ z-index: 10000000;
+}
+
+.popup_content {
+ width: 300px;
+ max-width: 95vh;
+ background-color: #fff;
+ padding: 30px;
+}
+
+.popup_content label {
+ display: block;
+}
+
+
+.popup_content input {
+ width: 100%;
+ padding: 10px;
+ box-sizing: border-box;
+}

@@ -11,6 +11,7 @@ import s from "./Wallets.module.css";
 
 const Wallets = () => {
   const [walletId, changeWallet] = useState(0);
+  const [isShowAddCoin, setShowCoin] = useState(false);
   const dispatch = useDispatch();
   const { content } = useSelector(({ wallets }) => ({
     content: wallets.content,
@@ -22,6 +23,10 @@ const Wallets = () => {
   const onCreateWallet = async (name) => {
    await WalletService.createWallet(name);
     dispatch(getAllWalletsTC());
+  }
+
+  const onOpenAddCoin = () => {
+    setShowCoin(true);
   }
 
   return (
@@ -48,8 +53,8 @@ const Wallets = () => {
           <div className={s.wallet_controls}>
             <button>visib</button>
             <button>3 dots menu</button>
-            <button>Add New Coin</button>
-            <BuyCoinPopup id={content[walletId].id} />
+            <button onClick={onOpenAddCoin}>Add New Coin</button>
+            {isShowAddCoin && <BuyCoinPopup id={content[walletId].id} setShow={setShowCoin}  />}
           </div>
         </div>
         <ShowCoinsBlock isWallet />
