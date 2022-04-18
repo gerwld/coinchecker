@@ -18,3 +18,35 @@
   letter-spacing: 0.023em;
   color: var(--color-primary-darkblue);
 }
+
+/* Block styles end */
+
+/* Current Wallet block */
+
+.head_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.current_wallet {
+  width: 540px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  border: 1px solid gray;
+}
+
+.wallet_select {
+  flex: 1 0 100%;
+}
+
+.current_block {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+/* Current Wallet block end */
