@@ -10,7 +10,7 @@ import BuyCoinPopup from "./BuyCoinPopup/BuyCoinPopup";
 import s from "./Wallets.module.css";
 
 const Wallets = () => {
-  const [walletId, changeWallet] = useState(0);
+  const [walletId, setWallet] = useState(0);
   const [isShowAddCoin, setShowCoin] = useState(false);
   const dispatch = useDispatch();
   const { content } = useSelector(({ wallets }) => ({
@@ -57,7 +57,7 @@ const Wallets = () => {
             {isShowAddCoin && <BuyCoinPopup id={content[walletId].id} setShow={setShowCoin}  />}
           </div>
         </div>
-        <ShowCoinsBlock isWallet />
+        <ShowCoinsBlock isWallet items={content[walletId].coins} />
       </div>
       : <CreateNewWallet onCreate={onCreateWallet}/>}
     </div>

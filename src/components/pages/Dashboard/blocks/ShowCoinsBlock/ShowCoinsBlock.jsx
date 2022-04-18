@@ -13,8 +13,12 @@ import Pagination from 'rc-pagination';
 
 
 const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, currPage, onChangePage, isWallet }) => {
-    const itemsMap = items?.map(coin => <ShowCoinsItem key={coin.id + coin.symbol} coin={coin} />)
     const dispatch = useDispatch();
+    var itemsMap;
+    if(!isWallet) {
+        itemsMap = items?.map(coin => <ShowCoinsItem key={coin.id + coin.symbol} coin={coin} />)
+    } else itemsMap = items?.map(coin => <ShowCoinsItem key={coin.coin.id + coin.coin.symbol} coin={coin.coin} />);
+    
 
     const onShowChange = (e) => {
         dispatch(selectShowCount(e.target.value));
