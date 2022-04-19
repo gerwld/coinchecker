@@ -52,6 +52,7 @@
   padding: 0 10px;
   line-height: 40px;
   border: none;
+  text-transform: capitalize;
   background-color: transparent;
 }
 

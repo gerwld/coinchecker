@@ -5,11 +5,12 @@ import s from './ShowCoinsBlock.module.css';
 import ShowImage from '../../../../../utils/ShowImage';
 import Loader from '../../../../UI/Loader/Loader';
 import { fetchFavCoin } from '../../../../../api/BoardService';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { AiFillStar, AiOutlinePlus, AiOutlineStar } from 'react-icons/ai';
 import {FiRefreshCw} from "react-icons/fi"
 
-import { selectShowCount } from '../../../../../redux/reducers/dashboard-reducer';
+import { getTransactionData, selectShowCount } from '../../../../../redux/reducers/dashboard-reducer';
 import Pagination from 'rc-pagination';
+import TransactionPopup from './TransactionPopup/TransactionPopup';
 
 
 const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, currPage, onChangePage, isWallet }) => {
@@ -66,11 +67,13 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
                 </table>
             </div>
             <Pagination total={total} current={currPage} pageSize={curr_pagination} onChange={onChangePage} showPrevNextJumpers={false} />
+            <TransactionPopup/>
         </div>
     )
 }
 
 const ShowCoinsItem = ({ coin, amount }) => {
+    const dispatch = useDispatch();
     let [isFav, setFav] = useState(coin.favorite);
 
     const perc = coin.priceChangePercentage24h || 0;
@@ -88,6 +91,10 @@ const ShowCoinsItem = ({ coin, amount }) => {
         const priceSign = Math.sign(price);
         if (priceSign === 1) return "change_green";
         else if (priceSign === -1) return "change_red";
+    }
+    function onGetTransactionData() {
+        dispatch(getTransactionData(coin));
+        console.log(coin);
     }
 
     return (
@@ -112,6 +119,9 @@ const ShowCoinsItem = ({ coin, amount }) => {
             <td className={s.column_4}><span>{formatter.format(coin.totalVolume).replace(/\D00(?=\D*$)/, '')}</span></td>
             <td className={s.column_5}><span>{formatter.format(coin.marketCap).replace(/\D00(?=\D*$)/, '')}</span></td>
             {amount && <td className={s.column_6}><span>{amount}</span></td>}
+            <td className={s.column_7}>
+                <button onClick={onGetTransactionData}><AiOutlinePlus /></button>
+            </td>
         </tr>
     );
 }

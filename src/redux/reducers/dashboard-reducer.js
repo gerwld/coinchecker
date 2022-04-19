@@ -7,6 +7,8 @@ const SELECT_SHOW_COUNT = "coinchecker/dash-reducer/SELECT_SHOW_COUNT";
 const SET_SEARCH = "coinchecker/dash-reducer/SET_SEARCH";
 const SET_SEARCH_RESULT = "coinchecker/dash-reducer/SET_SEARCH_RESULT";
 const EARSE_SEARCH_RESULT = "coinchecker/dash-reducer/EARSE_SEARCH_RESULT";
+const ON_TRANSACTION = "coinchecker/dash-reducer/ON_TRANSACTION";
+const CLOSE_TRANS_POPUP = "coinchecker/dash-reducer/CLOSE_TRANS_POPUP";
 
 export const loadItems = (items, total) => ({ type: LOAD_LAST_ITEMS, items, total });
 export const getFavCoinsAC = (items, count) => ({ type: GET_FAV_COINS, items, count });
@@ -14,6 +16,8 @@ export const selectShowCount = (payload) => ({ type: SELECT_SHOW_COUNT, payload 
 export const onTypeSearch = (payload) => ({ type: SET_SEARCH, payload });
 export const setSearchResp = (payload) => ({ type: SET_SEARCH_RESULT, payload });
 export const earseSearch = { type: EARSE_SEARCH_RESULT };
+export const getTransactionData = (coin) => ({ type: ON_TRANSACTION, coin });
+export const closeTransPopup = { type: CLOSE_TRANS_POPUP };
 
 let initialState = {
   last_coins: null,
@@ -25,7 +29,10 @@ let initialState = {
   },
   searchQuery: "",
   searchResult: null,
-  isSearchInit: false
+  isSearchInit: false,
+
+  transCoin: null,
+  isTransPopup: false
 };
 
 const dashReducer = (state = initialState, action) => {
@@ -66,7 +73,18 @@ const dashReducer = (state = initialState, action) => {
         searchQuery: "",
         searchResult: null,
         isSearchInit: false
-
+      }
+    case ON_TRANSACTION: 
+      return {
+        ...state,
+        transCoin: action.coin,
+        isTransPopup: true
+      }
+    case CLOSE_TRANS_POPUP:
+      return {
+        ...state,
+        isTransPopup: false,
+        transCoin: null
       }
     default:
       return state;
