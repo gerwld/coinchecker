@@ -120,7 +120,7 @@ const ShowCoinsItem = ({ coin, amount }) => {
             <td className={s.column_5}><span>{formatter.format(coin.marketCap).replace(/\D00(?=\D*$)/, '')}</span></td>
             {amount && <td className={s.column_6}><span>{amount}</span></td>}
             <td className={s.column_7}>
-                <button onClick={onGetTransactionData}><AiOutlinePlus /></button>
+                <button onClick={onGetTransactionData} title="Add transaction"><AiOutlinePlus /></button>
             </td>
         </tr>
     );
