@@ -5,14 +5,21 @@ const instance = axios.create({
 });
 
 export default class BoardService {
-  static async getData(showLast = 15, page = 0, sort) {
+  static async getData(showLast = 15, page = 0) {
     return axios.get("http://159.223.218.84:8000/api/core/coins", {
       params: {
         size: showLast,
-        page,
-        sort
+        page
       }
     });
+  }
+
+  static async searchCoin(name) {
+    return axios.get("http://159.223.218.84:8000/api/core/coins", {
+      params: {
+        name
+      }
+    })
   }
 
   static async getFavCoins(size = 10, page = 0) {

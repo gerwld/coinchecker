@@ -6,7 +6,7 @@
  left: 0;
  display: flex;
  justify-content: center;
- align-items: center;
+ align-items: flex-start;
  background-color: rgba(0, 0, 0, 0.534);
  z-index: 10000000;
 }
@@ -15,6 +15,7 @@
  width: 500px;
  max-width: 95vw;
  max-height: 95vh;
+ margin-top: 10vh;
  background-color: #fff;
  padding: 30px;
  border-radius: 8px;
@@ -82,3 +83,20 @@
 }
 
 /* Search element end */
+
+
+.btn_addcoin {
+ padding: 0 20px;
+ height: 40px;
+ 
+ font-size: 15px;
+ color: #fff;
+ background-color: var(--color-primary-blue);
+ border: none;
+ border-radius: 5px;
+ transition: background 0.3s ease;
+}
+
+.btn_addcoin:hover {
+ background-color: var(--color-primary-blue-hover);
+}

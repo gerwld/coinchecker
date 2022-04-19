@@ -177,16 +177,6 @@
   font-size: 20px;
 }
 
-.btn_addcoin {
-  padding: 0 20px;
-  height: 40px;
-  
-  font-size: 15px;
-  color: #fff;
-  background-color: var(--color-primary-blue);
-  border: none;
-  border-radius: 5px;
-}
 
 .btn_menu,
 .btn_visibility,
@@ -197,10 +187,6 @@
 .btn_menu:hover,
 .btn_visibility:hover {
   background-color: #eaecf1;
-}
-
-.btn_addcoin:hover {
-  background-color: var(--color-primary-blue-hover);
 }
 
 /* Current Wallet block end */

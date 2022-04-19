@@ -56,7 +56,7 @@ const Wallets = () => {
           <div className={s.wallet_controls}>
             <button onClick={toggleVisibility} className={s.btn_visibility}>{isDataVisible ? <AiOutlineEye/> : <AiOutlineEyeInvisible/>}</button>
             <button className={s.btn_menu}><BsThreeDotsVertical/></button>
-            <AddNewCoinPopup walletId={content && content[walletId].id} />
+            <AddNewCoinPopup walletId={content[walletId].id} />
           </div>
         </div>
         <ShowCoinsBlock isWallet items={content[walletId].coins} />
