@@ -112,6 +112,8 @@
 
 .btn_close {
  padding: 0;
+ margin-top: -5px;
+ margin-left: -5px;
  color: #6b6b6b;
  font-size: 30px;
  line-height: 0;
