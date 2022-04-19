@@ -91,7 +91,7 @@ const TransactionPopup = ({}) => {
                 </div>
                 Fee & Notes (Opt)
                 <div className={s.action_popup}>
-                  <button type="button">Cancel</button>
+                  <button onClick={setClose} type="button">Cancel</button>
                   <button type="submit">Submit</button>
                 </div>
               </form>
