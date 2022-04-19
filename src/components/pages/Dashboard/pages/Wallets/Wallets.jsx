@@ -35,7 +35,7 @@ const Wallets = () => {
   return (
     <div className={s.content_block}>
       <h2 className={s.title}>Wallets</h2>
-      {content?.length 
+      {content?.length
       ? <div className="wallets_content">
         <div className={s.head_block}>
           <div className={s.current_wallet}>

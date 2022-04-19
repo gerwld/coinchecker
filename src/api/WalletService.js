@@ -12,5 +12,12 @@ export default class WalletService {
   static async buyCoinInWalletId(walletId, buyCoinInputDto) {
     return axios.post(`http://159.223.218.84:8000/api/core/wallets/${walletId}/buy`,buyCoinInputDto);
   }
+  static async addCoinInWalletId(walletId, coinId) {
+    return axios.post(`http://159.223.218.84:8000/api/core/wallets/${walletId}/buy`, {
+      params: {
+        id: coinId
+      }
+    });
+  }
   
 }
