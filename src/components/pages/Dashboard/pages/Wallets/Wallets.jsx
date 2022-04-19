@@ -12,7 +12,6 @@ import AddNewCoinPopup from "./AddNewCoinPopup/AddNewCoinPopup";
 import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
 import SelectWalletBlock from "./SelectWalletBlock";
 
-
 const Wallets = () => {
   const [walletId, setWallet] = useState(0);
   const [isDataVisible, setVisible] = useState(true);
@@ -30,50 +29,59 @@ const Wallets = () => {
   const onCreateWallet = async (name) => {
     await WalletService.createWallet(name);
     dispatch(getAllWalletsTC());
-  }
+  };
 
   return (
     <div className={s.content_block}>
       <h2 className={s.title}>Wallets</h2>
-      {content?.length
-      ? <div className="wallets_content">
-        <div className={s.head_block}>
-          <div className={s.current_wallet}>
-           <SelectWalletBlock content={content} walletId={walletId} select={setWallet} />
-            <div className={s.current_block}>
-              <span>{isDataVisible ? '$' + content[walletId].currentUsdPrice : "..."}</span>
-              <span>Total Balance</span>
+      {content?.length ? (
+        <div className="wallets_content">
+          <div className={s.head_block}>
+            <div className={s.current_wallet}>
+            <SelectWalletBlock content={content} walletId={walletId} select={setWallet} />
+            <div className={s.wallet_controls}>
+              <button onClick={toggleVisibility} className={s.btn_visibility}>
+                {isDataVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+              </button>
+              <button className={s.btn_menu}>
+                <BsThreeDotsVertical />
+              </button>
+              <AddNewCoinPopup walletId={content[walletId].id} />
             </div>
-            <div className={s.current_block}>
-              <span>{isDataVisible ? '$' + "0.00" : "..."}</span>
-              <span>24h Portfolio Change (+0%)</span>
             </div>
-            <div className={s.current_block}>
-              <span>{isDataVisible ? '$' + content[walletId].startUsdPrice : "..."}</span>
-              <span>Total Profit / Loss (-)</span>
+            <div className={s.wallet_info}>
+                <div className={s.current_block}>
+                  <span>{isDataVisible ? "$" + content[walletId].currentUsdPrice : "..."}</span>
+                  <span>Total Balance</span>
+                </div>
+                <div className={s.current_block}>
+                  <span>{isDataVisible ? "$" + "0.00" : "..."}</span>
+                  <span>24h Portfolio Change (+0%)</span>
+                </div>
+                <div className={s.current_block}>
+                  <span>{isDataVisible ? "$" + content[walletId].startUsdPrice : "..."}</span>
+                  <span>Total Profit / Loss (-)</span>
+                </div>
             </div>
+           
           </div>
-          <div className={s.wallet_controls}>
-            <button onClick={toggleVisibility} className={s.btn_visibility}>{isDataVisible ? <AiOutlineEye/> : <AiOutlineEyeInvisible/>}</button>
-            <button className={s.btn_menu}><BsThreeDotsVertical/></button>
-            <AddNewCoinPopup walletId={content[walletId].id} />
-          </div>
+          <ShowCoinsBlock isWallet items={content[walletId].coins} />
         </div>
-        <ShowCoinsBlock isWallet items={content[walletId].coins} />
-      </div>
-      : <CreateNewWallet create={onCreateWallet}/>}
+      ) : (
+        <CreateNewWallet create={onCreateWallet} />
+      )}
     </div>
   );
 };
 
-const CreateNewWallet = ({create}) => {
+const CreateNewWallet = ({ create }) => {
   const createNewWallet = () => create("My Portfolio");
   return (
     <div className={s.create_new}>
       <h2>You haven't created wallets yet. Create a new one?</h2>
       <button onClick={createNewWallet}>Create Free Wallet</button>
     </div>
-  )
-}
+  );
+};
 
 export default Wallets;

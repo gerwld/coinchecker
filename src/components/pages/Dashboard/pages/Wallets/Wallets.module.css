@@ -27,25 +27,33 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
+  flex-direction: column;
   margin-bottom: 10px;
 }
 
 .current_wallet {
+  width: 100%;
   flex: 1;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 10px;
 }
 
 .wallet_select {
   position: relative;
-  flex: 1 0 100%;
-  margin-bottom: 10px;
   text-transform:capitalize;
   font-size: 19px;
   font-weight: 600;
+  flex: 1;
+}
+
+.wallet_info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .btn_selected {
@@ -219,4 +227,8 @@
 
 .select_wrapper {
   display: inline-block;
+}
+
+@media only screen and (max-width: 500px) {
+
 }
