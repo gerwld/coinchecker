@@ -31,6 +31,7 @@ const AddNewWalletPopup = ({ setClose }) => {
       </div>
       </form>
       </div>
+      <div className={s.popup_bg} onClick={setClose}/>
     </div>
   );
 };

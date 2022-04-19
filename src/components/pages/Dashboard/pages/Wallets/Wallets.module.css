@@ -75,12 +75,16 @@
   top: 100%;
   left: 0;
 
+  max-height: 70vh;
+
   background-color: #fff;
   border: 1px solid #d9dfe4;
   border-top: none;
   overflow: hidden;
   box-shadow: var(--shadow-main2);
   z-index: 1000000;
+  
+  overflow-y: scroll;
 }
 
 .wallet_select li {

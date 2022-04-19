@@ -11,27 +11,13 @@ import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlinePlus } from "react-icons/
 import { BsThreeDotsVertical, BsCheckLg } from "react-icons/bs";
 import AddNewCoinPopup from "./AddNewCoinPopup/AddNewCoinPopup";
 import AddNewWalletPopup from "./AddNewWalletPopup copy/AddNewWalletPopup";
+import withClickOutside from "../../../../../hoc/withClickOutside";
 
 
 const Wallets = () => {
   const [walletId, setWallet] = useState(0);
-
-  const [isShowAddCoin, setShowCoin] = useState(false);
-  const [isShowSelect, setShowWall] = useState(false);
-  const [isNewWall, setShowNew] = useState(false);
   const [isDataVisible, setVisible] = useState(true);
-
-  const onOpenAddCoin = () => setShowCoin(true);
   const toggleVisibility = () => setVisible(!isDataVisible);
-  const onSelectWallet = () => setShowWall(!isShowSelect);
-  const setClosedNew = () => {
-    setShowNew(false);
-    setShowWall(false);
-  }
-  const onSetWallet = (i) => {
-    setWallet(i);
-    setShowWall(false);
-  }
 
   const dispatch = useDispatch();
   const { content } = useSelector(({ wallets }) => ({
@@ -40,14 +26,12 @@ const Wallets = () => {
 
   useEffect(() => {
     dispatch(getAllWalletsTC());
-  }, []);
+  }, [walletId]);
 
   const onCreateWallet = async (name) => {
-   await WalletService.createWallet(name);
+    await WalletService.createWallet(name);
     dispatch(getAllWalletsTC());
   }
-
-
 
   return (
     <div className={s.content_block}>
@@ -56,13 +40,7 @@ const Wallets = () => {
       ? <div className="wallets_content">
         <div className={s.head_block}>
           <div className={s.current_wallet}>
-            <div className={s.wallet_select}>
-              <button onClick={onSelectWallet} className={`${s.btn_selected} ${isShowSelect && s.active}`}>{content[walletId].name}<RiArrowDropDownLine /></button>
-              {isShowSelect && <ul>
-                {content.map((wall, i) => <li onClick={() => onSetWallet(i)}><span>{wall.name}{i === walletId && <span className={s.act}><BsCheckLg/></span>}</span></li>)}
-                <li><button onClick={() => setShowNew(true)} className={s.btn_new}><AiOutlinePlus/>Add New Wallet</button></li>
-              </ul>}
-            </div>
+           <SelectWalletBlock content={content} walletId={walletId} select={setWallet} />
             <div className={s.current_block}>
               <span>{isDataVisible ? '$' + content[walletId].currentUsdPrice : "..."}</span>
               <span>Total Balance</span>
@@ -79,24 +57,53 @@ const Wallets = () => {
           <div className={s.wallet_controls}>
             <button onClick={toggleVisibility} className={s.btn_visibility}>{isDataVisible ? <AiOutlineEye/> : <AiOutlineEyeInvisible/>}</button>
             <button className={s.btn_menu}><BsThreeDotsVertical/></button>
-            <button onClick={onOpenAddCoin} className={s.btn_addcoin}>Add New Coin</button>
+            <button className={s.btn_addcoin}>Add New Coin</button>
             
           </div>
         </div>
         <ShowCoinsBlock isWallet items={content[walletId].coins} />
       </div>
-      : <CreateNewWallet onCreate={onCreateWallet}/>}
+      : <CreateNewWallet create={onCreateWallet}/>}
 
-      {isNewWall && <AddNewWalletPopup setClose={setClosedNew} />}
-      {isShowAddCoin && <AddNewCoinPopup id={content[walletId].id} setShow={setShowCoin}  />}
+      {/* popups */}
+      <AddNewCoinPopup id={content[walletId].id} />
     </div>
   );
 };
 
-const CreateNewWallet = ({onCreate}) => {
-  const createNewWallet = () =>{
-    onCreate("My Portfolio")
+const SelectWalletBlock = withClickOutside(({content, walletId, select, setShow, isShow, refE}) => {
+  //add new wallet
+  const [isShowNew, setShowNew] = useState(false);
+  const showAddNew = () => {
+    setShowNew(true);
+    setShow(false);
+  };
+  const hideAddNew = () => {
+    setShowNew(false);
+    setShow(false);
+  };
+
+  //select wallet
+  const onSelect = (i) => {
+    select(i);
+    setShow(false);
   }
+
+  return (
+    <div className={s.wallet_select} ref={refE}>
+      <button onClick={() => setShow(!isShow)} className={`${s.btn_selected} ${isShow && s.active}`}>{content[walletId].name}<RiArrowDropDownLine /></button>
+      {isShow && <ul>
+        {content.map((wall, i) => <li onClick={() => onSelect(i)}><span>{wall.name}{i === walletId && <span className={s.act}><BsCheckLg/></span>}</span></li>)}
+
+        <button onClick={showAddNew} className={s.btn_new}><AiOutlinePlus/>Add New Wallet</button>
+      </ul>}
+    {isShowNew && <AddNewWalletPopup setClose={hideAddNew} />}
+  </div>
+  )
+});
+
+const CreateNewWallet = ({create}) => {
+  const createNewWallet = () => create("My Portfolio");
   return (
     <div className={s.create_new}>
       <h2>You haven't created wallets yet. Create a new one?</h2>

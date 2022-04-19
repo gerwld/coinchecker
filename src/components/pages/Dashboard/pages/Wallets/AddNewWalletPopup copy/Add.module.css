@@ -1,5 +1,5 @@
 .popup_wrapper {
- position: absolute;
+ position: fixed;
  width: 100vw;
  height: 100vh;
  top: 0;
@@ -7,7 +7,7 @@
  display: flex;
  justify-content: center;
  align-items: center;
- background-color: rgba(0, 0, 0, 0.534);
+ background-color: transparent;
  z-index: 10000000;
 }
 
@@ -69,4 +69,12 @@ label {
 
 .btn_close {
  margin-bottom: 15px;
+}
+
+.popup_bg {
+ position: fixed;
+ width: 100vw;
+ height: 100vh;
+ background-color: rgba(0, 0, 0, 0.534);
+ z-index: -1;
 }
