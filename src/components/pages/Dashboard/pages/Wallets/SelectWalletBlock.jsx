@@ -6,8 +6,6 @@ import { BsCheckLg } from "react-icons/bs"
 import AddNewWalletPopup from "./AddNewWalletPopup copy/AddNewWalletPopup";
 import withClickOutside from "../../../../../hoc/withClickOutside";
 
-
-
 const SelectWalletBlock = withClickOutside(({content, walletId, select, setShow, isShow, refE}) => {
  //add new wallet
  const [isShowNew, setShowNew] = React.useState(false);
