@@ -16,13 +16,13 @@
  max-width: 95vw;
  max-height: 95vh;
  background-color: #fff;
- padding: 30px 25px;
+ padding: 25px 25px;
  border-radius: 8px;
  overflow-y: scroll;
 }
 
 label {
- font-size: 22px;
+ font-size: 14px;
  font-weight: 600;
  margin: 10px 0;
 }
@@ -34,11 +34,20 @@ label {
  font-size: 16px;
  border: 1px solid #d4dee2;
  margin-bottom: 25px;
+ border-radius: 3px;
 }
 
 .popup_content input:active,
 .popup_content input:focus {
- outline: 2px solid rgb(44, 44, 224);
+ outline: 2px solid rgb(134, 134, 230);
+}
+
+.popup_content input:disabled {
+ background-color: rgb(214, 218, 224);
+}
+
+.popup_content input:disabled:active {
+ outline: none;
 }
 
 .action_popup button {
@@ -77,4 +86,102 @@ label {
  height: 100vh;
  background-color: rgba(0, 0, 0, 0.534);
  z-index: -1;
+}
+
+.trans_buttons {
+ display: flex;
+ border-bottom: var(--border-lightgray);
+}
+
+.trans_buttons button {
+ flex: 1 1 33%;
+ height: 50px;
+ font-size: 14px;
+ font-weight: 400;
+ border: none;
+ background-color: transparent;
+ transition: background 0.3s ease;
+}
+
+.trans_buttons button:hover {
+ background-color: rgb(245, 248, 250);
+}
+
+button.active {
+ font-weight: 500;
+ border-bottom: 3px solid var(--color-primary-blue);
+}
+
+.btn_close {
+ padding: 0;
+ color: #6b6b6b;
+ font-size: 30px;
+ line-height: 0;
+ background-color: transparent;
+ border: none;
+}
+
+span.red {
+ color: red;
+}
+
+.total_opt {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.amount_input,
+.total_field {
+ position: relative;
+}
+
+.amount_input span {
+ position: absolute;
+ top: 9px;
+ right: 20px;
+ font-size: 15px;
+ font-weight: 500;
+ text-transform: uppercase;
+}
+
+.total_field::before {
+ content: "USD";
+ position: absolute;
+ top: 7px;
+ left: 5px;
+ font-size: 17px;
+}
+
+.total_field input {
+ padding-left: 50px;
+}
+.amount_input input {
+ padding-right: 60px;
+}
+
+.action_popup button {
+ width: 48%;
+ height: 50px;
+ font-size: 15px;
+ font-weight: 500;
+ border: none;
+ border-radius: 5px;
+}
+
+.action_popup button:nth-child(1) {
+ border: 1px solid rgb(201, 202, 209);
+ background-color: #fff;
+}
+
+.action_popup button:nth-child(2) {
+ color: #fff;
+ background-color: var(--color-primary-blue);
+}
+
+.action_popup {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+
 }
