@@ -54,6 +54,9 @@ const TransactionPopup = ({}) => {
           </div>
           <Form
             onSubmit={onSubmit}
+            initialValues={{
+             "price": item.currentPrice
+            }}
             render={({ handleSubmit }) => (
               <form onSubmit={handleSubmit}>
                 <div>
