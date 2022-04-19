@@ -4,15 +4,18 @@ import { Form, Field } from 'react-final-form'
 import s from "./Trans.module.css";
 import { useDispatch } from "react-redux";
 import WalletService from "../../../../../../api/WalletService";
+import { closeTransPopup } from "../../../../../../redux/reducers/dashboard-reducer";
+import { getAllWalletsTC } from "../../../../../../redux/reducers/wallets-reducer";
 
 const TransactionPopup = ({  }) => {
+ const dispatch = useDispatch();
  const [transType, setTransType] = useState(0);
  const {item, isShow} = useSelector(({dashboard}) => ({
   item: dashboard.transCoin,
   isShow: dashboard.isTransPopup
  }))
  const setClose = () => {
-
+  dispatch(closeTransPopup);
  }
 
  const onSubmit = async (e) => {
@@ -23,6 +26,8 @@ const TransactionPopup = ({  }) => {
    coinId: item.id
   }
   await WalletService.buyCoinInWalletId(53, data);
+  dispatch(getAllWalletsTC());
+  setClose();
   console.log(data);
  }
  
