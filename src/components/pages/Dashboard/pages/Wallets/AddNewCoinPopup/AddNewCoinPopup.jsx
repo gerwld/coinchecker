@@ -24,6 +24,7 @@ const AddNewCoinPopup = withClickOutside(({ walletId, isShow, setShow, refE }) =
   };
 
   const onSelect = async (coin) => {
+    console.log(coin);
     dispatch(getTransactionData(coin, walletId));
     closePopup();
   };
@@ -48,7 +49,7 @@ const AddNewCoinPopup = withClickOutside(({ walletId, isShow, setShow, refE }) =
             <div className={s.trending}>
               {isInit ? (
                 searchResult?.length > 0 ? (
-                  searchResult?.slice(0, 10).map((coin) => <SearchElem name={coin.name} icon={coin.image} id={coin.id} symb={coin.symbol} onSelect={onSelect} />)
+                  searchResult?.slice(0, 10).map((coin) => <SearchElem name={coin.name} icon={coin.image} id={coin.id} symb={coin.symbol} onSelect={onSelect} coin={coin} />)
                 ) : (
                   <span className={s.no_res}>No Results Found.</span>
                 )
@@ -68,15 +69,16 @@ const AddNewCoinPopup = withClickOutside(({ walletId, isShow, setShow, refE }) =
   );
 });
 
-const SearchElem = ({ coin, onSelect }) => {
+
+const SearchElem = ({ name, icon, symb, onSelect, coin }) => {
 
   return (
     <div onClick={() => onSelect(coin)} className={s.search_elem}>
       <div className={s.icon}>
-        <img src={coin.image} alt={coin.name} />
+        <img src={icon} alt="" />
       </div>
       <span>
-        {coin.name} <span className={s.symb}>({coin.symbol})</span>
+        {name} <span className={s.symb}>({symb})</span>
       </span>
     </div>
   );
