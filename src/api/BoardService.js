@@ -17,7 +17,8 @@ export default class BoardService {
   static async searchCoin(name) {
     return axios.get("http://159.223.218.84:8000/api/core/coins", {
       params: {
-        name
+        name,
+        size: 10
       }
     })
   }

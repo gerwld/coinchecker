@@ -109,3 +109,12 @@
  border: 1px solid #e3e3e3;
  border-radius: 5px;
 }
+
+.btn_close {
+ padding: 0;
+ color: #6b6b6b;
+ font-size: 30px;
+ line-height: 0;
+ background-color: transparent;
+ border: none;
+}
