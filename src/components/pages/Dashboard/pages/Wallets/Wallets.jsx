@@ -3,15 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import WalletService from "../../../../../api/WalletService";
 import { getAllWalletsTC } from "../../../../../redux/reducers/wallets-reducer";
-import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
-import s from "./Wallets.module.css";
 
-import { RiArrowDropDownLine } from "react-icons/ri";
-import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlinePlus } from "react-icons/ai";
-import { BsThreeDotsVertical, BsCheckLg } from "react-icons/bs";
+import s from "./Wallets.module.css";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { BsThreeDotsVertical } from "react-icons/bs";
+
 import AddNewCoinPopup from "./AddNewCoinPopup/AddNewCoinPopup";
-import AddNewWalletPopup from "./AddNewWalletPopup copy/AddNewWalletPopup";
-import withClickOutside from "../../../../../hoc/withClickOutside";
+import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
+import SelectWalletBlock from "./SelectWalletBlock";
 
 
 const Wallets = () => {
@@ -70,37 +69,6 @@ const Wallets = () => {
     </div>
   );
 };
-
-const SelectWalletBlock = withClickOutside(({content, walletId, select, setShow, isShow, refE}) => {
-  //add new wallet
-  const [isShowNew, setShowNew] = useState(false);
-  const showAddNew = () => {
-    setShowNew(true);
-    setShow(false);
-  };
-  const hideAddNew = () => {
-    setShowNew(false);
-    setShow(false);
-  };
-
-  //select wallet
-  const onSelect = (i) => {
-    select(i);
-    setShow(false);
-  }
-
-  return (
-    <div className={s.wallet_select} ref={refE}>
-      <button onClick={() => setShow(!isShow)} className={`${s.btn_selected} ${isShow && s.active}`}>{content[walletId].name}<RiArrowDropDownLine /></button>
-      {isShow && <ul>
-        {content.map((wall, i) => <li onClick={() => onSelect(i)}><span>{wall.name}{i === walletId && <span className={s.act}><BsCheckLg/></span>}</span></li>)}
-
-        <button onClick={showAddNew} className={s.btn_new}><AiOutlinePlus/>Add New Wallet</button>
-      </ul>}
-    {isShowNew && <AddNewWalletPopup setClose={hideAddNew} />}
-  </div>
-  )
-});
 
 const CreateNewWallet = ({create}) => {
   const createNewWallet = () => create("My Portfolio");
