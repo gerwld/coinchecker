@@ -11,9 +11,10 @@ import { IoCloseOutline } from "react-icons/io5";
 const TransactionPopup = ({}) => {
   const dispatch = useDispatch();
   const [transType, setTransType] = useState(0);
-  const { item, isShow } = useSelector(({ dashboard }) => ({
+  const { item, isShow, walletId } = useSelector(({ dashboard }) => ({
     item: dashboard.transCoin,
     isShow: dashboard.isTransPopup,
+    walletId: dashboard.walletId
   }));
   const buttons = [
     { id: 0, title: "Buy" },
@@ -31,7 +32,8 @@ const TransactionPopup = ({}) => {
       price: e.price,
       coinId: item.id,
     };
-    await WalletService.buyCoinInWalletId(53, data);
+    const wallet = walletId ? walletId : 53;
+    await WalletService.buyCoinInWalletId(wallet, data);
     dispatch(getAllWalletsTC());
     setClose();
     console.log(data);

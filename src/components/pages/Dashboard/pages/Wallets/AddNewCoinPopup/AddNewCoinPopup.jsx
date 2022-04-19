@@ -15,6 +15,7 @@ const AddNewCoinPopup = withClickOutside(({ walletId, isShow, setShow, refE }) =
     searchResult: dashboard.searchResult,
   }));
 
+
   const isInit = query.length !== 0;
 
   const closePopup = () => {
@@ -23,7 +24,7 @@ const AddNewCoinPopup = withClickOutside(({ walletId, isShow, setShow, refE }) =
   };
 
   const onSelect = async (coin) => {
-    await dispatch(getTransactionData(coin, walletId));
+    dispatch(getTransactionData(coin, walletId));
     closePopup();
   };
 
