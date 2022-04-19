@@ -100,3 +100,12 @@
 .btn_addcoin:hover {
  background-color: var(--color-primary-blue-hover);
 }
+
+.no_res {
+ display: block;
+ padding: 10px;
+ margin-top: 5px;
+ font-size: 14px;
+ border: 1px solid #e3e3e3;
+ border-radius: 5px;
+}

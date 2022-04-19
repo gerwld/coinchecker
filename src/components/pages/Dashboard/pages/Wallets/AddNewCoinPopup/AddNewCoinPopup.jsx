@@ -36,12 +36,12 @@ const AddNewCoinPopup = withClickOutside(({ walletId, isShow, setShow, refE, }) 
       <div ref={refE} className={s.popup_content}>
       <button onClick={closePopup} className={s.btn_close}>close</button>
       <h2>Search your favorite coin:</h2>
-      <input type="text" onChange={onTypeInput} value={query} placeholder="Enter Coin Name"/>
+      <input type="text" onChange={onTypeInput} value={query} placeholder="Enter Coin Name" autoFocus/>
       <div className={s.trending}>
       {isInit 
       ? (searchResult?.length > 0
         ? searchResult?.slice(0, 10).map(coin => <SearchElem name={coin.name} icon={coin.image} id={coin.id} symb={coin.symbol} onSelect={onSelect}/>)
-        : <span>Noting found.</span>)
+        : <span className={s.no_res}>No Results Found.</span>)
       : <><h3>Users often searched:</h3>
         {lastCoins.slice(0, 10).map(coin => <SearchElem name={coin.name} icon={coin.image} id={coin.id} symb={coin.symbol} onSelect={onSelect}/>)}</>}
       </div>
