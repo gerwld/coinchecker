@@ -22,7 +22,7 @@
 }
 
 .popup_content label {
- font-size: 14px;
+ font-size: 14px!important;
  font-weight: 600;
  margin: 10px 0;
 }
