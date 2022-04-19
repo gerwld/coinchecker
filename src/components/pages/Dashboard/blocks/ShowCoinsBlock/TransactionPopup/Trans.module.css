@@ -91,6 +91,7 @@ label {
 .trans_buttons {
  display: flex;
  border-bottom: var(--border-lightgray);
+ margin-bottom: 20px;
 }
 
 .trans_buttons button {
