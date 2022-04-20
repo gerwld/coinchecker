@@ -80,7 +80,7 @@ const TransactionPopup = ({isFromWallet}) => {
                   <label>
                     Select Wallet:<span className={s.red}>*</span>
                   </label>
-                  <Field name="walletId" component="select" defaultValue={wallets[0].id} required>
+                  <Field name="walletId" component="select" defaultValue={wallets[0]?.id} required>
                     {wallets.map((e, i) => <option key={i + "_selectwalletpopup"} value={e.id}>{e.name}</option>)}
                   </Field>
                 </div>}
