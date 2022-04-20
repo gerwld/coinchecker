@@ -147,14 +147,14 @@ const BuyTransaction = ({ symbol }) => {
         <label>
           Price per coin<span className={s.red}>*</span>
         </label>
-        <Field name="price" component="input" type="number" placeholder="USD" autoComplete="new-password" required />
+        <Field name="price" component="input" type="number" placeholder="USD" autoComplete="new-password" autocomplete="off" required />
       </div>
       <div>
         <label>
           Quantity<span className={s.red}>*</span>
         </label>
         <div className={s.amount_input}>
-          <Field name="amount" component="input" type="number" placeholder="1" autoComplete="new-password" required />
+          <Field name="amount" component="input" type="number" placeholder="1" autoComplete="new-password" autocomplete="off" required />
           <span>{symbol}</span>
         </div>
       </div>
@@ -185,14 +185,14 @@ const SellTransaction = ({ symbol }) => {
         <label>
           Price per coin<span className={s.red}>*</span>
         </label>
-        <Field name="price" component="input" type="number" placeholder="USD" required />
+        <Field name="price" component="input" type="number" placeholder="USD" autoComplete="new-password" autocomplete="off" required />
       </div>
       <div>
         <label>
           Quantity<span className={s.red}>*</span>
         </label>
         <div className={s.amount_input}>
-          <Field name="amount" component="input" type="number" placeholder="1" required />
+          <Field name="amount" component="input" type="number" placeholder="1" autoComplete="new-password" autocomplete="off" required />
           <span>{symbol}</span>
         </div>
       </div>
