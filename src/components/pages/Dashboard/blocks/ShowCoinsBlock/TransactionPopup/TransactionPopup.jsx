@@ -37,7 +37,7 @@ const TransactionPopup = ({isFromWallet}) => {
       price: e.price,
       coinId: item.id,
     };
-    const wallet = walletId ? walletId : 53;
+    const wallet = walletId ? walletId : e.walletId;
     await WalletService.buyCoinInWalletId(wallet, data);
     dispatch(getAllWalletsTC());
     setClose();
@@ -74,7 +74,9 @@ const TransactionPopup = ({isFromWallet}) => {
             }}
             render={({ handleSubmit }) => (
               <form onSubmit={handleSubmit}>
-                {!walletId && <div>
+
+                {!walletId && 
+                <div>
                   <label>
                     Select Wallet:<span className={s.red}>*</span>
                   </label>
@@ -82,6 +84,7 @@ const TransactionPopup = ({isFromWallet}) => {
                     {wallets.map(e => <option value={e.id}>{e.name}</option>)}
                   </Field>
                 </div>}
+
                 <div>
                   <label>
                     Price per coin<span className={s.red}>*</span>
