@@ -1,4 +1,5 @@
 import React from "react";
+import { BsArrowLeft } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 
@@ -6,6 +7,7 @@ import s from "./Login.module.css";
 const Login = (props) => {
   return (
     <div className={s.login_content}>
+      <NavLink to="/" className={s.btn_back}><BsArrowLeft/>Back</NavLink>
       <div className={s.sect_overlay}>
         <h1 className={s.title}>Sign in to CoinChecker</h1>
         <div className={s.login_block}>

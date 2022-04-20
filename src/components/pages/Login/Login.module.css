@@ -10,6 +10,31 @@
     background-color: var(--color-primary-blue);
 }
 
+.btn_back {
+    position: absolute;
+    left: 3vw;
+    top: 3vh;
+    display: block;
+    padding: 10px 20px 10px 15px;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 0.033em;
+    transition: background 0.3s ease;
+}
+
+.btn_back svg {
+    margin-right: 7px;
+    margin-bottom: -5px;
+    font-size: 22px;
+    line-height: 0;
+}
+
+.btn_back:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
 .sect_overlay {
     display: flex;
     justify-content: center;
@@ -175,5 +200,12 @@
     }
     .register_block {
         padding: 30px 10px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .sect_overlay .title {
+        font-size: 29px;
+        margin-top: 3vh;
     }
 }
