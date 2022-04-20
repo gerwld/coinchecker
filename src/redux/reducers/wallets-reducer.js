@@ -8,7 +8,6 @@ const getCoinsByQuery = (payload) => ({type: SEARCH_COIN, payload})
 const walletsState = {
   isLoaded: false,
   content: null,
-  total: null,
   addCoinSearchResults: null,
 };
 
@@ -18,8 +17,7 @@ const walletsReducer = (state = walletsState, action) => {
       return {
         ...state,
         isLoaded: true,
-        content: action.payload,
-        total: action.payload.length
+        content: action.payload
       };
     default:
       return state;

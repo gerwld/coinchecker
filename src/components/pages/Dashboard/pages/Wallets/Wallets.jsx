@@ -16,16 +16,17 @@ import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
 const Wallets = () => {
   const [walletId, setWallet] = useState(0);
   const [isDataVisible, setVisible] = useState(true);
-  const [page, setPage] = useState(0);
   const pageSize = 10;
+  const [page, setPage] = useState(0);
   const toggleVisibility = () => setVisible(!isDataVisible);
 
   const dispatch = useDispatch();
-  const { content, total } = useSelector(({ wallets }) => ({
-    content: wallets.content,
-    total: wallets.total
+  const { content } = useSelector(({ wallets }) => ({
+    content: wallets.content
   }));
+
   const coins = content ? (content[walletId].coins.slice(page * pageSize, (page + 1) * pageSize)) : [];
+  const total = content ? content[walletId].coins.length : 0;
 
   useEffect(() => {
     dispatch(getAllWalletsTC());
