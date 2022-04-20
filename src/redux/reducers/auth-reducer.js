@@ -86,13 +86,12 @@ export const userLogOut = () => {
     }
 }
 
-export const sendGitCodeToServ = (data) => {
-    return async (dispatch) => {
-        AuthService.getGitToken(data.code).then(e => {
-            console.log(e);
-        });
-    }
-}
+// export const sendGitCodeToServ = (data) => {
+//     return async (dispatch) => {
+//         AuthService.getGitToken(data.code).then(e => {
+//         });
+//     }
+// }
 
 export const userRegister = (data) => {
     return (dispatch) => {

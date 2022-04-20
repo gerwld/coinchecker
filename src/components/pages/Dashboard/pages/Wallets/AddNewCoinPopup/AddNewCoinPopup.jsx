@@ -24,7 +24,6 @@ const AddNewCoinPopup = withClickOutside(({ walletId, isShow, setShow, refE }) =
   };
 
   const onSelect = async (coin) => {
-    console.log(coin);
     dispatch(getTransactionData(coin, walletId));
     closePopup();
   };
@@ -55,10 +54,10 @@ const AddNewCoinPopup = withClickOutside(({ walletId, isShow, setShow, refE }) =
                 )
               ) : (
                 <>
-                  <h3>Users often searched:</h3>
-                  {lastCoins?.slice(0, 10).map((coin) => (
-                    <SearchElem name={coin.name} icon={coin.image} id={coin.id} symb={coin.symbol} onSelect={onSelect} coin={coin} />
-                  ))}
+                  {lastCoins && <><h3>Users often searched:</h3>
+                  {lastCoins.slice(0, 10).map((coin) => (
+                    <SearchElem key={coin.name + coin.image} name={coin.name} icon={coin.image} id={coin.id} symb={coin.symbol} onSelect={onSelect} coin={coin} />
+                  ))}</>}
                 </>
               )}
             </div>

@@ -92,7 +92,6 @@ const ShowCoinsItem = React.memo(({ coin, amount }) => {
     }
     function onGetTransactionData() {
         dispatch(getTransactionData(coin));
-        console.log(coin);
     }
 
     return (
