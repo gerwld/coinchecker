@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { compose } from "redux";
@@ -8,12 +8,12 @@ import Dashboard from "./Dashboard";
 
 export function DashContainer({ getCoinOutput, userLogOut, ...props }) {
   const navigate = useNavigate();
-  const logOut = () => {
+  const logOut = useCallback(() => {
     setTimeout(() => {
       navigate("/");
       userLogOut();
     }, 500);
-  };
+  }, []);
 
   useEffect(() => {
     document.body.style.background = "#f7f8ff";

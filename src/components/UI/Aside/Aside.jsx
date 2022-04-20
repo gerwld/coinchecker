@@ -6,8 +6,7 @@ import { IoRepeatSharp } from 'react-icons/io5';
 import { NavLink, useLocation } from 'react-router-dom';
 import s from './Aside.module.css';
 
-export const AsideBlock = () => {
-    const isBaseUrl = useLocation().pathname === "/dashboard";
+export const AsideBlock = React.memo(() => {
     //Aside toggle
     const [isAsideHide, setAside] = useState(false);
     const logoText = isAsideHide ? 'CC' : 'CoinChecker';
@@ -20,7 +19,7 @@ export const AsideBlock = () => {
 
             <nav className={s.aside_menu}>
                 <ul>
-                    <li><NavLink to="/dashboard" className={isBaseUrl ? s.active_a : ''}><MdOutlineSpaceDashboard />Dashboard</NavLink></li>
+                    <PathNameBorderNavLink/>
                     <li><NavLink to="/dashboard/fav" className={(e) => e.isActive ? s.active_a : ''}><AiOutlineStar />Saved Coins</NavLink></li>
                     <li><NavLink to="/dashboard/wallet" className={(e) => e.isActive ? s.active_a : ''}><AiOutlineWallet/>Wallet</NavLink></li>
                     <li><NavLink to="/dashboard/transactions" className={(e) => e.isActive ? s.active_a : ''}><IoRepeatSharp/>Buy & Sell</NavLink></li>
@@ -29,16 +28,15 @@ export const AsideBlock = () => {
             </nav>
         </aside>
     )
-};
+});
 
 export const MobileBarBlock = () => {
-    const isBaseUrl = useLocation().pathname === "/dashboard";
     return (
         <aside className={s.mobile_overlay}>
             <div className={s.logo}>CC</div>
             <nav className={s.mobile_menu}>
                 <ul>
-                    <li><NavLink to="/dashboard" className={isBaseUrl ? s.active_a : ''}><MdOutlineSpaceDashboard /></NavLink></li>
+                    <PathNameBorderNavLink isMobile/>
                     <li><NavLink to="/dashboard/fav" className={(e) => e.isActive ? s.active_a : ''}><AiOutlineStar /></NavLink></li>
                     <li><NavLink to="/dashboard/wallet" className={(e) => e.isActive ? s.active_a : ''}><AiOutlineWallet/></NavLink></li>
                     <li><NavLink to="/dashboard/transactions" className={(e) => e.isActive ? s.active_a : ''}><IoRepeatSharp/></NavLink></li>
@@ -48,3 +46,8 @@ export const MobileBarBlock = () => {
         </aside>
     )
 };
+
+const PathNameBorderNavLink = React.memo(({isMobile}) => {
+    const isBaseUrl = useLocation().pathname === "/dashboard";
+    return <li><NavLink to="/dashboard" className={isBaseUrl ? s.active_a : ''}><MdOutlineSpaceDashboard />{!isMobile && "Dashboard"}</NavLink></li> 
+});

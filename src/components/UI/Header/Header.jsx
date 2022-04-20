@@ -3,10 +3,9 @@ import { Pl, Ua, Us } from 'react-flags-select';
 import { NavLink } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
 import withClickOutside from '../../../hoc/withClickOutside';
-import HeaderTrends from '../../pages/MainScreen/HeaderTrends/HeaderTrends';
 import s from './Header.module.css';
 
-const HeaderMain = ({isAuth, logOut, ...props}) => {
+const HeaderMain = ({isAuth, logOut}) => {
   return (
     <>
       <HeaderSection isAuth={isAuth} logOut={logOut} />

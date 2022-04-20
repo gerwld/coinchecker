@@ -15,7 +15,7 @@ import Wallets from './pages/Wallets/Wallets';
 import Buysell from './pages/Buysell/Buysell';
 
 
-const Dashboard = ({ block_last, logOut, ...props }) => {
+const Dashboard = ({ logOut, userData }) => {
     const {curr_pagination} = useSelector(({dashboard}) => ({
         curr_pagination: dashboard.curr_pagination 
     }))
@@ -30,7 +30,7 @@ const Dashboard = ({ block_last, logOut, ...props }) => {
             <div className={s.mob_logo}>CoinChecker</div>
             <SearchResults />
             <LastNotifications />
-            <ProfSettings userData={props.userData} logOut={logOut} />
+            <ProfSettings userData={userData} logOut={logOut} />
           </header>
 
           <main className={s.main_dash}>
@@ -56,7 +56,7 @@ const Dashboard = ({ block_last, logOut, ...props }) => {
 
 
 
-const SearchResults = withClickOutside(({ refE, setShow, isShow, ...props }) => {
+const SearchResults = React.memo(withClickOutside(({ refE, setShow, isShow }) => {
     return (
         <div className={s.dashboard_search} ref={refE}>
             <input onFocus={() => setShow(true)} type="text" id="db_search" />
@@ -67,15 +67,18 @@ const SearchResults = withClickOutside(({ refE, setShow, isShow, ...props }) => 
             </div>
         </div>
     )
-});
+}));
 
-const ProfSettings = withClickOutside(({ refE, setShow, isShow, userData, logOut }) => {
+const ProfSettings = React.memo(withClickOutside(({ refE, setShow, isShow, userData, logOut }) => {
     const username = userData?.username.length > 12 ? userData?.username.slice(0, 12) + "..." : userData?.username;
+    const close = () => {
+        setShow(!isShow);
+    }
     return (
         <div className={`${s.dashboard_wrapper} ${isShow ? s.show_settings : ''}`} ref={refE}>
-            <div className={s.dashboard_cuser} onClick={() => setShow(!isShow)}>
+            <div className={s.dashboard_cuser} onClick={close}>
                 <div className={s.cuser_avatar}><img src="/img/user.svg" alt="User Avatar" /></div>
-                <span className={s.cuser_name + ' ic-dropdown'}>{username}</span>
+                <span className={s.cuser_name + ' ic-dropdown'}>{userData?.username}</span>
             </div>
             <div className={s.cuser_settings}>
                 <div className={s.drop_overlay}><span className={s.drop_t}>Settings:</span>
@@ -89,9 +92,9 @@ const ProfSettings = withClickOutside(({ refE, setShow, isShow, userData, logOut
         </div>
 
     )
-});
+}));
 
-const LastNotifications = withClickOutside(({ refE, setShow, isShow, ...props }) => {
+const LastNotifications = React.memo(withClickOutside(({ refE, setShow, isShow, ...props }) => {
     return (
         <div ref={refE} className={`${s.dashboard_notifications} ${isShow ? s.show_block : ''}`}>
             <button className={s.dash_notific} onClick={() => setShow(!isShow)}>Notifications</button>
@@ -102,6 +105,6 @@ const LastNotifications = withClickOutside(({ refE, setShow, isShow, ...props })
             </div>
         </div>
     )
-})
+}));
 
 export default Dashboard;
