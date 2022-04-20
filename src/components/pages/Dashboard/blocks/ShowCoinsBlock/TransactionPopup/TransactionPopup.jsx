@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import { Form, Field } from "react-final-form";
 import s from "./Trans.module.css";
@@ -9,12 +9,33 @@ import { getAllWalletsTC } from "../../../../../../redux/reducers/wallets-reduce
 import { IoCloseOutline } from "react-icons/io5";
 import { useEffect } from "react";
 import EmbeddedLoader from "../../../../../UI/EmbeddedLoader/EmbeddedLoader";
+import createDecorator from 'final-form-calculate';
 
 const buttons = [
   { id: 0, title: "Buy" },
   { id: 1, title: "Sell" },
   { id: 2, title: "Transfer" },
 ];
+
+const calc = createDecorator(
+  {
+    field: 'price',
+    updates: {
+      usdAmount: (curr, all) =>{
+      if(curr && all.amount) {
+       return curr * (isNaN(parseInt(all.amount)) ? 0 : all.amount)
+      }}
+    }
+  },
+  {
+    field: 'amount',
+    updates: {
+      usdAmount: (curr, all) =>{
+        if(curr && all.amount) {
+         return curr * (isNaN(parseInt(all.price)) ? 0 : all.price)
+        }}
+      }
+  })
 
 const TransactionPopup = () => {
   const dispatch = useDispatch();
@@ -74,6 +95,7 @@ const TransactionPopup = () => {
               </div>
               <Form
                 onSubmit={onSubmit}
+                decorators={[calc]}
                 initialValues={{
                   price: item.currentPrice,
                 }}
@@ -118,20 +140,21 @@ const TransactionPopup = () => {
 };
 
 const BuyTransaction = ({ symbol }) => {
+
   return (
     <>
       <div>
         <label>
           Price per coin<span className={s.red}>*</span>
         </label>
-        <Field name="price" component="input" type="number" placeholder="USD" required />
+        <Field name="price" component="input" type="number" placeholder="USD" autoComplete="new-password" required />
       </div>
       <div>
         <label>
           Quantity<span className={s.red}>*</span>
         </label>
         <div className={s.amount_input}>
-          <Field name="amount" component="input" type="number" placeholder="1" required />
+          <Field name="amount" component="input" type="number" placeholder="1" autoComplete="new-password" required />
           <span>{symbol}</span>
         </div>
       </div>
