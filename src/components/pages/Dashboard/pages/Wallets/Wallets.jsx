@@ -25,8 +25,8 @@ const Wallets = () => {
     content: wallets.content
   }));
 
-  const coins = content ? (content[walletId].coins.slice(page * pageSize, (page + 1) * pageSize)) : [];
-  const total = content ? content[walletId].coins.length : 0;
+  const coins = content && content[walletId] ? (content[walletId].coins.slice(page * pageSize, (page + 1) * pageSize)) : [];
+  const total = content && content[walletId] ? content[walletId].coins.length : 0;
 
   useEffect(() => {
     dispatch(getAllWalletsTC());
