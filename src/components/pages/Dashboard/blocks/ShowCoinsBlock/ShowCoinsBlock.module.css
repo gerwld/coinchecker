@@ -244,7 +244,7 @@ table.last_list {
 
 
 .last_row {
-  padding: 10px 15px;
+  padding: 0;
   border-bottom: var(--border-lightgray);
   box-sizing: border-box;
 }
@@ -327,6 +327,9 @@ table.last_list {
 /* Wallet styles end */
 
 .column_7 {
+  padding: 0!important;
+  display: flex;
+  justify-content: center;
   text-align: right;
 }
 

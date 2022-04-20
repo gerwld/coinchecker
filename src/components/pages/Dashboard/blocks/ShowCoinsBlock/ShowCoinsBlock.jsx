@@ -7,6 +7,7 @@ import Loader from '../../../../UI/Loader/Loader';
 import { fetchFavCoin } from '../../../../../api/BoardService';
 import { AiFillStar, AiOutlinePlus, AiOutlineStar } from 'react-icons/ai';
 import {FiRefreshCw} from "react-icons/fi"
+import {RiArrowRightSLine} from "react-icons/ri"
 
 import { getTransactionData, selectShowCount } from '../../../../../redux/reducers/dashboard-reducer';
 import Pagination from 'rc-pagination';
@@ -18,7 +19,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
     
     const itemsMap = items?.map(coin => {
         if(isWallet)
-        return <ShowCoinsItem key={coin.coin.id + coin.coin.symbol} coin={coin.coin} amount={coin.amount} walletId={walletId}/>;
+        return <ShowCoinsItem key={coin.coin.id + coin.coin.symbol} coin={coin.coin} amount={coin.amount} walletId={walletId} isWallet={true}/>;
         return <ShowCoinsItem key={coin.id + coin.symbol} coin={coin}/>
     });
 
@@ -70,7 +71,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
     )
 };
 
-const ShowCoinsItem = React.memo(({ coin, amount, walletId }) => {
+const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet }) => {
     const dispatch = useDispatch();
     let [isFav, setFav] = useState(coin.favorite);
 
@@ -118,6 +119,7 @@ const ShowCoinsItem = React.memo(({ coin, amount, walletId }) => {
             {amount && <td className={s.column_6}><span>{amount}</span></td>}
             <td className={s.column_7}>
                 <button onClick={onGetTransactionData} title="Add transaction"><AiOutlinePlus /></button>
+                {isWallet && <button onClick={onGetTransactionData} title="View transactions"><RiArrowRightSLine /></button>}
             </td>
         </tr>
     );
