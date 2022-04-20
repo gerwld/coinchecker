@@ -352,6 +352,13 @@ table.last_list {
   background-color: transparent;
 }
 
+.column_7 button {
+  margin: 0 0.2vw 0 0;
+}
+.column_7 a {
+  font-size: 20px;
+}
+
 .column_7 button:hover,
 .column_7 a:hover {
   background-color: #ced6df;
