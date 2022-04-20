@@ -11,6 +11,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import AddNewCoinPopup from "./AddNewCoinPopup/AddNewCoinPopup";
 import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
 import SelectWalletBlock from "./SelectWalletBlock";
+import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
 
 const Wallets = () => {
   const [walletId, setWallet] = useState(0);
@@ -34,7 +35,7 @@ const Wallets = () => {
   return (
     <div className={s.content_block}>
       <h2 className={s.title}>Wallets</h2>
-      {content?.length ? (
+      {content ? (content?.length > 0 ? (
         <div className="wallets_content">
           <div className={s.head_block}>
             <div className={s.current_wallet}>
@@ -69,7 +70,7 @@ const Wallets = () => {
         </div>
       ) : (
         <CreateNewWallet create={onCreateWallet} />
-      )}
+      )) : <EmbeddedLoader/>}
     </div>
   );
 };
