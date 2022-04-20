@@ -102,22 +102,24 @@ const TransactionPopup = () => {
                 }}
                 render={({ handleSubmit }) => (
                   <form onSubmit={handleSubmit}>
+
                     {!walletId &&
-                      (wallets.length == 0 
-                      ? <CreateWalletBtn name={"Create New Wallet"} />
-                      : <div className={s.select_wallet}>
+                      <div className={s.select_wallet}>
                         <label>
                           Select Wallet:<span className={s.red}>*</span>
                         </label>
-                        <Field name="walletId" component="select" defaultValue={wallets[0]?.id} required>
+
+                        {(wallets.length === 0 
+                        ? <CreateWalletBtn name={"Create New Wallet"} />
+                        :<Field name="walletId" component="select" defaultValue={wallets[0]?.id} required>
                           {wallets.map((e, i) => (
                             <option key={i + "_selectwalletpopup"} value={e.id}>
                               {e.name}
                             </option>
                           ))}
-                        </Field>
-                      </div>)
-                      }
+                        </Field>)}
+
+                      </div>}
 
                     {transType === 0 && <BuyTransaction symbol={item.symbol} />}
                     {transType === 1 && <SellTransaction symbol={item.symbol} />}
