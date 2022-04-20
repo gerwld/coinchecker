@@ -24,7 +24,7 @@ const calc = createDecorator(
     updates: {
       usdAmount: (curr, all) =>{
       if(curr && all.amount) {
-       return (curr * (isNaN(parseInt(all.amount)) ? 0 : all.amount)).toFixed(4);
+       return (curr * (isNaN(parseInt(all.amount)) ? 0 : all.amount));
       }}
     }
   },
@@ -33,7 +33,7 @@ const calc = createDecorator(
     updates: {
       usdAmount: (curr, all) =>{
         if(curr && all.amount) {
-         return (curr * (isNaN(parseInt(all.price)) ? 0 : all.price)).toFixed(4);
+         return (curr * (isNaN(parseInt(all.price)) ? 0 : all.price));
         }}
       }
   })
