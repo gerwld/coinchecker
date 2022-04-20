@@ -24,11 +24,6 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
 
     const isEmpty = !items || items.length === 0;
 
-    if(isWallet) {
-        total = items.length;
-        curr_pagination = 10;
-    }
-
     const onShowChange = (e) => {
         dispatch(selectShowCount(e.target.value));
     }

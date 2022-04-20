@@ -16,12 +16,16 @@ import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
 const Wallets = () => {
   const [walletId, setWallet] = useState(0);
   const [isDataVisible, setVisible] = useState(true);
+  const [page, setPage] = useState(0);
+  const pageSize = 10;
   const toggleVisibility = () => setVisible(!isDataVisible);
 
   const dispatch = useDispatch();
-  const { content } = useSelector(({ wallets }) => ({
+  const { content, total } = useSelector(({ wallets }) => ({
     content: wallets.content,
+    total: wallets.total
   }));
+  const coins = content ? (content[walletId].coins.slice(page * pageSize, (page + 1) * pageSize)) : [];
 
   useEffect(() => {
     dispatch(getAllWalletsTC());
@@ -31,6 +35,10 @@ const Wallets = () => {
     await WalletService.createWallet(name);
     dispatch(getAllWalletsTC());
   };
+
+  const onChangePage = (page) => {
+    setPage(page - 1);
+  }
 
   return (
     <div className={s.content_block}>
@@ -66,7 +74,7 @@ const Wallets = () => {
             </div>
            
           </div>
-          <ShowCoinsBlock isWallet items={content[walletId].coins} />
+          <ShowCoinsBlock isWallet items={coins} total={total} currPage={page + 1} pageSize={pageSize} curr_pagination={10} onChangePage={onChangePage}/>
         </div>
       ) : (
         <CreateNewWallet create={onCreateWallet} />

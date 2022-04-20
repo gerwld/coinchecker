@@ -8,6 +8,7 @@ const getCoinsByQuery = (payload) => ({type: SEARCH_COIN, payload})
 const walletsState = {
   isLoaded: false,
   content: null,
+  total: null,
   addCoinSearchResults: null,
 };
 
@@ -18,6 +19,7 @@ const walletsReducer = (state = walletsState, action) => {
         ...state,
         isLoaded: true,
         content: action.payload,
+        total: action.payload.length
       };
     default:
       return state;
@@ -30,7 +32,6 @@ export const getAllWalletsTC = () => {
   return async (dispatch) => {
     const data = await WalletService.getAllWallets();
     dispatch(getAllWalletsAC(data.data));
-    console.log(data);
   };
 };
 
@@ -50,16 +51,5 @@ export const buyCoinInWalletIdTC = (id, data) => {
     }
   };
 };
-
-const getCoinsByQueryTC = (query) => {
-  return (dispatch) => {
-    try {
-      const data = WalletService.buyCoinInWalletId(query);
-      dispatch(getCoinsByQuery(data));
-    } catch(error) {
-      alert(error);
-    }
-  }
-}
 
 export default walletsReducer;
