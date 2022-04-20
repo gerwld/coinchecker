@@ -71,9 +71,9 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
             <TransactionPopup/>
         </div>
     )
-}
+};
 
-const ShowCoinsItem = ({ coin, amount }) => {
+const ShowCoinsItem = React.memo(({ coin, amount }) => {
     const dispatch = useDispatch();
     let [isFav, setFav] = useState(coin.favorite);
 
@@ -125,6 +125,6 @@ const ShowCoinsItem = ({ coin, amount }) => {
             </td>
         </tr>
     );
-}
+});
 
 export default ShowCoinsBlock;
