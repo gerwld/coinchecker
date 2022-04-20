@@ -23,7 +23,7 @@ const calc = createDecorator(
     updates: {
       usdAmount: (curr, all) =>{
       if(curr && all.amount) {
-       return curr * (isNaN(parseInt(all.amount)) ? 0 : all.amount)
+       return (curr * (isNaN(parseInt(all.amount)) ? 0 : all.amount)).toFixed(4);
       }}
     }
   },
@@ -32,7 +32,7 @@ const calc = createDecorator(
     updates: {
       usdAmount: (curr, all) =>{
         if(curr && all.amount) {
-         return curr * (isNaN(parseInt(all.price)) ? 0 : all.price)
+         return (curr * (isNaN(parseInt(all.price)) ? 0 : all.price)).toFixed(4);
         }}
       }
   })
@@ -147,7 +147,9 @@ const BuyTransaction = ({ symbol }) => {
         <label>
           Price per coin<span className={s.red}>*</span>
         </label>
-        <Field name="price" component="input" type="number" placeholder="USD" autoComplete="new-password" autocomplete="off" required />
+        <div className={s.price_field}>
+        <Field name="price" component="input" type="number" autoComplete="new-password" autocomplete="off" required />
+        </div>
       </div>
       <div>
         <label>
@@ -185,7 +187,9 @@ const SellTransaction = ({ symbol }) => {
         <label>
           Price per coin<span className={s.red}>*</span>
         </label>
-        <Field name="price" component="input" type="number" placeholder="USD" autoComplete="new-password" autocomplete="off" required />
+        <div className={s.price_field}>
+        <Field name="price" component="input" type="number" autoComplete="new-password" autocomplete="off" required />
+        </div>
       </div>
       <div>
         <label>

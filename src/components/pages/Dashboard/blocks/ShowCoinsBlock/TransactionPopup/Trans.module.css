@@ -139,7 +139,8 @@ span.red {
 }
 
 .amount_input,
-.total_field {
+.total_field,
+.price_field {
  position: relative;
 }
 
@@ -152,16 +153,19 @@ span.red {
  text-transform: uppercase;
 }
 
-.total_field::before {
+.total_field::before,
+.price_field::before {
  content: "USD";
  position: absolute;
  top: 7px;
- left: 5px;
+ left: 10px;
  font-size: 17px;
+ color: #66666d;
 }
 
-.total_field input {
- padding-left: 50px;
+.total_field input,
+.price_field input {
+ padding-left: 55px;
 }
 .amount_input input {
  padding-right: 60px;
