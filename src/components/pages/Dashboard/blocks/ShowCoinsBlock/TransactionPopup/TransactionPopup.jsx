@@ -7,20 +7,25 @@ import WalletService from "../../../../../../api/WalletService";
 import { closeTransPopup } from "../../../../../../redux/reducers/dashboard-reducer";
 import { getAllWalletsTC } from "../../../../../../redux/reducers/wallets-reducer";
 import { IoCloseOutline } from "react-icons/io5";
+import { useEffect } from "react";
+import EmbeddedLoader from "../../../../../UI/EmbeddedLoader/EmbeddedLoader";
+
+const buttons = [
+  { id: 0, title: "Buy" },
+  { id: 1, title: "Sell" },
+  { id: 2, title: "Transfer" },
+];
 
 const TransactionPopup = ({isFromWallet}) => {
   const dispatch = useDispatch();
   const [transType, setTransType] = useState(0);
-  const { item, isShow, walletId } = useSelector(({ dashboard }) => ({
+  const { item, isShow, walletId, wallets } = useSelector(({ dashboard, wallets }) => ({
     item: dashboard.transCoin,
     isShow: dashboard.isTransPopup,
-    walletId: dashboard.walletId
+    walletId: dashboard.walletId,
+    wallets: wallets.content
   }));
-  const buttons = [
-    { id: 0, title: "Buy" },
-    { id: 1, title: "Sell" },
-    { id: 2, title: "Transfer" },
-  ];
+
   const setClose = () => {
     dispatch(closeTransPopup);
   };
@@ -38,13 +43,22 @@ const TransactionPopup = ({isFromWallet}) => {
     setClose();
   };
 
+  useEffect(() => {
+    if(!wallets && isShow) {
+      dispatch(getAllWalletsTC());
+    }
+  }, [wallets, isShow])
+
   if (isShow)
     return (
       <div className={s.popup_wrapper}>
         <div className={s.popup_content}>
-          <button onClick={setClose} className={s.btn_close}>
+        <button onClick={setClose} className={s.btn_close}>
             <IoCloseOutline />
           </button>
+        {walletId || wallets
+         ? <div className={s.popup_info}>
+  
           <h2>Add Transaction to My Portfolio</h2>
           <div className={s.trans_buttons}>
             {buttons.map((e, i) => (
@@ -60,11 +74,13 @@ const TransactionPopup = ({isFromWallet}) => {
             }}
             render={({ handleSubmit }) => (
               <form onSubmit={handleSubmit}>
-                {!isFromWallet && <div>
+                {!walletId && <div>
                   <label>
                     Select Wallet:<span className={s.red}>*</span>
                   </label>
-                  <Field name="price" component="input" type="number" placeholder="USD" required />
+                  <Field name="walletId" component="select" required>
+                    {wallets.map(e => <option value={e.id}>{e.name}</option>)}
+                  </Field>
                 </div>}
                 <div>
                   <label>
@@ -104,6 +120,8 @@ const TransactionPopup = ({isFromWallet}) => {
               </form>
             )}
           />
+        </div>
+        : <EmbeddedLoader/>}
         </div>
         <div className={s.popup_bg} onClick={setClose} />
       </div>

@@ -12,9 +12,11 @@
 }
 
 .popup_content {
+ position: relative;
  width: 500px;
  max-width: 95vw;
  max-height: 95vh;
+ min-height: 600px;
  background-color: #fff;
  padding: 25px 25px;
  border-radius: 8px;
@@ -114,6 +116,7 @@ button.active {
 }
 
 .btn_close {
+ position: relative;
  padding: 0;
  margin-top: -5px;
  margin-left: -5px;
@@ -122,6 +125,7 @@ button.active {
  line-height: 0;
  background-color: transparent;
  border: none;
+ z-index: 1000000;
 }
 
 span.red {
