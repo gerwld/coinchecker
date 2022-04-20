@@ -78,7 +78,7 @@ const ProfSettings = React.memo(withClickOutside(({ refE, setShow, isShow, userD
         <div className={`${s.dashboard_wrapper} ${isShow ? s.show_settings : ''}`} ref={refE}>
             <div className={s.dashboard_cuser} onClick={close}>
                 <div className={s.cuser_avatar}><img src="/img/user.svg" alt="User Avatar" /></div>
-                <span className={s.cuser_name + ' ic-dropdown'}>{userData?.username}</span>
+                <span className={s.cuser_name + ' ic-dropdown'}>{username}</span>
             </div>
             <div className={s.cuser_settings}>
                 <div className={s.drop_overlay}><span className={s.drop_t}>Settings:</span>

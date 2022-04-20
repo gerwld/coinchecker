@@ -22,6 +22,8 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
         return <ShowCoinsItem key={coin.id + coin.symbol} coin={coin} />
     });
 
+    const isEmpty = !items || items.length === 0;
+
     if(isWallet) {
         total = items.length;
         curr_pagination = 10;
@@ -37,10 +39,10 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
                 <h2 className={s.title}>{title}</h2>
                {!isWallet && <div className={s.prop_block}>
                     <div className={s.prop_search}>
-                        <input type="text" id="search_last" placeholder="Search..." />
+                        <input type="text" id="search_last" placeholder="Search..." disabled={isEmpty}/>
                     </div>
                     <div className={s.prop_last}>
-                        <select defaultValue={curr_pagination} onChange={onShowChange}>
+                        <select defaultValue={curr_pagination} onChange={onShowChange} disabled={isEmpty}>
                         <option disabled>Show options:</option>
                             <option value={10}>Last 10 items</option>
                             <option value={15}>Last 15 items</option>

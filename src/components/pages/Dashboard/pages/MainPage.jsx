@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getCoinOutput } from "../../../../redux/reducers/dashboard-reducer";
 import ShowCoinsBlock from "../blocks/ShowCoinsBlock/ShowCoinsBlock";
@@ -11,9 +12,9 @@ const MainPage = ({ curr_pagination }) => {
     total: dashboard.totalLastCount
   }))
 
-  const onGetCoinOutput = () => {
+  const onGetCoinOutput = useCallback(() => {
     dispatch(getCoinOutput(curr_pagination, page - 1));
-  };
+  });
 
   React.useEffect(() => {
     onGetCoinOutput();
