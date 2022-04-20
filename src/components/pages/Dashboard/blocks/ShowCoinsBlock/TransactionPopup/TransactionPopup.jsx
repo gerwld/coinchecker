@@ -102,7 +102,7 @@ const TransactionPopup = () => {
                 render={({ handleSubmit }) => (
                   <form onSubmit={handleSubmit}>
                     {!walletId && (
-                      <div>
+                      <div className={s.select_wallet}>
                         <label>
                           Select Wallet:<span className={s.red}>*</span>
                         </label>
@@ -142,7 +142,7 @@ const TransactionPopup = () => {
 const BuyTransaction = ({ symbol }) => {
 
   return (
-    <>
+    <div className={s.form_content}>
       <div>
         <label>
           Price per coin<span className={s.red}>*</span>
@@ -174,13 +174,13 @@ const BuyTransaction = ({ symbol }) => {
         <Field name="datetime" component="input" type="date" placeholder="Date" />
       </div>
       Fee & Notes (Opt)
-    </>
+    </div>
   );
 };
 
 const SellTransaction = ({ symbol }) => {
   return (
-    <>
+    <div className={s.form_content}>
       <div>
         <label>
           Price per coin<span className={s.red}>*</span>
@@ -212,7 +212,7 @@ const SellTransaction = ({ symbol }) => {
         <Field name="datetime" component="input" type="date" placeholder="Date" />
       </div>
       Fee & Notes (Opt)
-    </>
+    </div>
   );
 };
 

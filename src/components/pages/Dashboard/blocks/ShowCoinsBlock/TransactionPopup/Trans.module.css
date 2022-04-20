@@ -192,3 +192,30 @@ span.red {
  align-items: center;
 
 }
+
+.select_wallet  {
+display: flex;
+align-items: center;
+}
+
+.select_wallet select {
+ margin-left: 10px;
+ border-radius: 5px;
+}
+
+
+@keyframes showAnim {
+ 0% {
+  opacity: 0;
+ }
+ 50% {
+  opacity: 0;
+ }
+ 100% {
+  opacity: 1;
+ }
+}
+
+.form_content {
+ animation: showAnim 0.2s linear;
+}

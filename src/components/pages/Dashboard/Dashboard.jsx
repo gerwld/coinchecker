@@ -61,7 +61,7 @@ const Dashboard = ({ logOut, userData }) => {
 const SearchResults = React.memo(withClickOutside(({ refE, setShow, isShow }) => {
     return (
         <div className={s.dashboard_search} ref={refE}>
-            <input onFocus={() => setShow(true)} type="text" id="db_search" />
+            <input onFocus={() => setShow(true)} type="text" id="db_search" autoComplete="new-password" autocomplete="off" />
             <div className={`${s.search_results} ${isShow ? s.show_results : ''}`}>
                 <div className={s.drop_overlay}><span className={s.drop_t}>Search:</span>
                     <div>ege</div>
