@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { sendGitCodeToServ, userAuth } from "../../../redux/reducers/auth-reducer";
+import { userAuth } from "../../../redux/reducers/auth-reducer";
 import Login from "./Login";
 
-export function LoginContainer({ userAuth, sendGitCodeToServ }) {
+export function LoginContainer({ userAuth }) {
 
   return (
-    <Login loginAction={userAuth} sendGitCodeToServ={sendGitCodeToServ} />
+    <Login loginAction={userAuth}  />
   );
 
 }
@@ -17,4 +17,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { userAuth, sendGitCodeToServ })(LoginContainer);
+export default connect(mapStateToProps, { userAuth })(LoginContainer);
