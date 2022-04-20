@@ -93,6 +93,7 @@
     width: 110%;
     top: 100%;
     left: -5%;
+    z-index: 10;
 }
 
 .show_results {
@@ -275,6 +276,7 @@
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
     box-shadow: var(--shadow-main);
+    z-index: 10;
 }
 
 .show_block .notif_block {
