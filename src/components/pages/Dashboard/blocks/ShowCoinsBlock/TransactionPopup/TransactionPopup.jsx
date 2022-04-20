@@ -48,8 +48,8 @@ const TransactionPopup = ({}) => {
           </button>
           <h2>Add Transaction to My Portfolio</h2>
           <div className={s.trans_buttons}>
-            {buttons.map((e) => (
-              <button onClick={() => setTransType(e.id)} className={e.id === transType && s.active}>
+            {buttons.map((e, i) => (
+              <button key={i + "_transbtn"} onClick={() => setTransType(e.id)} className={e.id === transType && s.active}>
                 {e.title}
               </button>
             ))}

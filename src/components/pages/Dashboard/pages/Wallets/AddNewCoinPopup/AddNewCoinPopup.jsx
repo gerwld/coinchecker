@@ -49,14 +49,14 @@ const AddNewCoinPopup = withClickOutside(({ walletId, isShow, setShow, refE }) =
             <div className={s.trending}>
               {isInit ? (
                 searchResult?.length > 0 ? (
-                  searchResult?.slice(0, 10).map((coin) => <SearchElem name={coin.name} icon={coin.image} id={coin.id} symb={coin.symbol} onSelect={onSelect} coin={coin} />)
+                  searchResult?.slice(0, 10).map((coin, i) => <SearchElem key={coin.name + "_searchselect_" + i} name={coin.name} icon={coin.image} id={coin.id} symb={coin.symbol} onSelect={onSelect} coin={coin} />)
                 ) : (
                   <span className={s.no_res}>No Results Found.</span>
                 )
               ) : (
                 <>
                   <h3>Users often searched:</h3>
-                  {lastCoins.slice(0, 10).map((coin) => (
+                  {lastCoins?.slice(0, 10).map((coin) => (
                     <SearchElem name={coin.name} icon={coin.image} id={coin.id} symb={coin.symbol} onSelect={onSelect} coin={coin} />
                   ))}
                 </>
