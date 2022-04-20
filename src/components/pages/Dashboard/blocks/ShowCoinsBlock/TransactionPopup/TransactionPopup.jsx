@@ -8,7 +8,7 @@ import { closeTransPopup } from "../../../../../../redux/reducers/dashboard-redu
 import { getAllWalletsTC } from "../../../../../../redux/reducers/wallets-reducer";
 import { IoCloseOutline } from "react-icons/io5";
 
-const TransactionPopup = ({}) => {
+const TransactionPopup = ({isFromWallet}) => {
   const dispatch = useDispatch();
   const [transType, setTransType] = useState(0);
   const { item, isShow, walletId } = useSelector(({ dashboard }) => ({
@@ -27,7 +27,7 @@ const TransactionPopup = ({}) => {
 
   const onSubmit = async (e) => {
     const data = {
-      amount: e.amount,
+      amount: parseInt(e.amount),
       datetime: e.datetime,
       price: e.price,
       coinId: item.id,
@@ -60,6 +60,12 @@ const TransactionPopup = ({}) => {
             }}
             render={({ handleSubmit }) => (
               <form onSubmit={handleSubmit}>
+                {!isFromWallet && <div>
+                  <label>
+                    Select Wallet:<span className={s.red}>*</span>
+                  </label>
+                  <Field name="price" component="input" type="number" placeholder="USD" required />
+                </div>}
                 <div>
                   <label>
                     Price per coin<span className={s.red}>*</span>

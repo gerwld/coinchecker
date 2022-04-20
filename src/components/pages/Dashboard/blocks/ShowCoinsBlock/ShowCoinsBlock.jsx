@@ -13,13 +13,13 @@ import Pagination from 'rc-pagination';
 import TransactionPopup from './TransactionPopup/TransactionPopup';
 
 
-const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, currPage, onChangePage, isWallet }) => {
+const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, currPage, onChangePage, isWallet, walletId }) => {
     const dispatch = useDispatch();
     
     const itemsMap = items?.map(coin => {
         if(isWallet)
-        return <ShowCoinsItem key={coin.coin.id + coin.coin.symbol} coin={coin.coin} amount={coin.amount}/>;
-        return <ShowCoinsItem key={coin.id + coin.symbol} coin={coin} />
+        return <ShowCoinsItem key={coin.coin.id + coin.coin.symbol} coin={coin.coin} amount={coin.amount} walletId={walletId}/>;
+        return <ShowCoinsItem key={coin.id + coin.symbol} coin={coin}/>
     });
 
     const isEmpty = !items || items.length === 0;
@@ -70,7 +70,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
     )
 };
 
-const ShowCoinsItem = React.memo(({ coin, amount }) => {
+const ShowCoinsItem = React.memo(({ coin, amount, walletId }) => {
     const dispatch = useDispatch();
     let [isFav, setFav] = useState(coin.favorite);
 
@@ -91,7 +91,7 @@ const ShowCoinsItem = React.memo(({ coin, amount }) => {
         else if (priceSign === -1) return "change_red";
     }
     function onGetTransactionData() {
-        dispatch(getTransactionData(coin));
+        dispatch(getTransactionData(coin, walletId));
     }
 
     return (

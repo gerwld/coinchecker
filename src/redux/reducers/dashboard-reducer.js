@@ -93,13 +93,14 @@ const dashReducer = (state = initialState, action) => {
         ...state,
         transCoin: action.coin,
         walletId: action.walletId,
-        isTransPopup: true
+        isTransPopup: true,
       }
     case CLOSE_TRANS_POPUP:
       return {
         ...state,
         isTransPopup: false,
-        transCoin: null
+        transCoin: null,
+        walletId: null
       }
     default:
       return state;
