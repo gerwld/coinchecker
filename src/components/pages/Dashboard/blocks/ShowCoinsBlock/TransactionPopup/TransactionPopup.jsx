@@ -16,7 +16,7 @@ const buttons = [
   { id: 2, title: "Transfer" },
 ];
 
-const TransactionPopup = ({isFromWallet}) => {
+const TransactionPopup = () => {
   const dispatch = useDispatch();
   const [transType, setTransType] = useState(0);
   const { item, isShow, walletId, wallets } = useSelector(({ dashboard, wallets }) => ({
@@ -25,6 +25,11 @@ const TransactionPopup = ({isFromWallet}) => {
     walletId: dashboard.walletId,
     wallets: wallets.content
   }));
+
+  const getTitle = (walletId) => {
+    const walletObjId = wallets.find(wall => wall.id === walletId);
+    return walletObjId.name;
+  }
 
   const setClose = () => {
     dispatch(closeTransPopup);
@@ -59,7 +64,7 @@ const TransactionPopup = ({isFromWallet}) => {
         {walletId || wallets
          ? <div className={s.popup_info}>
   
-          <h2>Add Transaction to My Portfolio</h2>
+          <h2>Add Transaction {walletId && 'to ' + getTitle(walletId)}</h2>
           <div className={s.trans_buttons}>
             {buttons.map((e, i) => (
               <button key={i + "_transbtn"} onClick={() => setTransType(e.id)} className={e.id === transType ? s.active : ""}>
