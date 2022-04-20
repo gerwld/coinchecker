@@ -84,12 +84,20 @@ const Wallets = () => {
   );
 };
 
+export const CreateWalletBtn = ({name}) => {
+  const dispatch = useDispatch();
+  const onCreateWallet = async () => {
+    await WalletService.createWallet("My Portfolio");
+    dispatch(getAllWalletsTC());
+  };
+  return <button onClick={onCreateWallet} type="button">{name}</button>
+}
+
 const CreateNewWallet = ({ create }) => {
-  const createNewWallet = () => create("My Portfolio");
   return (
     <div className={s.create_new}>
       <h2>You haven't created wallets yet. Create a new one?</h2>
-      <button onClick={createNewWallet}>Create Free Wallet</button>
+      <CreateWalletBtn name={"Create Free Wallet"}/>
     </div>
   );
 };

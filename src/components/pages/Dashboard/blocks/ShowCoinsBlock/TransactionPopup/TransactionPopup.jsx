@@ -10,6 +10,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { useEffect } from "react";
 import EmbeddedLoader from "../../../../../UI/EmbeddedLoader/EmbeddedLoader";
 import createDecorator from 'final-form-calculate';
+import { CreateWalletBtn } from "../../../pages/Wallets/Wallets";
 
 const buttons = [
   { id: 0, title: "Buy" },
@@ -101,8 +102,10 @@ const TransactionPopup = () => {
                 }}
                 render={({ handleSubmit }) => (
                   <form onSubmit={handleSubmit}>
-                    {!walletId && (
-                      <div className={s.select_wallet}>
+                    {!walletId &&
+                      (wallets.length == 0 
+                      ? <CreateWalletBtn name={"Create New Wallet"} />
+                      : <div className={s.select_wallet}>
                         <label>
                           Select Wallet:<span className={s.red}>*</span>
                         </label>
@@ -113,8 +116,8 @@ const TransactionPopup = () => {
                             </option>
                           ))}
                         </Field>
-                      </div>
-                    )}
+                      </div>)
+                      }
 
                     {transType === 0 && <BuyTransaction symbol={item.symbol} />}
                     {transType === 1 && <SellTransaction symbol={item.symbol} />}
