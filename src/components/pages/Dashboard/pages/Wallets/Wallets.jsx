@@ -61,7 +61,7 @@ const Wallets = () => {
             </div>
             <div className={s.wallet_info}>
                 <div className={s.current_block}>
-                  <span>{isDataVisible ? "$" + content[walletId].currentUsdPrice : "..."}</span>
+                  <span>{isDataVisible ? "$" + content[walletId].currentUsdPrice.toFixed(3) : "..."}</span>
                   <span>Total Balance</span>
                 </div>
                 <div className={s.current_block}>
