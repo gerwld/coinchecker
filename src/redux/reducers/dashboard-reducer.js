@@ -3,6 +3,7 @@ import BoardService from "../../api/BoardService";
 
 const LOAD_LAST_ITEMS = "coinchecker/dash-reducer/LOAD_LAST_ITEMS";
 const GET_FAV_COINS = "coinchecker/dash-reducer/GET_FAV_COINS";
+const RES_FAV_COINS = "coinchecker/dash-reducer/RES_FAV_COINS";
 const SELECT_SHOW_COUNT = "coinchecker/dash-reducer/SELECT_SHOW_COUNT";
 const SET_SEARCH = "coinchecker/dash-reducer/SET_SEARCH";
 const SET_SEARCH_RESULT = "coinchecker/dash-reducer/SET_SEARCH_RESULT";
@@ -18,12 +19,14 @@ export const setSearchResp = (payload) => ({ type: SET_SEARCH_RESULT, payload })
 export const earseSearch = { type: EARSE_SEARCH_RESULT };
 export const getTransactionData = (coin, walletId) => ({ type: ON_TRANSACTION, coin, walletId });
 export const closeTransPopup = { type: CLOSE_TRANS_POPUP };
+export const resFavCoins = { type: RES_FAV_COINS };
 
 let initialState = {
   last_coins: null,
   totalLastCount: null,
   curr_pagination: 15,
   favCoins: {
+    isLoaded: false,
     items: null,
     totalCount: null
   },
@@ -49,9 +52,19 @@ const dashReducer = (state = initialState, action) => {
         ...state,
         favCoins: {
           items: action.items,
-          totalCount: action.count
+          totalCount: action.count,
+          isLoaded: true
         }
       };
+    case RES_FAV_COINS:
+      return {
+        ...state,
+        favCoins: {
+          isLoaded: false,
+          items: null,
+          totalCount: null
+        },
+      }
     case SELECT_SHOW_COUNT:
       return {
         ...state,
@@ -104,6 +117,7 @@ export const getCoinOutput = (showLast, page) => {
 
 export const getFavCoins = (showLast, page) => {
   return async (dispatch) => {
+    dispatch(resFavCoins);
     let data = await BoardService.getFavCoins(showLast, page);
     dispatch(getFavCoinsAC(data.content, data.totalElements));
   }
