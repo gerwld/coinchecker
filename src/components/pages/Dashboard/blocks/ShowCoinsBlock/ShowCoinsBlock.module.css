@@ -333,12 +333,18 @@ table.last_list {
   text-align: right;
 }
 
-.column_7 button {
+.column_7 button,
+.column_7 a {
+  flex: 0 0 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0;
   margin: 0;
   width: 24px;
   height: 24px;
   font-size: 18px;
+  text-decoration: none;
   line-height: 0;
   border-radius: 50%;
   border: none;
@@ -346,7 +352,8 @@ table.last_list {
   background-color: transparent;
 }
 
-.column_7 button:hover {
+.column_7 button:hover,
+.column_7 a:hover {
   background-color: #ced6df;
 }
 

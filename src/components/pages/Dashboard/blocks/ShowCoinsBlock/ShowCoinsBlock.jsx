@@ -12,6 +12,7 @@ import {RiArrowRightSLine} from "react-icons/ri"
 import { getTransactionData, selectShowCount } from '../../../../../redux/reducers/dashboard-reducer';
 import Pagination from 'rc-pagination';
 import TransactionPopup from './TransactionPopup/TransactionPopup';
+import { NavLink } from 'react-router-dom';
 
 
 const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, currPage, onChangePage, isWallet, walletId }) => {
@@ -119,7 +120,7 @@ const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet }) => {
             {amount && <td className={s.column_6}><span>{amount}</span></td>}
             <td className={s.column_7}>
                 <button onClick={onGetTransactionData} title="Add transaction"><AiOutlinePlus /></button>
-                {isWallet && <button onClick={onGetTransactionData} title="View transactions"><RiArrowRightSLine /></button>}
+                {isWallet && <NavLink to={`/dashboard/wallet/ts/${walletId}/${coin.id}`} title="View transactions"><RiArrowRightSLine /></NavLink>}
             </td>
         </tr>
     );

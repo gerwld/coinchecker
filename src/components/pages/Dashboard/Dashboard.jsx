@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 import { AsideBlock, MobileBarBlock } from '../../UI/Aside/Aside';
 import Wallets from './pages/Wallets/Wallets';
 import Buysell from './pages/Buysell/Buysell';
+import TransactionsWallet from './pages/TransactionsWallet/TransactionsWallet';
 
 
 const Dashboard = ({ logOut, userData }) => {
@@ -41,6 +42,7 @@ const Dashboard = ({ logOut, userData }) => {
               <Route path="/fav" element={<FavPage curr_pagination={curr_pagination} />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/wallet" element={<Wallets />} />
+              <Route path="/wallet/ts/:walletId/:coinId" element={<TransactionsWallet />} />
               <Route path="/transactions" element={<Buysell />} />
             </Routes>
             </div>
