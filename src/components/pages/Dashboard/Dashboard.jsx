@@ -155,9 +155,7 @@ const LastNotifications = React.memo(
           Notifications
         </button>
         <div className={s.notif_block}>
-          <div>egeee</div>
-          <div>egeee</div>
-          <div>egeee</div>
+          <div>No new notifications.</div>
         </div>
       </div>
     );
