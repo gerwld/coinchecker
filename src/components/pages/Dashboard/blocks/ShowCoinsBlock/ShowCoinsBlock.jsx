@@ -103,11 +103,13 @@ const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet }) => {
                 <span className={s.id}>{coin.id}</span>
             </td>
             <td className={s.column_1}>
+                <NavLink to={`/dashboard/coins/${coin.id}`}>
                 <div className={s.coin_img}>
                     <ShowImage url={coin.image} alt={coin.symbol} newUrl="img/coin.svg" />
                 </div>
                 <span>{coin.name}</span>
                 <span className={s.coin_symb}>{coin.symbol}</span>
+                </NavLink>
             </td>
 
             <td className={s.column_2}><span>${coin.currentPrice && coin.currentPrice.toString().substring(0, 7)}</span></td>

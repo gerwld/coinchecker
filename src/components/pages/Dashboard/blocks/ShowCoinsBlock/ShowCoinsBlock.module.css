@@ -189,8 +189,17 @@ table.last_list {
 
 .column_1 {
   position: relative;
+  padding: 0;
   padding-left: 30px;
   text-align: left;
+}
+
+.column_1 a {
+  display: block;
+  padding: 12px;
+  padding-left: 30px;
+  text-decoration: none;
+  color: #000;
 }
 
 .column_2 {
@@ -278,6 +287,10 @@ table.last_list {
   padding-top: 12px;
   padding-bottom: 12px;
   white-space: nowrap;
+}
+
+td.column_1 {
+  padding: 0;
 }
 
 .fav_btn {
@@ -477,6 +490,10 @@ table.last_list {
     justify-content: center;
     padding: 0;
     transform: translateY(-3px);
+  }
+
+  .last_row td a {
+    padding: 0;
   }
 
   .last_row td:nth-child(1) > span {
