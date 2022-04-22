@@ -11,6 +11,7 @@ import { getPageCoinTC, resPageCoin } from "../../../../../redux/reducers/dashbo
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
 import ErrorScreen from "../../../../UI/ErrorScreen/ErrorScreen";
 import { fetchFavCoin } from "../../../../../api/BoardService";
+import { changeTitle } from "../../../../../services/title";
 
 const CoinInfo = () => {
   const currentId = useParams().coinId;
@@ -38,7 +39,7 @@ const CoinInfo = () => {
     if (data) {
       setFav(data.favorite);
       setRange((data.currentPrice - data.low24h) / ((data.high24h - data.low24h) / 100));
-
+      changeTitle(`${data.name} price, ${data.symbol.toUpperCase()} chart, and market cap / CoinChecker`)
     }
   }, [data]);
 

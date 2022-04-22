@@ -3,6 +3,8 @@ export const allRouteTitles = {
   "/dashboard": "Dashboard",
   "/dashboard/fav": "Saved",
   "/dashboard/settings": "Settings",
+  "/dashboard/wallet": "Wallet",
+  "/dashboard/transactions": "Buy & Sell",
   "/login": "Sign In",
   "/login/forgot": "Restore access",
   "/register": "Registration",
