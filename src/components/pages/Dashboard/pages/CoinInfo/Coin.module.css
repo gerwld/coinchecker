@@ -1,3 +1,25 @@
+.content_block {
+ position: relative;
+ width: 100%;
+ min-height: 80vh;
+ min-height: calc(100vh - 150px);
+ padding: 20px 25px;
+ border-radius: var(--border-radius-block);
+ background-color: var(--color-bg-primary);
+ overflow: hidden;
+ margin-bottom: 20px;
+ border: var(--border-lightgray2);
+ box-shadow: var(--shadow-main);
+}
+
+.title {
+ font-size: 19px;
+ margin: 0 0 1.2em;
+ font-weight: 600;
+ letter-spacing: 0.023em;
+ color: var(--color-primary-darkblue);
+}
+
 /* Breadcrumbs styles */
 
 .breadcrumbs {
@@ -5,7 +27,7 @@
  align-items: center;
  justify-content: flex-start;
 
- margin-bottom: 5vh;
+ margin-bottom: 15px;
  margin-left: -5px;
 
  font-size: 17px;
@@ -49,7 +71,7 @@
 .rank {
  display: inline-block;
  padding: 3px 8px;
- margin-bottom: 10px;
+ margin-bottom: 20px;
 
  font-weight: 500;
  font-size: 13.5px;
@@ -70,6 +92,7 @@
 
 .icon {
  height: 30px;
+ user-select: none;
 }
 
 .icon img {
@@ -113,4 +136,35 @@
 
 .priceup {
  color: rgb(32, 182, 32);
+}
+
+.share_buttons {
+ margin-bottom: 15px;
+}
+
+.share_buttons button {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+
+ width: 50px;
+ height: 37px;
+ background-color: #fff;
+ border-radius: 5px;
+ border: none;
+ outline: var(--border-lightgray);
+ transition: 0.15s ease-in;
+}
+
+.share_buttons button:not(:last-child) {
+ margin-right: 10px;
+}
+
+.share_buttons button:focus {
+ outline: 2px solid var(--color-primary-blue);
+}
+
+.share_buttons button svg {
+ font-size: 20px;
+ line-height: 0;
 }
