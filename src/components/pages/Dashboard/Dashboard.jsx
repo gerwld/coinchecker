@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import s from "./Dashboard.module.css";
@@ -36,7 +36,9 @@ const Dashboard = ({ logOut, userData }) => {
               <Route path="/settings" element={<Settings />} />
               <Route path="/wallet" element={<Wallets />} />
               <Route path="/wallet/ts/:walletId/:coinId" element={<TransactionsWallet />} />
-              <Route path="/coins/:coinId" element={<CoinInfo />} />
+              <Route path="coins">
+                <Route path=":coinId" element={<CoinInfo />} />
+              </Route>
               <Route path="/transactions" element={<Buysell />} />
             </Routes>
           </div>

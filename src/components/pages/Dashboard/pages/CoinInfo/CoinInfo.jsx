@@ -1,26 +1,28 @@
 import React, { useEffect } from 'react'
-import {NavLink} from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import {NavLink, useParams} from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 
 import s from "./Coin.module.css";
 import { RiArrowRightSLine } from 'react-icons/ri';
 import { MdArrowDropDown } from 'react-icons/md';
 
-import { getPageCoinTC } from '../../../../../redux/reducers/dashboard-reducer';
-import { useSelector } from 'react-redux';
+import { getPageCoinTC, resPageCoin } from '../../../../../redux/reducers/dashboard-reducer';
 import EmbeddedLoader from '../../../../UI/EmbeddedLoader/EmbeddedLoader';
 
 const CoinInfo = () => {
+  const currentId = useParams().coinId;
   const dispatch = useDispatch();
   const {data} = useSelector(({dashboard}) => ({
     data: dashboard.pageCoinData
   }))
-  const perc = Math.abs(data.marketCapChangePercentage24h).toFixed(1);
+  const perc = data?.marketCapChangePercentage24h ? Math.abs(data.marketCapChangePercentage24h).toFixed(1) : 0;
+  const isMoreOrEq0 = data?.marketCapChangePercentage24h ? data?.marketCapChangePercentage24h >= 0 : false;
+
   useEffect(() => {
-    dispatch(getPageCoinTC(2));
-  }, [])
-  const isMoreOrEq0 = data.marketCapChangePercentage24h >= 0;
-  console.log(data);
+    dispatch(getPageCoinTC(currentId));
+    return() => dispatch(resPageCoin);
+  }, [currentId])
+ 
   if(data) return (
     <div className={s.content_block}>
       <div className={s.breadcrumbs}>
