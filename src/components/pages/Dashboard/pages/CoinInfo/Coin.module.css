@@ -143,17 +143,17 @@
  height: 37px;
  background-color: #fff;
  border-radius: 5px;
- border: none;
- outline: var(--border-lightgray);
- transition: 0.15s ease-in;
+ border: var(--border-lightgray);
+ transition: 0.1s ease-in;
 }
 
 .share_buttons button:not(:last-child) {
  margin-right: 10px;
 }
 
-.share_buttons button:focus {
- outline: 2px solid var(--color-primary-blue);
+.share_buttons button:active {
+ background-color: rgb(230, 234, 240);
+ border-color: var(--color-primary-blue);
 }
 
 .share_buttons button svg {
