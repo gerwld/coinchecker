@@ -144,7 +144,6 @@
  background-color: #fff;
  border-radius: 5px;
  border: var(--border-lightgray);
- transition: 0.1s ease-in;
 }
 
 .share_buttons button:not(:last-child) {
