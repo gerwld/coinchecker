@@ -26,7 +26,7 @@ const CoinInfo = () => {
   const onClickFav = () => {
     setFav(!isFav);
     fetchFavCoin(data.id, isFav);
-  }
+  };
 
   useEffect(() => {
     dispatch(getPageCoinTC(currentId));
@@ -34,7 +34,7 @@ const CoinInfo = () => {
   }, [currentId]);
 
   useEffect(() => {
-    if(data) {
+    if (data) {
       setFav(data.favorite);
     }
   }, [data]);
@@ -67,21 +67,47 @@ const CoinInfo = () => {
             </span>
           </div>
           <div className={s.share_buttons}>
-            <button><AiOutlineShareAlt/></button>
-            <button><AiOutlineBell/></button>
-            <button onClick={onClickFav}>{isFav ? <AiFillStar/> : <AiOutlineStar/>}</button>
+            <button>
+              <AiOutlineShareAlt />
+            </button>
+            <button>
+              <AiOutlineBell />
+            </button>
+            <button onClick={onClickFav}>{isFav ? <AiFillStar /> : <AiOutlineStar />}</button>
           </div>
           24h change
           <div className={s.coin_info}>
-            <div className={s.info_block}><span>Market Cap</span><span>${data.marketCap}</span></div>
-
-            <div className={s.info_block}><span>Fully Diluted Valuation</span><span>${data.fullyDilutedValuation}</span></div>
-
-            <div className={s.info_block}><span>Max Supply</span><span>{data.maxSupply}</span></div>
-            <div className={s.info_block}><span>Total Supply </span><span>{data.totalSupply}</span></div>
-            <div className={s.info_block}><span>Circulating Supply</span><span>{data.circulatingSupply}</span></div>
+            {data.marketCap && (
+              <div className={s.info_block}>
+                <span>Market Cap</span>
+                <span>${data.marketCap}</span>
+              </div>
+            )}
+            {data.fullyDilutedValuation && (
+              <div className={s.info_block}>
+                <span>Fully Diluted Valuation</span>
+                <span>${data.fullyDilutedValuation}</span>
+              </div>
+            )}
+            {data.maxSupply && (
+              <div className={s.info_block}>
+                <span>Max Supply</span>
+                <span>{data.maxSupply}</span>
+              </div>
+            )}
+            {data.totalSupply && (
+              <div className={s.info_block}>
+                <span>Total Supply </span>
+                <span>{data.totalSupply}</span>
+              </div>
+            )}
+            {data.circulatingSupply && (
+              <div className={s.info_block}>
+                <span>Circulating Supply</span>
+                <span>{data.circulatingSupply}</span>
+              </div>
+            )}
           </div>
-          
           coininfo Info coin to
         </div>
       </div>
