@@ -8,12 +8,14 @@ import { MdArrowDropDown } from 'react-icons/md';
 
 import { getPageCoinTC, resPageCoin } from '../../../../../redux/reducers/dashboard-reducer';
 import EmbeddedLoader from '../../../../UI/EmbeddedLoader/EmbeddedLoader';
+import ErrorScreen from '../../../../UI/ErrorScreen/ErrorScreen';
 
 const CoinInfo = () => {
   const currentId = useParams().coinId;
   const dispatch = useDispatch();
-  const {data} = useSelector(({dashboard}) => ({
-    data: dashboard.pageCoinData
+  const {data, error} = useSelector(({dashboard}) => ({
+    data: dashboard.pageCoinData,
+    error: dashboard.pageCoinErr
   }))
   const perc = data?.marketCapChangePercentage24h ? Math.abs(data.marketCapChangePercentage24h).toFixed(1) : 0;
   const isMoreOrEq0 = data?.marketCapChangePercentage24h ? data?.marketCapChangePercentage24h >= 0 : false;
@@ -51,7 +53,7 @@ const CoinInfo = () => {
       coin to
 
     </div>
-  );
+  ); else if(error) return <ErrorScreen error={error} withIcon/>;
   return <div className="dash_content_loader"><EmbeddedLoader /></div>
 }
 

@@ -109,10 +109,24 @@ body {
   width: 100%;
   height: calc(100vh - 80px);
   background-color: transparent;
+  user-select: none;
 }
 
 .dash_content_loader > div {
   background-color: transparent;
+}
+
+.dash_content_error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+
+}
+
+.dash_content_error span {
+  font-size: 1.5em;
+  font-weight: 500;
 }
 
 

@@ -12,6 +12,7 @@ const ON_TRANSACTION = "coinchecker/dash-reducer/ON_TRANSACTION";
 const CLOSE_TRANS_POPUP = "coinchecker/dash-reducer/CLOSE_TRANS_POPUP";
 const GET_PAGE_COIN = "coinchecker/dash-reducer/GET_PAGE_COIN";
 const RES_PAGE_COIN = "coinchecker/dash-reducer/RES_PAGE_COIN";
+const GET_PAGE_COIN_ERR = "coinchecker/dash-reducer/GET_PAGE_COIN_ERR";
 
 
 export const loadItems = (items, total) => ({ type: LOAD_LAST_ITEMS, items, total });
@@ -25,6 +26,7 @@ export const closeTransPopup = { type: CLOSE_TRANS_POPUP };
 export const resFavCoins = { type: RES_FAV_COINS };
 
 export const getPageCoin = (payload) => ({ type: GET_PAGE_COIN, payload });
+export const getPageCoinErr = (err) => ({ type: GET_PAGE_COIN_ERR, err });
 export const resPageCoin = { type: RES_PAGE_COIN };
 
 
@@ -45,7 +47,8 @@ let initialState = {
   isTransPopup: false,
   walletId: null,
 
-  pageCoinData: null
+  pageCoinData: null,
+  pageCoinErr: null
 };
 
 const dashReducer = (state = initialState, action) => {
@@ -121,6 +124,12 @@ const dashReducer = (state = initialState, action) => {
         ...state,
         pageCoinData: null
       }
+    case GET_PAGE_COIN_ERR:
+      return {
+        ...state,
+        pageCoinData: null,
+        pageCoinErr: action.err
+      }
     default:
       return state;
   }
@@ -153,8 +162,13 @@ export const onTypeSearchTC = (query) => {
 
 export const getPageCoinTC = (id) => {
   return async (dispatch) => {
-    const data = await BoardService.getCoinById(id);
-    dispatch(getPageCoin(data.data));
+    try {
+      const data = await BoardService.getCoinById(id);
+      dispatch(getPageCoin(data.data));
+    } catch (error) {
+      dispatch(getPageCoinErr(error.message));
+    }
+  
   }
 }
 
