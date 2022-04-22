@@ -197,19 +197,19 @@
 
 .range_content {
  width: 490px;
- margin-bottom: 50px;
+ margin-bottom: 40px;
 }
 
 .range_block {
- background-color: rgb(216, 216, 216);
- height: 9px;
+ background-color: rgb(228, 228, 228);
+ height: 8px;
  border-radius: 5px;
  overflow: hidden;
 }
 
 .s24_range {
  width: 50%;
- height: 9px;
+ height: 8px;
  background-color: rgba(0,58,210,1);
  background: linear-gradient(90deg, rgba(0,255,190,1) 0%, rgba(0,58,210,1) 100%);
 }
