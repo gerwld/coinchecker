@@ -192,3 +192,36 @@
  font-weight: 500;
  letter-spacing: 0.023em;
 }
+
+/* Range styles */
+
+.range_content {
+ width: 490px;
+ margin-bottom: 50px;
+}
+
+.range_block {
+ background-color: rgb(216, 216, 216);
+ height: 9px;
+ border-radius: 5px;
+ overflow: hidden;
+}
+
+.s24_range {
+ width: 50%;
+ height: 9px;
+ background-color: rgba(0,58,210,1);
+ background: linear-gradient(90deg, rgba(0,255,190,1) 0%, rgba(0,58,210,1) 100%);
+}
+
+.range_subblock {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ margin: 8px 0;
+
+ font-size: 14.5px;
+ font-weight: 600;
+}
+
+/* Range styles end */

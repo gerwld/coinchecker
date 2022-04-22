@@ -20,6 +20,7 @@ const CoinInfo = () => {
     error: dashboard.pageCoinErr,
   }));
   const [isFav, setFav] = useState(false);
+  const [rangePerc, setRange] = useState(0);
   const perc = data?.marketCapChangePercentage24h ? Math.abs(data.marketCapChangePercentage24h).toFixed(1) : 0;
   const isMoreOrEq0 = data?.marketCapChangePercentage24h ? data?.marketCapChangePercentage24h >= 0 : false;
 
@@ -36,6 +37,8 @@ const CoinInfo = () => {
   useEffect(() => {
     if (data) {
       setFav(data.favorite);
+      setRange((data.currentPrice - data.low24h) / ((data.high24h - data.low24h) / 100));
+
     }
   }, [data]);
 
@@ -75,7 +78,17 @@ const CoinInfo = () => {
             </button>
             <button onClick={onClickFav}>{isFav ? <AiFillStar /> : <AiOutlineStar />}</button>
           </div>
-          24h change
+          <div className={s.range_content}>
+            <div className={s.range_block}>
+              <div className={s.s24_range} style={{width: rangePerc + '%'}}></div>
+            </div>
+            <div className={s.range_subblock}>
+              <span>${data.low24h}</span>
+              <span>24H Range</span>
+              <span>${data.high24h}</span>
+            </div>
+          </div>
+          
           <div className={s.coin_info}>
             {data.marketCap && (
               <div className={s.info_block}>
