@@ -7,122 +7,122 @@ Link to the project: http://coincheckerproj.herokuapp.com/
 ## Project structure
 
 .
-├── App.js
-├── api
-│   ├── AuthService.js
-│   ├── BoardService.js
-│   └── WalletService.js
-├── components
-│   ├── UI
-│   │   ├── Aside
-│   │   │   ├── Aside.jsx
-│   │   │   └── Aside.module.css
-│   │   ├── EmbeddedLoader
-│   │   │   ├── EmbeddedLoader.jsx
-│   │   │   └── Loader.module.css
-│   │   ├── ErrorScreen
-│   │   │   ├── Error.module.css
-│   │   │   └── ErrorScreen.jsx
-│   │   ├── Header
-│   │   │   ├── Header.jsx
-│   │   │   └── Header.module.css
-│   │   ├── Loader
-│   │   │   ├── Loader.jsx
-│   │   │   └── Loader.module.css
-│   │   └── SearchCoin
-│   │       ├── Search.module.css
-│   │       └── SearchCoin.jsx
-│   └── pages
-│       ├── Dashboard
-│       │   ├── DashContainer.jsx
-│       │   ├── Dashboard.jsx
-│       │   ├── Dashboard.module.css
-│       │   ├── blocks
-│       │   │   └── ShowCoinsBlock
-│       │   │       ├── ShowCoinsBlock.jsx
-│       │   │       ├── ShowCoinsBlock.module.css
-│       │   │       └── TransactionPopup
-│       │   │           ├── Trans.module.css
-│       │   │           └── TransactionPopup.jsx
-│       │   ├── modules
-│       │   │   ├── LastNotifications.jsx
-│       │   │   ├── ProfSettings.jsx
-│       │   │   ├── SearchResultsDropDown.jsx
-│       │   │   └── index.js
-│       │   └── pages
-│       │       ├── Buysell
-│       │       │   ├── Buysell.jsx
-│       │       │   └── Buysell.module.css
-│       │       ├── CoinInfo
-│       │       │   ├── Coin.module.css
-│       │       │   └── CoinInfo.jsx
-│       │       ├── FavPage.jsx
-│       │       ├── MainPage.jsx
-│       │       ├── Settings
-│       │       │   ├── Settings.jsx
-│       │       │   └── Settings.module.css
-│       │       ├── TransactionsWallet
-│       │       │   ├── TransactionsWallet.jsx
-│       │       │   └── TransactionsWallet.module.css
-│       │       ├── Wallets
-│       │       │   ├── AddNewCoinPopup
-│       │       │   │   ├── Add.module.css
-│       │       │   │   └── AddNewCoinPopup.jsx
-│       │       │   ├── AddNewWalletPopup\ copy
-│       │       │   │   ├── Add.module.css
-│       │       │   │   └── AddNewWalletPopup.jsx
-│       │       │   ├── SelectWalletBlock.jsx
-│       │       │   ├── Wallets.jsx
-│       │       │   └── Wallets.module.css
-│       │       └── index.js
-│       ├── Login
-│       │   ├── Login.jsx
-│       │   ├── Login.module.css
-│       │   └── LoginContainer.jsx
-│       ├── MainScreen
-│       │   ├── Features
-│       │   │   ├── Features.jsx
-│       │   │   └── Features.module.css
-│       │   ├── HeaderTrends
-│       │   │   ├── HeaderTrends.jsx
-│       │   │   └── Trends.module.css
-│       │   ├── MainScreen.jsx
-│       │   └── MainScreen.module.css
-│       └── Registration
-│           ├── RegContainer.jsx
-│           └── Registration.jsx
-├── hoc
-│   ├── DropDown
-│   │   ├── DropDown.module.css
-│   │   └── dropDownMenu.jsx
-│   ├── withAuthRedirect.jsx
-│   ├── withClickOutside.jsx
-│   └── withRouter.jsx
-├── hooks
-│   ├── useFetching.js
-│   ├── useOutsideClick.js
-│   └── useSession.js
-├── index.js
-├── redux
-│   ├── actions
-│   ├── reducers
-│   │   ├── app-reducer.js
-│   │   ├── auth-reducer.js
-│   │   ├── dashboard-reducer.js
-│   │   ├── index.js
-│   │   └── wallets-reducer.js
-│   ├── redux-store.js
-│   └── sagas
-├── routes
-│   ├── routeTitle.js
-│   └── routes.js
-├── services
-│   ├── ChangeTitle.jsx
-│   └── title.js
-├── styles
-│   └── index.css
-└── utils
-    └── ShowImage.jsx
+├── App.js<br>
+├── api<br>
+│   ├── AuthService.js<br>
+│   ├── BoardService.js<br>
+│   └── WalletService.js<br>
+├── components<br>
+│   ├── UI<br>
+│   │   ├── Aside<br>
+│   │   │   ├── Aside.jsx<br>
+│   │   │   └── Aside.module.css<br>
+│   │   ├── EmbeddedLoader<br>
+│   │   │   ├── EmbeddedLoader.jsx<br>
+│   │   │   └── Loader.module.css<br>
+│   │   ├── ErrorScreen<br>
+│   │   │   ├── Error.module.css<br>
+│   │   │   └── ErrorScreen.jsx<br>
+│   │   ├── Header<br>
+│   │   │   ├── Header.jsx<br>
+│   │   │   └── Header.module.css<br>
+│   │   ├── Loader<br>
+│   │   │   ├── Loader.jsx<br>
+│   │   │   └── Loader.module.css<br>
+│   │   └── SearchCoin<br>
+│   │       ├── Search.module.css<br>
+│   │       └── SearchCoin.jsx<br>
+│   └── pages<br>
+│       ├── Dashboard<br>
+│       │   ├── DashContainer.jsx<br>
+│       │   ├── Dashboard.jsx<br>
+│       │   ├── Dashboard.module.css<br>
+│       │   ├── blocks<br>
+│       │   │   └── ShowCoinsBlock<br>
+│       │   │       ├── ShowCoinsBlock.jsx<br>
+│       │   │       ├── ShowCoinsBlock.module.css<br>
+│       │   │       └── TransactionPopup<br>
+│       │   │           ├── Trans.module.css<br>
+│       │   │           └── TransactionPopup.jsx<br>
+│       │   ├── modules<br>
+│       │   │   ├── LastNotifications.jsx<br>
+│       │   │   ├── ProfSettings.jsx<br>
+│       │   │   ├── SearchResultsDropDown.jsx<br>
+│       │   │   └── index.js<br>
+│       │   └── pages<br>
+│       │       ├── Buysell<br>
+│       │       │   ├── Buysell.jsx<br>
+│       │       │   └── Buysell.module.css<br>
+│       │       ├── CoinInfo<br>
+│       │       │   ├── Coin.module.css<br>
+│       │       │   └── CoinInfo.jsx<br>
+│       │       ├── FavPage.jsx<br>
+│       │       ├── MainPage.jsx<br>
+│       │       ├── Settings<br>
+│       │       │   ├── Settings.jsx<br>
+│       │       │   └── Settings.module.css<br>
+│       │       ├── TransactionsWallet<br>
+│       │       │   ├── TransactionsWallet.jsx<br>
+│       │       │   └── TransactionsWallet.module.css<br>
+│       │       ├── Wallets<br>
+│       │       │   ├── AddNewCoinPopup<br>
+│       │       │   │   ├── Add.module.css<br>
+│       │       │   │   └── AddNewCoinPopup.jsx<br>
+│       │       │   ├── AddNewWalletPopup\ copy<br>
+│       │       │   │   ├── Add.module.css<br>
+│       │       │   │   └── AddNewWalletPopup.jsx<br>
+│       │       │   ├── SelectWalletBlock.jsx<br>
+│       │       │   ├── Wallets.jsx<br>
+│       │       │   └── Wallets.module.css<br>
+│       │       └── index.js<br>
+│       ├── Login<br>
+│       │   ├── Login.jsx<br>
+│       │   ├── Login.module.css<br>
+│       │   └── LoginContainer.jsx<br>
+│       ├── MainScreen<br>
+│       │   ├── Features<br>
+│       │   │   ├── Features.jsx<br>
+│       │   │   └── Features.module.css<br>
+│       │   ├── HeaderTrends<br>
+│       │   │   ├── HeaderTrends.jsx<br>
+│       │   │   └── Trends.module.css<br>
+│       │   ├── MainScreen.jsx<br>
+│       │   └── MainScreen.module.css<br>
+│       └── Registration<br>
+│           ├── RegContainer.jsx<br>
+│           └── Registration.jsx<br>
+├── hoc<br>
+│   ├── DropDown<br>
+│   │   ├── DropDown.module.css<br>
+│   │   └── dropDownMenu.jsx<br>
+│   ├── withAuthRedirect.jsx<br>
+│   ├── withClickOutside.jsx<br>
+│   └── withRouter.jsx<br>
+├── hooks<br>
+│   ├── useFetching.js<br>
+│   ├── useOutsideClick.js<br>
+│   └── useSession.js<br>
+├── index.js<br>
+├── redux<br>
+│   ├── actions<br>
+│   ├── reducers<br>
+│   │   ├── app-reducer.js<br>
+│   │   ├── auth-reducer.js<br>
+│   │   ├── dashboard-reducer.js<br>
+│   │   ├── index.js<br>
+│   │   └── wallets-reducer.js<br>
+│   ├── redux-store.js<br>
+│   └── sagas<br>
+├── routes<br>
+│   ├── routeTitle.js<br>
+│   └── routes.js<br>
+├── services<br>
+│   ├── ChangeTitle.jsx<br>
+│   └── title.js<br>
+├── styles<br>
+│   └── index.css<br>
+└── utils<br>
+    └── ShowImage.jsx<br>
 
 39 directories, 77 files
 
