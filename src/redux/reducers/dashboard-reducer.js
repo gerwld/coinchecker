@@ -10,6 +10,8 @@ const SET_SEARCH_RESULT = "coinchecker/dash-reducer/SET_SEARCH_RESULT";
 const EARSE_SEARCH_RESULT = "coinchecker/dash-reducer/EARSE_SEARCH_RESULT";
 const ON_TRANSACTION = "coinchecker/dash-reducer/ON_TRANSACTION";
 const CLOSE_TRANS_POPUP = "coinchecker/dash-reducer/CLOSE_TRANS_POPUP";
+const GET_PAGE_COIN = "coinchecker/dash-reducer/GET_PAGE_COIN";
+
 
 export const loadItems = (items, total) => ({ type: LOAD_LAST_ITEMS, items, total });
 export const getFavCoinsAC = (items, count) => ({ type: GET_FAV_COINS, items, count });
@@ -20,6 +22,8 @@ export const earseSearch = { type: EARSE_SEARCH_RESULT };
 export const getTransactionData = (coin, walletId) => ({ type: ON_TRANSACTION, coin, walletId });
 export const closeTransPopup = { type: CLOSE_TRANS_POPUP };
 export const resFavCoins = { type: RES_FAV_COINS };
+export const getPageCoin = (payload) => ({ type: GET_PAGE_COIN, payload });
+
 
 let initialState = {
   last_coins: null,
@@ -36,7 +40,9 @@ let initialState = {
 
   transCoin: null,
   isTransPopup: false,
-  walletId: null
+  walletId: null,
+
+  pageCoinData: null
 };
 
 const dashReducer = (state = initialState, action) => {
@@ -102,6 +108,11 @@ const dashReducer = (state = initialState, action) => {
         transCoin: null,
         walletId: null
       }
+    case GET_PAGE_COIN:
+      return {
+        ...state,
+        pageCoinData: action.payload
+      }
     default:
       return state;
   }
@@ -129,6 +140,13 @@ export const onTypeSearchTC = (query) => {
     dispatch(onTypeSearch(query));
     const data = await BoardService.searchCoin(query);
     dispatch(setSearchResp(data.data.content));
+  }
+}
+
+export const getPageCoinTC = (id) => {
+  return async (dispatch) => {
+    const data = await BoardService.getCoinById(id);
+    dispatch(getPageCoin(data.data));
   }
 }
 

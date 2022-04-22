@@ -28,7 +28,6 @@ const SearchHeader = ({ setShow, isShow }) => {
  const onBlurSearch = (e) => {
    setTimeout(() => {
        dispatch(earseSearch);
-       setShow(false);
    }, 120);
    e.target.value = "";
    
@@ -41,7 +40,7 @@ const SearchHeader = ({ setShow, isShow }) => {
 
  return (
    <>
-     <input onFocus={() => setShow(true)} onBlur={onBlurSearch} onChange={onTypeInput} type="text" id="db_search" autoComplete="new-password" autocomplete="off" />
+     <input onFocus={() => setShow(true)} onBlur={onBlurSearch} onChange={onTypeInput} type="text" id="db_search" autoComplete="new-password" autoComplete="off" />
      <div className={`${s.search_results} ${isShow ? s.show_results : ""}`}>
        <div className={s.drop_overlay}>
          <SearchCoin onSelect={onSelect} isHeader />

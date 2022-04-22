@@ -153,7 +153,7 @@ const BuyTransaction = ({ symbol }) => {
           Price per coin<span className={s.red}>*</span>
         </label>
         <div className={s.price_field}>
-        <Field name="price" component="input" type="number" autoComplete="new-password" autocomplete="off" required />
+        <Field name="price" component="input" type="number" autoComplete="new-password" autoComplete="off" required />
         </div>
       </div>
       <div>
@@ -161,7 +161,7 @@ const BuyTransaction = ({ symbol }) => {
           Quantity<span className={s.red}>*</span>
         </label>
         <div className={s.amount_input}>
-          <Field name="amount" component="input" type="number" placeholder="1" autoComplete="new-password" autocomplete="off" required />
+          <Field name="amount" component="input" type="number" placeholder="1" autoComplete="new-password" autoComplete="off" required />
           <span>{symbol}</span>
         </div>
       </div>
@@ -193,7 +193,7 @@ const SellTransaction = ({ symbol }) => {
           Price per coin<span className={s.red}>*</span>
         </label>
         <div className={s.price_field}>
-        <Field name="price" component="input" type="number" autoComplete="new-password" autocomplete="off" required />
+        <Field name="price" component="input" type="number" autoComplete="new-password" autoComplete="off" required />
         </div>
       </div>
       <div>
@@ -201,7 +201,7 @@ const SellTransaction = ({ symbol }) => {
           Quantity<span className={s.red}>*</span>
         </label>
         <div className={s.amount_input}>
-          <Field name="amount" component="input" type="number" placeholder="1" autoComplete="new-password" autocomplete="off" required />
+          <Field name="amount" component="input" type="number" placeholder="1" autoComplete="new-password" autoComplete="off" required />
           <span>{symbol}</span>
         </div>
       </div>

@@ -36,6 +36,9 @@ export default class BoardService {
   static async delFavCoin(coinId) {
     return axios.delete(`http://159.223.218.84:8000/api/core/coins/${coinId}/delete-from-favorites`);
   }
+  static async getCoinById(coinId) {
+    return axios.get(`http://159.223.218.84:8000/api/core/coins/${coinId}`);
+  }
 }
 
 export const fetchFavCoin = (coinId, isFav) => {

@@ -26,7 +26,7 @@ const AddNewWalletPopup = ({ setClose }) => {
         <form onSubmit={(e) => e.preventDefault()}>
           <div>
             <label>Create New Wallet</label>
-            <input ref={input} type="text" placeholder="My Wallet" required />
+            <input ref={input} type="text" placeholder="My Wallet" autoFocus required />
           </div>
           <div className={s.action_popup}>
             <button onClick={setClose}>Cancel</button>
