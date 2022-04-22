@@ -1,15 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import s from "./Coin.module.css";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { MdArrowDropDown } from "react-icons/md";
-import { AiOutlineStar, AiOutlineBell, AiOutlineShareAlt } from "react-icons/ai";
+import { AiOutlineStar, AiOutlineBell, AiOutlineShareAlt, AiFillStar } from "react-icons/ai";
 
 import { getPageCoinTC, resPageCoin } from "../../../../../redux/reducers/dashboard-reducer";
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
 import ErrorScreen from "../../../../UI/ErrorScreen/ErrorScreen";
+import { fetchFavCoin } from "../../../../../api/BoardService";
 
 const CoinInfo = () => {
   const currentId = useParams().coinId;
@@ -18,13 +19,25 @@ const CoinInfo = () => {
     data: dashboard.pageCoinData,
     error: dashboard.pageCoinErr,
   }));
+  const [isFav, setFav] = useState(false);
   const perc = data?.marketCapChangePercentage24h ? Math.abs(data.marketCapChangePercentage24h).toFixed(1) : 0;
   const isMoreOrEq0 = data?.marketCapChangePercentage24h ? data?.marketCapChangePercentage24h >= 0 : false;
+
+  const onClickFav = () => {
+    setFav(!isFav);
+    fetchFavCoin(data.id, isFav);
+  }
 
   useEffect(() => {
     dispatch(getPageCoinTC(currentId));
     return () => dispatch(resPageCoin);
   }, [currentId]);
+
+  useEffect(() => {
+    if(data) {
+      setFav(data.favorite);
+    }
+  }, [data]);
 
   if (data)
     return (
@@ -56,7 +69,7 @@ const CoinInfo = () => {
           <div className={s.share_buttons}>
             <button><AiOutlineShareAlt/></button>
             <button><AiOutlineBell/></button>
-            <button><AiOutlineStar/></button>
+            <button onClick={onClickFav}>{isFav ? <AiFillStar/> : <AiOutlineStar/>}</button>
           </div>
           24h change
           <div className={s.coin_info}>

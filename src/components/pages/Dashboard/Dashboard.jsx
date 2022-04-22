@@ -36,9 +36,7 @@ const Dashboard = ({ logOut, userData }) => {
               <Route path="/settings" element={<Settings />} />
               <Route path="/wallet" element={<Wallets />} />
               <Route path="/wallet/ts/:walletId/:coinId" element={<TransactionsWallet />} />
-              <Route path="coins">
-                <Route path=":coinId" element={<CoinInfo />} />
-              </Route>
+              <Route path="coins/:coinId" element={<CoinInfo />}/>
               <Route path="/transactions" element={<Buysell />} />
             </Routes>
           </div>

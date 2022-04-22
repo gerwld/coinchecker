@@ -12,14 +12,6 @@
  box-shadow: var(--shadow-main);
 }
 
-.title {
- font-size: 19px;
- margin: 0 0 1.2em;
- font-weight: 600;
- letter-spacing: 0.023em;
- color: var(--color-primary-darkblue);
-}
-
 /* Breadcrumbs styles */
 
 .breadcrumbs {
@@ -30,7 +22,7 @@
  margin-bottom: 15px;
  margin-left: -5px;
 
- font-size: 17px;
+ font-size: 16px;
  line-height: 17px;
  font-weight: 500;
  user-select: none;
@@ -70,7 +62,7 @@
 
 .rank {
  display: inline-block;
- padding: 3px 8px;
+ padding: 4px 8px;
  margin-bottom: 20px;
 
  font-weight: 500;
@@ -199,4 +191,5 @@
 .info_block span:nth-child(2) {
  font-size: 13.6px;
  font-weight: 500;
+ letter-spacing: 0.023em;
 }
