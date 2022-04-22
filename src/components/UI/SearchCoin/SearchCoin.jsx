@@ -1,13 +1,23 @@
 import React from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { getCoinOutput } from "../../../redux/reducers/dashboard-reducer";
 import s from "./Search.module.css";
 
 const SearchCoin = ({ onSelect, isHeader }) => {
+  const dispatch = useDispatch();
   const { lastCoins, query, searchResult } = useSelector(({ dashboard }) => ({
     lastCoins: dashboard.last_coins,
     query: dashboard.searchQuery,
     searchResult: dashboard.searchResult,
   }));
+
+  useEffect(() => {
+    if(!lastCoins) {
+      dispatch(getCoinOutput());
+    }
+  }, [])
 
   const isInit = query.length !== 0;
 
