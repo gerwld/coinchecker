@@ -19,6 +19,7 @@ import MainPage from "./pages/MainPage";
 import FavPage from "./pages/FavPage";
 import Settings from "./pages/Settings/Settings";
 import TransactionsWallet from "./pages/TransactionsWallet/TransactionsWallet";
+import CoinInfo from "./pages/CoinInfo/CoinInfo";
 
 const Dashboard = ({ logOut, userData }) => {
   const { curr_pagination } = useSelector(({ dashboard }) => ({
@@ -47,6 +48,7 @@ const Dashboard = ({ logOut, userData }) => {
               <Route path="/settings" element={<Settings />} />
               <Route path="/wallet" element={<Wallets />} />
               <Route path="/wallet/ts/:walletId/:coinId" element={<TransactionsWallet />} />
+              <Route path="/coins/:coinId" element={<CoinInfo />} />
               <Route path="/transactions" element={<Buysell />} />
             </Routes>
           </div>
