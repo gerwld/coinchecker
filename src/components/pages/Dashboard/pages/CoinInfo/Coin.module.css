@@ -168,3 +168,35 @@
  font-size: 20px;
  line-height: 0;
 }
+
+.coin_info {
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ width: 100%;
+ max-width: 1000px;
+ max-height: 150px;
+
+ margin: 15px 0;
+
+ font-size: 13.2px;
+}
+
+.coin_info .info_block {
+ display: flex;
+ align-items: flex-end;
+ justify-content: space-between;
+ padding: 10px 0;
+ width: calc(50% - 15px);
+ border-bottom: var(--border-lightgray);
+}
+
+.info_block span:nth-child(1) {
+ color:rgb(60, 72, 80);
+ margin-right: 30px;
+}
+
+.info_block span:nth-child(2) {
+ font-size: 13.6px;
+ font-weight: 500;
+}

@@ -58,7 +58,18 @@ const CoinInfo = () => {
             <button><AiOutlineBell/></button>
             <button><AiOutlineStar/></button>
           </div>
-          USDprice (+-) ShareBtns coininfo Info coin to
+          24h change
+          <div className={s.coin_info}>
+            <div className={s.info_block}><span>Market Cap</span><span>${data.marketCap}</span></div>
+
+            <div className={s.info_block}><span>Fully Diluted Valuation</span><span>${data.fullyDilutedValuation}</span></div>
+
+            <div className={s.info_block}><span>Max Supply</span><span>{data.maxSupply}</span></div>
+            <div className={s.info_block}><span>Total Supply </span><span>{data.totalSupply}</span></div>
+            <div className={s.info_block}><span>Circulating Supply</span><span>{data.circulatingSupply}</span></div>
+          </div>
+          
+          coininfo Info coin to
         </div>
       </div>
     );
