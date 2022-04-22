@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import s from "./Search.module.css";
 
-const SearchCoin = ({ onSelect }) => {
+const SearchCoin = ({ onSelect, isHeader }) => {
   const { lastCoins, query, searchResult } = useSelector(({ dashboard }) => ({
     lastCoins: dashboard.last_coins,
     query: dashboard.searchQuery,
@@ -12,7 +12,8 @@ const SearchCoin = ({ onSelect }) => {
   const isInit = query.length !== 0;
 
   return (
-    <div className={s.trending}>
+    <div className={`${s.trending} ${isHeader && s.header_styles}`}>
+      {(isHeader && isInit) && <h3 className={s.drop_t}>Search:</h3>}
       {isInit ? (
         searchResult?.length > 0 ? (
           searchResult?.slice(0, 10).map((coin, i) => <SearchElem key={coin.name + "_searchselect_" + i} name={coin.name} icon={coin.image} id={coin.id} symb={coin.symbol} onSelect={onSelect} coin={coin} />)
@@ -25,7 +26,7 @@ const SearchCoin = ({ onSelect }) => {
             <>
               <h3>Users often searched:</h3>
               {lastCoins.slice(0, 10).map((coin) => (
-                <SearchElem key={coin.name + coin.image} name={coin.name} icon={coin.image} id={coin.id} symb={coin.symbol} onSelect={onSelect} coin={coin} />
+                <SearchElem key={coin.name + coin.image} name={coin.name} icon={coin.image} id={coin.id} symb={coin.symbol} onSelect={onSelect} coin={coin} isHeader={isHeader} />
               ))}
             </>
           )}

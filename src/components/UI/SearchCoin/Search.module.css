@@ -41,4 +41,27 @@
  border-radius: 5px;
 }
 
+/* Header styles */
 
+.header_styles h3 {
+ font-size: 14px;
+ margin: 10px;
+}
+
+.drop_t {
+ margin: 0 0 6px 10px;
+ padding: 0!important;
+ font-size: 14px;
+ color: var(--color-primary-gray);
+ text-transform: capitalize;
+}
+
+.header_styles .no_res,
+.header_styles .search_elem {
+ padding: 12px 15px;
+ border-left: none;
+ border-right: none;
+ border-radius: 0;
+}
+
+/* Header styles end */

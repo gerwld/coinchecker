@@ -33,7 +33,7 @@ const Dashboard = ({ logOut, userData }) => {
         <header className={s.header_dash}>
           <span className={s.header_title}></span>
           <div className={s.mob_logo}>CoinChecker</div>
-          <SearchResults />
+          <SearchResultsDropDown />
           <LastNotifications />
           <ProfSettings userData={userData} logOut={logOut} />
         </header>
@@ -59,7 +59,7 @@ const Dashboard = ({ logOut, userData }) => {
   );
 };
 
-const SearchResults = React.memo(
+const SearchResultsDropDown = React.memo(
   withClickOutside(({ refE, setShow, isShow }) => {
     return (
       <div className={s.dashboard_search} ref={refE}>
@@ -78,8 +78,12 @@ const SearchHeader = ({ setShow, isShow }) => {
   };
 
   const onBlurSearch = (e) => {
-    setTimeout(() => dispatch(earseSearch), 120);
+    setTimeout(() => {
+        dispatch(earseSearch);
+        setShow(false);
+    }, 120);
     e.target.value = "";
+    
   };
 
   const onSelect = (coin) => {
@@ -92,8 +96,7 @@ const SearchHeader = ({ setShow, isShow }) => {
       <input onFocus={() => setShow(true)} onBlur={onBlurSearch} onChange={onTypeInput} type="text" id="db_search" autoComplete="new-password" autocomplete="off" />
       <div className={`${s.search_results} ${isShow ? s.show_results : ""}`}>
         <div className={s.drop_overlay}>
-          <span className={s.drop_t}>Search:</span>
-          <SearchCoin onSelect={onSelect} />
+          <SearchCoin onSelect={onSelect} isHeader />
         </div>
       </div>
     </>
