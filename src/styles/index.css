@@ -249,6 +249,11 @@ select:focus {
 
 }
 
+input[type=text], input[type=button], input[type=submit],
+select {
+  -webkit-appearance: none;
+  }
+
 /* Mob fix */
 
 @media only screen and (max-width: 500px) {
