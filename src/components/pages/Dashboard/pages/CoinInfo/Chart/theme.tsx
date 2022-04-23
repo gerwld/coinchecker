@@ -93,6 +93,7 @@ export const theme: DefaultTheme = {
 // Create a new theme using Nunito Sans
 export const GlobalStyle = createGlobalStyle`
   body {
-    font-family: 'Roboto'
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue",
+      "Helvetica", "Arial"
   }
 `;
