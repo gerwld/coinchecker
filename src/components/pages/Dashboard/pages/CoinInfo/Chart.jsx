@@ -70,3 +70,4 @@ const Chart = ({chartId}) => {
 }
 
 export default Chart
+

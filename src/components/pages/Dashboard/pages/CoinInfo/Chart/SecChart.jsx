@@ -80,14 +80,6 @@ const SecondaryChart = ({
           yScale={priceScale}
           gradientColor={theme.colors.lapislazuli}
         >
-          {/* <LinearGradient
-            id="brush-gradient"
-            from={theme.colors.primary}
-            fromOpacity={0.3}
-            to={theme.colors.primary}
-            toOpacity={0.3}
-          /> */}
-
           <Brush
             innerRef={brushRef}
             xScale={dateScale}
