@@ -5,7 +5,7 @@ import useWindowDimensions from '../../../../../hooks/useWindowDimensions/index.
 import PrimaryChart from './Chart/PrimChart';
 import SecondaryChart from './Chart/SecChart';
 
-const Chart = ({chartId}) => {
+const ChartBlock = ({chartId}) => {
   const { height } = useWindowDimensions();
   const [boxWidth, setBoxWidth] = React.useState(0);
   const gridItemRef = React.useRef(null);
@@ -69,5 +69,5 @@ const Chart = ({chartId}) => {
       </div>)
 }
 
-export default Chart
+export default ChartBlock;
 
