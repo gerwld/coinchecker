@@ -13,6 +13,7 @@ import ErrorScreen from "../../../../UI/ErrorScreen/ErrorScreen";
 import { fetchFavCoin } from "../../../../../api/BoardService";
 import { changeTitle } from "../../../../../services/title";
 import Chart from "./Chart";
+import WalletService from "../../../../../api/WalletService";
 
 const CoinInfo = () => {
   const currentId = useParams().coinId;
@@ -123,7 +124,7 @@ const CoinInfo = () => {
               </div>
             )}
           </div>
-          <Chart name={data.name}/>
+          <Chart name={data.name} chartId={data?.coinGeckoId}/>
         </div>
       </div>
     );
