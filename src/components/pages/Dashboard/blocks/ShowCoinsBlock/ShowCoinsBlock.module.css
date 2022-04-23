@@ -480,6 +480,10 @@ td.column_1 {
     width: 18px;
     bottom: calc(50% - 8px);
   }
+
+  .last_view header {
+    margin: 10px;
+  }
 }
 
 
@@ -549,11 +553,28 @@ td.column_1 {
   .prop_last {
     align-self: flex-end;
   }
+  .column_7 button {
+  transform: translateY(12px);
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .column_1 {
+    padding-left: 0;
+  }
+  .column_4 {
+    font-size: 12px;
+  }
 }
 
 @media only screen and (max-width: 320px) {
-  .last_view h2 {
-    font-size: 13.5px;
+  .last_row td:nth-child(1),
+  .last_row th:nth-child(1) {
+    padding-left: 0;
+    padding-top: 2px;
+  }
+  table .column_1 {
+    padding-top: 23px;
   }
   .column_2,
   .column_3,

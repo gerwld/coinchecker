@@ -18,7 +18,7 @@
  max-height: 95vh;
  min-height: 600px;
  background-color: #fff;
- padding: 25px 25px;
+ padding: 25px;
  border-radius: 8px;
  overflow-y: scroll;
 }
@@ -222,4 +222,19 @@ align-items: center;
 
 .form_content {
  animation: showAnim 0.2s linear;
+}
+
+@media only screen and (max-width: 450px) {
+ .popup_content {
+ max-width: 98vw;
+ max-height: 80vh;
+  padding: 15px;
+ }
+ .action_popup button {
+  height: 40px;
+ }
+
+ .popup_content input {
+  margin-bottom: 5px;
+ }
 }
