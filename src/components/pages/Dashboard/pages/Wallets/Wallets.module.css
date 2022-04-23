@@ -72,11 +72,15 @@
 .btn_selected svg {
   font-size: 30px;
   margin-bottom: -9px;
+  transform: transform 2.3s ease, outline 0s;
 }
  
 .btn_selected:active {
-  outline: none;
   outline: 2px solid rgb(226, 234, 238);
+}
+
+.btn_selected:hover {
+  outline: 1.5px solid rgb(231, 238, 240);
 }
 
 .wallet_select ul {
