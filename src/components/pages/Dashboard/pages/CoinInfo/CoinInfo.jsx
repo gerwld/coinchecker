@@ -13,6 +13,8 @@ import ErrorScreen from "../../../../UI/ErrorScreen/ErrorScreen";
 import { fetchFavCoin } from "../../../../../api/BoardService";
 import { changeTitle } from "../../../../../services/title";
 
+import Chart from "./Chart";
+
 const CoinInfo = () => {
   const currentId = useParams().coinId;
   const dispatch = useDispatch();
@@ -33,7 +35,7 @@ const CoinInfo = () => {
   useEffect(() => {
     dispatch(getPageCoinTC(currentId));
     return () => dispatch(resPageCoin);
-  }, [currentId]);
+  }, [currentId, dispatch]);
 
   useEffect(() => {
     if (data) {
@@ -122,7 +124,7 @@ const CoinInfo = () => {
               </div>
             )}
           </div>
-          coininfo Info coin to
+          <Chart name={data.name}/>
         </div>
       </div>
     );
