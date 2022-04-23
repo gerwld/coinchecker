@@ -4,9 +4,129 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Link to the project: http://coincheckerproj.herokuapp.com/
 
-## Available Scripts
+## Project structure
 
-In the project directory, you can run:
+```
+.
+├── App.js
+├── api
+│   ├── AuthService.js
+│   ├── BoardService.js
+│   └── WalletService.js
+├── components
+│   ├── UI
+│   │   ├── Aside
+│   │   │   ├── Aside.jsx
+│   │   │   └── Aside.module.css
+│   │   ├── EmbeddedLoader
+│   │   │   ├── EmbeddedLoader.jsx
+│   │   │   └── Loader.module.css
+│   │   ├── ErrorScreen
+│   │   │   ├── Error.module.css
+│   │   │   └── ErrorScreen.jsx
+│   │   ├── Header
+│   │   │   ├── Header.jsx
+│   │   │   └── Header.module.css
+│   │   ├── Loader
+│   │   │   ├── Loader.jsx
+│   │   │   └── Loader.module.css
+│   │   └── SearchCoin
+│   │       ├── Search.module.css
+│   │       └── SearchCoin.jsx
+│   └── pages
+│       ├── Dashboard
+│       │   ├── DashContainer.jsx
+│       │   ├── Dashboard.jsx
+│       │   ├── Dashboard.module.css
+│       │   ├── blocks
+│       │   │   └── ShowCoinsBlock
+│       │   │       ├── ShowCoinsBlock.jsx
+│       │   │       ├── ShowCoinsBlock.module.css
+│       │   │       └── TransactionPopup
+│       │   │           ├── Trans.module.css
+│       │   │           └── TransactionPopup.jsx
+│       │   ├── modules
+│       │   │   ├── LastNotifications.jsx
+│       │   │   ├── ProfSettings.jsx
+│       │   │   ├── SearchResultsDropDown.jsx
+│       │   │   └── index.js
+│       │   └── pages
+│       │       ├── Buysell
+│       │       │   ├── Buysell.jsx
+│       │       │   └── Buysell.module.css
+│       │       ├── CoinInfo
+│       │       │   ├── Coin.module.css
+│       │       │   └── CoinInfo.jsx
+│       │       ├── FavPage.jsx
+│       │       ├── MainPage.jsx
+│       │       ├── Settings
+│       │       │   ├── Settings.jsx
+│       │       │   └── Settings.module.css
+│       │       ├── TransactionsWallet
+│       │       │   ├── TransactionsWallet.jsx
+│       │       │   └── TransactionsWallet.module.css
+│       │       ├── Wallets
+│       │       │   ├── AddNewCoinPopup
+│       │       │   │   ├── Add.module.css
+│       │       │   │   └── AddNewCoinPopup.jsx
+│       │       │   ├── AddNewWalletPopup\ copy
+│       │       │   │   ├── Add.module.css
+│       │       │   │   └── AddNewWalletPopup.jsx
+│       │       │   ├── SelectWalletBlock.jsx
+│       │       │   ├── Wallets.jsx
+│       │       │   └── Wallets.module.css
+│       │       └── index.js
+│       ├── Login
+│       │   ├── Login.jsx
+│       │   ├── Login.module.css
+│       │   └── LoginContainer.jsx
+│       ├── MainScreen
+│       │   ├── Features
+│       │   │   ├── Features.jsx
+│       │   │   └── Features.module.css
+│       │   ├── HeaderTrends
+│       │   │   ├── HeaderTrends.jsx
+│       │   │   └── Trends.module.css
+│       │   ├── MainScreen.jsx
+│       │   └── MainScreen.module.css
+│       └── Registration
+│           ├── RegContainer.jsx
+│           └── Registration.jsx
+├── hoc
+│   ├── DropDown
+│   │   ├── DropDown.module.css
+│   │   └── dropDownMenu.jsx
+│   ├── withAuthRedirect.jsx
+│   ├── withClickOutside.jsx
+│   └── withRouter.jsx
+├── hooks
+│   ├── useFetching.js
+│   ├── useOutsideClick.js
+│   └── useSession.js
+├── index.js
+├── redux
+│   ├── actions
+│   ├── reducers
+│   │   ├── app-reducer.js
+│   │   ├── auth-reducer.js
+│   │   ├── dashboard-reducer.js
+│   │   ├── index.js
+│   │   └── wallets-reducer.js
+│   ├── redux-store.js
+│   └── sagas
+├── routes
+│   ├── routeTitle.js
+│   └── routes.js
+├── services
+│   ├── ChangeTitle.jsx
+│   └── title.js
+├── styles
+│   └── index.css
+└── utils
+    └── ShowImage.jsx
+```
+
+39 directories, 77 files
 
 ### `npm start`
 
