@@ -235,6 +235,14 @@ align-items: center;
  }
 
  .popup_content input {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+ }
+
+ h2 {
+  margin: 0!important;
+ }
+
+ .action_popup {
+  margin-top: 15px;
  }
 }
