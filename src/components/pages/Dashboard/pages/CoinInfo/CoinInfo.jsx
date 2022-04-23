@@ -12,6 +12,7 @@ import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
 import ErrorScreen from "../../../../UI/ErrorScreen/ErrorScreen";
 import { fetchFavCoin } from "../../../../../api/BoardService";
 import { changeTitle } from "../../../../../services/title";
+import Chart from "./Chart";
 
 const CoinInfo = () => {
   const currentId = useParams().coinId;
@@ -122,7 +123,7 @@ const CoinInfo = () => {
               </div>
             )}
           </div>
-          coininfo Info coin to
+          <Chart name={data.name}/>
         </div>
       </div>
     );
