@@ -2,6 +2,9 @@
  position: fixed;
  width: 100vw;
  height: 100vh;
+ height: var(--app-height);
+ max-height: var(--app-height);
+ min-height: var(--app-height);
  top: 0;
  left: 0;
  display: flex;
@@ -9,6 +12,7 @@
  align-items: center;
  background-color: transparent;
  z-index: 10000000;
+ overflow-y: scroll;
 }
 
 .popup_content {
@@ -226,9 +230,9 @@ align-items: center;
 
 @media only screen and (max-width: 450px) {
  .popup_content {
- max-width: 98vw;
- max-height: 85vh;
- min-height: 80vh;
+  max-width: 98vw;
+  max-height: calc(var(--app-height) - 20px);
+  min-height: 40vh;
   padding: 15px;
   overflow-y: scroll;
  }
