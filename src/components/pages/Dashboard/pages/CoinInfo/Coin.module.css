@@ -239,6 +239,9 @@
  .coin_info .info_block { 
   width: 100%;
  }
+ .coin_info {
+  max-height: none;
+ }
  .breadcrumbs {
   margin: 8px 0 10px 8px;
  }
