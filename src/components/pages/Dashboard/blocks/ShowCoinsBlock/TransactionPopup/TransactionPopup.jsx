@@ -7,6 +7,7 @@ import WalletService from "../../../../../../api/WalletService";
 import { closeTransPopup } from "../../../../../../redux/reducers/dashboard-reducer";
 import { getAllWalletsTC } from "../../../../../../redux/reducers/wallets-reducer";
 import { IoCloseOutline } from "react-icons/io5";
+
 import { useEffect } from "react";
 import EmbeddedLoader from "../../../../../UI/EmbeddedLoader/EmbeddedLoader";
 import createDecorator from 'final-form-calculate';
@@ -111,13 +112,13 @@ const TransactionPopup = () => {
 
                         {(wallets.length === 0 
                         ? <CreateWalletBtn name={"Create New Wallet"} />
-                        :<Field name="walletId" component="select" defaultValue={wallets[0]?.id} required>
+                        :<div className="select-wrapper"><Field name="walletId" component="select" defaultValue={wallets[0]?.id} required>
                           {wallets.map((e, i) => (
                             <option key={i + "_selectwalletpopup"} value={e.id}>
                               {e.name}
                             </option>
                           ))}
-                        </Field>)}
+                        </Field></div>)}
 
                       </div>}
 

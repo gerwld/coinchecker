@@ -54,6 +54,7 @@ const CoinInfo = () => {
           <span>{data.name}</span>
         </div>
         <div className={s.content_block}>
+        <div className={s.main_content}>
           <div className={s.coin_maininfo}>
             <span className={s.rank}>Rank #{data.id}</span>
             <div className={s.maininfo_block}>
@@ -123,6 +124,7 @@ const CoinInfo = () => {
                 <span>{data.circulatingSupply}</span>
               </div>
             )}
+          </div>
           </div>
           <ChartBlock name={data.name} chartId={data?.coinGeckoId}/>
         </div>

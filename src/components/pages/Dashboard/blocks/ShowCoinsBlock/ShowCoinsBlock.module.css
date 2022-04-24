@@ -482,7 +482,7 @@ td.column_1 {
   }
 
   .last_view header {
-    margin: 10px;
+    margin: 14px;
   }
 }
 
@@ -505,10 +505,11 @@ td.column_1 {
   }
 
   .last_view h2 {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .prop_search input {
+    height: 50px;
     min-width: 0;
   }
 
@@ -533,7 +534,8 @@ td.column_1 {
   }
   .last_row td:nth-child(1),
   .last_row th:nth-child(1) {
-    padding-left: 7px;
+    padding-top: 2px;
+    padding-left: 2px;
   }
   .column_1,
   .column_2,

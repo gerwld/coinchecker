@@ -35,12 +35,19 @@
 
 .popup_content input {
  width: 100%;
- padding: 10px;
+ min-height: 45px;
+ padding: 0 10px;
  box-sizing: border-box;
- font-size: 16px;
+ font-size: 17px;
+ line-height: 45px;
  border: 1px solid #d4dee2;
  margin-bottom: 25px;
  border-radius: 3px;
+}
+
+.popup_content input::placeholder {
+ font-size: 17px;
+ line-height: 45px;
 }
 
 .popup_content input:active,
@@ -150,9 +157,10 @@ span.red {
 
 .amount_input span {
  position: absolute;
- top: 9px;
+ top: 0;
  right: 20px;
  font-size: 15px;
+ line-height: 45px;
  font-weight: 500;
  text-transform: uppercase;
 }
@@ -161,9 +169,10 @@ span.red {
 .price_field::before {
  content: "USD";
  position: absolute;
- top: 7px;
+ top: calc(50% - 10px);
  left: 10px;
  font-size: 17px;
+ line-height: 17px;
  color: #66666d;
 }
 
@@ -207,6 +216,7 @@ align-items: center;
 }
 
 .select_wallet select {
+ min-height: 40px;
  margin-left: 15px;
  border-radius: 5px;
 }

@@ -197,6 +197,7 @@
 
 .range_content {
  width: 490px;
+ max-width: 100%;
  margin-bottom: 40px;
 }
 
@@ -225,3 +226,20 @@
 }
 
 /* Range styles end */
+
+@media only screen and (max-width: 500px) {
+ .content_block { 
+  padding: 0;
+ }
+
+ .main_content {
+  padding: 12px;
+ }
+
+ .coin_info .info_block { 
+  width: 100%;
+ }
+ .breadcrumbs {
+  margin: 8px 0 10px 8px;
+ }
+}

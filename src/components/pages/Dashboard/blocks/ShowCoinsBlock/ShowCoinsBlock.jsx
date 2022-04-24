@@ -38,7 +38,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
                     <div className={s.prop_search}>
                         <input type="text" id="search_last" placeholder="Search..." disabled={isEmpty}/>
                     </div>
-                    <div className={s.prop_last}>
+                    <div className={s.prop_last + " select-wrapper"}>
                         <select defaultValue={curr_pagination} onChange={onShowChange} disabled={isEmpty}>
                         <option disabled>Show options:</option>
                             <option value={10}>Last 10 items</option>

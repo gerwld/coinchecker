@@ -250,10 +250,33 @@ select:focus {
 
 }
 
-input[type=text], input[type=button], input[type=submit],
+input:not([type="date"]),
 select {
   -webkit-appearance: none;
   }
+
+  .select-wrapper {
+    position: relative;
+  }
+
+  .select-wrapper select {
+    padding-right: 25px;
+  }
+
+
+.select-wrapper::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 8px;
+  top: calc(50% - 2px);
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  
+  border-top: 5px solid rgb(36, 36, 36);
+}
 
 /* Mob fix */
 
