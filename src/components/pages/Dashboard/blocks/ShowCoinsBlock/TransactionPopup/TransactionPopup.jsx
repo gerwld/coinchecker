@@ -65,6 +65,7 @@ const TransactionPopup = () => {
       datetime: e.datetime,
       price: e.price,
       coinId: item.id,
+      usdAmount: e.amount * e.price
     };
     const wallet = walletId ? walletId : e.walletId;
     await WalletService.buyCoinInWalletId(wallet, data);
