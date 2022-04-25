@@ -123,6 +123,10 @@
   border-top: 1px solid #d9dfe4;
 }
 
+.wallet_select ul button:last-child {
+  white-space: nowrap;
+}
+
 .wallet_select li {
   position: relative;
 }
