@@ -61,7 +61,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
                             <th className={s.head_3}><span>24h</span></th>
                             <th className={s.head_4}><span>24h Volume</span></th>
                             <th className={s.head_5}><span>Capitalization</span></th>
-                            {isWallet && <th className={s.head_6}><span>Amount</span></th>}
+                            {isWallet && <th className={s.head_6}><span>Holdings</span></th>}
                         </tr>
                         {items && itemsMap.length > 0 || total === 0 ? itemsMap : <tr><td colSpan={isWallet ? 8 : 6} className={s.loader}><Loader /></td></tr>}
                         {total === 0 ? <tr><td colSpan={isWallet ? 8 : 6} className={s.no_items}>No items to show.</td></tr> : null}
@@ -121,7 +121,13 @@ const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet }) => {
             </td>
             <td className={s.column_4}><span>{formatter.format(coin.totalVolume).replace(/\D00(?=\D*$)/, '')}</span></td>
             <td className={s.column_5}><span>{formatter.format(coin.marketCap).replace(/\D00(?=\D*$)/, '')}</span></td>
-            {amount && <td className={s.column_6}><span>{amount}</span></td>}
+            {amount && 
+            <td className={s.column_6}>
+                <div>
+                    <span className={s.am_doll}>${amount * coin.currentPrice}</span>
+                    <span className={s.am_coin}>{amount} {coin.symbol}</span>
+                </div>
+            </td>}
             <td className={s.column_7}>
                 <button onClick={onGetTransactionData} title="Add transaction"><AiOutlinePlus /></button>
                 {isWallet && <NavLink to={`/dashboard/wallet/ts/${walletId}/${coin.id}`} title="View transactions"><RiArrowRightSLine /></NavLink>}

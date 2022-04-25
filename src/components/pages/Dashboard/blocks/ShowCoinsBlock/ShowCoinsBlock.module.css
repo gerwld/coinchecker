@@ -337,6 +337,24 @@ td.column_1 {
  text-align: end;
 }
 
+.column_6 div {
+  display: flex;
+  flex-direction: column;
+}
+
+.column_6 .am_coin {
+  text-transform: uppercase;
+  color: #666666;
+  margin-bottom: 1px;
+  font-size: 13.2px;
+  line-height: 13.2px;
+}
+
+.column_6 span {
+  font-size: 14px;
+  line-height: 14px;
+}
+
 /* Wallet styles end */
 
 .column_7 {
@@ -377,18 +395,28 @@ td.column_1 {
   background-color: #ced6df;
 }
 
+@media only screen and (max-width: 995px) {
+  .head_5,
+  .column_5 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 885px) {
+  .head_4,
+  .column_4 {
+    display: none;
+  }
+}
+
 
 
 @media only screen and (max-width: 820px) {
-  .last_row td:nth-last-child(1),
-  .last_head th:nth-last-child(1) {
-   display: none;
-  }
 
-  .last_row td:nth-last-child(2),
+  /* .last_row td:nth-last-child(2),
   .last_head th:nth-last-child(2) {
   padding-right: 10px;
-  }
+  } */
 
   .last_row td:nth-child(1),
   .last_row th:nth-child(1) {
@@ -402,19 +430,6 @@ td.column_1 {
 }
 
 @media only screen and (max-width: 670px) {
-  .last_row td:nth-last-child(1),
-  .last_head th:nth-last-child(1) {
-   display: block;
-  }
-  .last_row td:nth-last-child(2),
-  .last_head th:nth-last-child(2) {
-  display: none;
-  }
-
-  .column_0 {
-    /* width: 50px; */
-    /* min-width: 50px; */
-  }
   .column_1 {
     width: 20%;
     white-space: nowrap;
@@ -447,6 +462,13 @@ td.column_1 {
     margin-right: 3px;
   }
 }
+
+@media only screen and (max-width: 550px) {
+  .column_7 a {
+    display: none;
+  }
+}
+
 
 @media only screen and (max-width: 530px) {
   .column_2,

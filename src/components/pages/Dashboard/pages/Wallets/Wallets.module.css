@@ -53,9 +53,8 @@
 
 .wallet_info {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: flex-start;
-  flex-wrap: wrap;
 }
 
 .wallet_info_mob {
@@ -166,7 +165,7 @@
 }
 
 .current_block:not(:last-child) {
-  margin-right: 12px;
+  margin-right: 7px;
 }
 
 .current_block span:nth-child(1) {
