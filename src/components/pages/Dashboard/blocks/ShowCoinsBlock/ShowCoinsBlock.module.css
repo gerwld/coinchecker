@@ -232,25 +232,16 @@ table.last_list {
   text-align: center;
 }
 .head_4 {
-  padding-right: 10px;
+  padding-right: 5px;
   text-align: right;
 }
 .head_5 {
   text-align: right;
 }
 
-/* .head_5 span {
-  margin-right: 0;
-}
-.head_6 span {
-  margin-right: 0;
-} */
-
 .head_6 {
   text-align: right;
 }
-
-
 
 .last_row {
   padding: 0;
@@ -403,8 +394,8 @@ td.column_1 {
 }
 
 @media only screen and (max-width: 885px) {
-  .head_4,
-  .column_4 {
+  .wallet_styles .head_4,
+  .wallet_styles .column_4 {
     display: none;
   }
 }
@@ -412,11 +403,6 @@ td.column_1 {
 
 
 @media only screen and (max-width: 820px) {
-
-  /* .last_row td:nth-last-child(2),
-  .last_head th:nth-last-child(2) {
-  padding-right: 10px;
-  } */
 
   .last_row td:nth-child(1),
   .last_row th:nth-child(1) {
@@ -505,6 +491,9 @@ td.column_1 {
 
   .last_view header {
     margin: 14px;
+  }
+  .head_3 {
+    text-align: right;
   }
 }
 
