@@ -79,3 +79,28 @@
 .btn_addcoin:hover {
  background-color: var(--color-primary-blue-hover);
 }
+
+.btn_addcoin_mob {
+ display: none;
+ width: 40px;
+ height: 40px;
+ padding: 0;
+ margin: 0;
+
+ font-size: 23px;
+ line-height: 0;
+ color: #fff;
+
+ background-color: var(--color-primary-blue);
+ border: none;
+ border-radius: 8px;
+}
+
+@media only screen and (max-width: 500px) {
+ .btn_addcoin {
+  display: none;
+ }
+ .btn_addcoin_mob {
+  display: block;
+ }
+}

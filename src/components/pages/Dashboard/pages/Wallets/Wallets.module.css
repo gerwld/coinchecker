@@ -47,7 +47,8 @@
   text-transform:capitalize;
   font-size: 19px;
   font-weight: 600;
-  flex: 1;
+  flex: 1 0 auto;
+  margin-bottom: 5px;
 }
 
 .wallet_info {
@@ -243,5 +244,10 @@
   }
   .content_block .title {
     padding: 12px;
+  }
+  .btn_menu,
+  .btn_visibility {
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
   }
 }

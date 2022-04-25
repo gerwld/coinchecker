@@ -6,6 +6,7 @@ import withClickOutside from "../../../../../../hoc/withClickOutside";
 import { earseSearch, getTransactionData, onTypeSearchTC } from "../../../../../../redux/reducers/dashboard-reducer";
 import { IoCloseOutline } from "react-icons/io5";
 import SearchCoin from "../../../../../UI/SearchCoin/SearchCoin";
+import { AiOutlinePlus } from "react-icons/ai";
 
 const AddNewCoinPopup = withClickOutside(({ walletId, isShow, setShow, refE }) => {
   const dispatch = useDispatch();
@@ -28,6 +29,9 @@ const AddNewCoinPopup = withClickOutside(({ walletId, isShow, setShow, refE }) =
     <>
       <button onClick={setShow} className={s.btn_addcoin}>
         Add New Coin
+      </button>
+      <button onClick={setShow} className={s.btn_addcoin_mob}>
+        <AiOutlinePlus/>
       </button>
       {isShow && (
         <div className={s.popup_wrapper}>
