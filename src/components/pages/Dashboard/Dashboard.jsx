@@ -35,7 +35,7 @@ const Dashboard = ({ logOut, userData }) => {
           <ProfSettings userData={userData} logOut={logOut} />
         </header>
 
-        <main className={s.main_dash}>
+        <main className={s.main_dash} styles={{height: height + "px"}}>
           <div className="mob_fix" />
           <div className={s.main_dash_content}>
             <Routes>

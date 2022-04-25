@@ -340,7 +340,7 @@
 
     .main_dash {
         width: 100vw;
-        height: 100vh;
+        flex: 1;
         display: flex;
         flex-direction: column;
         padding: 0;
@@ -349,7 +349,7 @@
 
         height: var(--app-height);
         max-height: var(--app-height);
-        min-height: var(--app-height);;
+        min-height: var(--app-height);
     }
 
     .main_dash > div:nth-child(2) {

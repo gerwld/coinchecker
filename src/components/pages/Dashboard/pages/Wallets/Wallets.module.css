@@ -59,7 +59,7 @@
 
 .wallet_info_mob {
   display: none;
-  padding: 10px 7px;
+  padding: 20px 9px;
   border: var(--border-lightgray);
   border-radius: 10px;
   box-shadow: var(--shadow-main);
