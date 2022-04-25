@@ -326,6 +326,7 @@ td.column_1 {
 /* Wallet styles */
 .column_6 {
  text-align: end;
+ min-width: 100px;
 }
 
 .column_6 div {

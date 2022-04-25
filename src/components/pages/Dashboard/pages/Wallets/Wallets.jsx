@@ -88,7 +88,7 @@ const Wallets = () => {
             </div>
            
           </div>
-          <ShowCoinsBlock isWallet walletId={content[walletId].id} items={coins} total={total} currPage={page + 1} pageSize={pageSize} curr_pagination={10} onChangePage={onChangePage}/>
+          <ShowCoinsBlock isWallet isShow={isDataVisible} walletId={content[walletId].id} items={coins} total={total} currPage={page + 1} pageSize={pageSize} curr_pagination={10} onChangePage={onChangePage}/>
         </div>
       ) : (
         <CreateNewWallet create={onCreateWallet} />

@@ -15,13 +15,13 @@ import TransactionPopup from './TransactionPopup/TransactionPopup';
 import { NavLink } from 'react-router-dom';
 
 
-const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, currPage, onChangePage, isWallet, walletId }) => {
+const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, currPage, onChangePage, isWallet, walletId, isShow }) => {
     const dispatch = useDispatch();
     
     const itemsMap = items?.map(coin => {
         if(isWallet)
-        return <ShowCoinsItem key={coin.coin.id + coin.coin.symbol} coin={coin.coin} amount={coin.amount} walletId={walletId} isWallet={true}/>;
-        return <ShowCoinsItem key={coin.id + coin.symbol} coin={coin}/>
+        return <ShowCoinsItem key={coin.coin.id + coin.coin.symbol} coin={coin.coin} amount={coin.amount} walletId={walletId} isWallet={true} isShow={isShow}/>;
+        return <ShowCoinsItem key={coin.id + coin.symbol} coin={coin} isShow={isShow}/>
     });
 
     const isEmpty = !items || items.length === 0;
@@ -74,7 +74,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
     )
 };
 
-const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet }) => {
+const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet, isShow }) => {
     const dispatch = useDispatch();
     let [isFav, setFav] = useState(coin.favorite);
 
@@ -124,8 +124,8 @@ const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet }) => {
             {amount && 
             <td className={s.column_6}>
                 <div>
-                    <span className={s.am_doll}>${amount * coin.currentPrice}</span>
-                    <span className={s.am_coin}>{amount} {coin.symbol}</span>
+                    <span className={s.am_doll}>{isShow ? "$" + amount * coin.currentPrice : "...$"}</span>
+                    <span className={s.am_coin}>{isShow ? amount : "-"} {coin.symbol}</span>
                 </div>
             </td>}
             <td className={s.column_7}>
