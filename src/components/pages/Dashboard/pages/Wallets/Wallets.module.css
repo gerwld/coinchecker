@@ -60,6 +60,10 @@
 
 .wallet_info_mob {
   display: none;
+  padding: 10px 7px;
+  border: var(--border-lightgray);
+  border-radius: 10px;
+  box-shadow: var(--shadow-main);
 }
 
 
@@ -247,7 +251,8 @@
 }
 
 .infomob_total {
-  font-size: 32px;
+  font-size: 34px;
+  padding-bottom: 5px;
 }
 
 .infomob_subblock {
@@ -255,7 +260,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  font-size: 14.5px;
 }
+
+.infomob_subblock span:nth-child(2) {
+  color: red;
+}
+
+.profit.infomob_subblock span:nth-child(2) {
+  color: green;
+}
+
 
 /* Mob wallet info end */
 
@@ -327,5 +343,8 @@
 @media only screen and (max-width: 375px) {
   .btn_selected {
     font-size: 18px;
+  }
+  .head_block {
+    padding: 0 8px;
   }
 }

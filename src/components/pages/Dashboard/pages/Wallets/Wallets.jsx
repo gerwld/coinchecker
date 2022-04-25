@@ -77,11 +77,11 @@ const Wallets = () => {
                 <div className={s.infomob_total}>
                   <span>{isDataVisible ? "$" + content[walletId].currentUsdPrice.toFixed(3) : "..."}</span>
                 </div>
-                <div className={s.infomob_subblock}>
+                <div className={`${s.infomob_subblock} ${true && s.profit}`}>
                   <span>24H Change</span>
                   <span>{isDataVisible ? "$" + "0.00" : "..."}</span>
                 </div>
-                <div className={s.infomob_subblock}>
+                <div className={`${s.infomob_subblock} ${content[walletId].startUsdPrice >= 0 && s.profit}`}>
                   <span>Total Profit / Loss</span>
                   <span>{isDataVisible ? "$" + content[walletId].startUsdPrice : "..."}</span>
                 </div>
