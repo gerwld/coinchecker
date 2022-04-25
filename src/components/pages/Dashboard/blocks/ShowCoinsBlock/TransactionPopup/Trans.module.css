@@ -41,7 +41,6 @@
  font-size: 17px;
  line-height: 45px;
  border: 1px solid #d4dee2;
- margin-bottom: 25px;
  border-radius: 3px;
 }
 
@@ -153,6 +152,7 @@ span.red {
 .total_field,
 .price_field {
  position: relative;
+ margin-bottom: 15px;
 }
 
 .amount_input span {
@@ -169,12 +169,13 @@ span.red {
 .price_field::before {
  content: "USD";
  position: absolute;
- top: calc(50% - 10px);
  left: 10px;
+ top: calc(50% - 9px);
  font-size: 17px;
  line-height: 17px;
  color: #66666d;
 }
+
 
 .total_field input,
 .price_field input {

@@ -18,3 +18,9 @@
   letter-spacing: 0.023em;
   color: var(--color-primary-darkblue);
 }
+
+@media only screen and (max-width: 500px) {
+  .content_block {
+    padding: 15px;
+  }
+}
