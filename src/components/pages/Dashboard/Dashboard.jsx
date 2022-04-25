@@ -6,13 +6,21 @@ import s from "./Dashboard.module.css";
 import { AsideBlock, MobileBarBlock } from "../../UI/Aside/Aside";
 import { Wallets, Buysell, MainPage, FavPage, Settings, TransactionsWallet, CoinInfo } from "./pages";
 import { LastNotifications, ProfSettings, SearchResultsDropDown } from "./modules";
+import useWindowDimensions from '../../../hooks/useWindowDimensions/index.tsx';
 
 
 
 const Dashboard = ({ logOut, userData }) => {
+  const { height, width } = useWindowDimensions();
   const { curr_pagination } = useSelector(({ dashboard }) => ({
     curr_pagination: dashboard.curr_pagination,
   }));
+
+  React.useEffect(() => {
+    if(height <= 500) document.body.style.overflow = "hidden";
+
+    return () => document.body.style.overflow = "visible";
+  },[])
 
   return (
     <div className={s.dashboard_overlay}>
