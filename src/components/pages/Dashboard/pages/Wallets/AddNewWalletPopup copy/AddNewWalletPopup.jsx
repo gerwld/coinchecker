@@ -9,7 +9,8 @@ const AddNewWalletPopup = ({ setClose }) => {
   const dispatch = useDispatch();
   const input = useRef(null);
 
-  const onCreate = async () => {
+  const onCreate = async (e) => {
+    e?.preventDefault();
     if (input.current.value.length) {
       await WalletService.createWallet(input.current.value);
       await dispatch(getAllWalletsTC());
@@ -23,13 +24,13 @@ const AddNewWalletPopup = ({ setClose }) => {
         <button onClick={setClose} className={s.btn_close}>
           <IoCloseOutline />
         </button>
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form onSubmit={(e) => onCreate(e)}>
           <div>
             <label>Create New Wallet</label>
             <input ref={input} type="text" placeholder="My Wallet" autoFocus required />
           </div>
           <div className={s.action_popup}>
-            <button onClick={setClose}>Cancel</button>
+            <button onClick={setClose} type="button">Cancel</button>
             <button onClick={onCreate} type="submit">
               Create
             </button>
