@@ -61,7 +61,7 @@ const TransactionPopup = () => {
 
   const onSubmit = async (e) => {
     const data = {
-      amount: transType === 1 ? (parseInt(e.amount) * -1) : parseInt(e.amount),
+      amount: transType === 1 ? (e.amount * -1) : e.amount,
       datetime: e.datetime,
       price: e.price,
       coinId: item.id,

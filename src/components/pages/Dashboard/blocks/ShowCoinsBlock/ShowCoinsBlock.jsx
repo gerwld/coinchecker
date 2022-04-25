@@ -13,6 +13,8 @@ import { getTransactionData, selectShowCount } from '../../../../../redux/reduce
 import Pagination from 'rc-pagination';
 import TransactionPopup from './TransactionPopup/TransactionPopup';
 import { NavLink } from 'react-router-dom';
+import { onlyNumAfterDot } from '../../../../../services/Only3AfterDot';
+
 
 
 const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, currPage, onChangePage, isWallet, walletId, isShow }) => {
@@ -77,6 +79,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
 const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet, isShow }) => {
     const dispatch = useDispatch();
     let [isFav, setFav] = useState(coin.favorite);
+    const am_usd = amount * coin.currentPrice;
 
     const perc = coin.priceChangePercentage24h || 0;
     const formatter = new Intl.NumberFormat('en-US', {
@@ -124,8 +127,8 @@ const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet, isShow }) 
             {amount && 
             <td className={s.column_6}>
                 <div>
-                    <span className={s.am_doll}>{isShow ? "$" + amount * coin.currentPrice : "...$"}</span>
-                    <span className={s.am_coin}>{isShow ? amount : "-"} {coin.symbol}</span>
+                    <span className={s.am_doll}>{isShow ? "$" + onlyNumAfterDot(am_usd, 2) : "...$"}</span>
+                    <span className={s.am_coin}>{isShow ? onlyNumAfterDot(amount, 5) : "-"} {coin.symbol}</span>
                 </div>
             </td>}
             <td className={s.column_7}>
