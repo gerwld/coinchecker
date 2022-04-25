@@ -2,6 +2,7 @@
  position: fixed;
  width: 100vw;
  height: 100vh;
+ height: var(--app-height);
  top: 0;
  left: 0;
  display: flex;
@@ -14,7 +15,7 @@
 .popup_content {
  width: 500px;
  max-width: 95vw;
- max-height: 95vh;
+ max-height: 85vh;
  margin-top: 10vh;
  background-color: #fff;
  padding: 30px;
@@ -108,4 +109,16 @@
  .btn_addcoin_mob {
   display: block;
  }
+ .popup_content {
+  padding: 15px;
+ }
 }
+
+@media only screen and (max-height: 790px) {
+ .popup_content {
+  max-height: calc(var(--app-height) - 20px);
+  margin-top: 10px;
+  margin-bottom: 10px;
+ }
+}
+
