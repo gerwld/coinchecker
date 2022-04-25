@@ -24,10 +24,12 @@ const SelectWalletBlock = withClickOutside(({content, walletId, select, setShow,
    setShow(false);
  }
 
+ const walletName = content[walletId].name.length > 12 ? content[walletId].name.slice(0, 12) + "..." : content[walletId].name;
+
  return (
    <div className={s.wallet_select}>
     <div className={s.select_wrapper} ref={refE}>
-     <button onClick={() => setShow(!isShow)} className={`${s.btn_selected} ${isShow && s.active}`}>{content[walletId].name}<RiArrowDropDownLine /></button>
+     <button onClick={() => setShow(!isShow)} className={`${s.btn_selected} ${isShow && s.active}`}>{walletName}<RiArrowDropDownLine /></button>
      {isShow && <ul>
        {content.map((wall, i) => <li onClick={() => onSelect(i)} key={i + "_walletselect"}><span>{wall.name}{i === walletId && <span className={s.act}><BsCheckLg/></span>}</span></li>)}
 

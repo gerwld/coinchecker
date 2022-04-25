@@ -38,7 +38,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-bottom: 10px;
 }
 
@@ -48,7 +48,7 @@
   font-size: 19px;
   font-weight: 600;
   flex: 1 0 auto;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
 }
 
 .wallet_info {
@@ -57,6 +57,11 @@
   justify-content: flex-start;
   flex-wrap: wrap;
 }
+
+.wallet_info_mob {
+  display: none;
+}
+
 
 .btn_selected {
   padding: 0 10px;
@@ -235,6 +240,61 @@
   display: inline-block;
 }
 
+/* Mob wallet info */
+
+.wallet_info_mob {
+  width: 100%;
+}
+
+.infomob_total {
+  font-size: 32px;
+}
+
+.infomob_subblock {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Mob wallet info end */
+
+
+
+@media only screen and (max-width: 690px) {
+  .wallet_info {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .current_block { 
+    flex: 1;
+    align-items: stretch;
+    padding: 15px 10px;
+    min-width: auto;
+    border-radius: 10px;
+  }
+
+  .current_block:not(:last-child) {
+    margin-right: 5px;
+  }
+
+  .current_block span:nth-child(2) {
+    font-size: 13.5px;
+  }
+  .current_wallet {
+    margin-bottom: 20px;
+  }
+}
+@media only screen and (max-width: 590px) {
+  .content_block {
+    padding: 15px;
+  }
+
+}
+
 @media only screen and (max-width: 500px) {
   .content_block {
     padding: 0;
@@ -249,5 +309,23 @@
   .btn_visibility {
     border: 1px solid #e3e3e3;
     border-radius: 8px;
+  }
+  .btn_selected {
+    padding: 0 2px;
+    border-radius: 8px;
+  }
+
+  .wallet_info {
+    display: none;
+  }
+  
+  .wallet_info_mob {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .btn_selected {
+    font-size: 18px;
   }
 }

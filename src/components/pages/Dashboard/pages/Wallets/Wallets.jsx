@@ -73,6 +73,19 @@ const Wallets = () => {
                   <span>Total Profit / Loss (-)</span>
                 </div>
             </div>
+            <div className={s.wallet_info_mob}>
+                <div className={s.infomob_total}>
+                  <span>{isDataVisible ? "$" + content[walletId].currentUsdPrice.toFixed(3) : "..."}</span>
+                </div>
+                <div className={s.infomob_subblock}>
+                  <span>24H Change</span>
+                  <span>{isDataVisible ? "$" + "0.00" : "..."}</span>
+                </div>
+                <div className={s.infomob_subblock}>
+                  <span>Total Profit / Loss</span>
+                  <span>{isDataVisible ? "$" + content[walletId].startUsdPrice : "..."}</span>
+                </div>
+            </div>
            
           </div>
           <ShowCoinsBlock isWallet walletId={content[walletId].id} items={coins} total={total} currPage={page + 1} pageSize={pageSize} curr_pagination={10} onChangePage={onChangePage}/>
