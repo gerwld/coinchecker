@@ -16,11 +16,12 @@ const Dashboard = ({ logOut, userData }) => {
     curr_pagination: dashboard.curr_pagination,
   }));
 
+
   React.useEffect(() => {
-    if(height <= 500) document.body.style.overflow = "hidden";
+    if(width <= 500) document.body.style.overflow = "hidden";
 
     return () => document.body.style.overflow = "visible";
-  },[])
+  },[width])
 
   return (
     <div className={s.dashboard_overlay}>
