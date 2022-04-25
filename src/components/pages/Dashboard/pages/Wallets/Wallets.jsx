@@ -12,6 +12,7 @@ import AddNewCoinPopup from "./AddNewCoinPopup/AddNewCoinPopup";
 import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
 import SelectWalletBlock from "./SelectWalletBlock";
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
+import { onlyNumAfterDot } from "../../../../../services/Only3AfterDot";
 
 const Wallets = () => {
   const [walletId, setWallet] = useState(0);
@@ -61,7 +62,7 @@ const Wallets = () => {
             </div>
             <div className={s.wallet_info}>
                 <div className={s.current_block}>
-                  <span>{isDataVisible ? "$" + content[walletId].currentUsdPrice.toFixed(3) : "..."}</span>
+                  <span>{isDataVisible ? "$" + onlyNumAfterDot(content[walletId].currentUsdPrice, 3) : "..."}</span>
                   <span>Total Balance</span>
                 </div>
                 <div className={s.current_block}>
@@ -69,7 +70,7 @@ const Wallets = () => {
                   <span>24h Portfolio Change (+0%)</span>
                 </div>
                 <div className={s.current_block}>
-                  <span>{isDataVisible ? "$" + content[walletId].startUsdPrice : "..."}</span>
+                  <span>{isDataVisible ? "$" + onlyNumAfterDot(content[walletId].startUsdPrice, 4) : "..."}</span>
                   <span>Total Profit / Loss (-)</span>
                 </div>
             </div>
