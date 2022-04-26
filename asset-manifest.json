@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/coinchecker/static/css/main.fc1963e7.css",
-    "main.js": "/coinchecker/static/js/main.2573f45e.js",
+    "main.js": "/coinchecker/static/js/main.0f2134f7.js",
     "index.html": "/coinchecker/index.html",
     "main.fc1963e7.css.map": "/coinchecker/static/css/main.fc1963e7.css.map",
-    "main.2573f45e.js.map": "/coinchecker/static/js/main.2573f45e.js.map"
+    "main.0f2134f7.js.map": "/coinchecker/static/js/main.0f2134f7.js.map"
   },
   "entrypoints": [
     "static/css/main.fc1963e7.css",
-    "static/js/main.2573f45e.js"
+    "static/js/main.0f2134f7.js"
   ]
 }
