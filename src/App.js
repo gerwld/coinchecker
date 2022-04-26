@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Provider } from "react-redux";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Loader from "./components/UI/Loader/Loader";
 import useSession from "./hooks/useSession";
 import { setLoading } from "./redux/reducers/app-reducer";
@@ -9,7 +9,6 @@ import { getUser } from "./redux/reducers/auth-reducer";
 import store from "./redux/redux-store";
 import { globalRoutes, privateRoutes, publicRoutes } from "./routes/routes";
 import ChangeTitle from "./services/ChangeTitle";
-import { changeTitle } from "./services/title";
 import "./styles/index.css";
 
 
@@ -67,9 +66,9 @@ const AppContainerConnect = connect(mapStateToProps, { getUser, setLoading })(Ap
 let CryptoChecker = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <HashRouter>
         <AppContainerConnect />
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
   );
 };
