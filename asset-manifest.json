@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/coinchecker/static/css/main.022caf98.css",
+    "main.js": "/coinchecker/static/js/main.ab25d3b3.js",
+    "index.html": "/coinchecker/index.html",
+    "main.022caf98.css.map": "/coinchecker/static/css/main.022caf98.css.map",
+    "main.ab25d3b3.js.map": "/coinchecker/static/js/main.ab25d3b3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.022caf98.css",
+    "static/js/main.ab25d3b3.js"
+  ]
+}
