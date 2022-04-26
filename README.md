@@ -2,7 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Link to the project: http://coincheckerproj.herokuapp.com/
+Link to the project: http://gerwld.github.io/coinchecker <br>
+Heroku: http://coincheckerproj.herokuapp.com/
+
+
 
 ## Project structure
 
