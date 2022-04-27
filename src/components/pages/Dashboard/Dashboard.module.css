@@ -307,6 +307,9 @@
 }
 
 @media only screen and (max-width: 500px) { 
+    body {
+        overflow: visible!important;
+    }
     .dashboard_search {
         display: none;
     }

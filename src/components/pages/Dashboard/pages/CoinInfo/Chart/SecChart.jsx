@@ -80,13 +80,6 @@ const SecondaryChart = ({
           yScale={priceScale}
           gradientColor={theme.colors.lapislazuli}
         >
-               <LinearGradient
-            id="brush-gradient"
-            from={theme.colors.primary}
-            fromOpacity={0}
-            to={theme.colors.primary}
-            toOpacity={0}
-          />
           <Brush
             innerRef={brushRef}
             xScale={dateScale}
@@ -103,8 +96,7 @@ const SecondaryChart = ({
               setFilteredData(data);
             }}
             selectedBoxStyle={{
-              fill: `url(#brush-gradient)`,
-              stroke: theme.colors.primary,
+              fill: `rgba(0,0,0,0)`,
             }}
           />
         </AreaChart>
