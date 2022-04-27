@@ -1,10 +1,12 @@
 import React from 'react'
-import s from './Loader.module.css';
+import './Loader.css';
 
 function Loader() {
   return (
-      <div className={s.preloader}>
-        <span className={s.preloader_ld}></span>
+      <div className="preloader">
+        <div className="preloader_ld">
+          <div className="loader"></div>
+        </div>
       </div>
   )
 }

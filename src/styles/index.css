@@ -321,6 +321,15 @@ select {
 	}
 }
 
+@keyframes lds-dual-ring {
+	0% {
+		transform: rotate(0deg)
+	}
+	100% {
+		transform: rotate(360deg)
+	}
+}
+
 .only_portrait_mobile {
   display: flex;
   position: absolute;
