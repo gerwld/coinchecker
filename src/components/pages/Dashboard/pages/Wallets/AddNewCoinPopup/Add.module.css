@@ -2,7 +2,7 @@
  position: fixed;
  width: 100vw;
  height: 100vh;
- height: var(--app-height);
+ /* height: var(--app-height); */
  top: 0;
  left: 0;
  display: flex;
@@ -116,7 +116,7 @@
 
 @media only screen and (max-height: 790px) {
  .popup_content {
-  max-height: calc(var(--app-height) - 20px);
+  max-height: 90vh;
   margin-top: 10px;
   margin-bottom: 10px;
  }

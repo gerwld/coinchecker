@@ -3,7 +3,7 @@ import s from "./Wallets.module.css";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BsCheckLg } from "react-icons/bs"
-import AddNewWalletPopup from "./AddNewWalletPopup copy/AddNewWalletPopup";
+import AddNewWalletPopup from "./AddNewWalletPopup/AddNewWalletPopup";
 import withClickOutside from "../../../../../hoc/withClickOutside";
 
 const SelectWalletBlock = withClickOutside(({content, walletId, select, setShow, isShow, refE}) => {

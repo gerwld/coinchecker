@@ -54,6 +54,12 @@ const Dashboard = ({ logOut, userData }) => {
 
         <footer className={s.footer_dash}></footer>
       </div>
+      <div className="only_portrait_mobile">
+        <div className="content">
+          <span>Rotate your device</span>
+          <div><img src="img/turn.svg" alt="Turn icon"/></div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -12,7 +12,7 @@ import AddNewCoinPopup from "./AddNewCoinPopup/AddNewCoinPopup";
 import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
 import SelectWalletBlock from "./SelectWalletBlock";
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
-import { onlyNumAfterDot } from "../../../../../services/Only3AfterDot";
+import { onlyNumAfterDot } from "../../../../../services/only3AfterDot";
 
 const Wallets = () => {
   const [walletId, setWallet] = useState(0);

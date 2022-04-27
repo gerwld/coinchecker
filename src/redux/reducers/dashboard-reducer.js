@@ -21,7 +21,7 @@ export const selectShowCount = (payload) => ({ type: SELECT_SHOW_COUNT, payload 
 export const onTypeSearch = (payload) => ({ type: SET_SEARCH, payload });
 export const setSearchResp = (payload) => ({ type: SET_SEARCH_RESULT, payload });
 export const earseSearch = { type: EARSE_SEARCH_RESULT };
-export const getTransactionData = (coin, walletId) => ({ type: ON_TRANSACTION, coin, walletId });
+export const getTransactionData = (coin, walletId, amount) => ({ type: ON_TRANSACTION, coin, walletId, amount });
 export const closeTransPopup = { type: CLOSE_TRANS_POPUP };
 export const resFavCoins = { type: RES_FAV_COINS };
 
@@ -103,7 +103,7 @@ const dashReducer = (state = initialState, action) => {
     case ON_TRANSACTION: 
       return {
         ...state,
-        transCoin: action.coin,
+        transCoin: {...action.coin, amount: action.amount ? action.amount : null},
         walletId: action.walletId,
         isTransPopup: true,
       }

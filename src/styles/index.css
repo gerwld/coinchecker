@@ -102,6 +102,32 @@ body {
   padding-right: 20px;
 }
 
+.error_block {
+  width: 100%;
+  padding: 12px 7px;
+  margin: 5px 0;
+
+  border: 1px solid rgb(223, 100, 100);
+  border-radius: 7px;
+  background-color: #ffe4e4;
+}
+
+.error_block span {
+  margin: 0;
+  font-size: 15px;
+  line-height: 15px;
+  color: #242424;
+}
+
+.error_block svg {
+  margin-bottom: -5px;
+  margin-right: 5px;
+
+  line-height: 0;
+  font-size: 22px;
+  color: rgb(201, 67, 67);
+}
+
 .dash_content_loader {
   position: relative;
   display: flex;
@@ -257,6 +283,7 @@ select {
 
   .select-wrapper {
     position: relative;
+    display: inline-block;
   }
 
   .select-wrapper select {
@@ -280,6 +307,59 @@ select {
 
 /* Mob fix */
 
+/* Only landscape block */
+
+@keyframes rotate {
+  0% {
+		transform: rotate(135deg)
+	}
+	50% {
+		transform: rotate(45deg)
+	}
+	100% {
+		transform: rotate(45deg)
+	}
+}
+
+.only_portrait_mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vmax;
+  min-height: 250px;
+  height: 100vh;
+  background-color: rgb(232, 233, 241);
+  z-index: 1000000;
+}
+
+.only_portrait_mobile .content {
+  position: absolute;
+  left: calc(50% - 70px);
+  top: calc(50% - 40px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.only_portrait_mobile span {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.only_portrait_mobile img {
+  width: 40px;
+  height: 40px;
+  transform: rotate(135deg);
+  animation: rotate 2s ease-in-out infinite alternate;
+}
+
+/* Only landscape block end */
+
+
+
 @media only screen and (max-width: 500px) {
   .mob_fix {
     flex: 0 0 60px;
@@ -300,5 +380,16 @@ select {
   .content-wrapper {
       padding-left: 10px;
       padding-right: 10px;
+  }
+}
+
+@media screen and (orientation:landscape) and (max-width: 1000px) and (max-height: 450px) {
+  .only_portrait_mobile {
+    display: flex;
+  }
+  body,
+  html {
+    height: var(--app-height);
+    overflow: hidden;
   }
 }

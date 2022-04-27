@@ -2,9 +2,6 @@
  position: fixed;
  width: 100vw;
  height: 100vh;
- height: var(--app-height);
- max-height: var(--app-height);
- min-height: var(--app-height);
  top: 0;
  left: 0;
  display: flex;
@@ -20,7 +17,7 @@
  width: 500px;
  max-width: 95vw;
  max-height: 95vh;
- min-height: 600px;
+ /* min-height: 600px; */
  background-color: #fff;
  padding: 25px;
  border-radius: 8px;
@@ -211,17 +208,34 @@ span.red {
 
 }
 
-.select_wallet  {
+.select_wallet,
+.select_swap  {
 display: flex;
-align-items: center;
+align-items: flex-start;
+margin-bottom: 10px;
 }
 
-.select_wallet select {
+.select_wallet select,
+.select_swap select {
  min-height: 40px;
  margin-left: 15px;
  border-radius: 5px;
 }
 
+.quantity_swap {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.quantity_swap span {
+ font-size: 13.2px;
+ font-weight: 500;
+}
+
+.quantity_swap span > span {
+ text-transform: uppercase;
+}
 
 @keyframes showAnim {
  0% {
@@ -240,11 +254,15 @@ align-items: center;
 }
 
 @media only screen and (max-width: 450px) {
+ .popup_wrapper {
+  align-items: flex-start;
+ }
  .popup_content {
   max-width: 98vw;
-  max-height: calc(var(--app-height) - 20px);
+  max-height: calc(var(--app-height));
   min-height: 40vh;
   padding: 15px;
+  margin-top: 3px;
   overflow-y: scroll;
  }
  .action_popup button {

@@ -2,15 +2,22 @@ import React from "react";
 import { BsArrowLeft } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
+import {BiErrorCircle} from 'react-icons/bi'
 
 import s from "./Login.module.css";
+import { useSelector } from "react-redux";
 const Login = (props) => {
+  const {error, isError} = useSelector(({auth}) => ({
+    error: auth.authErr,
+    isError: auth.authErr !== null
+  }))
   return (
     <div className={s.login_content}>
       <NavLink to="/" className={s.btn_back}><BsArrowLeft/>Back</NavLink>
       <div className={s.sect_overlay}>
         <h1 className={s.title}>Sign in to CoinChecker</h1>
         <div className={s.login_block}>
+        {isError && <div className="error_block"><span><BiErrorCircle/>{error}</span></div>}
           <div className={s.overlay}>
             <LoginFormRedux onSubmit={props.loginAction} />
             

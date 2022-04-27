@@ -13,7 +13,7 @@ import { getTransactionData, selectShowCount } from '../../../../../redux/reduce
 import Pagination from 'rc-pagination';
 import TransactionPopup from './TransactionPopup/TransactionPopup';
 import { NavLink } from 'react-router-dom';
-import { onlyNumAfterDot } from '../../../../../services/Only3AfterDot';
+import { onlyNumAfterDot } from '../../../../../services/only3AfterDot';
 
 
 
@@ -98,7 +98,7 @@ const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet, isShow }) 
         else if (priceSign === -1) return "change_red";
     }
     function onGetTransactionData() {
-        dispatch(getTransactionData(coin, walletId));
+        dispatch(getTransactionData(coin, walletId, amount));
     }
 
     return (
