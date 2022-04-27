@@ -1,7 +1,7 @@
 .dashboard_overlay {
     width: 100vw;
     height: 100vh;
-    height: -webkit-fill-available;
+    /* height: -webkit-fill-available; */
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -23,8 +23,8 @@
 .dashboard_content {
     flex: 1 0;
     height: 100vh;
-    height: -webkit-fill-available;
-    overflow: hidden;
+    /* height: -webkit-fill-available; */
+    /* overflow: hidden; */
 }
 
 .content_block {
@@ -310,10 +310,10 @@
 }
 
 @media only screen and (max-width: 500px) { 
-    .dashboard_overlay {
+    /* .dashboard_overlay {
         overflow: hidden;
         scroll-behavior: unset;
-    }
+    } */
 
     .dashboard_search {
         display: none;
@@ -340,6 +340,7 @@
 
     .main_dash {
         width: 100vw;
+        height: auto;
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -347,9 +348,9 @@
         overflow: hidden;
         scroll-behavior: unset;
 
-        height: var(--app-height);
+        /* height: var(--app-height);
         max-height: var(--app-height);
-        min-height: var(--app-height);
+        min-height: var(--app-height); */
     }
 
     .main_dash > div:nth-child(2) {
@@ -358,7 +359,7 @@
 
     .main_dash_content {
         flex: 0 1 100%;
-        overflow-y: scroll;
+        /* overflow-y: scroll; */
     }
 
     .dashboard_notifications {

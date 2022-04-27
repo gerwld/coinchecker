@@ -18,7 +18,7 @@ const Dashboard = ({ logOut, userData }) => {
 
 
   React.useEffect(() => {
-    if(width <= 500) document.body.style.overflow = "hidden";
+    // if(width <= 500) document.body.style.overflow = "hidden";
 
     return () => document.body.style.overflow = "visible";
   },[width])

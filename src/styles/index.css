@@ -89,7 +89,7 @@ body {
     line-height: 1.47059;
     font-weight: 400;
     overflow: visible;
-    height: auto;
+    /* height: auto; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -322,16 +322,19 @@ select {
 }
 
 .only_portrait_mobile {
-  display: none;
-  position: fixed;
+  display: flex;
+  position: absolute;
   top: 0;
+  bottom: 0;
   left: 0;
+  right: 0;
 
-  width: 100vmax;
   min-height: 250px;
-  height: 100vh;
-  background-color: rgb(232, 233, 241);
-  z-index: 1000000;
+  width: 100vmin;
+  height: 100vmax;
+  background-color: var(--color-bg-lightgray);
+  z-index: -100;
+  opacity: 0;
 }
 
 .only_portrait_mobile .content {
@@ -385,11 +388,15 @@ select {
 
 @media screen and (orientation:landscape) and (max-width: 1000px) and (max-height: 450px) {
   .only_portrait_mobile {
-    display: flex;
+    width: 100vmax;
+    height: 100vmin;
+    z-index: 1000000;
+    opacity: 1;
   }
   body,
   html {
     height: var(--app-height);
     overflow: hidden;
   }
+
 }
