@@ -19,7 +19,7 @@
 	display: inline-block;
 	width: 80px;
 	height: 80px;
-	animation: show 0.5s linear forwards
+	animation: show 0.15s linear forwards
 }
 
 .preloader_ld > div {
