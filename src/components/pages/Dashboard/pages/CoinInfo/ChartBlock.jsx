@@ -4,6 +4,7 @@ import useWindowDimensions from '../../../../../hooks/useWindowDimensions/index.
 
 import PrimaryChart from './Chart/PrimChart';
 import SecondaryChart from './Chart/SecChart';
+import Loader from '../../../../UI/Loader/Loader';
 
 const ChartBlock = ({chartId}) => {
   const { height } = useWindowDimensions();
@@ -43,7 +44,7 @@ const ChartBlock = ({chartId}) => {
 
   return (
   <div ref={gridItemRef}>
-  {mappedData?.length && (
+  {mappedData?.length > 0 && (
       <>
         <PrimaryChart
           data={mappedData ?? []}
@@ -66,6 +67,7 @@ const ChartBlock = ({chartId}) => {
             left: 48,
           }}/>
       </>)}
+      {loading && <Loader/>}
       </div>)
 }
 
