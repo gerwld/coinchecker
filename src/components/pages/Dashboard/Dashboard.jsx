@@ -1,27 +1,18 @@
 import React from "react";
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import s from "./Dashboard.module.css";
 import { AsideBlock, MobileBarBlock } from "../../UI/Aside/Aside";
 import { Wallets, Buysell, MainPage, FavPage, Settings, TransactionsWallet, CoinInfo } from "./pages";
 import { LastNotifications, ProfSettings, SearchResultsDropDown } from "./modules";
-import useWindowDimensions from '../../../hooks/useWindowDimensions/index.tsx';
 
 
 
 const Dashboard = ({ logOut, userData }) => {
-  const { height, width } = useWindowDimensions();
   const { curr_pagination } = useSelector(({ dashboard }) => ({
     curr_pagination: dashboard.curr_pagination,
   }));
-
-
-  React.useEffect(() => {
-    // if(width <= 500) document.body.style.overflow = "hidden";
-
-    return () => document.body.style.overflow = "visible";
-  },[width])
 
   return (
     <div className={s.dashboard_overlay}>
@@ -36,7 +27,7 @@ const Dashboard = ({ logOut, userData }) => {
           <ProfSettings userData={userData} logOut={logOut} />
         </header>
 
-        <main className={s.main_dash} styles={{height: height + "px"}}>
+        <main className={s.main_dash}>
           <div className="mob_fix" />
           <div className={s.main_dash_content}>
             <Routes>

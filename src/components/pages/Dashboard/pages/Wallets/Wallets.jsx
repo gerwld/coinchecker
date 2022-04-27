@@ -33,6 +33,10 @@ const Wallets = () => {
     dispatch(getAllWalletsTC());
   }, [walletId]);
 
+  useEffect(() => {
+    window.scrollTo(0, 1);
+  }, [])
+
   const onCreateWallet = async (name) => {
     await WalletService.createWallet(name);
     dispatch(getAllWalletsTC());

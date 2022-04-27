@@ -20,6 +20,10 @@ const MainPage = ({ curr_pagination }) => {
     onGetCoinOutput();
   }, [curr_pagination, page]);
 
+  React.useEffect(() => {
+    window.scrollTo(0, 1);
+  }, [])
+
   return (
     <ShowCoinsBlock
       curr_pagination={curr_pagination}

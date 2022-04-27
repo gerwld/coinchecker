@@ -33,6 +33,10 @@ const CoinInfo = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 1);
+  }, []);
+
+  useEffect(() => {
     dispatch(getPageCoinTC(currentId));
     return () => dispatch(resPageCoin);
   }, [currentId, dispatch]);

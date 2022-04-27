@@ -12,6 +12,10 @@ const FavPage = ({ curr_pagination }) => {
   }));
 
   useEffect(() => {
+    window.scrollTo(0, 1);
+  }, [])
+
+  useEffect(() => {
     dispatch(getFavCoins(curr_pagination, page - 1));
   }, [curr_pagination, page]);
 
