@@ -1,17 +1,17 @@
 // Import the wrapper component, and the the creator function
-import { createGlobalStyle, DefaultTheme } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export enum ColorsEnum {
   primary = "#8fa0b9",
   secondary = "#003AD2",
-  lapislazuli = "#4789eb",
+  lapislazuli = "#3b65d3",
   lime = "#32CD32",
   red = "#FF4136",
 }
 
 export type ColorsType = keyof typeof ColorsEnum;
 
-export const theme: DefaultTheme = {
+export const theme = {
   colors: ColorsEnum,
   font: {
     size: {
