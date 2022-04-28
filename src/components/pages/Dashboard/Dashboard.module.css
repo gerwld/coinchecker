@@ -310,6 +310,9 @@
     body {
         overflow: visible!important;
     }
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
     .dashboard_search {
         display: none;
     }
