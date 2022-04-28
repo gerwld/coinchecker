@@ -324,6 +324,11 @@
         background-color: var(--color-primary-lightgray2);
     }
 
+    .show_settings .dashboard_cuser,
+    .show_settings .dashboard_cuser:hover {
+        background-color: var(--color-primary-lightgray2);
+    }
+
     .notif_block {
         left: 0;
         right: auto;
