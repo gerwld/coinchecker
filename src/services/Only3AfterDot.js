@@ -1,4 +1,4 @@
-export const onlyNumAfterDot = (n, toFixed) => {
+export function onlyNumAfterDot(n, toFixed) {
  if(Number.isInteger(n)) {
   return n;
  } else {

@@ -402,6 +402,10 @@ select {
     z-index: 1000000;
     opacity: 1;
   }
+  .only_portrait_mobile .content {
+    overflow: hidden;
+    user-select: none;
+  }
   body,
   html {
     height: var(--app-height);
