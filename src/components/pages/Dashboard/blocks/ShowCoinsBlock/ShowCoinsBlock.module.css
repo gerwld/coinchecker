@@ -189,18 +189,19 @@ table.last_list {
 
 .column_1 {
   position: relative;
-  padding: 0;
-  padding-left: 30px;
-  text-align: left;
-}
-
-.column_1 a {
-  display: block;
   padding: 12px;
   padding-left: 30px;
+  padding-left: 30px;
+  text-align: left;
   text-decoration: none;
   color: #000;
+  cursor: pointer;
 }
+
+.column_1:hover {
+  background-color: var(--color-bg-lightgray);
+}
+
 
 .column_2 {
   text-align: right;
@@ -278,10 +279,6 @@ table.last_list {
   padding-top: 12px;
   padding-bottom: 12px;
   white-space: nowrap;
-}
-
-td.column_1 {
-  padding: 0;
 }
 
 .fav_btn {

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getFavCoins } from "../../../../redux/reducers/dashboard-reducer";
 import ShowCoinsBlock from "../blocks/ShowCoinsBlock/ShowCoinsBlock";
 
+
 const FavPage = ({ curr_pagination }) => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();

@@ -11,9 +11,9 @@ import {RiArrowRightSLine} from "react-icons/ri"
 
 import { getTransactionData, selectShowCount } from '../../../../../redux/reducers/dashboard-reducer';
 import Pagination from 'rc-pagination';
-import TransactionPopup from './TransactionPopup/TransactionPopup';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { onlyNumAfterDot } from '../../../../../services/only3AfterDot';
+import TransactionPopup from '../../../../UI/popups/TransactionPopup/TransactionPopup';
 
 
 
@@ -77,6 +77,7 @@ const ShowCoinsBlock = ({ title, items, total, onRefresh, curr_pagination = 15, 
 };
 
 const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet, isShow }) => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     let [isFav, setFav] = useState(coin.favorite);
     const am_usd = amount * coin.currentPrice;
@@ -101,20 +102,22 @@ const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet, isShow }) 
         dispatch(getTransactionData(coin, walletId, amount));
     }
 
+    const navToCoinHandler = () => {
+        navigate(`/dashboard/coins/${coin.id}`);
+    }
+
     return (
         <tr key={coin.id} className={s.last_row}>
             <td className={s.column_0}>
                 <button onClick={setFavHandler} className={s.fav_btn}>{isFav ? <AiFillStar /> : <AiOutlineStar />}</button>
                 <span className={s.id}>{coin.id}</span>
             </td>
-            <td className={s.column_1}>
-                <NavLink to={`/dashboard/coins/${coin.id}`}>
+            <td className={s.column_1} onClick={navToCoinHandler}>
                 <div className={s.coin_img}>
                     <ShowImage url={coin.image} alt={coin.symbol} newUrl="img/coin.svg" />
                 </div>
                 <span>{coin.name}</span>
                 <span className={s.coin_symb}>{coin.symbol}</span>
-                </NavLink>
             </td>
 
             <td className={s.column_2}><span>${coin.currentPrice && coin.currentPrice.toString().substring(0, 7)}</span></td>

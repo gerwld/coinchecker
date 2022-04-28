@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { useDispatch } from "react-redux";
-import WalletService from "../../../../../../api/WalletService";
-import { getAllWalletsTC } from "../../../../../../redux/reducers/wallets-reducer";
+
+import WalletService from "../../../../api/WalletService";
+import { getAllWalletsTC } from "../../../../redux/reducers/wallets-reducer";
 import s from "./Add.module.css";
+
 
 const AddNewWalletPopup = ({ setClose }) => {
   const dispatch = useDispatch();

@@ -2,11 +2,14 @@ import React, {useEffect} from "react";
 import { useDispatch } from "react-redux";
 
 import s from "./Add.module.css";
-import withClickOutside from "../../../../../../hoc/withClickOutside";
-import { earseSearch, getTransactionData, onTypeSearchTC } from "../../../../../../redux/reducers/dashboard-reducer";
+import withClickOutside from "../../../../hoc/withClickOutside";
+import { earseSearch, getTransactionData,onTypeSearchTC } from  "../../../../redux/reducers/dashboard-reducer";
+
 import { IoCloseOutline } from "react-icons/io5";
-import SearchCoin from "../../../../../UI/SearchCoin/SearchCoin";
 import { AiOutlinePlus } from "react-icons/ai";
+import SearchCoin from "../../SearchCoin/SearchCoin";
+
+
 
 const AddNewCoinPopup = withClickOutside(({ walletId, isShow, setShow, refE }) => {
   const dispatch = useDispatch();

@@ -8,7 +8,7 @@ import s from "./Wallets.module.css";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
-import AddNewCoinPopup from "./AddNewCoinPopup/AddNewCoinPopup";
+import AddNewCoinPopup from "../../../../UI/popups/AddNewCoinPopup/AddNewCoinPopup";
 import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
 import SelectWalletBlock from "./SelectWalletBlock";
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
