@@ -13,6 +13,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   -o-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(228, 237, 248, 0.664);
 }
 
 body, h1, h2, h3, h4, h5, h6, p, ol, ul {
@@ -248,6 +249,13 @@ body {
   color: #fff;
   cursor: default;
   border-radius: 4px;
+}
+
+.rc-pagination-item-link:focus,
+.rc-pagination-item-link:hover,
+.rc-pagination-item:focus,
+.rc-pagination-item:hover {
+  outline: none!important;
 }
 
 /* Pagination styles end */
