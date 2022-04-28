@@ -12,7 +12,6 @@ import {RiArrowRightSLine} from "react-icons/ri"
 import { getTransactionData, selectShowCount } from '../../../../../redux/reducers/dashboard-reducer';
 import Pagination from 'rc-pagination';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { onlyNumAfterDot } from '../../../../../services/only3AfterDot.js';
 import TransactionPopup from '../../../../UI/popups/TransactionPopup/TransactionPopup';
 
 
@@ -105,6 +104,15 @@ const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet, isShow }) 
     const navToCoinHandler = () => {
         navigate(`/dashboard/coins/${coin.id}`);
     }
+
+
+    const onlyNumAfterDot = (n, toFixed) => {
+        if(Number.isInteger(n)) {
+        return n;
+        } else {
+        return n.toFixed(toFixed);
+        }
+      }
 
     return (
         <tr key={coin.id} className={s.last_row}>
