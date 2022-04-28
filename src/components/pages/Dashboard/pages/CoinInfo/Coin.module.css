@@ -209,11 +209,13 @@
 }
 
 .s24_range {
- width: 50%;
+ width: 0%;
  height: 8px;
  background-color: rgba(0,58,210,1);
  background: linear-gradient(90deg, rgba(0,255,190,1) 0%, rgba(0,58,210,1) 100%);
+ transition: width 0.6s;
 }
+
 
 .range_subblock {
  display: flex;
