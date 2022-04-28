@@ -314,6 +314,16 @@
     .dashboard_search {
         display: none;
     }
+    .dash_notific:hover {
+        background-color: transparent;
+    }
+
+    .show_block > button,
+    .show_block > button:hover {
+        border: 1px solid rgb(233, 225, 225);
+        background-color: var(--color-primary-lightgray2);
+    }
+
     .notif_block {
         left: 0;
         right: auto;
