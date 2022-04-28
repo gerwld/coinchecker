@@ -12,7 +12,7 @@ import AddNewCoinPopup from "../../../../UI/popups/AddNewCoinPopup/AddNewCoinPop
 import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
 import SelectWalletBlock from "./SelectWalletBlock";
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
-import { onlyNumAfterDot } from "../../../../../services/only3AfterDot.js";
+
 
 const Wallets = () => {
   const [walletId, setWallet] = useState(0);
@@ -41,6 +41,15 @@ const Wallets = () => {
     await WalletService.createWallet(name);
     dispatch(getAllWalletsTC());
   };
+
+
+  const onlyNumAfterDot = (n, toFixed) => {
+    if(Number.isInteger(n)) {
+    return n;
+    } else {
+    return n.toFixed(toFixed);
+    }
+  }
 
   const onChangePage = (page) => {
     setPage(page - 1);
