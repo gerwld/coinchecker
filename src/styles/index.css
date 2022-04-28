@@ -378,6 +378,17 @@ select {
 
 /* Only landscape block end */
 
+.coin_chart {
+  position: relative;
+}
+
+.coin_chart .preloader {
+  position: static;
+  height: auto;
+  padding: 20px 0;
+  max-width: 1000px;
+}
+
 
 @media only screen and (max-width: 500px) {
   .mob_fix {

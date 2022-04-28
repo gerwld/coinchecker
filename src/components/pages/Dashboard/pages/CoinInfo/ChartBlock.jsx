@@ -43,7 +43,7 @@ const ChartBlock = ({chartId}) => {
   }, [gridItemRef]);
 
   return (
-  <div ref={gridItemRef}>
+  <div ref={gridItemRef} className="coin_chart">
   {mappedData?.length > 0 && (
       <>
         <PrimaryChart
