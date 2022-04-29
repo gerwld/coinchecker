@@ -105,6 +105,10 @@ const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet, isShow }) 
         navigate(`/dashboard/coins/${coin.id}`);
     }
 
+      const navToTransHandler = () => {
+        navigate(`/dashboard/wallet/ts/${walletId}/${coin.id}`);
+    }
+
 
     const onlyNumAfterDot = (n, toFixed) => {
         if(Number.isInteger(n)) {
@@ -136,7 +140,7 @@ const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet, isShow }) 
             <td className={s.column_4}><span>{formatter.format(coin.totalVolume).replace(/\D00(?=\D*$)/, '')}</span></td>
             <td className={s.column_5}><span>{formatter.format(coin.marketCap).replace(/\D00(?=\D*$)/, '')}</span></td>
             {amount && 
-            <td className={s.column_6}>
+            <td className={s.column_6} onClick={navToTransHandler}>
                 <div>
                     <span className={s.am_doll}>{isShow ? "$" + onlyNumAfterDot(am_usd, 2) : "...$"}</span>
                     <span className={s.am_coin}>{isShow ? onlyNumAfterDot(amount, 5) : "-"} {coin.symbol}</span>

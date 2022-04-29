@@ -193,11 +193,14 @@ table.last_list {
   padding-left: 30px;
   padding-left: 30px;
   text-align: left;
+}
+.column_1,
+.column_6 {
+  cursor: pointer;
   text-decoration: none;
   color: #000;
-  cursor: pointer;
 }
-
+.column_6:hover,
 .column_1:hover {
   background-color: var(--color-bg-lightgray);
 }
