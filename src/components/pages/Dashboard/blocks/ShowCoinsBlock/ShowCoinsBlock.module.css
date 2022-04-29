@@ -202,7 +202,7 @@ table.last_list {
 }
 .column_6:hover,
 .column_1:hover {
-  background-color: var(--color-bg-lightgray);
+  filter: contrast(1.1);
 }
 
 
