@@ -280,6 +280,58 @@ border-top: 6px solid rgb(255, 255, 255);
 
 /* Range styles end */
 
+/* Exchange styles */
+
+.exchange {
+ margin: 40px 0 20px;
+ height: 100px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background-color: rgb(238, 241, 245);
+ border-radius: 10px;
+}
+
+.exchange svg {
+ margin: 0 20px;
+ font-size: 24px;
+}
+
+.input_block_ex {
+ position: relative;
+ border-radius: 10px;
+ overflow: hidden;
+ border: var(--border-lightgray);
+}
+
+.input_block_ex button,
+.input_block_ex input {
+ height: 50px;
+ border: none;
+}
+
+.input_block_ex button {
+ width: 60px;
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ font-size: 14.5px;
+ font-weight: 500;
+ overflow: hidden;
+ text-transform: uppercase;
+ white-space: nowrap;
+ background-color: rgb(255, 255, 255);
+ border-right: var(--border-lightgray);
+}
+
+.input_block_ex input {
+ padding: 10px 10px 10px 70px;
+ width: 300px;
+ font-size: 18px;
+}
+
+/* Exchange styles end */
+
 @media only screen and (max-width: 500px) {
  .content_block { 
   padding: 0;

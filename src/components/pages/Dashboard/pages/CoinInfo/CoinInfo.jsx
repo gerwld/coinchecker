@@ -14,6 +14,7 @@ import { fetchFavCoin } from "../../../../../api/BoardService";
 import { changeTitle } from "../../../../../services/title";
 import ChartBlock from "./ChartBlock";
 import TransactionPopup from "../../../../UI/popups/TransactionPopup/TransactionPopup";
+import Exchange from "./Exchange";
 
 const CoinInfo = () => {
   const currentId = useParams().coinId;
@@ -146,6 +147,7 @@ const CoinInfo = () => {
               )}
             </div>
           </div>
+          <Exchange price={data.currentPrice} symbol={data.symbol}/>
           <ChartBlock name={data.name} chartId={data?.coinGeckoId} />
         </div>
         <TransactionPopup/>
