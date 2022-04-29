@@ -396,6 +396,9 @@ select {
     margin: 0;
     padding: 0;
   }
+  .coin_chart {
+    margin-bottom: 20px;
+  }
 }
 
 @media only screen and (max-width: 590px) {
