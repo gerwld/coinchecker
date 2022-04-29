@@ -312,6 +312,10 @@
         overflow: visible!important;
     }
 
+    .dashboard_content {
+        height: auto;
+    }
+
     .dashboard_search {
         display: none;
     }
