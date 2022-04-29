@@ -31,11 +31,28 @@ Heroku: http://coincheckerproj.herokuapp.com/
 │   │   │   ├── Header.jsx
 │   │   │   └── Header.module.css
 │   │   ├── Loader
-│   │   │   ├── Loader.jsx
-│   │   │   └── Loader.module.css
-│   │   └── SearchCoin
-│   │       ├── Search.module.css
-│   │       └── SearchCoin.jsx
+│   │   │   ├── Loader.css
+│   │   │   └── Loader.jsx
+│   │   ├── SearchCoin
+│   │   │   ├── Search.module.css
+│   │   │   └── SearchCoin.jsx
+│   │   └── popups
+│   │       ├── AddNewCoinPopup
+│   │       │   ├── Add.module.css
+│   │       │   └── AddNewCoinPopup.jsx
+│   │       ├── AddNewWalletPopup
+│   │       │   ├── Add.module.css
+│   │       │   └── AddNewWalletPopup.jsx
+│   │       └── TransactionPopup
+│   │           ├── Trans.module.css
+│   │           ├── TransactionPopup.jsx
+│   │           ├── decorator.js
+│   │           ├── init.js
+│   │           └── operations
+│   │               ├── BuyTransaction.jsx
+│   │               ├── SellTransaction.jsx
+│   │               ├── TransTransaction.jsx
+│   │               └── index.js
 │   └── pages
 │       ├── Dashboard
 │       │   ├── DashContainer.jsx
@@ -44,10 +61,7 @@ Heroku: http://coincheckerproj.herokuapp.com/
 │       │   ├── blocks
 │       │   │   └── ShowCoinsBlock
 │       │   │       ├── ShowCoinsBlock.jsx
-│       │   │       ├── ShowCoinsBlock.module.css
-│       │   │       └── TransactionPopup
-│       │   │           ├── Trans.module.css
-│       │   │           └── TransactionPopup.jsx
+│       │   │       └── ShowCoinsBlock.module.css
 │       │   ├── modules
 │       │   │   ├── LastNotifications.jsx
 │       │   │   ├── ProfSettings.jsx
@@ -58,8 +72,22 @@ Heroku: http://coincheckerproj.herokuapp.com/
 │       │       │   ├── Buysell.jsx
 │       │       │   └── Buysell.module.css
 │       │       ├── CoinInfo
+│       │       │   ├── Chart
+│       │       │   │   ├── AreaChart
+│       │       │   │   │   ├── AreaChart.jsx
+│       │       │   │   │   └── constants.ts
+│       │       │   │   ├── LineChart
+│       │       │   │   │   ├── LineChart.jsx
+│       │       │   │   │   └── constants.ts
+│       │       │   │   ├── PrimChart.jsx
+│       │       │   │   ├── SecChart.jsx
+│       │       │   │   ├── TimeFilterButtons
+│       │       │   │   │   └── index.tsx
+│       │       │   │   └── theme.tsx
+│       │       │   ├── ChartBlock.jsx
 │       │       │   ├── Coin.module.css
-│       │       │   └── CoinInfo.jsx
+│       │       │   ├── CoinInfo.jsx
+│       │       │   └── Exchange.jsx
 │       │       ├── FavPage.jsx
 │       │       ├── MainPage.jsx
 │       │       ├── Settings
@@ -69,12 +97,6 @@ Heroku: http://coincheckerproj.herokuapp.com/
 │       │       │   ├── TransactionsWallet.jsx
 │       │       │   └── TransactionsWallet.module.css
 │       │       ├── Wallets
-│       │       │   ├── AddNewCoinPopup
-│       │       │   │   ├── Add.module.css
-│       │       │   │   └── AddNewCoinPopup.jsx
-│       │       │   ├── AddNewWalletPopup\ copy
-│       │       │   │   ├── Add.module.css
-│       │       │   │   └── AddNewWalletPopup.jsx
 │       │       │   ├── SelectWalletBlock.jsx
 │       │       │   ├── Wallets.jsx
 │       │       │   └── Wallets.module.css
@@ -105,31 +127,33 @@ Heroku: http://coincheckerproj.herokuapp.com/
 ├── hooks
 │   ├── useFetching.js
 │   ├── useOutsideClick.js
-│   └── useSession.js
+│   ├── useSession.js
+│   └── useWindowDimensions
+│       └── index.tsx
 ├── index.js
 ├── redux
-│   ├── actions
 │   ├── reducers
 │   │   ├── app-reducer.js
 │   │   ├── auth-reducer.js
 │   │   ├── dashboard-reducer.js
 │   │   ├── index.js
 │   │   └── wallets-reducer.js
-│   ├── redux-store.js
-│   └── sagas
+│   └── redux-store.js
 ├── routes
 │   ├── routeTitle.js
 │   └── routes.js
 ├── services
 │   ├── ChangeTitle.jsx
+│   ├── only3AfterDot.js
 │   └── title.js
 ├── styles
-│   └── index.css
+│   ├── index.css
+│   └── theme.tsx
 └── utils
     └── ShowImage.jsx
 ```
 
-39 directories, 77 files
+44 directories, 96 files
 
 ### `npm start`
 
