@@ -396,6 +396,15 @@ border-top: 6px solid rgb(255, 255, 255);
   padding: 15px 20px;
   padding-right: 30px;
  }
+
+.share_buttons button {
+ width: 70px;
+ height: 46px;
+}
+
+.share_buttons button svg {
+ font-size: 24px;
+}
 }
 
 @media only screen and (max-width: 460px) {
