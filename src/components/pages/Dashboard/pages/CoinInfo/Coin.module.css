@@ -200,6 +200,7 @@
 }
 
 .coin_buttons {
+ margin-top: 40px;
  display: flex;
  flex-direction: column;
  align-items: flex-end;
@@ -207,8 +208,9 @@
 }
 
 .coin_buttons button {
- width: 100%;
- padding: 15px 28px;
+ position: relative;
+ padding: 10px 20px;
+ padding-right: 30px;
  color: #fff;
  background-color: var(--color-primary-blue);
  border-radius: 8px;
@@ -216,10 +218,25 @@
  transition: background0.3s ease;
 
  font-weight: 500;
+ text-align: left;
 }
 
 .coin_buttons button:hover {
  background-color: #2144b8;
+}
+
+.drop:after {
+content: "";
+position: absolute;
+bottom: 15.5px;
+right: 12px;
+display: block;
+width: 0; 
+height: 0; 
+border-left: 6px solid transparent;
+border-right: 6px solid transparent;
+
+border-top: 6px solid rgb(255, 255, 255);
 }
 
 .coin_buttons button:not(:last-child) {

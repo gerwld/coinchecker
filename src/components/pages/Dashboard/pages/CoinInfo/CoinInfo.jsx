@@ -7,12 +7,13 @@ import { RiArrowRightSLine } from "react-icons/ri";
 import { MdArrowDropDown } from "react-icons/md";
 import { AiOutlineStar, AiOutlineBell, AiOutlineShareAlt, AiFillStar } from "react-icons/ai";
 
-import { getPageCoinTC, resPageCoin } from "../../../../../redux/reducers/dashboard-reducer";
+import { getPageCoinTC, getTransactionData, resPageCoin } from "../../../../../redux/reducers/dashboard-reducer";
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
 import ErrorScreen from "../../../../UI/ErrorScreen/ErrorScreen";
 import { fetchFavCoin } from "../../../../../api/BoardService";
 import { changeTitle } from "../../../../../services/title";
 import ChartBlock from "./ChartBlock";
+import TransactionPopup from "../../../../UI/popups/TransactionPopup/TransactionPopup";
 
 const CoinInfo = () => {
   const currentId = useParams().coinId;
@@ -30,6 +31,10 @@ const CoinInfo = () => {
     setFav(!isFav);
     fetchFavCoin(data.id, isFav);
   };
+
+  const onGetTransactionData = () => {
+    dispatch(getTransactionData(data));
+}
 
   useEffect(() => {
     window.scrollTo(0, 1);
@@ -101,9 +106,10 @@ const CoinInfo = () => {
               </div>
               </div>
               <div className={s.coin_buttons}>
-                <button>Add to wallet</button>
-                <button>More actions</button>
-                <button>Buy in...</button>
+                <button onClick={onGetTransactionData}>Add to wallet</button>
+                <button className={s.drop}>Buy / Sell global</button>
+                <button className={s.drop}>Short / Long term</button>
+                <button className={s.drop}>Earn / Borrow</button>
               </div>
             </div>
 
@@ -142,6 +148,7 @@ const CoinInfo = () => {
           </div>
           <ChartBlock name={data.name} chartId={data?.coinGeckoId} />
         </div>
+        <TransactionPopup/>
       </div>
     );
   else if (error) return <ErrorScreen error={error} withIcon />;
