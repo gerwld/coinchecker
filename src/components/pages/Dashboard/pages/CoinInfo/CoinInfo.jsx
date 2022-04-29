@@ -67,7 +67,7 @@ const CoinInfo = () => {
 
 
             <div className={s.main_group}>
-              <div>
+              <div className={s.info_1_block}>
               <div className={s.coin_maininfo}>
                 <span className={s.rank}>Rank #{data.id}</span>
                 <div className={s.maininfo_block}>

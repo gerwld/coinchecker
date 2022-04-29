@@ -197,14 +197,21 @@
  display: flex;
  justify-content: space-between;
  align-items: flex-start;
+ flex-wrap: wrap;
+}
+
+.info_1_block {
+ flex: 1;
 }
 
 .coin_buttons {
- margin-top: 40px;
  display: flex;
  flex-direction: column;
  align-items: flex-end;
  justify-content: flex-start;
+ flex: 1 0 auto;
+ margin-top: 40px;
+ margin-left: 30px;
 }
 
 .coin_buttons button {
@@ -228,7 +235,7 @@
 .drop:after {
 content: "";
 position: absolute;
-bottom: 15.5px;
+bottom: calc(50% - 4px);
 right: 12px;
 display: block;
 width: 0; 
@@ -284,6 +291,7 @@ border-top: 6px solid rgb(255, 255, 255);
 
 .exchange {
  margin: 40px 0 20px;
+ padding: 10px;
  height: 100px;
  display: flex;
  align-items: center;
@@ -332,6 +340,36 @@ border-top: 6px solid rgb(255, 255, 255);
 
 /* Exchange styles end */
 
+@media only screen and (max-width: 965px) {
+ .coin_buttons {
+  flex: 1 0 100%;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 20px 0 0;
+ }
+
+ .coin_buttons button:not(:last-child) {
+  margin-bottom: 0;
+  margin-right: 10px;
+ }
+}
+
+@media only screen and (max-width: 620px) {
+ .coin_buttons {
+  flex-wrap: wrap;
+ }
+ .coin_buttons button:not(:last-child) {
+  margin: 0;
+ }
+ .coin_buttons button {
+  flex: 0 1 49%;
+  margin-bottom: 5px!important;
+ }
+ .range_content {
+  width: auto;
+ }
+}
+
 @media only screen and (max-width: 500px) {
  .content_block { 
   padding: 0;
@@ -339,6 +377,10 @@ border-top: 6px solid rgb(255, 255, 255);
 
  .main_content {
   padding: 12px;
+ }
+ .exchange {
+  margin: 30px 8px;
+  padding: 20px 10px;
  }
 
  .coin_info .info_block { 
@@ -349,5 +391,29 @@ border-top: 6px solid rgb(255, 255, 255);
  }
  .breadcrumbs {
   margin: 8px 0 10px 8px;
+ }
+}
+
+@media only screen and (max-width: 460px) {
+ .exchange {
+  height: auto;
+  flex-direction: column;
+  margin: 30px 0;
+  border-radius: 0;
+ }
+ .exchange svg {
+  display: none;
+ }
+ .input_block_ex {
+  max-width: 87%;
+ }
+ .input_block_ex:first-child {
+  margin-bottom: 10px;
+ }
+}
+
+@media only screen and (max-width: 410px) {
+ .coin_buttons button {
+  flex: 1 0 250px;
  }
 }

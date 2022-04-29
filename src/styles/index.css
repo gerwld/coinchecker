@@ -347,8 +347,8 @@ select {
   right: 0;
 
   min-height: 250px;
-  width: 100vmin;
-  height: 100vmax;
+  width: 0;
+  height: 0;
   background-color: var(--color-bg-lightgray);
   z-index: -100;
   opacity: 0;
@@ -400,6 +400,10 @@ select {
 }
 
 @media only screen and (max-width: 590px) {
+  .only_portrait_mobile { 
+    width: 100vmin;
+    height: 100vmax;
+  }
   .content-wrapper {
       padding-left: 15px;
       padding-right: 15px;
