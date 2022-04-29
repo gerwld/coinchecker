@@ -153,7 +153,7 @@ Heroku: http://coincheckerproj.herokuapp.com/
     └── ShowImage.jsx
 ```
 
-39 directories, 77 files
+44 directories, 96 files
 
 ### `npm start`
 
