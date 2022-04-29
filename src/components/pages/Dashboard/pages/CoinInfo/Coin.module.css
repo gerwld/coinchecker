@@ -399,13 +399,17 @@ border-top: 6px solid rgb(255, 255, 255);
   height: auto;
   flex-direction: column;
   margin: 30px 0;
-  border-radius: 0;
+  border-radius: 00;
  }
  .exchange svg {
   display: none;
  }
+ .input_block_ex input {
+  width: 100%;
+ }
+
  .input_block_ex {
-  max-width: 87%;
+  width: 87%;
  }
  .input_block_ex:first-child {
   margin-bottom: 10px;
