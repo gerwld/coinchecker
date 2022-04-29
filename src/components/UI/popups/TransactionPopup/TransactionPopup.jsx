@@ -49,8 +49,10 @@ const TransactionPopup = () => {
     switch(transType) {
       case 0:
         await WalletService.buyCoinInWalletId(wallet, data);
+        break;
       case 1:
         await WalletService.withdrawCoinsWalletId(wallet, data);
+        break;
       case 2:
         await WalletService.buyCoinInWalletId(wallet, {
           amount: e.swap_type === "withdraw" ? e.amount * -1 : e.amount,
@@ -59,6 +61,7 @@ const TransactionPopup = () => {
           coinId: item.id,
           usdAmount: e.amount * item.currentPrice,
         });
+        break;
     }
 
     dispatch(getAllWalletsTC());
