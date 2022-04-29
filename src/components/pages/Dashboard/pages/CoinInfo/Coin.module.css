@@ -392,6 +392,10 @@ border-top: 6px solid rgb(255, 255, 255);
  .breadcrumbs {
   margin: 8px 0 10px 8px;
  }
+ .coin_buttons button {
+  padding: 15px 20px;
+  padding-right: 30px;
+ }
 }
 
 @media only screen and (max-width: 460px) {
