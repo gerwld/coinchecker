@@ -193,6 +193,39 @@
  letter-spacing: 0.023em;
 }
 
+.main_group {
+ display: flex;
+ justify-content: space-between;
+ align-items: flex-start;
+}
+
+.coin_buttons {
+ display: flex;
+ flex-direction: column;
+ align-items: flex-end;
+ justify-content: flex-start;
+}
+
+.coin_buttons button {
+ width: 100%;
+ padding: 15px 28px;
+ color: #fff;
+ background-color: var(--color-primary-blue);
+ border-radius: 8px;
+ border: none;
+ transition: background0.3s ease;
+
+ font-weight: 500;
+}
+
+.coin_buttons button:hover {
+ background-color: #2144b8;
+}
+
+.coin_buttons button:not(:last-child) {
+ margin-bottom: 8px;
+}
+
 /* Range styles */
 
 .range_content {

@@ -14,7 +14,6 @@ import { fetchFavCoin } from "../../../../../api/BoardService";
 import { changeTitle } from "../../../../../services/title";
 import ChartBlock from "./ChartBlock";
 
-
 const CoinInfo = () => {
   const currentId = useParams().coinId;
   const dispatch = useDispatch();
@@ -45,7 +44,7 @@ const CoinInfo = () => {
     if (data) {
       setFav(data.favorite);
       setRange((data.currentPrice - data.low24h) / ((data.high24h - data.low24h) / 100));
-      changeTitle(`${data.name} price, ${data.symbol.toUpperCase()} chart, and market cap / CoinChecker`)
+      changeTitle(`${data.name} price, ${data.symbol.toUpperCase()} chart, and market cap / CoinChecker`);
     }
   }, [data]);
 
@@ -58,79 +57,90 @@ const CoinInfo = () => {
           <span>{data.name}</span>
         </div>
         <div className={s.content_block}>
-        <div className={s.main_content}>
-          <div className={s.coin_maininfo}>
-            <span className={s.rank}>Rank #{data.id}</span>
-            <div className={s.maininfo_block}>
-              <div className={s.icon}>
-                <img src={data.image} alt={data.name} />
+          <div className={s.main_content}>
+
+
+            <div className={s.main_group}>
+              <div>
+              <div className={s.coin_maininfo}>
+                <span className={s.rank}>Rank #{data.id}</span>
+                <div className={s.maininfo_block}>
+                  <div className={s.icon}>
+                    <img src={data.image} alt={data.name} />
+                  </div>
+                  <span className={s.name}>
+                    {data.name} <span>({data.symbol})</span>
+                  </span>
+                </div>
               </div>
-              <span className={s.name}>
-                {data.name} <span>({data.symbol})</span>
-              </span>
+              <div className={`${s.maininfo_block} ${s.price_block}`}>
+                <span className={s.price}>${data.currentPrice}</span>
+                <span className={`${s.price_dash} ${isMoreOrEq0 && s.priceup}`}>
+                  <MdArrowDropDown />
+                  {perc}%
+                </span>
+              </div>
+              <div className={s.share_buttons}>
+                <button>
+                  <AiOutlineShareAlt />
+                </button>
+                <button>
+                  <AiOutlineBell />
+                </button>
+                <button onClick={onClickFav}>{isFav ? <AiFillStar /> : <AiOutlineStar />}</button>
+              </div>
+              <div className={s.range_content}>
+                <div className={s.range_block}>
+                  <div className={s.s24_range} style={{ width: rangePerc + "%" }}></div>
+                </div>
+                <div className={s.range_subblock}>
+                  <span>${data.low24h}</span>
+                  <span>24H Range</span>
+                  <span>${data.high24h}</span>
+                </div>
+              </div>
+              </div>
+              <div className={s.coin_buttons}>
+                <button>Add to wallet</button>
+                <button>More actions</button>
+                <button>Buy in...</button>
+              </div>
+            </div>
+
+            <div className={s.coin_info}>
+              {data.marketCap && (
+                <div className={s.info_block}>
+                  <span>Market Cap</span>
+                  <span>${data.marketCap}</span>
+                </div>
+              )}
+              {data.fullyDilutedValuation && (
+                <div className={s.info_block}>
+                  <span>Fully Diluted Valuation</span>
+                  <span>${data.fullyDilutedValuation}</span>
+                </div>
+              )}
+              {data.maxSupply && (
+                <div className={s.info_block}>
+                  <span>Max Supply</span>
+                  <span>{data.maxSupply}</span>
+                </div>
+              )}
+              {data.totalSupply && (
+                <div className={s.info_block}>
+                  <span>Total Supply </span>
+                  <span>{data.totalSupply}</span>
+                </div>
+              )}
+              {data.circulatingSupply && (
+                <div className={s.info_block}>
+                  <span>Circulating Supply</span>
+                  <span>{data.circulatingSupply}</span>
+                </div>
+              )}
             </div>
           </div>
-          <div className={`${s.maininfo_block} ${s.price_block}`}>
-            <span className={s.price}>${data.currentPrice}</span>
-            <span className={`${s.price_dash} ${isMoreOrEq0 && s.priceup}`}>
-              <MdArrowDropDown />
-              {perc}%
-            </span>
-          </div>
-          <div className={s.share_buttons}>
-            <button>
-              <AiOutlineShareAlt />
-            </button>
-            <button>
-              <AiOutlineBell />
-            </button>
-            <button onClick={onClickFav}>{isFav ? <AiFillStar /> : <AiOutlineStar />}</button>
-          </div>
-          <div className={s.range_content}>
-            <div className={s.range_block}>
-              <div className={s.s24_range} style={{width: rangePerc + '%'}}></div>
-            </div>
-            <div className={s.range_subblock}>
-              <span>${data.low24h}</span>
-              <span>24H Range</span>
-              <span>${data.high24h}</span>
-            </div>
-          </div>
-          
-          <div className={s.coin_info}>
-            {data.marketCap && (
-              <div className={s.info_block}>
-                <span>Market Cap</span>
-                <span>${data.marketCap}</span>
-              </div>
-            )}
-            {data.fullyDilutedValuation && (
-              <div className={s.info_block}>
-                <span>Fully Diluted Valuation</span>
-                <span>${data.fullyDilutedValuation}</span>
-              </div>
-            )}
-            {data.maxSupply && (
-              <div className={s.info_block}>
-                <span>Max Supply</span>
-                <span>{data.maxSupply}</span>
-              </div>
-            )}
-            {data.totalSupply && (
-              <div className={s.info_block}>
-                <span>Total Supply </span>
-                <span>{data.totalSupply}</span>
-              </div>
-            )}
-            {data.circulatingSupply && (
-              <div className={s.info_block}>
-                <span>Circulating Supply</span>
-                <span>{data.circulatingSupply}</span>
-              </div>
-            )}
-          </div>
-          </div>
-          <ChartBlock name={data.name} chartId={data?.coinGeckoId}/>
+          <ChartBlock name={data.name} chartId={data?.coinGeckoId} />
         </div>
       </div>
     );
