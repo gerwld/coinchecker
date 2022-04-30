@@ -4,6 +4,12 @@ export default class WalletService {
   static async getAllWallets() {
     return axios.get("http://159.223.218.84:8000/api/core/wallets");
   }
+  static async getWalletById(walletId) {
+    return axios.get("http://159.223.218.84:8000/api/core/wallets/" + walletId);
+  }
+  static async getTransactionsById(walletId) {
+    return axios.get(`http://159.223.218.84:8000/api/core/wallets/${walletId}/transactions`);
+  }
   static async createWallet(name) {
     return axios.post("http://159.223.218.84:8000/api/core/wallets", {
       name,
