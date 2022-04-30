@@ -48,6 +48,7 @@ export const MobileBarBlock = () => {
 };
 
 const PathNameBorderNavLink = React.memo(({isMobile}) => {
-    const isBaseUrl = useLocation().pathname === "/dashboard";
+    const location = useLocation().pathname;
+    const isBaseUrl = location === "/dashboard" || location.startsWith("/dashboard/coins/");
     return <li><NavLink to="/dashboard" className={isBaseUrl ? s.active_a : ''}><MdOutlineSpaceDashboard />{!isMobile && "Dashboard"}</NavLink></li> 
 });
