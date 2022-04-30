@@ -117,7 +117,7 @@ const TransactionsTable = ({currPrice}) => {
               <td>26 Apr 2022 01:23 PM UTC</td>
               <td>0.0$</td>
               <td>{e.type === "BUY" ? e.usdAmount : '-'}</td>
-              <td>{e.type === "SELL" ? e.usdAmount : '-'}</td>
+              <td>{e.type === "WITHDRAW" ? e.usdAmount : '-'}</td>
               <td>{profitLose} $</td>
               <td>{e.comment}</td>
             </tr>

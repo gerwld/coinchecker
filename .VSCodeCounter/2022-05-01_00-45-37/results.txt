@@ -1,0 +1,174 @@
+Date : 2022-05-01 00:45:37
+Directory : /Users/apple/Desktop/prog/projects/coinchecker/src
+Total : 100 files,  6949 codes, 102 comments, 1144 blanks, all 8195 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| CSS              |         24 |      3,652 |         57 |        699 |      4,408 |
+| JavaScript React |         47 |      2,309 |         23 |        330 |      2,662 |
+| JavaScript       |         23 |        705 |         16 |         90 |        811 |
+| TypeScript React |          4 |        251 |          6 |         21 |        278 |
+| TypeScript       |          2 |         32 |          0 |          4 |         36 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                 | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                    |        100 |      6,949 |        102 |      1,144 |      8,195 |
+| api                                                                                                                                  |          3 |         96 |          0 |         14 |        110 |
+| components                                                                                                                           |         72 |      5,715 |         70 |        950 |      6,735 |
+| components/UI                                                                                                                        |         28 |      1,973 |         20 |        325 |      2,318 |
+| components/UI/Aside                                                                                                                  |          2 |        232 |          4 |         30 |        266 |
+| components/UI/Breadcrumbs                                                                                                            |          2 |         64 |          2 |         15 |         81 |
+| components/UI/CoinTitle                                                                                                              |          2 |         79 |          0 |         16 |         95 |
+| components/UI/EmbeddedLoader                                                                                                         |          2 |         64 |          0 |          6 |         70 |
+| components/UI/ErrorScreen                                                                                                            |          2 |         15 |          0 |          2 |         17 |
+| components/UI/Header                                                                                                                 |          2 |        473 |          7 |         93 |        573 |
+| components/UI/Loader                                                                                                                 |          2 |         68 |          0 |          7 |         75 |
+| components/UI/SearchCoin                                                                                                             |          2 |        104 |          4 |         22 |        130 |
+| components/UI/popups                                                                                                                 |         12 |        874 |          3 |        134 |      1,011 |
+| components/UI/popups/AddNewCoinPopup                                                                                                 |          2 |        176 |          1 |         34 |        211 |
+| components/UI/popups/AddNewWalletPopup                                                                                               |          2 |        145 |          0 |         23 |        168 |
+| components/UI/popups/TransactionPopup                                                                                                |          8 |        553 |          2 |         77 |        632 |
+| components/UI/popups/TransactionPopup/operations                                                                                     |          4 |        133 |          2 |         13 |        148 |
+| components/pages                                                                                                                     |         44 |      3,742 |         50 |        625 |      4,417 |
+| components/pages/Dashboard                                                                                                           |         33 |      3,026 |         50 |        509 |      3,585 |
+| components/pages/Dashboard/blocks                                                                                                    |          2 |        627 |         11 |        125 |        763 |
+| components/pages/Dashboard/blocks/ShowCoinsBlock                                                                                     |          2 |        627 |         11 |        125 |        763 |
+| components/pages/Dashboard/modules                                                                                                   |          4 |        115 |          0 |         18 |        133 |
+| components/pages/Dashboard/pages                                                                                                     |         24 |      1,875 |         32 |        286 |      2,193 |
+| components/pages/Dashboard/pages/Buysell                                                                                             |          2 |         37 |          0 |          6 |         43 |
+| components/pages/Dashboard/pages/CoinInfo                                                                                            |         12 |      1,073 |         22 |        145 |      1,240 |
+| components/pages/Dashboard/pages/CoinInfo/Chart                                                                                      |          8 |        524 |         18 |         48 |        590 |
+| components/pages/Dashboard/pages/CoinInfo/Chart/AreaChart                                                                            |          2 |         85 |          1 |          6 |         92 |
+| components/pages/Dashboard/pages/CoinInfo/Chart/LineChart                                                                            |          2 |         47 |          1 |          7 |         55 |
+| components/pages/Dashboard/pages/CoinInfo/Chart/TimeFilterButtons                                                                    |          1 |         46 |          0 |          5 |         51 |
+| components/pages/Dashboard/pages/Settings                                                                                            |          2 |         37 |          0 |          4 |         41 |
+| components/pages/Dashboard/pages/TransactionsWallet                                                                                  |          2 |        210 |          0 |         23 |        233 |
+| components/pages/Dashboard/pages/Wallets                                                                                             |          3 |        446 |         10 |         91 |        547 |
+| components/pages/Login                                                                                                               |          3 |        264 |          0 |         39 |        303 |
+| components/pages/MainScreen                                                                                                          |          6 |        360 |          0 |         64 |        424 |
+| components/pages/MainScreen/Features                                                                                                 |          2 |        152 |          0 |         26 |        178 |
+| components/pages/MainScreen/HeaderTrends                                                                                             |          2 |        179 |          0 |         33 |        212 |
+| components/pages/Registration                                                                                                        |          2 |         92 |          0 |         13 |        105 |
+| hoc                                                                                                                                  |          5 |         76 |          0 |         14 |         90 |
+| hoc/DropDown                                                                                                                         |          2 |         28 |          0 |          3 |         31 |
+| hooks                                                                                                                                |          4 |         63 |          0 |         12 |         75 |
+| hooks/useWindowDimensions                                                                                                            |          1 |         22 |          0 |          6 |         28 |
+| redux                                                                                                                                |          6 |        400 |          3 |         47 |        450 |
+| redux/reducers                                                                                                                       |          5 |        386 |          3 |         43 |        432 |
+| routes                                                                                                                               |          2 |         32 |         11 |          6 |         49 |
+| services                                                                                                                             |          3 |         32 |          1 |          6 |         39 |
+| styles                                                                                                                               |          2 |        447 |         13 |         80 |        540 |
+| utils                                                                                                                                |          1 |          8 |          2 |          2 |         12 |
++--------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                                                             | language         | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| /Users/apple/Desktop/prog/projects/coinchecker/src/App.js                                                                            | JavaScript       |         66 |          1 |          9 |         76 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/api/AuthService.js                                                                | JavaScript       |         22 |          0 |          3 |         25 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/api/BoardService.js                                                               | JavaScript       |         45 |          0 |          6 |         51 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/api/WalletService.js                                                              | JavaScript       |         29 |          0 |          5 |         34 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/Aside/Aside.jsx                                                     | JavaScript React |         47 |          1 |          5 |         53 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/Aside/Aside.module.css                                              | CSS              |        185 |          3 |         25 |        213 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/Breadcrumbs/Br.module.css                                           | CSS              |         43 |          2 |         12 |         57 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/Breadcrumbs/Breadcrumbs.jsx                                         | JavaScript React |         21 |          0 |          3 |         24 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/CoinTitle/Cointitle.jsx                                             | JavaScript React |         33 |          0 |          5 |         38 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/CoinTitle/Ct.module.css                                             | CSS              |         46 |          0 |         11 |         57 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/EmbeddedLoader/EmbeddedLoader.jsx                                   | JavaScript React |         12 |          0 |          2 |         14 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/EmbeddedLoader/EmbeddedLoader.module.css                            | CSS              |         52 |          0 |          4 |         56 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/ErrorScreen/Error.module.css                                        | CSS              |          3 |          0 |          0 |          3 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/ErrorScreen/ErrorScreen.jsx                                         | JavaScript React |         12 |          0 |          2 |         14 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/Header/Header.jsx                                                   | JavaScript React |        100 |          0 |         12 |        112 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/Header/Header.module.css                                            | CSS              |        373 |          7 |         81 |        461 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/Loader/Loader.css                                                   | CSS              |         56 |          0 |          5 |         61 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/Loader/Loader.jsx                                                   | JavaScript React |         12 |          0 |          2 |         14 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/SearchCoin/Search.module.css                                        | CSS              |         48 |          4 |         15 |         67 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/SearchCoin/SearchCoin.jsx                                           | JavaScript React |         56 |          0 |          7 |         63 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/popups/AddNewCoinPopup/Add.module.css                               | CSS              |        130 |          1 |         23 |        154 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/popups/AddNewCoinPopup/AddNewCoinPopup.jsx                          | JavaScript React |         46 |          0 |         11 |         57 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/popups/AddNewWalletPopup/Add.module.css                             | CSS              |        104 |          0 |         16 |        120 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/popups/AddNewWalletPopup/AddNewWalletPopup.jsx                      | JavaScript React |         41 |          0 |          7 |         48 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/popups/TransactionPopup/Trans.module.css                            | CSS              |        260 |          0 |         44 |        304 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/popups/TransactionPopup/TransactionPopup.jsx                        | JavaScript React |        132 |          0 |         17 |        149 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/popups/TransactionPopup/decorator.js                                | JavaScript       |         23 |          0 |          2 |         25 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/popups/TransactionPopup/init.js                                     | JavaScript       |          5 |          0 |          1 |          6 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/popups/TransactionPopup/operations/BuyTransaction.jsx               | JavaScript React |         45 |          1 |          4 |         50 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/popups/TransactionPopup/operations/SellTransaction.jsx              | JavaScript React |         45 |          1 |          4 |         50 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/popups/TransactionPopup/operations/TransTransaction.jsx             | JavaScript React |         40 |          0 |          5 |         45 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/UI/popups/TransactionPopup/operations/index.js                         | JavaScript       |          3 |          0 |          0 |          3 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/DashContainer.jsx                                      | JavaScript React |         29 |          0 |          7 |         36 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/Dashboard.jsx                                          | JavaScript React |         55 |          0 |         10 |         65 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/Dashboard.module.css                                   | CSS              |        325 |          7 |         63 |        395 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/blocks/ShowCoinsBlock/ShowCoinsBlock.jsx               | JavaScript React |        136 |          0 |         23 |        159 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/blocks/ShowCoinsBlock/ShowCoinsBlock.module.css        | CSS              |        491 |         11 |        102 |        604 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/modules/LastNotifications.jsx                          | JavaScript React |         18 |          0 |          3 |         21 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/modules/ProfSettings.jsx                               | JavaScript React |         50 |          0 |          6 |         56 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/modules/SearchResultsDropDown.jsx                      | JavaScript React |         44 |          0 |          9 |         53 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/modules/index.js                                       | JavaScript       |          3 |          0 |          0 |          3 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/Buysell/Buysell.jsx                              | JavaScript React |         13 |          0 |          4 |         17 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/Buysell/Buysell.module.css                       | CSS              |         24 |          0 |          2 |         26 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/CoinInfo/Chart/AreaChart/AreaChart.jsx           | JavaScript React |         69 |          1 |          4 |         74 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/CoinInfo/Chart/AreaChart/constants.ts            | TypeScript       |         16 |          0 |          2 |         18 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/CoinInfo/Chart/LineChart/LineChart.jsx           | JavaScript React |         31 |          1 |          5 |         37 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/CoinInfo/Chart/LineChart/constants.ts            | TypeScript       |         16 |          0 |          2 |         18 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/CoinInfo/Chart/PrimChart.jsx                     | JavaScript React |        161 |          9 |         13 |        183 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/CoinInfo/Chart/SecChart.jsx                      | JavaScript React |         93 |          4 |         12 |        109 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/CoinInfo/Chart/TimeFilterButtons/index.tsx       | TypeScript React |         46 |          0 |          5 |         51 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/CoinInfo/Chart/theme.tsx                         | TypeScript React |         92 |          3 |          5 |        100 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/CoinInfo/ChartBlock.jsx                          | JavaScript React |         64 |          0 |         12 |         76 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/CoinInfo/Coin.module.css                         | CSS              |        323 |          4 |         62 |        389 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/CoinInfo/CoinInfo.jsx                            | JavaScript React |        127 |          0 |         16 |        143 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/CoinInfo/Exchange.jsx                            | JavaScript React |         35 |          0 |          7 |         42 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/FavPage.jsx                                      | JavaScript React |         31 |          0 |          9 |         40 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/MainPage.jsx                                     | JavaScript React |         34 |          0 |          8 |         42 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/Settings/Settings.jsx                            | JavaScript React |         13 |          0 |          2 |         15 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/Settings/Settings.module.css                     | CSS              |         24 |          0 |          2 |         26 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/TransactionsWallet/TransactionsWallet.jsx        | JavaScript React |        124 |          0 |         10 |        134 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/TransactionsWallet/TransactionsWallet.module.css | CSS              |         86 |          0 |         13 |         99 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/Wallets/SelectWalletBlock.jsx                    | JavaScript React |         36 |          2 |          6 |         44 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/Wallets/Wallets.jsx                              | JavaScript React |        129 |          0 |         21 |        150 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/Wallets/Wallets.module.css                       | CSS              |        281 |          8 |         64 |        353 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Dashboard/pages/index.js                                         | JavaScript       |          7 |          0 |          0 |          7 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Login/Login.jsx                                                  | JavaScript React |         66 |          0 |          6 |         72 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Login/Login.module.css                                           | CSS              |        183 |          0 |         28 |        211 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Login/LoginContainer.jsx                                         | JavaScript React |         15 |          0 |          5 |         20 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/MainScreen/Features/Features.jsx                                 | JavaScript React |         51 |          0 |          4 |         55 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/MainScreen/Features/Features.module.css                          | CSS              |        101 |          0 |         22 |        123 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/MainScreen/HeaderTrends/HeaderTrends.jsx                         | JavaScript React |         34 |          0 |          5 |         39 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/MainScreen/HeaderTrends/Trends.module.css                        | CSS              |        145 |          0 |         28 |        173 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/MainScreen/MainScreen.jsx                                        | JavaScript React |         29 |          0 |          4 |         33 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/MainScreen/MainScreen.module.css                                 | CSS              |          0 |          0 |          1 |          1 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Registration/RegContainer.jsx                                    | JavaScript React |         25 |          0 |          7 |         32 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/components/pages/Registration/Registration.jsx                                    | JavaScript React |         67 |          0 |          6 |         73 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/hoc/DropDown/DropDown.module.css                                                  | CSS              |         13 |          0 |          1 |         14 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/hoc/DropDown/dropDownMenu.jsx                                                     | JavaScript React |         15 |          0 |          2 |         17 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/hoc/withAuthRedirect.jsx                                                          | JavaScript React |         18 |          0 |          6 |         24 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/hoc/withClickOutside.jsx                                                          | JavaScript React |         11 |          0 |          3 |         14 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/hoc/withRouter.jsx                                                                | JavaScript React |         19 |          0 |          2 |         21 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/hooks/useFetching.js                                                              | JavaScript       |         16 |          0 |          3 |         19 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/hooks/useOutsideClick.js                                                          | JavaScript       |         15 |          0 |          2 |         17 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/hooks/useSession.js                                                               | JavaScript       |         10 |          0 |          1 |         11 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/hooks/useWindowDimensions/index.tsx                                               | TypeScript React |         22 |          0 |          6 |         28 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/index.js                                                                          | JavaScript       |         14 |          1 |          4 |         19 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/redux/reducers/app-reducer.js                                                     | JavaScript       |         48 |          0 |          5 |         53 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/redux/reducers/auth-reducer.js                                                    | JavaScript       |        114 |          2 |         12 |        128 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/redux/reducers/dashboard-reducer.js                                               | JavaScript       |        159 |          0 |         17 |        176 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/redux/reducers/index.js                                                           | JavaScript       |          4 |          0 |          0 |          4 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/redux/reducers/wallets-reducer.js                                                 | JavaScript       |         61 |          1 |          9 |         71 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/redux/redux-store.js                                                              | JavaScript       |         14 |          0 |          4 |         18 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/routes/routeTitle.js                                                              | JavaScript       |         22 |          0 |          3 |         25 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/routes/routes.js                                                                  | JavaScript       |         10 |         11 |          3 |         24 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/services/ChangeTitle.jsx                                                          | JavaScript React |         17 |          1 |          5 |         23 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/services/only3AfterDot.js                                                         | JavaScript       |          8 |          0 |          1 |          9 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/services/title.js                                                                 | JavaScript       |          7 |          0 |          0 |          7 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/styles/index.css                                                                  | CSS              |        356 |         10 |         75 |        441 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/styles/theme.tsx                                                                  | TypeScript React |         91 |          3 |          5 |         99 |
+| /Users/apple/Desktop/prog/projects/coinchecker/src/utils/ShowImage.jsx                                                               | JavaScript React |          8 |          2 |          2 |         12 |
+| Total                                                                                                                                |                  |      6,949 |        102 |      1,144 |      8,195 |
++--------------------------------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
