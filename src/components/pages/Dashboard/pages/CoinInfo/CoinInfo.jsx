@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import s from "./Coin.module.css";
-import { RiArrowRightSLine } from "react-icons/ri";
 import { MdArrowDropDown } from "react-icons/md";
 import { AiOutlineStar, AiOutlineBell, AiOutlineShareAlt, AiFillStar } from "react-icons/ai";
 
@@ -15,6 +14,7 @@ import { changeTitle } from "../../../../../services/title";
 import ChartBlock from "./ChartBlock";
 import TransactionPopup from "../../../../UI/popups/TransactionPopup/TransactionPopup";
 import Exchange from "./Exchange";
+import Breadcrumbs from "../../../../UI/Breadcrumbs/Breadcrumbs";
 
 const CoinInfo = () => {
   const currentId = useParams().coinId;
@@ -35,7 +35,7 @@ const CoinInfo = () => {
 
   const onGetTransactionData = () => {
     dispatch(getTransactionData(data));
-}
+  };
 
   useEffect(() => {
     window.scrollTo(0, 1);
@@ -57,54 +57,48 @@ const CoinInfo = () => {
   if (data)
     return (
       <div>
-        <div className={s.breadcrumbs}>
-          <NavLink to="/dashboard">Coins</NavLink>
-          <RiArrowRightSLine />
-          <span>{data.name}</span>
-        </div>
+        <Breadcrumbs links={[{ to: "/dashboard", name: "Coins" }]} current_ctg={data.name} />
         <div className={s.content_block}>
           <div className={s.main_content}>
-
-
             <div className={s.main_group}>
               <div className={s.info_1_block}>
-              <div className={s.coin_maininfo}>
-                <span className={s.rank}>Rank #{data.id}</span>
-                <div className={s.maininfo_block}>
-                  <div className={s.icon}>
-                    <img src={data.image} alt={data.name} />
+                <div className={s.coin_maininfo}>
+                  <span className={s.rank}>Rank #{data.id}</span>
+                  <div className={s.maininfo_block}>
+                    <div className={s.icon}>
+                      <img src={data.image} alt={data.name} />
+                    </div>
+                    <span className={s.name}>
+                      {data.name} <span>({data.symbol})</span>
+                    </span>
                   </div>
-                  <span className={s.name}>
-                    {data.name} <span>({data.symbol})</span>
+                </div>
+                <div className={`${s.maininfo_block} ${s.price_block}`}>
+                  <span className={s.price}>${data.currentPrice}</span>
+                  <span className={`${s.price_dash} ${isMoreOrEq0 && s.priceup}`}>
+                    <MdArrowDropDown />
+                    {perc}%
                   </span>
                 </div>
-              </div>
-              <div className={`${s.maininfo_block} ${s.price_block}`}>
-                <span className={s.price}>${data.currentPrice}</span>
-                <span className={`${s.price_dash} ${isMoreOrEq0 && s.priceup}`}>
-                  <MdArrowDropDown />
-                  {perc}%
-                </span>
-              </div>
-              <div className={s.share_buttons}>
-                <button>
-                  <AiOutlineShareAlt />
-                </button>
-                <button>
-                  <AiOutlineBell />
-                </button>
-                <button onClick={onClickFav}>{isFav ? <AiFillStar /> : <AiOutlineStar />}</button>
-              </div>
-              <div className={s.range_content}>
-                <div className={s.range_block}>
-                  <div className={s.s24_range} style={{ width: rangePerc + "%" }}></div>
+                <div className={s.share_buttons}>
+                  <button>
+                    <AiOutlineShareAlt />
+                  </button>
+                  <button>
+                    <AiOutlineBell />
+                  </button>
+                  <button onClick={onClickFav}>{isFav ? <AiFillStar /> : <AiOutlineStar />}</button>
                 </div>
-                <div className={s.range_subblock}>
-                  <span>${data.low24h}</span>
-                  <span>24H Range</span>
-                  <span>${data.high24h}</span>
+                <div className={s.range_content}>
+                  <div className={s.range_block}>
+                    <div className={s.s24_range} style={{ width: rangePerc + "%" }}></div>
+                  </div>
+                  <div className={s.range_subblock}>
+                    <span>${data.low24h}</span>
+                    <span>24H Range</span>
+                    <span>${data.high24h}</span>
+                  </div>
                 </div>
-              </div>
               </div>
               <div className={s.coin_buttons}>
                 <button onClick={onGetTransactionData}>Add to wallet</button>
@@ -147,10 +141,10 @@ const CoinInfo = () => {
               )}
             </div>
           </div>
-          <Exchange price={data.currentPrice} symbol={data.symbol}/>
+          <Exchange price={data.currentPrice} symbol={data.symbol} />
           <ChartBlock name={data.name} chartId={data?.coinGeckoId} />
         </div>
-        <TransactionPopup/>
+        <TransactionPopup />
       </div>
     );
   else if (error) return <ErrorScreen error={error} withIcon />;

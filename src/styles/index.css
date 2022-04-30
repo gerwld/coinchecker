@@ -296,6 +296,7 @@ select {
 
   .select-wrapper select {
     padding-right: 25px;
+    background-color: transparent;
   }
 
 
@@ -384,6 +385,7 @@ select {
 
 .coin_chart .preloader {
   position: static;
+  width: auto;
   height: auto;
   padding: 20px 0;
 }
