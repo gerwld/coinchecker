@@ -10,8 +10,12 @@
 
  font-size: 16px;
  line-height: 17px;
- font-weight: 500;
  user-select: none;
+}
+
+.breadcrumbs a {
+ text-transform: capitalize;
+ font-weight: 600;
 }
 
 .breadcrumbs a,
