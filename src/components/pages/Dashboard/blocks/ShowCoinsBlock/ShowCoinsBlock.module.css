@@ -317,6 +317,10 @@ table.last_list {
   white-space: nowrap;
 }
 
+.last_head {
+  border-bottom: var(--border-lightgray);
+}
+
 .prop_last {
   display: flex;
   justify-content: flex-start;

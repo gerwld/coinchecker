@@ -1,4 +1,94 @@
-.trans_content {
-
+.content_block {
+ position: relative;
+ width: 100%;
+ min-height: 80vh;
+ min-height: calc(100vh - 150px);
+ padding: 20px;
+ border-radius: var(--border-radius-block);
+ background-color: var(--color-bg-primary);
+ overflow: hidden;
+ margin-bottom: 20px;
+ border: var(--border-lightgray2);
+ box-shadow: var(--shadow-main);
 }
 
+.wallet_info {
+ display: flex;
+ align-items: stretch;
+ justify-content: flex-start;
+}
+
+.current_block {
+ display: flex;
+ flex-direction: column;
+ min-width: 150px;
+ padding: 15px 25px 15px 15px;
+ border: var(--border-lightgray);
+ border-radius: 17px;
+ box-shadow: var(--shadow-main);
+ margin-bottom: 20px;
+}
+
+.current_block:not(:last-child) {
+ margin-right: 7px;
+}
+
+.current_block span:nth-child(1) {
+ font-size: 19px;
+}
+.current_block span:nth-child(2) {
+ font-size: 14px;
+ color: #1d1d1d;
+}
+
+.trans_header {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+.trans_header h1 {
+ font-size: 28px;
+ font-weight: 500;
+}
+
+.trans_header button {
+ padding: 13.5px 20px;
+ font-size: 16px;
+ font-weight: 500;
+ color: #fff;
+ background-color: var(--color-primary-blue);
+ border-radius: 8px;
+ border: none;
+ transition: background 0.3s ease;
+}
+
+.trans_header button:hover {
+ background-color: rgb(34, 69, 146);
+}
+
+.tr_table {
+ width: 100%;
+ margin: 20px 0;
+ border-collapse: collapse;
+}
+
+.tr_table tr, 
+.tr_table th, 
+.tr_table td {
+ height: 50px;
+ border-bottom: var(--border-lightgray);
+}
+
+.tr_table th {
+ font-size: 14.25px;
+}
+
+.tr_table th, 
+.tr_table td {
+ text-align: right;
+}
+
+.tr_table th:first-child, 
+.tr_table td:first-child {
+ text-align: left;
+}
