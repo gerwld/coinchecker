@@ -117,12 +117,12 @@ const TransactionsTable = ({ currPrice }) => {
               return (
                 <tr className={`${s.tr_row} ${s[i]}`} key={e.comment + e.usdAmount + i + "_trtb"}>
                   <td className={e.type === "WITHDRAW" ? "red" : ''}>{e.type}</td>
-                  <td>${e.usdAmount}</td>
+                  <td>{e.usdAmount}$</td>
                   <td className={e.toAmount < 0 ? "red" : ''}>{e.toAmount}</td>
                   <td>26 Apr 2022 01:23 PM UTC</td>
                   <td>0.0$</td>
-                  <td>{e.type === "BUY" ? "$" + e.usdAmount : "-"}</td>
-                  {e.type === "WITHDRAW" ? <td className="black">$ {e.usdAmount}</td> : <td>-</td>}
+                  <td>{e.type === "BUY" ? e.usdAmount + "$" : "-"}</td>
+                  {e.type === "WITHDRAW" ? <td className="black">{e.usdAmount}$</td> : <td>-</td>}
                   <td>{profitLose}$</td>
                   <td>{e.comment}</td>
                 </tr>
