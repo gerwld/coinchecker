@@ -29,7 +29,7 @@ const TransactionsWallet = () => {
   }, [walletId]);
 
   const onAddTransaction = () => {
-    dispatch(getTransactionData(coin, parseInt(walletId), 20));
+    dispatch(getTransactionData(coin, parseInt(walletId)));
 }
 
   const onlyNumAfterDot = (n, toFixed) => {
