@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { getTransactionData } from "../../../../../redux/reducers/dashboard-reducer";
 import { getWalletTC, resWallet } from "../../../../../redux/reducers/wallets-reducer";
 import Breadcrumbs from "../../../../UI/Breadcrumbs/Breadcrumbs";
 import Cointitle from "../../../../UI/CoinTitle/Cointitle";
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
+import TransactionPopup from "../../../../UI/popups/TransactionPopup/TransactionPopup";
 import s from "./TransactionsWallet.module.css";
 
 const TransactionsWallet = () => {
@@ -25,6 +27,10 @@ const TransactionsWallet = () => {
       dispatch(getWalletTC(walletId, coinId));
     }
   }, [walletId]);
+
+  const onAddTransaction = () => {
+    dispatch(getTransactionData(coin, parseInt(walletId), 20));
+}
 
   const onlyNumAfterDot = (n, toFixed) => {
     if (Number.isInteger(n)) {
@@ -70,10 +76,11 @@ const TransactionsWallet = () => {
           </div>
           <div className={s.trans_header}>
             <h1>Transactions</h1>
-            <button>+ Add Transaction</button>
+            <button onClick={onAddTransaction}>+ Add Transaction</button>
           </div>
           <TransactionsTable currPrice={coin.currentPrice} />
         </div>
+        <TransactionPopup/>
       </div>
     );
   return <div className={s.content_block}><EmbeddedLoader /></div>;
@@ -103,7 +110,7 @@ const TransactionsTable = ({currPrice}) => {
           {items.map((e, i) => {
             const profitLose = (e.toAmount * e.usdAmount ) - (currPrice * e.toAmount);
             return (
-              <tr className={s.tr_row}>
+              <tr className={s.tr_row} key={e.comment + e.usdAmount + i + "_trtb"}>
               <td>{e.type}</td>
               <td>{e.usdAmount} $</td>
               <td>{e.toAmount}</td>
@@ -116,18 +123,6 @@ const TransactionsTable = ({currPrice}) => {
             </tr>
             )
           })}
-          {/* <tr className={`${s.tr_row1} ${s.tr_row}`}>
-            <td></td>
-            <td>123</td>
-            <td>123</td>
-            <td>123</td>
-          </tr>
-          <tr className={s.tr_row}>
-            <td>123</td>
-            <td>123</td>
-            <td>123</td>
-            <td>123</td>
-          </tr> */}
         </tbody>
       </table>
     </div>

@@ -27,8 +27,8 @@ const TransactionPopup = () => {
   }));
 
   const getTitle = (walletId) => {
-    const walletObjId = wallets.find((wall) => wall.id === walletId);
-    return walletObjId.name;
+    const walletObjId = wallets?.find((wall) => wall.id === walletId);
+    return walletObjId?.name;
   };
 
   const setClose = () => {
