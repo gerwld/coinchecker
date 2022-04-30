@@ -44,9 +44,7 @@ const Wallets = () => {
       const i = content.indexOf(uriWallet[0]);
       if(i >= 0) {
       setWallet(i);
-      } else {
-        navigate('/dashboard/wallet/');
-      }
+      } else navigate('/dashboard/wallet/');
     }
   }, [content, walletIdURi])
 

@@ -40,7 +40,7 @@ const TransactionsWallet = () => {
           current_ctg={`${coin.symbol.toUpperCase()}: обзор транзакций`}
           links={[
             { to: "/dashboard", name: "Coins" },
-            { to: "/dashboard/wallet", name: wallet.name },
+            { to: `/dashboard/wallet/${wallet.id}`, name: wallet.name },
           ]}
         />
 
