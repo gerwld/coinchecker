@@ -390,6 +390,14 @@ select {
   padding: 20px 0;
 }
 
+.red {
+  color: rgb(255, 0, 0)!important;
+}
+
+.black {
+  color: #000!important;
+}
+
 
 @media only screen and (max-width: 500px) {
   .mob_fix {

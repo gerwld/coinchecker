@@ -30,7 +30,7 @@ const TransactionsWallet = () => {
 
   const onAddTransaction = () => {
     dispatch(getTransactionData(coin, parseInt(walletId)));
-}
+  };
 
   const onlyNumAfterDot = (n, toFixed) => {
     if (Number.isInteger(n)) {
@@ -80,54 +80,64 @@ const TransactionsWallet = () => {
           </div>
           <TransactionsTable currPrice={coin.currentPrice} />
         </div>
-        <TransactionPopup/>
+        <TransactionPopup />
       </div>
     );
-  return <div className={s.content_block}><EmbeddedLoader /></div>;
+  return (
+    <div className={s.content_block}>
+      <EmbeddedLoader />
+    </div>
+  );
 };
 
-const TransactionsTable = ({currPrice}) => {
+const TransactionsTable = ({ currPrice }) => {
   const { items } = useSelector(({ wallets }) => ({
     items: wallets.currentTransactions,
   }));
-  
-  if(items) return (
-    <div>
-      <table className={s.tr_table}>
-        <tbody>
-          <tr className={s.tr_header}>
-            <th>Тип</th>
-            <th>Цена</th>
-            <th>Количество</th>
-            <th>Дата</th>
-            <th>Комиссии</th>
-            <th>Расходы</th>
-            <th>Выручка</th>
-            <th>Прибыль и убытки</th>
-            <th>Примечания</th>
-            <th>Действие</th>
-          </tr>
-          {items.map((e, i) => {
-            const profitLose = (e.toAmount * e.usdAmount ) - (currPrice * e.toAmount);
-            return (
-              <tr className={s.tr_row} key={e.comment + e.usdAmount + i + "_trtb"}>
-              <td>{e.type}</td>
-              <td>{e.usdAmount} $</td>
-              <td>{e.toAmount}</td>
-              <td>26 Apr 2022 01:23 PM UTC</td>
-              <td>0.0$</td>
-              <td>{e.type === "BUY" ? e.usdAmount : '-'}</td>
-              <td>{e.type === "WITHDRAW" ? e.usdAmount : '-'}</td>
-              <td>{profitLose} $</td>
-              <td>{e.comment}</td>
+
+  if (items)
+    return (
+      <div>
+        <table className={s.tr_table}>
+          <tbody>
+            <tr className={s.tr_header}>
+              <th>Type</th>
+              <th>Price</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Fees</th>
+              <th>Cost</th>
+              <th>Proceeds</th>
+              <th>PNL</th>
+              <th>Notes</th>
+              <th>Action</th>
             </tr>
-            )
-          })}
-        </tbody>
-      </table>
-    </div>
-  );
-  else return <div className={s.loader}><EmbeddedLoader /></div>;
+            {items.map((e, i) => {
+              const profitLose = e.toAmount * e.usdAmount - currPrice * e.toAmount;
+              return (
+                <tr className={`${s.tr_row} ${s[i]}`} key={e.comment + e.usdAmount + i + "_trtb"}>
+                  <td className={e.type === "WITHDRAW" ? "red" : ''}>{e.type}</td>
+                  <td>${e.usdAmount}</td>
+                  <td className={e.toAmount < 0 ? "red" : ''}>{e.toAmount}</td>
+                  <td>26 Apr 2022 01:23 PM UTC</td>
+                  <td>0.0$</td>
+                  <td>{e.type === "BUY" ? "$" + e.usdAmount : "-"}</td>
+                  {e.type === "WITHDRAW" ? <td className="black">$ {e.usdAmount}</td> : <td>-</td>}
+                  <td>{profitLose}$</td>
+                  <td>{e.comment}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    );
+  else
+    return (
+      <div className={s.loader}>
+        <EmbeddedLoader />
+      </div>
+    );
 };
 
 export default TransactionsWallet;

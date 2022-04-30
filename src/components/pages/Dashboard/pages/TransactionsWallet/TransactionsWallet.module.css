@@ -88,6 +88,10 @@
  font-size: 14.25px;
 }
 
+.tr_table td {
+ font-size: 14.5px;
+}
+
 .tr_table th, 
 .tr_table td {
  text-align: right;
@@ -96,4 +100,9 @@
 .tr_table th:first-child, 
 .tr_table td:first-child {
  text-align: left;
+}
+
+.tr_row td:nth-child(1),
+.tr_row td:nth-child(3) {
+ color: green;
 }
