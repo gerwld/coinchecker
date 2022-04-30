@@ -12,6 +12,11 @@
  box-shadow: var(--shadow-main);
 }
 
+.loader {
+ position: relative;
+ min-height: 300px;
+}
+
 .wallet_info {
  display: flex;
  align-items: stretch;

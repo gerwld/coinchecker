@@ -18,7 +18,7 @@ const Cointitle = ({ icon, name, symbol, price, percent }) => {
         <span className={s.price}>${price}</span>
         <span className={`${s.price_dash} ${percent >= 0 && s.priceup}`}>
           <MdArrowDropDown />
-          {percent.toFixed(1)}%
+          {percent?.toFixed(1)}%
         </span>
       </div>
     </div>

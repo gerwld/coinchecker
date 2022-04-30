@@ -30,7 +30,8 @@ const walletsReducer = (state = walletsState, action) => {
     case GET_WALLET:
       return {
         ...state,
-        currentWallet: {...action.wallet, ...action.transactions},
+        currentWallet: action.wallet,
+        currentTransactions: action.transactions,
         currentCoin: action.coin,
         isTransCurrLoaded: true
       }
@@ -39,6 +40,7 @@ const walletsReducer = (state = walletsState, action) => {
         ...state,
         currentWallet: null,
         currentCoin: null,
+        currentTransactions: null,
         isTransCurrLoaded: false
       }
     default:
@@ -57,10 +59,11 @@ export const getAllWalletsTC = () => {
 
 export const getWalletTC = (walletId, coinId) => {
   return async (dispatch) => {
-    const transactions = await WalletService.getTransactionsById(walletId).then(data => data.data);
     const data = await WalletService.getWalletById(walletId);
     const coin = await BoardService.getCoinById(coinId).then(data => data.data);
-    dispatch(getWallet(data.data, transactions, coin));
+    const transactions = await WalletService.getTransactionsById(walletId).then(data => data.data);
+    const currTransactions = transactions.filter(c=> c.to?.id === parseInt(coinId));
+    dispatch(getWallet(data.data, currTransactions, coin));
   };
 };
 
