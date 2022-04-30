@@ -62,7 +62,7 @@ export const getWalletTC = (walletId, coinId) => {
     const data = await WalletService.getWalletById(walletId);
     const coin = await BoardService.getCoinById(coinId).then(data => data.data);
     const transactions = await WalletService.getTransactionsById(walletId).then(data => data.data);
-    const currTransactions = transactions.filter(c=> c.to?.id === parseInt(coinId));
+    const currTransactions = transactions.filter(c=> c.to?.id === parseInt(coinId) || c.from?.id === parseInt(coinId));
     dispatch(getWallet(data.data, currTransactions, coin));
   };
 };
