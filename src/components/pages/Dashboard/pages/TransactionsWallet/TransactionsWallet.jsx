@@ -116,7 +116,7 @@ const TransactionsTable = ({ currPrice }) => {
               const profitLose = e.toAmount * e.usdAmount - currPrice * e.toAmount;
               return (
                 <tr className={`${s.tr_row} ${s[i]}`} key={e.comment + e.usdAmount + i + "_trtb"}>
-                  <td className={e.type === "WITHDRAW" ? "red" : ''}>{e.type.toLowerCase()}</td>
+                  <td className={e.type === "WITHDRAW" ? "red" : ''}>{e.type}</td>
                   <td>{e.usdAmount}$</td>
                   <td className={e.toAmount < 0 ? "red" : ''}>{e.toAmount}</td>
                   <td>26 Apr 2022 01:23 PM UTC</td>
