@@ -90,6 +90,7 @@
 
 .tr_table td {
  font-size: 14.5px;
+ color:rgb(83, 83, 83);
 }
 
 .tr_table th, 
@@ -105,11 +106,19 @@
 .tr_row td:nth-child(1),
 .tr_row td:nth-child(3) {
  color: rgb(83, 83, 83);
+}
+
+.tr_row td:nth-child(1) {
  font-weight: 500;
  font-size: 13.3px;
  text-transform: uppercase;
 }
 
 .tr_row td:nth-last-child(1) {
- color: #26358d;
+ width: 15%;
+ font-size: 13.5px;
+ padding: 0 10px;
+ /* color: #38417a; */
+ font-weight: 500;
+ overflow: hidden;
 }
