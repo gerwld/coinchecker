@@ -105,4 +105,6 @@
 .tr_row td:nth-child(1),
 .tr_row td:nth-child(3) {
  color: green;
+ font-weight: 500;
+ font-size: 13.3px;
 }
