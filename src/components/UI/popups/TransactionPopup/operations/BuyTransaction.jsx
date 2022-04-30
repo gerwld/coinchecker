@@ -17,7 +17,7 @@ const BuyTransaction = ({ symbol, amount }) => {
       <div>
       <div className={s.quantity_swap}>
        <label>
-         Quantity<span className={s.red}>*</span>
+         Amount<span className={s.red}>*</span>
        </label>
        {amount && <span className={s.balance}>Balance: {amount} <span>{symbol}</span></span>}
        </div>
@@ -29,7 +29,7 @@ const BuyTransaction = ({ symbol, amount }) => {
       <div>
         <div className={s.total_opt}>
           <label>Total Spent</label>
-          <button type="button">Price per coin</button>
+          {/* <button type="button">Price per coin</button> */}
         </div>
         <div className={s.total_field}>
           <Field name="usdAmount" component="input" placeholder="0" disabled />

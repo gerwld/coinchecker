@@ -218,7 +218,8 @@ border-top: 6px solid rgb(255, 255, 255);
 }
 
 .s24_range {
- width: 0%;
+ width: 4%;
+ min-width: 4%;
  max-width: 100%!important;
  height: 8px;
  background-color: rgba(0,58,210,1);

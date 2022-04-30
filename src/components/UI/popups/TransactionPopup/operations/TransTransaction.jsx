@@ -21,7 +21,7 @@ const TransTransaction = ({ symbol, amount }) => {
      <div>
        <div className={s.quantity_swap}>
        <label>
-         Quantity<span className={s.red}>*</span>
+         Amount<span className={s.red}>*</span>
        </label>
        {amount && <span className={s.balance}>Balance: {amount} <span>{symbol}</span></span>}
        </div>
