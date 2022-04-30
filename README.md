@@ -21,9 +21,15 @@ Heroku: http://coincheckerproj.herokuapp.com/
 │   │   ├── Aside
 │   │   │   ├── Aside.jsx
 │   │   │   └── Aside.module.css
+│   │   ├── Breadcrumbs
+│   │   │   ├── Br.module.css
+│   │   │   └── Breadcrumbs.jsx
+│   │   ├── CoinTitle
+│   │   │   ├── Cointitle.jsx
+│   │   │   └── Ct.module.css
 │   │   ├── EmbeddedLoader
 │   │   │   ├── EmbeddedLoader.jsx
-│   │   │   └── Loader.module.css
+│   │   │   └── EmbeddedLoader.module.css
 │   │   ├── ErrorScreen
 │   │   │   ├── Error.module.css
 │   │   │   └── ErrorScreen.jsx
@@ -153,7 +159,7 @@ Heroku: http://coincheckerproj.herokuapp.com/
     └── ShowImage.jsx
 ```
 
-44 directories, 96 files
+46 directories, 100 files
 
 ### `npm start`
 
