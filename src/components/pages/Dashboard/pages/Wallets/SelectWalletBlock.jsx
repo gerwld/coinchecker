@@ -19,8 +19,8 @@ const SelectWalletBlock = withClickOutside(({content, walletId, select, setShow,
  };
 
  //select wallet
- const onSelect = (i) => {
-   select(i);
+ const onSelect = (i, id) => {
+   select(i, id);
    setShow(false);
  }
 
@@ -31,7 +31,7 @@ const SelectWalletBlock = withClickOutside(({content, walletId, select, setShow,
     <div className={s.select_wrapper} ref={refE}>
      <button onClick={() => setShow(!isShow)} className={`${s.btn_selected} ${isShow && s.active}`}>{walletName}<RiArrowDropDownLine /></button>
      {isShow && <ul>
-       {content.map((wall, i) => <li onClick={() => onSelect(i)} key={i + "_walletselect"}><span>{wall.name}{i === walletId && <span className={s.act}><BsCheckLg/></span>}</span></li>)}
+       {content.map((wall, i) => <li onClick={() => onSelect(i, wall.id)} key={i + "_walletselect"}><span>{wall.name}{i === walletId && <span className={s.act}><BsCheckLg/></span>}</span></li>)}
 
        <button onClick={showAddNew} className={s.btn_new}><AiOutlinePlus/>Add New Wallet</button>
      </ul>}

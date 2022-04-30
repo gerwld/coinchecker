@@ -12,10 +12,14 @@ import AddNewCoinPopup from "../../../../UI/popups/AddNewCoinPopup/AddNewCoinPop
 import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
 import SelectWalletBlock from "./SelectWalletBlock";
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 const Wallets = () => {
+  const { walletIdURi } = useParams();
+  const navigate = useNavigate();
   const [walletId, setWallet] = useState(0);
+
   const [isDataVisible, setVisible] = useState(true);
   const pageSize = 10;
   const [page, setPage] = useState(0);
@@ -31,11 +35,26 @@ const Wallets = () => {
 
   useEffect(() => {
     dispatch(getAllWalletsTC());
-  }, [walletId]);
+    window.scrollTo(0, 1);
+  }, []);
 
   useEffect(() => {
-    window.scrollTo(0, 1);
-  }, [])
+    if(content && walletIdURi){
+      const uriWallet = content.filter(e => e.id == walletIdURi);
+      const i = content.indexOf(uriWallet[0]);
+      if(i >= 0) {
+      setWallet(i);
+      } else {
+        navigate('/dashboard/wallet/');
+      }
+    }
+  }, [content, walletIdURi])
+
+  const onSetWallet = (index, id) => {
+    setWallet(index);
+    navigate('/dashboard/wallet/' + id);
+    dispatch(getAllWalletsTC());
+  }
 
   const onCreateWallet = async (name) => {
     await WalletService.createWallet(name);
@@ -62,7 +81,7 @@ const Wallets = () => {
         <div className="wallets_content">
           <div className={s.head_block}>
             <div className={s.current_wallet}>
-            <SelectWalletBlock content={content} walletId={walletId} select={setWallet} />
+            <SelectWalletBlock content={content} walletId={walletId} select={onSetWallet} />
             <div className={s.wallet_controls}>
               <button onClick={toggleVisibility} className={s.btn_visibility}>
                 {isDataVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
