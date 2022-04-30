@@ -8,10 +8,10 @@ const Breadcrumbs = ({ current_ctg, links }) => {
     <div className={s.breadcrumbs}>
       {links?.map((link, i) => {
         return (
-          <>
+          <div key={i+link+"_br"} className={s.link}>
             {i !== 0 && <RiArrowRightSLine />}
             <NavLink to={link.to}>{link.name}</NavLink>
-          </>
+          </div>
         );
       })}
       <RiArrowRightSLine />

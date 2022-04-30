@@ -44,4 +44,10 @@
  background-color: rgb(241, 237, 237);
 }
 
+.link {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
 /* Breadcrumbs styles end */

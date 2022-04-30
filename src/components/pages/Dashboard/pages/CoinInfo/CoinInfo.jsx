@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import s from "./Coin.module.css";
-import { MdArrowDropDown } from "react-icons/md";
 import { AiOutlineStar, AiOutlineBell, AiOutlineShareAlt, AiFillStar } from "react-icons/ai";
 
 import { getPageCoinTC, getTransactionData, resPageCoin } from "../../../../../redux/reducers/dashboard-reducer";
@@ -15,6 +14,7 @@ import ChartBlock from "./ChartBlock";
 import TransactionPopup from "../../../../UI/popups/TransactionPopup/TransactionPopup";
 import Exchange from "./Exchange";
 import Breadcrumbs from "../../../../UI/Breadcrumbs/Breadcrumbs";
+import Cointitle from "../../../../UI/CoinTitle/Cointitle";
 
 const CoinInfo = () => {
   const currentId = useParams().coinId;
@@ -25,8 +25,6 @@ const CoinInfo = () => {
   }));
   const [isFav, setFav] = useState(false);
   const [rangePerc, setRange] = useState(0);
-  const perc = data?.marketCapChangePercentage24h ? Math.abs(data.marketCapChangePercentage24h).toFixed(1) : 0;
-  const isMoreOrEq0 = data?.marketCapChangePercentage24h ? data?.marketCapChangePercentage24h >= 0 : false;
 
   const onClickFav = () => {
     setFav(!isFav);
@@ -44,7 +42,7 @@ const CoinInfo = () => {
   useEffect(() => {
     dispatch(getPageCoinTC(currentId));
     return () => dispatch(resPageCoin);
-  }, [currentId, dispatch]);
+  }, [currentId]);
 
   useEffect(() => {
     if (data) {
@@ -62,33 +60,18 @@ const CoinInfo = () => {
           <div className={s.main_content}>
             <div className={s.main_group}>
               <div className={s.info_1_block}>
+
                 <div className={s.coin_maininfo}>
                   <span className={s.rank}>Rank #{data.id}</span>
-                  <div className={s.maininfo_block}>
-                    <div className={s.icon}>
-                      <img src={data.image} alt={data.name} />
-                    </div>
-                    <span className={s.name}>
-                      {data.name} <span>({data.symbol})</span>
-                    </span>
-                  </div>
+                  <Cointitle icon={data.image} name={data.name} symbol={data.symbol} price={data.currentPrice} percent={data.marketCapChangePercentage24h}/>
                 </div>
-                <div className={`${s.maininfo_block} ${s.price_block}`}>
-                  <span className={s.price}>${data.currentPrice}</span>
-                  <span className={`${s.price_dash} ${isMoreOrEq0 && s.priceup}`}>
-                    <MdArrowDropDown />
-                    {perc}%
-                  </span>
-                </div>
+
                 <div className={s.share_buttons}>
-                  <button>
-                    <AiOutlineShareAlt />
-                  </button>
-                  <button>
-                    <AiOutlineBell />
-                  </button>
+                  <button><AiOutlineShareAlt /></button>
+                  <button><AiOutlineBell /></button>
                   <button onClick={onClickFav}>{isFav ? <AiFillStar /> : <AiOutlineStar />}</button>
                 </div>
+
                 <div className={s.range_content}>
                   <div className={s.range_block}>
                     <div className={s.s24_range} style={{ width: rangePerc + "%" }}></div>
@@ -99,6 +82,7 @@ const CoinInfo = () => {
                     <span>${data.high24h}</span>
                   </div>
                 </div>
+
               </div>
               <div className={s.coin_buttons}>
                 <button onClick={onGetTransactionData}>Add to wallet</button>

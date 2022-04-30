@@ -1,0 +1,56 @@
+.title_block,
+.price_block {
+ display: flex;
+ align-items: center;
+}
+
+.price_block {
+ margin: 10px 0;
+}
+
+.icon {
+ height: 30px;
+ user-select: none;
+}
+
+.icon img {
+ width: 30px;
+ margin-right: 8px;
+}
+
+.name {
+ font-size: 22px;
+ font-weight: 700;
+}
+
+.name span {
+ text-transform: uppercase;
+}
+
+.price {
+ font-size: 32px;
+ font-weight: 700;
+}
+.price_dash {
+ display: flex;
+ align-items: center;
+ margin-left: 5px;
+
+ font-size: 22px;
+ line-height: 22px;
+ font-weight: 700;
+ color: red;
+}
+
+.price_dash svg {
+ line-height: 0;
+ font-size: 22px;
+}
+
+.priceup svg {
+ transform: rotate(180deg);
+}
+
+.priceup {
+ color: rgb(32, 182, 32);
+}
