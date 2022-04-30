@@ -12,16 +12,36 @@
  overflow-y: scroll;
 }
 
+@keyframes open-anim {
+ 0% {
+  transform: translateY(-80px);
+  opacity: 0.3;
+ }
+ 100% {
+  transform: translateY(0px);
+  opacity: 1;
+ }
+}
+
+@keyframes bg-open {
+ 0% {
+  opacity: 0.3;
+ }
+ 100% {
+  opacity: 1;
+ }
+}
+
 .popup_content {
  position: relative;
  width: 500px;
  max-width: 95vw;
  max-height: 95vh;
- /* min-height: 600px; */
  background-color: #fff;
  padding: 25px;
  border-radius: 8px;
  overflow-y: scroll;
+ animation: open-anim 0.35s;
 }
 
 .popup_content label {
@@ -95,6 +115,7 @@
  height: 100vh;
  background-color: rgba(0, 0, 0, 0.534);
  z-index: -1;
+ animation: bg-open 0.3s;
 }
 
 .trans_buttons {

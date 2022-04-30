@@ -46,6 +46,7 @@ const AddNewCoinPopup = withClickOutside(({ walletId, isShow, setShow, refE }) =
             <input type="text" onChange={onTypeInput} placeholder="Enter Coin Name" autoFocus />
             <SearchCoin onSelect={onSelect} />
           </div>
+          <div className={s.popup_bg}/>
         </div>
       )}
     </>

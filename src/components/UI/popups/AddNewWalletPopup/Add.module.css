@@ -19,6 +19,7 @@
  padding: 28px 25px;
  border-radius: 8px;
  overflow-y: scroll;
+ animation: open-anim 0.3s;
 }
 
 label {
@@ -77,6 +78,7 @@ label {
  height: 100vh;
  background-color: rgba(0, 0, 0, 0.534);
  z-index: -1;
+ animation: bg-open 0.3s;
 }
 
 .btn_close {
@@ -89,6 +91,27 @@ label {
  background-color: transparent;
  border: none;
 }
+
+@keyframes open-anim {
+ 0% {
+  transform: translateY(-40px);
+  opacity: 0.3;
+ }
+ 100% {
+  transform: translateY(0px);
+  opacity: 1;
+ }
+}
+
+@keyframes bg-open {
+ 0% {
+  opacity: 0.3;
+ }
+ 100% {
+  opacity: 1;
+ }
+}
+
 
 @media only screen and (max-width: 500px) {
  .popup_content {
