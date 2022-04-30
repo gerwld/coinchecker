@@ -19,7 +19,7 @@ const TransactionsWallet = () => {
   }));
 
   useEffect(() => {
-    dispatch(resWallet);
+    return () => dispatch(resWallet);
   }, []);
 
   useEffect(() => {
