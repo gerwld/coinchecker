@@ -156,3 +156,7 @@ td.noitems  {
  font-size: 22px;
  border-bottom: none;
 }
+
+tr:not(.tr_header):hover {
+ background-color: var(--color-primary-lightgray2);
+}
