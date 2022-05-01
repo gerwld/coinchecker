@@ -14,7 +14,7 @@ import s from "./Trans.module.css";
 
 
 
-const TransactionPopup = () => {
+const TransactionPopup = ({onCallback}) => {
   const dispatch = useDispatch();
   const [transType, setTransType] = useState(0);
   const [isFee, setFee] = React.useState(false);
@@ -67,6 +67,7 @@ const TransactionPopup = () => {
     }
 
     dispatch(getAllWalletsTC());
+    onCallback && onCallback();
     setClose();
   };
 

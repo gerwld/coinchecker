@@ -45,6 +45,10 @@ const TransactionsWallet = () => {
     dispatch(getTransactionData(coin, parseInt(walletId)));
   };
 
+  const onAddTransCallBack = () => {
+    dispatch(getWalletTC(walletId, coinId));
+  };
+
   if(error) return <ErrorScreen error={error} withIcon/>;
   else if (isLoaded && !error) return (
       <div className={s.trans_content}>
@@ -86,7 +90,7 @@ const TransactionsWallet = () => {
           </div>
           <TransactionsTable currPrice={coin.currentPrice} />
         </div>
-        <TransactionPopup />
+        <TransactionPopup onCallback={onAddTransCallBack}/>
       </div>
     ); 
   return (
