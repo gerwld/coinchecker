@@ -13,6 +13,7 @@ import { getTransactionData, selectShowCount } from '../../../../../redux/reduce
 import Pagination from 'rc-pagination';
 import { NavLink, useNavigate } from 'react-router-dom';
 import TransactionPopup from '../../../../UI/popups/TransactionPopup/TransactionPopup';
+import { onlyNumAfter } from '../../../../../services/onlynumafter';
 
 
 
@@ -109,15 +110,6 @@ const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet, isShow }) 
         navigate(`/dashboard/wallet/ts/${walletId}/${coin.id}`);
     }
 
-
-    const onlyNumAfterDot = (n, toFixed) => {
-        if(Number.isInteger(n)) {
-        return n;
-        } else {
-        return n.toFixed(toFixed);
-        }
-      }
-
     return (
         <tr key={coin.id} className={s.last_row}>
             <td className={s.column_0}>
@@ -142,8 +134,8 @@ const ShowCoinsItem = React.memo(({ coin, amount, walletId, isWallet, isShow }) 
             {amount && 
             <td className={s.column_6} onClick={navToTransHandler}>
                 <div>
-                    <span className={s.am_doll}>{isShow ? "$" + onlyNumAfterDot(am_usd, 2) : "...$"}</span>
-                    <span className={s.am_coin}>{isShow ? onlyNumAfterDot(amount, 5) : "-"} {coin.symbol}</span>
+                    <span className={s.am_doll}>{isShow ? "$" + onlyNumAfter(am_usd, 2) : "...$"}</span>
+                    <span className={s.am_coin}>{isShow ? onlyNumAfter(amount, 5) : "-"} {coin.symbol}</span>
                 </div>
             </td>}
             <td className={s.column_7}>

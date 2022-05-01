@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { useNavigate, useParams } from "react-router-dom";
 import { getAllWalletsTC } from "../../../../../redux/reducers/wallets-reducer";
 
 import s from "./Wallets.module.css";
@@ -12,26 +12,25 @@ import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
 import CreateNewWallet from "./CreateNewWallet/CreateNewWallet.jsx";
 import SelectWalletBlock from "./SelectWalletBlock";
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
-import { useNavigate, useParams } from "react-router-dom";
 import { changeTitle } from "../../../../../services/title";
+import { onlyNumAfter } from "../../../../../services/onlynumafter";
 
 const Wallets = () => {
   const { walletIdURi } = useParams();
   const navigate = useNavigate();
-  const [walletId, setWallet] = useState(0);
-
-  const [isDataVisible, setVisible] = useState(true);
-  const pageSize = 10;
-  const [page, setPage] = useState(0);
-  const toggleVisibility = () => setVisible(!isDataVisible);
-
   const dispatch = useDispatch();
   const { content } = useSelector(({ wallets }) => ({
     content: wallets.content,
   }));
 
+  const [walletId, setWallet] = useState(0);
+  const [isDataVisible, setVisible] = useState(true);
+  const [page, setPage] = useState(0);
+  const pageSize = 10;
   const coins = content && content[walletId] ? content[walletId].coins.slice(page * pageSize, (page + 1) * pageSize) : [];
   const total = content && content[walletId] ? content[walletId].coins.length : 0;
+  const toggleVisibility = () => setVisible(!isDataVisible);
+
 
   useEffect(() => {
     changeTitle(`Wallets / CoinChecker`);
@@ -57,7 +56,7 @@ const Wallets = () => {
     dispatch(getAllWalletsTC());
   };
 
-  const onlyNumAfterDot = (n, toFixed) => {
+  const onlyNumAfter = (n, toFixed) => {
     if (Number.isInteger(n)) return n;
     else return n.toFixed(toFixed);
   };
@@ -87,7 +86,7 @@ const Wallets = () => {
               </div>
               <div className={s.wallet_info}>
                 <div className={s.current_block}>
-                  <span>{isDataVisible ? "$" + onlyNumAfterDot(content[walletId].currentUsdPrice, 3) : "..."}</span>
+                  <span>{isDataVisible ? "$" + onlyNumAfter(content[walletId].currentUsdPrice, 3) : "..."}</span>
                   <span>Total Balance</span>
                 </div>
                 <div className={s.current_block}>
@@ -95,7 +94,7 @@ const Wallets = () => {
                   <span>24h Portfolio Change (+0%)</span>
                 </div>
                 <div className={s.current_block}>
-                  <span>{isDataVisible ? "$" + onlyNumAfterDot(content[walletId].startUsdPrice, 4) : "..."}</span>
+                  <span>{isDataVisible ? "$" + onlyNumAfter(content[walletId].startUsdPrice, 4) : "..."}</span>
                   <span>Total Profit / Loss (-)</span>
                 </div>
               </div>

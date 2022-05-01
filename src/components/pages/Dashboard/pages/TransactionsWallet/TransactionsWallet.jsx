@@ -12,6 +12,7 @@ import TransactionPopup from "../../../../UI/popups/TransactionPopup/Transaction
 import s from "./TransactionsWallet.module.css";
 import { changeTitle } from "../../../../../services/title";
 import ErrorScreen from "../../../../UI/ErrorScreen/ErrorScreen";
+import { onlyNumAfter } from "../../../../../services/onlynumafter";
 
 const TransactionsWallet = () => {
   const dispatch = useDispatch();
@@ -43,13 +44,6 @@ const TransactionsWallet = () => {
     dispatch(getTransactionData(coin, parseInt(walletId)));
   };
 
-  const onlyNumAfterDot = (n, toFixed) => {
-    if (Number.isInteger(n)) {
-      return n;
-    } else {
-      return n.toFixed(toFixed);
-    }
-  };
   if(error) return <ErrorScreen error={error} withIcon/>;
   else if (isLoaded && !error) return (
       <div className={s.trans_content}>
@@ -65,7 +59,7 @@ const TransactionsWallet = () => {
           <Cointitle icon={coin.image} name={coin.name} symbol={coin.symbol} price={coin.currentPrice} percent={coin.marketCapChangePercentage24h} />
           <div className={s.wallet_info}>
             <div className={s.current_block}>
-              <span>{"$" + onlyNumAfterDot(2, 3)}</span>
+              <span>{"$" + onlyNumAfter(2, 3)}</span>
               <span>Стоимость активов</span>
             </div>
             <div className={s.current_block}>
@@ -73,15 +67,15 @@ const TransactionsWallet = () => {
               <span>Активы</span>
             </div>
             <div className={s.current_block}>
-              <span>{onlyNumAfterDot(2, 4)}</span>
+              <span>{onlyNumAfter(2, 4)}</span>
               <span>Общая стоимость</span>
             </div>
             <div className={s.current_block}>
-              <span>{onlyNumAfterDot(2, 4)}</span>
+              <span>{onlyNumAfter(2, 4)}</span>
               <span>Средняя чистая стоимость </span>
             </div>
             <div className={s.current_block}>
-              <span>{onlyNumAfterDot(2, 4)}</span>
+              <span>{onlyNumAfter(2, 4)}</span>
               <span>Прибыль / Убытки (+532162.73%)</span>
             </div>
           </div>
