@@ -48,7 +48,7 @@
 .popup_content label {
  font-size: 14px!important;
  font-weight: 600;
- margin: 10px 0;
+ margin: 5px 0;
 }
 
 .popup_content input {
@@ -171,7 +171,7 @@ span.red {
 .total_field,
 .price_field {
  position: relative;
- margin-bottom: 15px;
+ margin-bottom: 10px;
 }
 
 .amount_input span {
