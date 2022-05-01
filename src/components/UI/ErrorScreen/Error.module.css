@@ -5,14 +5,15 @@
 .btn_back {
  display: block;
  padding: 10px 20px 10px 15px;
- color: #fff;
+ color: rgb(0, 0, 0);
  border-radius: 5px;
  text-decoration: none;
  font-size: 16px;
  letter-spacing: 0.033em;
- background-color: rgb(30,30,30)!important;
+ background-color: transparent;
  transition: background 0.3s ease;
  cursor: pointer;
+ border: 2px solid rgb(59, 59, 59);
 }
 
 .btn_back svg {
@@ -23,5 +24,6 @@
 }
 
 .btn_back:hover {
- background-color: rgb(59, 59, 59)!important;
+ color: #fff;
+ background-color: rgb(59, 59, 59);
 }
