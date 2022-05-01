@@ -2,7 +2,7 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { reducer as formReducer } from "redux-form";
 import thunk from "redux-thunk";
-import { appReducer, dashReducer, authReducer, walletsReducer } from "./reducers";
+import { appReducer, authReducer, dashReducer, walletsReducer } from "./reducers";
 
 let reducers = combineReducers({
   app: appReducer,

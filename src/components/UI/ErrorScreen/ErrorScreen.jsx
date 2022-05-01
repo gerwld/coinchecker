@@ -1,8 +1,8 @@
-import React from 'react'
-import s from "./Error.module.css";
-import {MdOutlineReportProblem} from "react-icons/md";
+import React from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
+import { MdOutlineReportProblem } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
+import s from "./Error.module.css";
 
 const ErrorScreen = ({error, children, withIcon}) => {
   const history = useNavigate();

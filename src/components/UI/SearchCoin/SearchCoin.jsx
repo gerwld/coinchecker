@@ -1,7 +1,5 @@
-import React from "react";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { getCoinOutput } from "../../../redux/reducers/dashboard-reducer";
 import s from "./Search.module.css";
 

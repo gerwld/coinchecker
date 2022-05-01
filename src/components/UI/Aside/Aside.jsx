@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { MdOutlineSpaceDashboard } from 'react-icons/md';
-import { RiMenuFoldLine, RiSettings3Line } from 'react-icons/ri';
 import { AiOutlineStar, AiOutlineWallet } from 'react-icons/ai';
 import { IoRepeatSharp } from 'react-icons/io5';
+import { MdOutlineSpaceDashboard } from 'react-icons/md';
+import { RiMenuFoldLine, RiSettings3Line } from 'react-icons/ri';
 import { NavLink, useLocation } from 'react-router-dom';
 import s from './Aside.module.css';
 

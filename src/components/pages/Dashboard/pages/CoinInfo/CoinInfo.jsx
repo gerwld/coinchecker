@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { AiFillStar, AiOutlineBell, AiOutlineShareAlt, AiOutlineStar } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-
-import s from "./Coin.module.css";
-import { AiOutlineStar, AiOutlineBell, AiOutlineShareAlt, AiFillStar } from "react-icons/ai";
-
-import { getPageCoinTC, getTransactionData, resPageCoin } from "../../../../../redux/reducers/dashboard-reducer";
-import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
-import ErrorScreen from "../../../../UI/ErrorScreen/ErrorScreen";
+import { useParams } from "react-router-dom";
 import { fetchFavCoin } from "../../../../../api/BoardService";
+import { getPageCoinTC, getTransactionData, resPageCoin } from "../../../../../redux/reducers/dashboard-reducer";
 import { changeTitle } from "../../../../../services/title";
-import ChartBlock from "./ChartBlock";
-import TransactionPopup from "../../../../UI/popups/TransactionPopup/TransactionPopup";
-import Exchange from "./Exchange";
 import Breadcrumbs from "../../../../UI/Breadcrumbs/Breadcrumbs";
 import Cointitle from "../../../../UI/CoinTitle/Cointitle";
+import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
+import ErrorScreen from "../../../../UI/ErrorScreen/ErrorScreen";
+import TransactionPopup from "../../../../UI/popups/TransactionPopup/TransactionPopup";
+import ChartBlock from "./ChartBlock";
+import s from "./Coin.module.css";
+import Exchange from "./Exchange";
+
+
 
 const CoinInfo = () => {
   const currentId = useParams().coinId;

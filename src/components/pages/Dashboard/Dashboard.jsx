@@ -1,11 +1,11 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
-
-import s from "./Dashboard.module.css";
+import { Route, Routes } from "react-router-dom";
 import { AsideBlock, MobileBarBlock } from "../../UI/Aside/Aside";
-import { Wallets, Buysell, MainPage, FavPage, Settings, TransactionsWallet, CoinInfo } from "./pages";
+import s from "./Dashboard.module.css";
 import { LastNotifications, ProfSettings, SearchResultsDropDown } from "./modules";
+import { Buysell, CoinInfo, FavPage, MainPage, Settings, TransactionsWallet, Wallets } from "./pages";
+
 
 
 

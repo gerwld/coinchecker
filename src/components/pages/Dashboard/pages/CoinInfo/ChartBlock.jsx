@@ -1,10 +1,10 @@
-import React from 'react'
 import useAxios from "axios-hooks";
+import React from 'react';
 import useWindowDimensions from '../../../../../hooks/useWindowDimensions/index.tsx';
-
+import Loader from '../../../../UI/Loader/Loader';
 import PrimaryChart from './Chart/PrimChart';
 import SecondaryChart from './Chart/SecChart';
-import Loader from '../../../../UI/Loader/Loader';
+
 
 const ChartBlock = ({chartId}) => {
   const { height } = useWindowDimensions();

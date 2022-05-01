@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { useCallback } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useCallback, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { getCoinOutput } from "../../../../redux/reducers/dashboard-reducer";
 import ShowCoinsBlock from "../blocks/ShowCoinsBlock/ShowCoinsBlock";
 

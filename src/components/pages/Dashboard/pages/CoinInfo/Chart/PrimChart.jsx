@@ -1,20 +1,18 @@
-import React, { useMemo, useCallback } from "react";
+import { localPoint } from "@visx/event";
+import { scaleLinear, scaleTime } from "@visx/scale";
+import { Bar, Line } from "@visx/shape";
+import {
+ defaultStyles as defaultToopTipStyles, TooltipWithBounds, useTooltip
+} from "@visx/tooltip";
+import { bisector, extent, max, min } from "d3-array";
 import { format } from "date-fns";
 import numeral from "numeral";
-import {
-  useTooltip,
-  TooltipWithBounds,
-  defaultStyles as defaultToopTipStyles,
-} from "@visx/tooltip";
-import { scaleLinear, scaleTime } from "@visx/scale";
-import { localPoint } from "@visx/event";
-import { Line, Bar } from "@visx/shape";
-import { max, min, extent, bisector } from "d3-array";
-
-
-
+import React, { useCallback, useMemo } from "react";
 import LineChart from './LineChart/LineChart';
 import { theme } from "./theme.tsx";
+
+
+
 
 // accessors
 const getDate = (d) => new Date(d.date);

@@ -1,6 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
-import { Provider } from "react-redux";
+import { connect, Provider } from "react-redux";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Loader from "./components/UI/Loader/Loader";
 import useSession from "./hooks/useSession";

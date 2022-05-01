@@ -1,4 +1,3 @@
-import React from "react";
 import BoardService from "../../api/BoardService";
 
 const LOAD_LAST_ITEMS = "coinchecker/dash-reducer/LOAD_LAST_ITEMS";

@@ -1,4 +1,3 @@
-import React from 'react'
 const SET_LOAD = 'coinchecker/app-reducer/SET_LOAD';
 export const setLoading = (isLoad) => ({ type: SET_LOAD, isLoad });
 

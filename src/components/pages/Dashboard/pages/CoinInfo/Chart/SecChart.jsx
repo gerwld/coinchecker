@@ -1,10 +1,9 @@
-import React from "react";
-import AreaChart from "./AreaChart/AreaChart.jsx";
-import { scaleLinear, scaleTime } from "@visx/scale";
-import { LinearGradient } from "@visx/gradient";
 import { Brush } from "@visx/brush";
 import BaseBrush from "@visx/brush/lib/BaseBrush";
-import { max, min, extent } from "d3-array";
+import { scaleLinear, scaleTime } from "@visx/scale";
+import { extent, max, min } from "d3-array";
+import React from "react";
+import AreaChart from "./AreaChart/AreaChart.jsx";
 import { theme } from "./theme.tsx";
 
 const SecondaryChart = ({

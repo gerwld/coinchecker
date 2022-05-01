@@ -1,7 +1,7 @@
 import React from "react";
 import { Field } from 'react-final-form';
-
 import s from "../Trans.module.css";
+
 
 const SellTransaction = ({ symbol, amount }) => {
   return (

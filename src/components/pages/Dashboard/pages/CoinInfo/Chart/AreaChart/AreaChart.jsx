@@ -1,12 +1,10 @@
-import React from "react";
-import { AreaClosed } from "@visx/shape";
-import { AxisLeft, AxisBottom } from "@visx/axis";
+import { AxisBottom, AxisLeft } from "@visx/axis";
 import { LinearGradient } from "@visx/gradient";
 import { Group } from "@visx/group";
+import { AreaClosed } from "@visx/shape";
+import React from "react";
 import {
-  AXIS_COLOR,
-  AXIS_BOTTOM_TICK_LABEL_PROPS,
-  AXIS_LEFT_TICK_LABEL_PROPS,
+ AXIS_BOTTOM_TICK_LABEL_PROPS, AXIS_COLOR, AXIS_LEFT_TICK_LABEL_PROPS
 } from "./constants.ts";
 
 const AreaChart = ({

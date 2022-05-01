@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
+import withClickOutside from '../../../../hoc/withClickOutside';
 import s from "./../Dashboard.module.css";
 
-import withClickOutside from '../../../../hoc/withClickOutside';
 
 const LastNotifications = React.memo(
  withClickOutside(({ refE, setShow, isShow }) => {

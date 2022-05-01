@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
+import Pagination from 'rc-pagination';
+import React, { useState } from 'react';
+import { AiFillStar, AiOutlinePlus, AiOutlineStar } from 'react-icons/ai';
+import { FiRefreshCw } from "react-icons/fi";
+import { RiArrowRightSLine } from "react-icons/ri";
 import { useDispatch } from 'react-redux';
-
-import s from './ShowCoinsBlock.module.css';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { fetchFavCoin } from '../../../../../api/BoardService';
+import { getTransactionData, selectShowCount } from '../../../../../redux/reducers/dashboard-reducer';
+import { onlyNumAfter } from '../../../../../services/onlynumafter';
 import ShowImage from '../../../../../utils/ShowImage';
 import Loader from '../../../../UI/Loader/Loader';
-import { fetchFavCoin } from '../../../../../api/BoardService';
-import { AiFillStar, AiOutlinePlus, AiOutlineStar } from 'react-icons/ai';
-import {FiRefreshCw} from "react-icons/fi"
-import {RiArrowRightSLine} from "react-icons/ri"
-
-import { getTransactionData, selectShowCount } from '../../../../../redux/reducers/dashboard-reducer';
-import Pagination from 'rc-pagination';
-import { NavLink, useNavigate } from 'react-router-dom';
 import TransactionPopup from '../../../../UI/popups/TransactionPopup/TransactionPopup';
-import { onlyNumAfter } from '../../../../../services/onlynumafter';
+import s from './ShowCoinsBlock.module.css';
+
+
 
 
 

@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Form, Field } from "react-final-form";
-
+import React, { useEffect, useState } from "react";
+import { Field, Form } from "react-final-form";
+import { IoCloseOutline } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
 import WalletService from "../../../../api/WalletService";
 import { closeTransPopup } from "../../../../redux/reducers/dashboard-reducer";
 import { getAllWalletsTC } from "../../../../redux/reducers/wallets-reducer";
-
-import { IoCloseOutline } from "react-icons/io5";
-import s from "./Trans.module.css";
-
-import { calc } from "./decorator";
-
 import { CreateWalletBtn } from "../../../pages/Dashboard/pages/Wallets/CreateNewWallet/CreateNewWallet";
 import EmbeddedLoader from "../../EmbeddedLoader/EmbeddedLoader";
-import { BuyTransaction, SellTransaction, TransTransaction } from "./operations";
+import { calc } from "./decorator";
 import { transPopupButtons } from "./init";
+import { BuyTransaction, SellTransaction, TransTransaction } from "./operations";
+import s from "./Trans.module.css";
+
+
+
+
 
 
 const TransactionPopup = () => {

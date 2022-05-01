@@ -1,9 +1,9 @@
 import React from "react";
-import s from "./Features.module.css";
-import { NavLink } from "react-router-dom";
-import { RiArrowRightLine } from "react-icons/ri";
-import { IoBriefcaseOutline, IoShieldCheckmarkOutline, IoLibraryOutline } from "react-icons/io5";
 import { BiBitcoin } from "react-icons/bi";
+import { IoBriefcaseOutline, IoLibraryOutline, IoShieldCheckmarkOutline } from "react-icons/io5";
+import { RiArrowRightLine } from "react-icons/ri";
+import { NavLink } from "react-router-dom";
+import s from "./Features.module.css";
 
 const Features = () => {
   return (

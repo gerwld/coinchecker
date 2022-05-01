@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { VscArrowSwap } from "react-icons/vsc";
 import s from "./Coin.module.css";
-import {VscArrowSwap} from "react-icons/vsc";
 
 const Exchange = ({price, symbol}) => {
  const [coinInput, setCoin] = useState(1);

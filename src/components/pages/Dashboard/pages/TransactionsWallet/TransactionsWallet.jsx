@@ -1,19 +1,19 @@
+import Pagination from "rc-pagination";
 import React, { useEffect } from "react";
-import { MdOutlineDelete } from "react-icons/md";
 import { BiEdit } from "react-icons/bi";
+import { MdOutlineDelete } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getTransactionData } from "../../../../../redux/reducers/dashboard-reducer";
 import { getWalletTC, resWallet } from "../../../../../redux/reducers/wallets-reducer";
+import { onlyNumAfter } from "../../../../../services/onlynumafter";
+import { changeTitle } from "../../../../../services/title";
 import Breadcrumbs from "../../../../UI/Breadcrumbs/Breadcrumbs";
 import Cointitle from "../../../../UI/CoinTitle/Cointitle";
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
+import ErrorScreen from "../../../../UI/ErrorScreen/ErrorScreen";
 import TransactionPopup from "../../../../UI/popups/TransactionPopup/TransactionPopup";
 import s from "./TransactionsWallet.module.css";
-import { changeTitle } from "../../../../../services/title";
-import ErrorScreen from "../../../../UI/ErrorScreen/ErrorScreen";
-import { onlyNumAfter } from "../../../../../services/onlynumafter";
-import Pagination from "rc-pagination";
 
 const TransactionsWallet = () => {
   const dispatch = useDispatch();

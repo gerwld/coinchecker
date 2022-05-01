@@ -1,9 +1,9 @@
-import React from "react";
-import { LinePath } from "@visx/shape";
+import { AxisBottom, AxisLeft } from "@visx/axis";
 import { Group } from "@visx/group";
-import { AxisLeft, AxisBottom } from "@visx/axis";
+import { LinePath } from "@visx/shape";
+import React from "react";
+import { AXIS_BOTTOM_TICK_LABEL_PROPS, AXIS_COLOR, AXIS_LEFT_TICK_LABEL_PROPS } from "./constants.ts";
 
-import { AXIS_COLOR, AXIS_BOTTOM_TICK_LABEL_PROPS, AXIS_LEFT_TICK_LABEL_PROPS } from "./constants.ts";
 
 const LineChart = ({ data, width, yMax, margin, xScale, yScale, hideBottomAxis = false, hideLeftAxis = false, stroke, top, left, xTickFormat, children }) => {
   if (!data) return null;

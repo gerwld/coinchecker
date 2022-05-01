@@ -1,6 +1,6 @@
 import React from "react";
-import s from "./Ct.module.css";
 import { MdArrowDropDown } from "react-icons/md";
+import s from "./Ct.module.css";
 
 const Cointitle = ({ icon, name, symbol, price, percent }) => {
   return (

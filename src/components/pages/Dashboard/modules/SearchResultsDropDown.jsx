@@ -1,11 +1,11 @@
-import React from 'react'
-import s from "./../Dashboard.module.css";
-
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import withClickOutside from '../../../../hoc/withClickOutside';
 import { earseSearch, onTypeSearchTC } from '../../../../redux/reducers/dashboard-reducer';
 import SearchCoin from '../../../UI/SearchCoin/SearchCoin';
+import s from "./../Dashboard.module.css";
+
 
 const SearchResultsDropDown = React.memo(
  withClickOutside(({ refE, setShow, isShow }) => {

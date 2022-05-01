@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { BsThreeDotsVertical } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAllWalletsTC } from "../../../../../redux/reducers/wallets-reducer";
-
-import s from "./Wallets.module.css";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { BsThreeDotsVertical } from "react-icons/bs";
-
+import { onlyNumAfter } from "../../../../../services/onlynumafter";
+import { changeTitle } from "../../../../../services/title";
+import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
 import AddNewCoinPopup from "../../../../UI/popups/AddNewCoinPopup/AddNewCoinPopup";
 import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
 import CreateNewWallet from "./CreateNewWallet/CreateNewWallet.jsx";
 import SelectWalletBlock from "./SelectWalletBlock";
-import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
-import { changeTitle } from "../../../../../services/title";
-import { onlyNumAfter } from "../../../../../services/onlynumafter";
+import s from "./Wallets.module.css";
+
+
 
 const Wallets = () => {
   const { walletIdURi } = useParams();

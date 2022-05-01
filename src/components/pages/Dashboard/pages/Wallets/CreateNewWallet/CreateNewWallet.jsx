@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import s from "../Wallets.module.css";
-
 import WalletService from '../../../../../../api/WalletService';
 import { getAllWalletsTC } from '../../../../../../redux/reducers/wallets-reducer';
+import s from "../Wallets.module.css";
+
 
 export const CreateWalletBtn = ({name}) => {
  const dispatch = useDispatch();

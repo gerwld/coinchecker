@@ -1,11 +1,11 @@
 import React from "react";
+import { BiErrorCircle } from 'react-icons/bi';
 import { BsArrowLeft } from "react-icons/bs";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
-import {BiErrorCircle} from 'react-icons/bi'
-
 import s from "./Login.module.css";
-import { useSelector } from "react-redux";
+
 const Login = (props) => {
   const {error, isError} = useSelector(({auth}) => ({
     error: auth.authErr,

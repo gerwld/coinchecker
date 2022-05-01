@@ -1,7 +1,7 @@
-import React from "react";
-import { ToggleButtonGroup, ToggleButton } from "@material-ui/lab";
-import useOptionalControlledState from "hooks/useOptionalControlledState";
+import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
 import { TimeFilters } from "enums/TimeFilters";
+import useOptionalControlledState from "hooks/useOptionalControlledState";
+import React from "react";
 
 export const TimePeriod: {
   [key: string]: TimeFilters;

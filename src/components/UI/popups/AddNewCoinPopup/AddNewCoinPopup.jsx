@@ -1,13 +1,13 @@
-import React, {useEffect} from "react";
-import { useDispatch } from "react-redux";
-
-import s from "./Add.module.css";
-import withClickOutside from "../../../../hoc/withClickOutside";
-import { earseSearch, getTransactionData,onTypeSearchTC } from  "../../../../redux/reducers/dashboard-reducer";
-
-import { IoCloseOutline } from "react-icons/io5";
+import React from "react";
 import { AiOutlinePlus } from "react-icons/ai";
+import { IoCloseOutline } from "react-icons/io5";
+import { useDispatch } from "react-redux";
+import withClickOutside from "../../../../hoc/withClickOutside";
+import { earseSearch, getTransactionData, onTypeSearchTC } from "../../../../redux/reducers/dashboard-reducer";
 import SearchCoin from "../../SearchCoin/SearchCoin";
+import s from "./Add.module.css";
+
+
 
 
 

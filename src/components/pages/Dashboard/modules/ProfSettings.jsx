@@ -1,11 +1,11 @@
 import React from "react";
+import { BiHelpCircle } from "react-icons/bi";
+import { RiLogoutBoxRLine, RiSettings3Line } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
+import withClickOutside from "../../../../hoc/withClickOutside";
 import s from "./../Dashboard.module.css";
 
-import withClickOutside from "../../../../hoc/withClickOutside";
 
-import { RiLogoutBoxRLine, RiSettings3Line } from "react-icons/ri";
-import { BiHelpCircle } from "react-icons/bi";
 
 
 const ProfSettings = React.memo(

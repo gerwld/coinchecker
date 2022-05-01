@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import withRouter from '../../../hoc/withRouter';
 import { userRegister } from '../../../redux/reducers/auth-reducer';
 import Register from './Registration';
-import withRouter from '../../../hoc/withRouter';
 
 
 

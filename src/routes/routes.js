@@ -1,9 +1,9 @@
 
-import LoginContainer from '../components/pages/Login/LoginContainer';
-import RegContainer from '../components/pages/Registration/RegContainer';
-import Main from '../components/pages/MainScreen/MainScreen';
-import DashContainer from '../components/pages/Dashboard/DashContainer';
 import { Navigate } from 'react-router-dom';
+import DashContainer from '../components/pages/Dashboard/DashContainer';
+import LoginContainer from '../components/pages/Login/LoginContainer';
+import Main from '../components/pages/MainScreen/MainScreen';
+import RegContainer from '../components/pages/Registration/RegContainer';
 
 
 export const publicRoutes = [
