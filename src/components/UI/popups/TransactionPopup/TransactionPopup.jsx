@@ -123,7 +123,7 @@ const TransactionPopup = () => {
 
                     {transType === 0 && <BuyTransaction symbol={item.symbol} amount={item.amount} isFee={isFee} setFee={onSetFee} />}
                     {transType === 1 && <SellTransaction symbol={item.symbol} amount={item.amount} isFee={isFee} setFee={onSetFee}  />}
-                    {transType === 2 && <TransTransaction symbol={item.symbol} amount={item.amount} />}
+                    {transType === 2 && <TransTransaction symbol={item.symbol} amount={item.amount}  isFee={isFee} setFee={onSetFee} />}
 
                     <div className={s.action_popup}>
                       <button onClick={setClose} type="button">

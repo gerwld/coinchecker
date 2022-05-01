@@ -1,8 +1,9 @@
 import React from 'react';
 import { Field } from 'react-final-form';
+import FeeNotes from '../FeeNotes';
 import s from "../Trans.module.css";
 
-const TransTransaction = ({ symbol, amount }) => {
+const TransTransaction = ({ symbol, amount, isFee, setFee}) => {
  return (
    <div className={s.form_content}>
      <div className={s.select_swap}>
@@ -34,7 +35,7 @@ const TransTransaction = ({ symbol, amount }) => {
        </label>
        <Field name="datetime" component="input" type="date" placeholder="Date" />
      </div>
-     Fee & Notes (Opt)
+     <FeeNotes isFee={isFee} setFee={setFee}/>
    </div>
  );
 };
