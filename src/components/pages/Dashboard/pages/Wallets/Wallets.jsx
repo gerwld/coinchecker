@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import WalletService from "../../../../../api/WalletService";
 import { getAllWalletsTC } from "../../../../../redux/reducers/wallets-reducer";
 
 import s from "./Wallets.module.css";
@@ -10,11 +9,11 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 
 import AddNewCoinPopup from "../../../../UI/popups/AddNewCoinPopup/AddNewCoinPopup";
 import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
+import CreateNewWallet from "./CreateNewWallet/CreateNewWallet.jsx";
 import SelectWalletBlock from "./SelectWalletBlock";
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
 import { useNavigate, useParams } from "react-router-dom";
 import { changeTitle } from "../../../../../services/title";
-
 
 const Wallets = () => {
   const { walletIdURi } = useParams();
@@ -28,10 +27,10 @@ const Wallets = () => {
 
   const dispatch = useDispatch();
   const { content } = useSelector(({ wallets }) => ({
-    content: wallets.content
+    content: wallets.content,
   }));
 
-  const coins = content && content[walletId] ? (content[walletId].coins.slice(page * pageSize, (page + 1) * pageSize)) : [];
+  const coins = content && content[walletId] ? content[walletId].coins.slice(page * pageSize, (page + 1) * pageSize) : [];
   const total = content && content[walletId] ? content[walletId].coins.length : 0;
 
   useEffect(() => {
@@ -41,58 +40,52 @@ const Wallets = () => {
   }, []);
 
   useEffect(() => {
-    if(content && walletIdURi){
-      const uriWallet = content.filter(e => e.id == walletIdURi);
+    if (content && walletIdURi) {
+      const uriWallet = content.filter((e) => e.id == walletIdURi);
       const i = content.indexOf(uriWallet[0]);
-      if(i >= 0) {
-      setWallet(i);
-      } else navigate('/dashboard/wallet/');
+      if (i >= 0) setWallet(i);
+      else {
+        setWallet(0);
+        navigate("/dashboard/wallet/");
+      }
     }
   }, [content, walletIdURi]);
 
   const onSetWallet = (index, id) => {
     setWallet(index);
-    navigate('/dashboard/wallet/' + id);
-    dispatch(getAllWalletsTC());
-  }
-
-  const onCreateWallet = async (name) => {
-    await WalletService.createWallet(name);
+    navigate("/dashboard/wallet/" + id);
     dispatch(getAllWalletsTC());
   };
 
-
   const onlyNumAfterDot = (n, toFixed) => {
-    if(Number.isInteger(n)) {
-    return n;
-    } else {
-    return n.toFixed(toFixed);
-    }
-  }
+    if (Number.isInteger(n)) return n;
+    else return n.toFixed(toFixed);
+  };
 
   const onChangePage = (page) => {
     setPage(page - 1);
-  }
+  };
 
   return (
     <div className={s.content_block}>
       <h2 className={s.title}>Wallets</h2>
-      {content ? (content?.length > 0 ? (
-        <div className="wallets_content">
-          <div className={s.head_block}>
-            <div className={s.current_wallet}>
-            <SelectWalletBlock content={content} walletId={walletId} select={onSetWallet} />
-            <div className={s.wallet_controls}>
-              <button onClick={toggleVisibility} className={s.btn_visibility}>
-                {isDataVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
-              </button>
-              <button className={s.btn_menu}>
-                <BsThreeDotsVertical />
-              </button>
-              <AddNewCoinPopup walletId={content[walletId].id} />
-            </div>
-            </div>
-            <div className={s.wallet_info}>
+      {content ? (
+        content?.length > 0 ? (
+          <div className="wallets_content">
+            <div className={s.head_block}>
+              <div className={s.current_wallet}>
+                <SelectWalletBlock content={content} walletId={walletId} select={onSetWallet} />
+                <div className={s.wallet_controls}>
+                  <button onClick={toggleVisibility} className={s.btn_visibility}>
+                    {isDataVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+                  </button>
+                  <button className={s.btn_menu}>
+                    <BsThreeDotsVertical />
+                  </button>
+                  <AddNewCoinPopup walletId={content[walletId].id} />
+                </div>
+              </div>
+              <div className={s.wallet_info}>
                 <div className={s.current_block}>
                   <span>{isDataVisible ? "$" + onlyNumAfterDot(content[walletId].currentUsdPrice, 3) : "..."}</span>
                   <span>Total Balance</span>
@@ -105,8 +98,8 @@ const Wallets = () => {
                   <span>{isDataVisible ? "$" + onlyNumAfterDot(content[walletId].startUsdPrice, 4) : "..."}</span>
                   <span>Total Profit / Loss (-)</span>
                 </div>
-            </div>
-            <div className={s.wallet_info_mob}>
+              </div>
+              <div className={s.wallet_info_mob}>
                 <div className={s.infomob_total}>
                   <span>{isDataVisible ? "$" + content[walletId].currentUsdPrice : "..."}</span>
                 </div>
@@ -118,32 +111,16 @@ const Wallets = () => {
                   <span>Total Profit / Loss</span>
                   <span>{isDataVisible ? "$" + content[walletId].startUsdPrice : "..."}</span>
                 </div>
+              </div>
             </div>
-           
+            <ShowCoinsBlock isWallet isShow={isDataVisible} walletId={content[walletId].id} items={coins} total={total} currPage={page + 1} pageSize={pageSize} curr_pagination={10} onChangePage={onChangePage} />
           </div>
-          <ShowCoinsBlock isWallet isShow={isDataVisible} walletId={content[walletId].id} items={coins} total={total} currPage={page + 1} pageSize={pageSize} curr_pagination={10} onChangePage={onChangePage}/>
-        </div>
+        ) : (
+          <CreateNewWallet />
+        )
       ) : (
-        <CreateNewWallet create={onCreateWallet} />
-      )) : <EmbeddedLoader/>}
-    </div>
-  );
-};
-
-export const CreateWalletBtn = ({name}) => {
-  const dispatch = useDispatch();
-  const onCreateWallet = async () => {
-    await WalletService.createWallet("My Portfolio");
-    dispatch(getAllWalletsTC());
-  };
-  return <button onClick={onCreateWallet} type="button">{name}</button>
-}
-
-const CreateNewWallet = ({ create }) => {
-  return (
-    <div className={s.create_new}>
-      <h2>You haven't created wallets yet. Create a new one?</h2>
-      <CreateWalletBtn name={"Create Free Wallet"}/>
+        <EmbeddedLoader />
+      )}
     </div>
   );
 };

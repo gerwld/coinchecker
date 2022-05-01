@@ -10,7 +10,8 @@ import { IoCloseOutline } from "react-icons/io5";
 import s from "./Trans.module.css";
 
 import { calc } from "./decorator";
-import { CreateWalletBtn } from "../../../pages/Dashboard/pages/Wallets/Wallets";
+
+import { CreateWalletBtn } from "../../../pages/Dashboard/pages/Wallets/CreateNewWallet/CreateNewWallet";
 import EmbeddedLoader from "../../EmbeddedLoader/EmbeddedLoader";
 import { BuyTransaction, SellTransaction, TransTransaction } from "./operations";
 import { transPopupButtons } from "./init";
