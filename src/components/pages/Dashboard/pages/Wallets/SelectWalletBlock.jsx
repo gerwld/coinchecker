@@ -24,7 +24,7 @@ const SelectWalletBlock = withClickOutside(({content, walletId, select, setShow,
    setShow(false);
  }
 
- const walletName = content[walletId].name.length > 12 ? content[walletId].name.slice(0, 12) + "..." : content[walletId].name;
+ const walletName = content[walletId].name.length > 17 ? content[walletId].name.slice(0, 17) + "..." : content[walletId].name;
 
  return (
    <div className={s.wallet_select}>
