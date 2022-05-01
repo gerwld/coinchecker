@@ -50,11 +50,12 @@
  display: flex;
  align-items: center;
  justify-content: space-between;
- margin-top: 20px;
+ margin: 20px 0 15px;
 }
 .trans_header h1 {
- font-size: 28px;
+ font-size: 30px;
  font-weight: 600;
+ margin: 0;
 }
 
 .trans_header button {
