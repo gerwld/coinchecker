@@ -11,14 +11,16 @@ import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
 import TransactionPopup from "../../../../UI/popups/TransactionPopup/TransactionPopup";
 import s from "./TransactionsWallet.module.css";
 import { changeTitle } from "../../../../../services/title";
+import ErrorScreen from "../../../../UI/ErrorScreen/ErrorScreen";
 
 const TransactionsWallet = () => {
   const dispatch = useDispatch();
   const { walletId, coinId } = useParams();
-  const { wallet, coin, isLoaded } = useSelector(({ wallets }) => ({
+  const { wallet, coin, isLoaded, error } = useSelector(({ wallets }) => ({
     wallet: wallets.currentWallet,
     coin: wallets.currentCoin,
     isLoaded: wallets.isTransCurrLoaded,
+    error: wallets.error
   }));
 
   useEffect(() => {
@@ -35,7 +37,7 @@ const TransactionsWallet = () => {
     if (!isNaN(walletId)) {
       dispatch(getWalletTC(walletId, coinId));
     }
-  }, [walletId]);
+  }, [walletId, coinId]);
 
   const onAddTransaction = () => {
     dispatch(getTransactionData(coin, parseInt(walletId)));
@@ -48,8 +50,8 @@ const TransactionsWallet = () => {
       return n.toFixed(toFixed);
     }
   };
-  if (isLoaded)
-    return (
+  if(error) return <ErrorScreen error={error} withIcon/>;
+  else if (isLoaded && !error) return (
       <div className={s.trans_content}>
         <Breadcrumbs
           current_ctg={`${coin.symbol.toUpperCase()}: обзор транзакций`}
@@ -91,7 +93,7 @@ const TransactionsWallet = () => {
         </div>
         <TransactionPopup />
       </div>
-    );
+    ); 
   return (
     <div className={s.content_block}>
       <EmbeddedLoader />

@@ -50,14 +50,15 @@
  display: flex;
  align-items: center;
  justify-content: space-between;
+ margin-top: 20px;
 }
 .trans_header h1 {
  font-size: 28px;
- font-weight: 500;
+ font-weight: 600;
 }
 
 .trans_header button {
- padding: 13.5px 20px;
+ padding: 15px 20px;
  font-size: 16px;
  font-weight: 500;
  color: #fff;

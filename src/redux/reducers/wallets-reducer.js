@@ -4,9 +4,11 @@ import WalletService from "../../api/WalletService";
 const GET_ALL_WALLETS = "coinchecker/wallet-reducer/GET_ALL_WALLETS";
 const GET_WALLET = "coinchecker/wallet-reducer/GET_WALLET";
 const RES_WALLET = "coinchecker/wallet-reducer/RES_WALLET";
+const ERROR_WALLET = "coinchecker/wallet-reducer/ERROR_WALLET";
 const getAllWalletsAC = (payload) => ({ type: GET_ALL_WALLETS, payload });
 const getWallet = (wallet, transactions, coin) => ({type: GET_WALLET, wallet, transactions, coin})
 export const resWallet = {type: RES_WALLET};
+const setWalletErr = (payload) => ({ type: ERROR_WALLET, payload });
 
 const walletsState = {
   isLoaded: false,
@@ -16,7 +18,8 @@ const walletsState = {
   currentWallet: null,
   currentTransactions: null,
   currentCoin: null,
-  isTransCurrLoaded: false
+  isTransCurrLoaded: false,
+  error: ''
 };
 
 const walletsReducer = (state = walletsState, action) => {
@@ -33,7 +36,8 @@ const walletsReducer = (state = walletsState, action) => {
         currentWallet: action.wallet,
         currentTransactions: action.transactions,
         currentCoin: action.coin,
-        isTransCurrLoaded: true
+        isTransCurrLoaded: true,
+        error: ''
       }
     case RES_WALLET:
       return {
@@ -41,7 +45,13 @@ const walletsReducer = (state = walletsState, action) => {
         currentWallet: null,
         currentCoin: null,
         currentTransactions: null,
-        isTransCurrLoaded: false
+        isTransCurrLoaded: false,
+        error: ''
+      }
+    case ERROR_WALLET:
+      return {
+        ...state,
+        error: action.payload
       }
     default:
       return state;
@@ -59,11 +69,15 @@ export const getAllWalletsTC = () => {
 
 export const getWalletTC = (walletId, coinId) => {
   return async (dispatch) => {
+    try {
     const data = await WalletService.getWalletById(walletId);
     const coin = await BoardService.getCoinById(coinId).then(data => data.data);
     const transactions = await WalletService.getTransactionsById(walletId).then(data => data.data);
     const currTransactions = transactions.filter(c=> c.to?.id === parseInt(coinId) || c.from?.id === parseInt(coinId));
     dispatch(getWallet(data.data, currTransactions, coin));
+    } catch (error) {
+      dispatch(setWalletErr(error.message));
+    }
   };
 };
 
