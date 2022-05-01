@@ -56,11 +56,6 @@ const Wallets = () => {
     dispatch(getAllWalletsTC());
   };
 
-  const onlyNumAfter = (n, toFixed) => {
-    if (Number.isInteger(n)) return n;
-    else return n.toFixed(toFixed);
-  };
-
   const onChangePage = (page) => {
     setPage(page - 1);
   };
