@@ -22,7 +22,7 @@
 	animation: show 1.2s linear forwards
 }
 
-.preloader_ld:after {
+.preloader_ld > div {
 	content: " ";
 	display: block;
 	width: 64px;
@@ -32,6 +32,8 @@
 	border: 3px solid #2e49c4;
 	border-color: #2e49c4 transparent #2e49c4 transparent;
 	animation: lds-dual-ring 1.2s linear infinite;
+	-webkit-animation: lds-dual-ring 1.2s linear infinite;
+	animation-fill-mode: none;
 }
 
 @keyframes lds-dual-ring {

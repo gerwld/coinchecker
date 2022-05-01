@@ -272,7 +272,7 @@ border-top: 6px solid rgb(255, 255, 255);
 }
 
 .input_block_ex button {
- width: 60px;
+ width: 70px;
  position: absolute;
  bottom: 0;
  left: 0;
@@ -286,7 +286,7 @@ border-top: 6px solid rgb(255, 255, 255);
 }
 
 .input_block_ex input {
- padding: 10px 10px 10px 70px;
+ padding: 10px 10px 10px 80px;
  width: 300px;
  font-size: 18px;
 }
