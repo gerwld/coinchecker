@@ -24,7 +24,7 @@ const Login = (props) => {
           </div>
           <div className={s.more_links}>
             <NavLink to="/register">Sign Up</NavLink>
-            <NavLink to="forgot">Forgot password?</NavLink>
+            <a href="https://www.youtube.com/watch?v=fSfsWFUmaX8" target="_blank">Forgot password?</a>
           </div>
         </div>
       </div> 

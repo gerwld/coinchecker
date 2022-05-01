@@ -49,7 +49,7 @@ const TransactionsWallet = () => {
   else if (isLoaded && !error) return (
       <div className={s.trans_content}>
         <Breadcrumbs
-          current_ctg={`${coin.symbol.toUpperCase()}: обзор транзакций`}
+          current_ctg={`${coin.symbol.toUpperCase()}: Transactions review`}
           links={[
             { to: "/dashboard", name: "Coins" },
             { to: `/dashboard/wallet/${wallet.id}`, name: wallet.name },
