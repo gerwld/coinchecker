@@ -44,6 +44,7 @@ const TransactionPopup = () => {
       price: e.price,
       coinId: item.id,
       usdAmount: e.amount * e.price,
+      comment: e.notes
     };
 
     switch(transType) {
@@ -60,6 +61,7 @@ const TransactionPopup = () => {
           price: item.currentPrice,
           coinId: item.id,
           usdAmount: e.amount * item.currentPrice,
+          comment: e.notes
         });
         break;
     }
