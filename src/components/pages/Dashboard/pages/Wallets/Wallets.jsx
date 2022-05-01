@@ -13,6 +13,7 @@ import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
 import SelectWalletBlock from "./SelectWalletBlock";
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
 import { useNavigate, useParams } from "react-router-dom";
+import { changeTitle } from "../../../../../services/title";
 
 
 const Wallets = () => {
@@ -34,6 +35,7 @@ const Wallets = () => {
   const total = content && content[walletId] ? content[walletId].coins.length : 0;
 
   useEffect(() => {
+    changeTitle(`Wallets / CoinChecker`);
     dispatch(getAllWalletsTC());
     window.scrollTo(0, 1);
   }, []);
@@ -46,7 +48,7 @@ const Wallets = () => {
       setWallet(i);
       } else navigate('/dashboard/wallet/');
     }
-  }, [content, walletIdURi])
+  }, [content, walletIdURi]);
 
   const onSetWallet = (index, id) => {
     setWallet(index);
@@ -106,7 +108,7 @@ const Wallets = () => {
             </div>
             <div className={s.wallet_info_mob}>
                 <div className={s.infomob_total}>
-                  <span>{isDataVisible ? "$" + content[walletId].currentUsdPrice.toFixed(3) : "..."}</span>
+                  <span>{isDataVisible ? "$" + content[walletId].currentUsdPrice : "..."}</span>
                 </div>
                 <div className={`${s.infomob_subblock} ${true && s.profit}`}>
                   <span>24H Change</span>

@@ -118,7 +118,31 @@
  width: 15%;
  font-size: 13.5px;
  padding: 0 10px;
- /* color: #38417a; */
  font-weight: 500;
  overflow: hidden;
+}
+
+.tr_header th:nth-last-child(1) {
+ padding: 0 10px;
+}
+
+.trans_btns button {
+ margin: 0;
+ padding: 0;
+ height: 30px;
+ width: 30px;
+ color: var(--color-primary-blue);
+ line-height: 0;
+ font-size: 18px;
+ border-radius: 50%;
+ border: none;
+ background-color: transparent;
+}
+
+.trans_btns button:not(:last-child) {
+ margin-right: 5%;
+}
+
+.trans_btns button:hover {
+ background-color: #ced6df;
 }

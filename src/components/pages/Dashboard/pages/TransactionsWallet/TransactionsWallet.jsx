@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { MdOutlineDelete } from "react-icons/md";
+import { BiEdit } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getTransactionData } from "../../../../../redux/reducers/dashboard-reducer";
@@ -8,6 +10,7 @@ import Cointitle from "../../../../UI/CoinTitle/Cointitle";
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
 import TransactionPopup from "../../../../UI/popups/TransactionPopup/TransactionPopup";
 import s from "./TransactionsWallet.module.css";
+import { changeTitle } from "../../../../../services/title";
 
 const TransactionsWallet = () => {
   const dispatch = useDispatch();
@@ -21,6 +24,12 @@ const TransactionsWallet = () => {
   useEffect(() => {
     return () => dispatch(resWallet);
   }, []);
+
+  useEffect(() => {
+    if (coin && coin.symbol) {
+      changeTitle(`${coin.symbol.toUpperCase()}: Transactions review / CoinChecker`);
+    }
+  }, [coin]);
 
   useEffect(() => {
     if (!isNaN(walletId)) {
@@ -116,15 +125,21 @@ const TransactionsTable = ({ currPrice }) => {
               const profitLose = e.toAmount * e.usdAmount - currPrice * e.toAmount;
               return (
                 <tr className={`${s.tr_row} ${s[i]}`} key={e.comment + e.usdAmount + i + "_trtb"}>
-                  <td className={e.type === "WITHDRAW" ? "red" : ''}>{e.type}</td>
+                  <td className={e.type === "WITHDRAW" ? "red" : ""}>{e.type}</td>
                   <td>{e.usdAmount}$</td>
-                  <td className={e.toAmount < 0 ? "red" : ''}>{e.toAmount?.toFixed(1)}</td>
+                  <td className={e.toAmount < 0 ? "red" : ""}>{e.toAmount?.toFixed(1)}</td>
                   <td>26 Apr 2022 01:23 PM UTC</td>
                   <td>0.0$</td>
                   <td>{e.type === "BUY" ? e.usdAmount + "$" : "-"}</td>
                   {e.type === "WITHDRAW" ? <td className="black">{e.usdAmount}$</td> : <td>-</td>}
                   <td>{profitLose}$</td>
                   <td>{e.comment}</td>
+                  <td>
+                    <div className={s.trans_btns}>
+                      <button><BiEdit /></button>
+                      <button><MdOutlineDelete /></button>
+                    </div>
+                  </td>
                 </tr>
               );
             })}
