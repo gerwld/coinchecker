@@ -7,6 +7,7 @@ import { getAllWalletsTC } from "../../../../../redux/reducers/wallets-reducer";
 import { onlyNumAfter } from "../../../../../services/onlynumafter";
 import { changeTitle } from "../../../../../services/title";
 import EmbeddedLoader from "../../../../UI/EmbeddedLoader/EmbeddedLoader";
+import Loader from "../../../../UI/Loader/Loader";
 import AddNewCoinPopup from "../../../../UI/popups/AddNewCoinPopup/AddNewCoinPopup";
 import ShowCoinsBlock from "../../blocks/ShowCoinsBlock/ShowCoinsBlock";
 import CreateNewWallet from "./CreateNewWallet/CreateNewWallet.jsx";
@@ -29,6 +30,7 @@ const Wallets = () => {
   const pageSize = 10;
   const coins = content && content[walletId] ? content[walletId].coins.slice(page * pageSize, (page + 1) * pageSize) : [];
   const total = content && content[walletId] ? content[walletId].coins.length : 0;
+  const totalProfLoss = content && content[walletId] ? content[walletId].currentUsdPrice - content[walletId].startUsdPrice : 0;
   const toggleVisibility = () => setVisible(!isDataVisible);
 
 
@@ -60,7 +62,7 @@ const Wallets = () => {
     setPage(page - 1);
   };
 
-  return (
+  if(content && content[walletId]) return (
     <div className={s.content_block}>
       <h2 className={s.title}>Wallets</h2>
       {content ? (
@@ -89,7 +91,7 @@ const Wallets = () => {
                   <span>24h Portfolio Change (+0%)</span>
                 </div>
                 <div className={s.current_block}>
-                  <span>{isDataVisible ? "$" + onlyNumAfter(content[walletId].startUsdPrice, 4) : "..."}</span>
+                  <span>{isDataVisible ? "$" + onlyNumAfter(totalProfLoss, 4) : "..."}</span>
                   <span>Total Profit / Loss (-)</span>
                 </div>
               </div>
@@ -117,6 +119,7 @@ const Wallets = () => {
       )}
     </div>
   );
+  return <Loader/>
 };
 
 export default Wallets;
