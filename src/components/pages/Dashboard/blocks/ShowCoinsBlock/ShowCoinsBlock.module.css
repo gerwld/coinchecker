@@ -483,6 +483,9 @@ table.last_list {
 }
 
 @media only screen and (max-width: 500px) {
+  .last_head {
+    border-bottom: none;
+  }
   .column_0 {
     padding-left: 0;
   }
