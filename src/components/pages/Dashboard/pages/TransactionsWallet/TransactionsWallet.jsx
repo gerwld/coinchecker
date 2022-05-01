@@ -105,7 +105,6 @@ const TransactionsTable = ({ currPrice }) => {
   const { items } = useSelector(({ wallets }) => ({
     items: wallets.currentTransactions,
   }));
-
   if (items)
     return (
       <div>
@@ -123,7 +122,9 @@ const TransactionsTable = ({ currPrice }) => {
               <th>Notes</th>
               <th>Action</th>
             </tr>
-            {items.map((e, i) => {
+            {items.length === 0 
+            ? <td colspan="100%" className={s.noitems}>No items to show.</td>
+            : items.map((e, i) => {
               const profitLose = e.toAmount * e.usdAmount - currPrice * e.toAmount;
               return (
                 <tr className={`${s.tr_row} ${s[i]}`} key={e.comment + e.usdAmount + i + "_trtb"}>
@@ -145,6 +146,7 @@ const TransactionsTable = ({ currPrice }) => {
                 </tr>
               );
             })}
+
           </tbody>
         </table>
       </div>

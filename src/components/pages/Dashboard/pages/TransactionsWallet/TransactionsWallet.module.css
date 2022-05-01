@@ -148,3 +148,11 @@
 .trans_btns button:hover {
  background-color: #ced6df;
 }
+
+td.noitems  {
+ height: 100px;
+ text-align: center;
+ font-weight: 500;
+ font-size: 22px;
+ border-bottom: none;
+}
