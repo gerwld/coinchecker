@@ -124,6 +124,19 @@
   user-select: none;
 }
 
+@keyframes show-block {
+  0% {
+   opacity: 0;
+  }
+  100%{
+   opacity: 1;
+  }
+ }
+ 
+ .last_row {
+  animation: show-block 0.3s ease;
+ }
+
 .last_row .coin_img svg {
   width: 20px;
   font-size: 20px;
@@ -257,8 +270,8 @@ table.last_list {
   border-bottom: 0;
 }
 
-.last_row:hover {
-  background-color: rgb(240, 243, 248);
+.last_row:not(.last_head):hover {
+  background-color: var(--color-primary-lightgray3);
 }
 
 /* left & right paddings */

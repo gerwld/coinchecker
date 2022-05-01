@@ -66,6 +66,7 @@ body {
   --color-primary-gray: #717A8A;
   --color-primary-lightgray: #E9F0FF;
   --color-primary-lightgray2:#F0F4FC;
+  --color-primary-lightgray3:#f7f7fc;
   --border-lightgray: 1px solid rgba(56,80,133,0.2);
   --border-lightgray2: 1px solid rgb(108, 131, 182, 0.2);
   --border-radius-block: 0.8vw;

@@ -13,6 +13,7 @@ import s from "./TransactionsWallet.module.css";
 import { changeTitle } from "../../../../../services/title";
 import ErrorScreen from "../../../../UI/ErrorScreen/ErrorScreen";
 import { onlyNumAfter } from "../../../../../services/onlynumafter";
+import Pagination from "rc-pagination";
 
 const TransactionsWallet = () => {
   const dispatch = useDispatch();
@@ -99,6 +100,13 @@ const TransactionsTable = ({ currPrice }) => {
   const { items } = useSelector(({ wallets }) => ({
     items: wallets.currentTransactions,
   }));
+  const [page, setPage] = React.useState(0);
+  const pageSize = 10;
+  const transactions = items ? items.slice(page * pageSize, (page + 1) * pageSize) : [];
+
+  const onSetPage = (i) => {
+    setPage(i - 1);
+  }
   if (items)
     return (
       <div>
@@ -118,7 +126,7 @@ const TransactionsTable = ({ currPrice }) => {
             </tr>
             {items.length === 0 
             ? <td colspan="100%" className={s.noitems}>No items to show.</td>
-            : items.map((e, i) => {
+            : transactions.map((e, i) => {
               const profitLose = e.toAmount * e.usdAmount - currPrice * e.toAmount;
               return (
                 <tr className={`${s.tr_row} ${s[i]}`} key={e.comment + e.usdAmount + i + "_trtb"}>
@@ -143,6 +151,7 @@ const TransactionsTable = ({ currPrice }) => {
 
           </tbody>
         </table>
+        <Pagination current={page + 1} total={items.length} pageSize={pageSize} onChange={onSetPage}/>
       </div>
     );
   else
