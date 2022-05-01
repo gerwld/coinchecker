@@ -1,5 +1,7 @@
 .error_icon {
+ margin: 15px 0 25px;
  font-size: 82px;
+ line-height: 0;
 }
 
 .btn_back {
@@ -9,6 +11,7 @@
  border-radius: 5px;
  text-decoration: none;
  font-size: 16px;
+ font-weight: 500;
  letter-spacing: 0.033em;
  background-color: transparent;
  transition: background 0.3s ease;
@@ -18,7 +21,7 @@
 
 .btn_back svg {
  margin-right: 7px;
- margin-bottom: -5px;
+ margin-bottom: -5.5px;
  font-size: 22px;
  line-height: 0;
 }
