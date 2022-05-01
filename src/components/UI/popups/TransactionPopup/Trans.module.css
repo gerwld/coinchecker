@@ -6,7 +6,7 @@
  left: 0;
  display: flex;
  justify-content: center;
- align-items: center;
+ align-items: flex-start;
  background-color: transparent;
  z-index: 10000000;
  overflow-y: scroll;
@@ -39,6 +39,7 @@
  max-height: 95vh;
  background-color: #fff;
  padding: 25px;
+ margin-top: 5vh;
  border-radius: 8px;
  overflow-y: scroll;
  animation: open-anim 0.35s;
@@ -256,6 +257,34 @@ margin-bottom: 10px;
 
 .quantity_swap span > span {
  text-transform: uppercase;
+}
+
+.feenotes button {
+ height: 25px;
+ overflow: hidden;
+ color: var(--color-primary-blue);
+ font-weight: 500;
+ font-size: 14.5px;
+ background-color: transparent;
+ border: none;
+}
+.feenotes button > span {
+ color: rgb(43, 43, 43);
+}
+
+.feenotes .content {
+ max-height: 0;
+ overflow: hidden;
+ transition: max-height 0.35s ease;
+ margin-bottom: 10px;
+}
+
+.feenotes .content.open {
+ max-height: 170px;
+}
+
+.feenotes {
+ margin: 10px 0;
 }
 
 @keyframes showAnim {

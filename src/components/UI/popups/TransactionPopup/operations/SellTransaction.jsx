@@ -3,7 +3,7 @@ import { Field } from 'react-final-form';
 import s from "../Trans.module.css";
 
 
-const SellTransaction = ({ symbol, amount }) => {
+const SellTransaction = ({ symbol, amount, isFee, setFee }) => {
   return (
     <div className={s.form_content}>
       <div>
@@ -41,7 +41,21 @@ const SellTransaction = ({ symbol, amount }) => {
         </label>
         <Field name="datetime" component="input" type="date" placeholder="Date" />
       </div>
-      Fee & Notes (Opt)
+      <div className={s.feenotes}>
+        <div className={`${s.content} ${isFee ? s.open : ''}`} aria-expanded={isFee}>
+        <div>
+          <label>Fees</label>
+          <div className={s.price_field}>
+            <Field name="fees" component="input" autoComplete="new-password" autoComplete="off" placeholder="0" />
+          </div>
+        </div>
+        <div>
+          <label>Notes</label>
+            <Field name="notes" component="input" autoComplete="new-password" autoComplete="off" placeholder="" />
+        </div>
+        </div>
+        <button onClick={setFee} type="button">+ Fee & Notes <span>(Optional)</span></button>
+      </div>
     </div>
   );
 };

@@ -14,12 +14,11 @@ import s from "./Trans.module.css";
 
 
 
-
-
-
 const TransactionPopup = () => {
   const dispatch = useDispatch();
   const [transType, setTransType] = useState(0);
+  const [isFee, setFee] = React.useState(false);
+  const onSetFee = () => setFee(!isFee);
   const { item, isShow, walletId, wallets } = useSelector(({ dashboard, wallets }) => ({
     item: dashboard.transCoin,
     isShow: dashboard.isTransPopup,
@@ -122,8 +121,8 @@ const TransactionPopup = () => {
                       </div>
                     )}
 
-                    {transType === 0 && <BuyTransaction symbol={item.symbol} amount={item.amount} />}
-                    {transType === 1 && <SellTransaction symbol={item.symbol} amount={item.amount} />}
+                    {transType === 0 && <BuyTransaction symbol={item.symbol} amount={item.amount} isFee={isFee} setFee={onSetFee} />}
+                    {transType === 1 && <SellTransaction symbol={item.symbol} amount={item.amount} isFee={isFee} setFee={onSetFee}  />}
                     {transType === 2 && <TransTransaction symbol={item.symbol} amount={item.amount} />}
 
                     <div className={s.action_popup}>
