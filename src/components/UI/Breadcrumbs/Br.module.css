@@ -4,6 +4,7 @@
  display: flex;
  align-items: center;
  justify-content: flex-start;
+ flex-wrap: wrap;
 
  margin-bottom: 15px;
  margin-left: -5px;
@@ -11,6 +12,10 @@
  font-size: 16px;
  line-height: 17px;
  user-select: none;
+}
+
+.breadcrumbs span {
+ padding: 5px;
 }
 
 .breadcrumbs a {
