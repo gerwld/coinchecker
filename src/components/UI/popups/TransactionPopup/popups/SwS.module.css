@@ -38,3 +38,40 @@
 .select_type input::placeholder {
  font-size: 15px;
 }
+
+.select_options .content {
+ width: 100%;
+ display: flex;
+ justify-content: flex-start;
+ align-items: flex-start;
+ flex-wrap: wrap;
+ margin: 10px 0;
+ overflow: hidden;
+}
+
+.select_options > span {
+ font-weight: 600;
+ font-weight: 17px;
+}
+
+.elem {
+ flex: 0 1 33%;
+ min-width: 200px;
+ padding: 10px;
+ font-size: 15px;
+ cursor: pointer;
+}
+
+.elem:hover {
+ background-color: var(--color-primary-lightgray2);
+}
+
+.elem span:nth-child(1) {
+ margin-right: 7px;
+ color: rgb(112, 112, 112);
+}
+
+
+.elem span:nth-child(2) {
+ color: #000;
+}
