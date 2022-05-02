@@ -232,6 +232,7 @@ span.red {
  font-size: 17px;
  line-height: 17px;
  color: #66666d;
+ user-select: none;
 }
 
 
@@ -321,6 +322,7 @@ margin-bottom: 10px;
  max-height: 0;
  overflow: hidden;
  transition: max-height 0.35s ease;
+ padding: 2px;
  margin-bottom: 10px;
 }
 

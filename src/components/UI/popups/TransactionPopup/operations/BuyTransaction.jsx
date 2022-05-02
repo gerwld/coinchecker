@@ -40,7 +40,7 @@ const BuyTransaction = ({ symbol, amount, isFee, setFee }) => {
       </div>
       <div>
         <label>
-          Date<span className={s.red}>*</span>
+          Date
         </label>
         <Field name="datetime" component="input" type="date" placeholder="Date" />
       </div>

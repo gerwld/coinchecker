@@ -19,7 +19,7 @@ const SwapTransaction = ({ symbol, amount, isFee, setFee, sFrom, sTo, setSTo, se
           )}
         </div>
         <div className={s.amount_input}>
-          <Field name="amount" component="input" placeholder="1" autoComplete="new-password" autoComplete="off" required />
+          <Field name="from-amount" component="input" placeholder="1" autoComplete="new-password" autoComplete="off" required />
           <SwapSelect symbol={sFrom} onSelect={setSFrom} />
         </div>
       </div>
@@ -31,14 +31,23 @@ const SwapTransaction = ({ symbol, amount, isFee, setFee, sFrom, sTo, setSTo, se
           </label>
         </div>
         <div className={s.amount_input}>
-          <Field name="amount" component="input" placeholder="1" autoComplete="new-password" autoComplete="off" required />
+          <Field name="to-amount" component="input" placeholder="1" autoComplete="new-password" autoComplete="off" required />
           <SwapSelect symbol={sTo} onSelect={setSTo}  />
         </div>
       </div>
 
       <div>
         <label>
-          Date<span className={s.red}>*</span>
+          Total price<span className={s.red}>*</span>
+        </label>
+        <div className={s.price_field}>
+          <Field name="tot-price" component="input" autoComplete="new-password" autoComplete="off" required />
+        </div>
+      </div>
+
+      <div>
+        <label>
+          Date
         </label>
         <Field name="datetime" component="input" type="date" placeholder="Date" />
       </div>
