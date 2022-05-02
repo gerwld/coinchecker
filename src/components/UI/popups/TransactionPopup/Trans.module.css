@@ -41,7 +41,7 @@
  padding: 25px;
  margin-top: 5vh;
  border-radius: 8px;
- overflow-y: scroll;
+ /* overflow-y: scroll; */
  animation: open-anim 0.35s;
 }
 
@@ -54,6 +54,7 @@
 .popup_content input {
  width: 100%;
  min-height: 45px;
+ height: 50px;
  padding: 0 10px;
  box-sizing: border-box;
  font-size: 17px;
@@ -69,7 +70,7 @@
 
 .popup_content input:active,
 .popup_content input:focus {
- outline: 2px solid rgb(134, 134, 230);
+ outline: var(--outline-main);
 }
 
 .popup_content input:disabled {
@@ -174,14 +175,52 @@ span.red {
  margin-bottom: 10px;
 }
 
-.amount_input span {
+.amount_input > span,
+.amount_input button {
+ display: block;
  position: absolute;
- top: 0;
- right: 20px;
+ top: 1px;
+ right: 1px;
+ min-width: 65px;
+ height: 48px;
+ margin: 0;
+ padding: 0 21px 0 8px;
  font-size: 15px;
- line-height: 45px;
+ line-height: 48px;
  font-weight: 500;
  text-transform: uppercase;
+ border: none;
+ z-index: 100;
+ border-left: var(--border-lightgray);
+ text-align: center;
+}
+
+.amount_input > span {
+ padding: 0;
+}
+
+.amount_input button {
+ background-color: rgb(239, 240, 245);
+}
+
+.amount_input button > span {
+ position: absolute;
+ right: 5px;
+ top: calc(50% - 3px);
+ width: 0; 
+ height: 0; 
+ border-left: 6px solid transparent;
+ border-right: 6px solid transparent;
+ 
+ border-top: 6px solid rgb(63, 63, 63);
+}
+
+.amount_input button:active {
+ background-color: rgb(221, 223, 233);
+}
+
+.amount_input input {
+ z-index: 10;
 }
 
 .total_field::before,
@@ -201,7 +240,7 @@ span.red {
  padding-left: 55px;
 }
 .amount_input input {
- padding-right: 60px;
+ padding-right: 100px;
 }
 
 .action_popup button {
@@ -267,7 +306,13 @@ margin-bottom: 10px;
  font-size: 14.5px;
  background-color: transparent;
  border: none;
+ border-radius: 5px;
 }
+
+.feenotes button:active {
+ background-color: var(--color-primary-lightgray2);
+}
+
 .feenotes button > span {
  color: rgb(43, 43, 43);
 }

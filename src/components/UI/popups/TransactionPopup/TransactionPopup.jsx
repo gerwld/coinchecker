@@ -9,7 +9,7 @@ import { CreateWalletBtn } from "../../../pages/Dashboard/pages/Wallets/CreateNe
 import EmbeddedLoader from "../../EmbeddedLoader/EmbeddedLoader";
 import { calc } from "./decorator";
 import { transPopupButtons } from "./init";
-import { BuyTransaction, SellTransaction, TransTransaction } from "./operations";
+import { BuyTransaction, SellTransaction, SwapTransaction } from "./operations";
 import s from "./Trans.module.css";
 
 
@@ -75,6 +75,7 @@ const TransactionPopup = ({onCallback}) => {
     if (!wallets && isShow) {
       dispatch(getAllWalletsTC());
     }
+    return () => setFee(false);
   }, [wallets, isShow]);
 
   if (isShow)
@@ -126,7 +127,7 @@ const TransactionPopup = ({onCallback}) => {
 
                     {transType === 0 && <BuyTransaction symbol={item.symbol} amount={item.amount} isFee={isFee} setFee={onSetFee} />}
                     {transType === 1 && <SellTransaction symbol={item.symbol} amount={item.amount} isFee={isFee} setFee={onSetFee}  />}
-                    {transType === 2 && <TransTransaction symbol={item.symbol} amount={item.amount}  isFee={isFee} setFee={onSetFee} />}
+                    {transType === 2 && <SwapTransaction symbol={item.symbol} amount={item.amount}  isFee={isFee} setFee={onSetFee} />}
 
                     <div className={s.action_popup}>
                       <button onClick={setClose} type="button">

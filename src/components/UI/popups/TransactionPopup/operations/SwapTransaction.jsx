@@ -1,12 +1,13 @@
 import React from 'react';
 import { Field } from 'react-final-form';
 import FeeNotes from '../FeeNotes';
+import SwapSelect from '../popups/SwapSelect';
 import s from "../Trans.module.css";
 
-const TransTransaction = ({ symbol, amount, isFee, setFee}) => {
+const SwapTransaction = ({ symbol, amount, isFee, setFee}) => {
  return (
    <div className={s.form_content}>
-     <div className={s.select_swap}>
+     {/* <div className={s.select_swap}>
        <label>
          Transfer type:<span className={s.red}>*</span>
        </label>
@@ -16,19 +17,24 @@ const TransTransaction = ({ symbol, amount, isFee, setFee}) => {
            <option value="withdraw">Вывод</option>
          </Field>
        </div>
-     </div>
+     </div> */}
+
+
      <div>
        <div className={s.quantity_swap}>
        <label>
-         Amount<span className={s.red}>*</span>
+         From amount<span className={s.red}>*</span>
        </label>
        {amount && <span className={s.balance}>Balance: {amount} <span>{symbol}</span></span>}
        </div>
        <div className={s.amount_input}>
          <Field name="amount" component="input" placeholder="1" autoComplete="new-password" autoComplete="off" required />
-         <span>{symbol}</span>
+        <SwapSelect symbol={symbol} />
        </div>
      </div>
+
+
+
      <div>
        <label>
          Date<span className={s.red}>*</span>
@@ -41,4 +47,4 @@ const TransTransaction = ({ symbol, amount, isFee, setFee}) => {
 };
 
 
-export default TransTransaction;
+export default SwapTransaction;

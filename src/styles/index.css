@@ -72,6 +72,7 @@ body {
   --border-radius-block: 0.8vw;
   --shadow-main: rgba(0, 0, 0, 0.06) 0px 2px 7px;
   --shadow-main2:   rgba(0, 0, 0, 0.10) 0px 4px 8px;
+  --outline-main: 2px solid rgb(134, 134, 230);
 
 
   }

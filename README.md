@@ -57,7 +57,7 @@ Heroku: http://coincheckerproj.herokuapp.com/
 │   │           └── operations
 │   │               ├── BuyTransaction.jsx
 │   │               ├── SellTransaction.jsx
-│   │               ├── TransTransaction.jsx
+│   │               ├── SwapTransaction.jsx
 │   │               └── index.js
 │   └── pages
 │       ├── Dashboard

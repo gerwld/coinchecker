@@ -41,7 +41,7 @@ Total : 100 files,  6949 codes, 102 comments, 1144 blanks, all 8195 lines
 | [src/components/UI/popups/TransactionPopup/init.js](/src/components/UI/popups/TransactionPopup/init.js) | JavaScript | 5 | 0 | 1 | 6 |
 | [src/components/UI/popups/TransactionPopup/operations/BuyTransaction.jsx](/src/components/UI/popups/TransactionPopup/operations/BuyTransaction.jsx) | JavaScript React | 45 | 1 | 4 | 50 |
 | [src/components/UI/popups/TransactionPopup/operations/SellTransaction.jsx](/src/components/UI/popups/TransactionPopup/operations/SellTransaction.jsx) | JavaScript React | 45 | 1 | 4 | 50 |
-| [src/components/UI/popups/TransactionPopup/operations/TransTransaction.jsx](/src/components/UI/popups/TransactionPopup/operations/TransTransaction.jsx) | JavaScript React | 40 | 0 | 5 | 45 |
+| [src/components/UI/popups/TransactionPopup/operations/SwapTransaction.jsx](/src/components/UI/popups/TransactionPopup/operations/SwapTransaction.jsx) | JavaScript React | 40 | 0 | 5 | 45 |
 | [src/components/UI/popups/TransactionPopup/operations/index.js](/src/components/UI/popups/TransactionPopup/operations/index.js) | JavaScript | 3 | 0 | 0 | 3 |
 | [src/components/pages/Dashboard/DashContainer.jsx](/src/components/pages/Dashboard/DashContainer.jsx) | JavaScript React | 29 | 0 | 7 | 36 |
 | [src/components/pages/Dashboard/Dashboard.jsx](/src/components/pages/Dashboard/Dashboard.jsx) | JavaScript React | 55 | 0 | 10 | 65 |

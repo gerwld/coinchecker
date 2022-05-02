@@ -5,10 +5,11 @@ const withClickOutside = (Component) => {
   return (props) => {
     const [isShow, set] = useState(false);
     const e = useRef(null);
-    useOutsideClickHide(e, set);
+    const i = useRef(null);
+    useOutsideClickHide(e, set, i);
 
-    return <Component {...props} refE={e} setShow={set} isShow={isShow} />
-  }
-}
+    return <Component {...props} refE={e} ignore={i} setShow={set} isShow={isShow} />;
+  };
+};
 
 export default withClickOutside;
