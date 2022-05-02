@@ -184,7 +184,15 @@ body {
 }
 
 .change_red {
-  color: red;
+  color: #f44336;
+}
+
+.red {
+  color: #f44336!important;
+}
+
+.black {
+  color: #000!important;
 }
 
 /* Pagination styles */
@@ -390,14 +398,6 @@ select {
   width: auto;
   height: auto;
   padding: 20px 0;
-}
-
-.red {
-  color: rgb(255, 0, 0)!important;
-}
-
-.black {
-  color: #000!important;
 }
 
 

@@ -178,3 +178,15 @@ td.noitems  {
 .tr_row:not(.tr_header):hover {
  background-color: var(--color-primary-lightgray3);
 }
+
+.type_row {
+ padding-left: 5px;
+}
+
+.type_row svg {
+ line-height: 0;
+ font-size: 18px;
+ line-height: 0;
+ margin-bottom: -5px;
+ opacity: 0.5;
+}

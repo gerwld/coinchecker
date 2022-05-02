@@ -34,7 +34,7 @@ const walletsReducer = (state = walletsState, action) => {
       return {
         ...state,
         currentWallet: action.wallet,
-        currentTransactions: action.transactions,
+        currentTransactions: action.transactions.reverse(),
         currentCoin: action.coin,
         isTransCurrLoaded: true,
         error: ''

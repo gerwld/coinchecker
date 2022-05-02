@@ -1,6 +1,7 @@
 import Pagination from "rc-pagination";
 import React, { useEffect } from "react";
 import { BiEdit } from "react-icons/bi";
+import { IoArrowDownOutline, IoArrowUpOutline, IoSwapHorizontalOutline } from "react-icons/io5";
 import { MdOutlineDelete } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -134,7 +135,7 @@ const TransactionsTable = ({ currPrice }) => {
               const profitLose = e.toAmount * e.usdAmount - currPrice * e.toAmount;
               return (
                 <tr className={`${s.tr_row} ${s[i]}`} key={e.comment + e.usdAmount + i + "_trtb"}>
-                  <td className={e.type === "WITHDRAW" ? "red" : ""}>{e.type}</td>
+                  <TransTypeElem type={e.type}/>
                   <td>{e.usdAmount}$</td>
                   <td className={e.toAmount < 0 ? "red" : ""}>{e.toAmount?.toFixed(1)}</td>
                   <td>26 Apr 2022 01:23 PM UTC</td>
@@ -165,5 +166,19 @@ const TransactionsTable = ({ currPrice }) => {
       </div>
     );
 };
+
+const TransTypeElem = ({type}) => {
+
+  return (
+    <td className={`${type === "WITHDRAW" ? "red" : ""} ${s.type_row}`}>
+    <div>
+      {type === "SWAP" && <IoSwapHorizontalOutline />}
+      {type === "WITHDRAW" && <IoArrowUpOutline />}
+      {type === "BUY" && <IoArrowDownOutline />}
+    </div>
+    {type}
+    </td>
+  )
+}
 
 export default TransactionsWallet;
