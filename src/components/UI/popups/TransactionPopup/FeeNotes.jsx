@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import { Field } from "react-final-form";
 import s from "./Trans.module.css";
 
@@ -7,11 +7,11 @@ const FeeNotes = ({ isFee, setFee, setAnim }) => {
   useEffect(() => {
     setIsAnim(true);
     setTimeout(() => setIsAnim(false), 300);
-  }, [setAnim]);
-
+  }, [setAnim])
+  
   return (
-    <div className={`${s.feenotes} ${isAnim ? s.set_anim : ""}`}>
-      <div className={`${s.content} ${isFee ? s.open : ""}`} aria-expanded={isFee}>
+    <div className={s.feenotes}>
+      <div className={`${s.content} ${isFee ? s.open : ""} ${isAnim ? s.set_anim : ''}`} aria-expanded={isFee}>
         <div>
           <label>Fees</label>
           <div className={s.price_field}>
@@ -24,7 +24,7 @@ const FeeNotes = ({ isFee, setFee, setAnim }) => {
         </div>
       </div>
       <button onClick={setFee} type="button">
-        {isFee ? "-" : "+"} Fee & Notes <span>(Optional)</span>
+     {isFee ? "-" : "+"} Fee & Notes <span>(Optional)</span>
       </button>
     </div>
   );
