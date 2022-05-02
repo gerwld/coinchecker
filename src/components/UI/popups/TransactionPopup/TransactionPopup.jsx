@@ -12,9 +12,7 @@ import { transPopupButtons } from "./init";
 import { BuyTransaction, SellTransaction, SwapTransaction } from "./operations";
 import s from "./Trans.module.css";
 
-
-
-const TransactionPopup = ({onCallback}) => {
+const TransactionPopup = ({ onCallback }) => {
   const dispatch = useDispatch();
   const [transType, setTransType] = useState(0);
   const [isFee, setFee] = React.useState(false);
@@ -25,6 +23,9 @@ const TransactionPopup = ({onCallback}) => {
     walletId: dashboard.walletId,
     wallets: wallets.content,
   }));
+
+  const [sFrom, setSFrom] = useState("");
+  const [sTo, setSTo] = useState("BTC");
 
   const getTitle = (walletId) => {
     const walletObjId = wallets?.find((wall) => wall.id === walletId);
@@ -44,10 +45,10 @@ const TransactionPopup = ({onCallback}) => {
       price: e.price,
       coinId: item.id,
       usdAmount: e.amount * e.price,
-      comment: e.notes
+      comment: e.notes,
     };
 
-    switch(transType) {
+    switch (transType) {
       case 0:
         await WalletService.buyCoinInWalletId(wallet, data);
         break;
@@ -61,7 +62,7 @@ const TransactionPopup = ({onCallback}) => {
           price: item.currentPrice,
           coinId: item.id,
           usdAmount: e.amount * item.currentPrice,
-          comment: e.notes
+          comment: e.notes,
         });
         break;
     }
@@ -75,6 +76,7 @@ const TransactionPopup = ({onCallback}) => {
     if (!wallets && isShow) {
       dispatch(getAllWalletsTC());
     }
+    item && setSFrom(item.symbol);
     return () => setFee(false);
   }, [wallets, isShow]);
 
@@ -126,8 +128,8 @@ const TransactionPopup = ({onCallback}) => {
                     )}
 
                     {transType === 0 && <BuyTransaction symbol={item.symbol} amount={item.amount} isFee={isFee} setFee={onSetFee} />}
-                    {transType === 1 && <SellTransaction symbol={item.symbol} amount={item.amount} isFee={isFee} setFee={onSetFee}  />}
-                    {transType === 2 && <SwapTransaction symbol={item.symbol} amount={item.amount}  isFee={isFee} setFee={onSetFee} />}
+                    {transType === 1 && <SellTransaction symbol={item.symbol} amount={item.amount} isFee={isFee} setFee={onSetFee} />}
+                    {transType === 2 && <SwapTransaction symbol={item.symbol} amount={item.amount} isFee={isFee} setFee={onSetFee} sFrom={sFrom} sTo={sTo} setSTo={setSTo} setSFrom={setSFrom} />}
 
                     <div className={s.action_popup}>
                       <button onClick={setClose} type="button">
