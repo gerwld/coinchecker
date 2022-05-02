@@ -132,7 +132,7 @@ const TransactionPopup = ({ onCallback }) => {
                     {transType === 1 && <SellTransaction symbol={item.symbol} amount={item.amount} />}
                     {transType === 2 && <SwapTransaction symbol={item.symbol} amount={item.amount} sFrom={sFrom} sTo={sTo} setSTo={setSTo} setSFrom={setSFrom} />}
 
-                    <FeeNotes isFee={isFee} setFee={onSetFee} />
+                    <FeeNotes isFee={isFee} setFee={onSetFee} setAnim={transType} />
                     <div className={s.action_popup}>
                       <button onClick={setClose} type="button">
                         Cancel

@@ -346,7 +346,8 @@ margin-bottom: 10px;
  }
 }
 
-.form_content {
+.form_content,
+.set_anim {
  animation: showAnim 0.2s linear;
 }
 
