@@ -1,23 +1,10 @@
 import React from "react";
 import withClickOutside from "../../../../../hoc/withClickOutside";
+import { swapInit } from "../init";
 import s from "./SwS.module.css";
 
 
-const init = [
- {symbol: "BTC", name: "Bitcoin"},
- {symbol: "ETH", name: "Ether"},
- {symbol: "LTC", name: "Litecoin"},
- {symbol: "BCH", name: "Bitcoin Cash"},
- {symbol: "BNB", name: "Binance Coin"},
- {symbol: "EOS", name: "EOS"},
- {symbol: "XRP", name: "XRP"},
- {symbol: "XLM", name: "Lumens"},
- {symbol: "LINK", name: "Chainlink"},
- {symbol: "DOT", name: "Polkadot"},
- {symbol: "YFI", name: "Yearn.finance"},
-]
-
-const SwapSelect = withClickOutside(({ refE, setShow, isShow, symbol, ignore, onSelect }) => {
+const SwapSelect = withClickOutside(({ refE, setShow, isShow, item, ignore, onSelect }) => {
   const onSetShow = () => setShow(!isShow);
   const onSelectEvent = (e) => {
    onSelect(e);
@@ -26,7 +13,7 @@ const SwapSelect = withClickOutside(({ refE, setShow, isShow, symbol, ignore, on
   return (
     <div>
       <button onClick={onSetShow} ref={ignore} className={isShow ? s.opened : ""} type="button">
-        {symbol}
+        {item.symbol}
         <span />
       </button>
       {isShow ? (
@@ -37,7 +24,7 @@ const SwapSelect = withClickOutside(({ refE, setShow, isShow, symbol, ignore, on
               <span>Cryptocurrencies</span>
 
               <div className={s.content}>
-               {init.map(e => <SwapElem symbol={e.symbol} name={e.name} onSelect={onSelectEvent}/>)}
+               {swapInit.map(e => <SwapElem key={e.symbol + "_swap"} symbol={e.symbol} name={e.name} id={e.id} onSelect={onSelectEvent}/>)}
               </div>
             </div>
           </div>
@@ -49,9 +36,9 @@ const SwapSelect = withClickOutside(({ refE, setShow, isShow, symbol, ignore, on
   );
 });
 
-const SwapElem = ({symbol = "-", name = "-", onSelect}) => {
+const SwapElem = ({symbol = "-", name = "-", id, onSelect}) => {
   const onSelectItem = () => {
-   onSelect(symbol);
+   onSelect({id: id, symbol: symbol});
   }
   return (
     <div className={s.elem} onClick={onSelectItem}>

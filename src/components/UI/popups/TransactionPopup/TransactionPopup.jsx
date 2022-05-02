@@ -8,7 +8,7 @@ import { getAllWalletsTC } from "../../../../redux/reducers/wallets-reducer";
 import { CreateWalletBtn } from "../../../pages/Dashboard/pages/Wallets/CreateNewWallet/CreateNewWallet";
 import EmbeddedLoader from "../../EmbeddedLoader/EmbeddedLoader";
 import { calc } from "./decorator";
-import { transPopupButtons } from "./init";
+import { transPopupButtons, swapInit } from "./init";
 import { BuyTransaction, SellTransaction, SwapTransaction } from "./operations";
 import s from "./Trans.module.css";
 
@@ -24,8 +24,8 @@ const TransactionPopup = ({ onCallback }) => {
     wallets: wallets.content,
   }));
 
-  const [sFrom, setSFrom] = useState("");
-  const [sTo, setSTo] = useState("BTC");
+  const [sFrom, setSFrom] = useState({id: 0, symbol: "BTC"});
+  const [sTo, setSTo] = useState({id: 0, symbol: "BTC"});
 
   const getTitle = (walletId) => {
     const walletObjId = wallets?.find((wall) => wall.id === walletId);
@@ -56,13 +56,13 @@ const TransactionPopup = ({ onCallback }) => {
         await WalletService.withdrawCoinsWalletId(wallet, data);
         break;
       case 2:
-        await WalletService.buyCoinInWalletId(wallet, {
-          amount: e.swap_type === "withdraw" ? e.amount * -1 : e.amount,
-          datetime: e.datetime,
-          price: item.currentPrice,
-          coinId: item.id,
-          usdAmount: e.amount * item.currentPrice,
+        await WalletService.swapCoinsWalletId(wallet, {
           comment: e.notes,
+          fromAmount: e.from_amount,
+          fromCoinId: sFrom.id,
+          toAmount: e.to_amount,
+          toCoinId: sTo.id,
+          usdAmount: e.usdAmount,
         });
         break;
     }
@@ -76,7 +76,7 @@ const TransactionPopup = ({ onCallback }) => {
     if (!wallets && isShow) {
       dispatch(getAllWalletsTC());
     }
-    item && setSFrom(item.symbol);
+    item && setSFrom({symbol: item.symbol, id: item.id});
     return () => setFee(false);
   }, [wallets, isShow]);
 
