@@ -105,7 +105,7 @@ const Wallets = () => {
                 </div>
                 <div className={`${s.infomob_subblock} ${content[walletId].startUsdPrice >= 0 && s.profit}`}>
                   <span>Total Profit / Loss</span>
-                  <span>{isDataVisible ? "$" + content[walletId].startUsdPrice : "..."}</span>
+                  <span>{isDataVisible ? "$" + onlyNumAfter(totalProfLoss, 4) : "..."}</span>
                 </div>
               </div>
             </div>
