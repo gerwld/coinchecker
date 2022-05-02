@@ -19,4 +19,4 @@ export const swapInit = [
  {id: 123, symbol: "YFI", name: "Yearn.finance"},
 ]
 
-export const coinInit = {id: 0, symbol: "BTC"};
+export const coinInit = {id: 1, symbol: "BTC"};
