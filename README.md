@@ -12,9 +12,9 @@ Heroku: http://coincheckerproj.herokuapp.com/
   <summary>Screenshots: (Click to expand)</summary>
     
 ![dashboard_2_1920](https://user-images.githubusercontent.com/47056812/166337966-bda8f2f8-b978-4bb5-82d0-e1ec0f7941ae.png)
-![3](https://user-images.githubusercontent.com/47056812/166340581-169c0666-7665-4f66-a009-d37a1a382564.png)
-![4](https://user-images.githubusercontent.com/47056812/166340594-60cdb0d5-7314-4ae1-a2e3-4e34cb678ba1.png)
-![1](https://user-images.githubusercontent.com/47056812/166340598-dc24596c-21d7-4d54-9c87-f91a63434e55.png)
+![1](https://user-images.githubusercontent.com/47056812/166341145-1c908df4-8586-4376-a0ac-6943ed51006c.png)
+![3](https://user-images.githubusercontent.com/47056812/166341150-46593089-70b3-4818-b3cc-7b0034b4b945.png)
+![4](https://user-images.githubusercontent.com/47056812/166341155-acbc26c7-cebf-4a00-bd5f-fba2501e9294.png)
 ![mobile](https://user-images.githubusercontent.com/47056812/166340610-0658879b-67a3-473a-8a27-05b4edf5b1b2.png)
     
 </details>
