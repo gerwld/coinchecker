@@ -5,6 +5,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Link to the project: http://gerwld.github.io/coinchecker <br>
 Heroku: http://coincheckerproj.herokuapp.com/
 
+<img width="960" alt="cc_3 copy2" src="https://user-images.githubusercontent.com/47056812/166335347-6866ccbb-4153-487f-aca3-b1e6aad50144.png">
+
 
 
 ## Project structure
