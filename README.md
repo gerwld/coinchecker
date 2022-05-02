@@ -9,7 +9,7 @@ Heroku: http://coincheckerproj.herokuapp.com/
 
 
 <details>
-  <summary>Screenshots: (Click to expand)</summary>
+  <summary><h3>Screenshots: <b>(Click to expand)</b></h3></summary>
     
 ![dashboard_2_1920](https://user-images.githubusercontent.com/47056812/166341405-f991a90a-312c-4ee5-bf16-db4054a5bd12.png)
 ![1](https://user-images.githubusercontent.com/47056812/166341145-1c908df4-8586-4376-a0ac-6943ed51006c.png)
