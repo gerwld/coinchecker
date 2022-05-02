@@ -9,7 +9,7 @@ import { CreateWalletBtn } from "../../../pages/Dashboard/pages/Wallets/CreateNe
 import EmbeddedLoader from "../../EmbeddedLoader/EmbeddedLoader";
 import { calc } from "./decorator";
 import FeeNotes from "./FeeNotes";
-import { transPopupButtons, swapInit } from "./init";
+import { transPopupButtons, coinInit } from "./init";
 import { BuyTransaction, SellTransaction, SwapTransaction } from "./operations";
 import s from "./Trans.module.css";
 
@@ -25,8 +25,8 @@ const TransactionPopup = ({ onCallback }) => {
     wallets: wallets.content,
   }));
 
-  const [sFrom, setSFrom] = useState({id: 0, symbol: "BTC"});
-  const [sTo, setSTo] = useState({id: 0, symbol: "BTC"});
+  const [sFrom, setSFrom] = useState(coinInit);
+  const [sTo, setSTo] = useState(coinInit);
 
   const getTitle = (walletId) => {
     const walletObjId = wallets?.find((wall) => wall.id === walletId);
