@@ -1,10 +1,9 @@
 import React from "react";
 import { Field } from "react-final-form";
-import FeeNotes from "../FeeNotes";
 import SwapSelect from "../popups/SwapSelect";
 import s from "../Trans.module.css";
 
-const SwapTransaction = ({ symbol, amount, isFee, setFee, sFrom, sTo, setSTo, setSFrom }) => {
+const SwapTransaction = ({ symbol, amount, sFrom, sTo, setSTo, setSFrom }) => {
   return (
     <div className={s.form_content}>
       <div>
@@ -51,7 +50,6 @@ const SwapTransaction = ({ symbol, amount, isFee, setFee, sFrom, sTo, setSTo, se
         </label>
         <Field name="datetime" component="input" type="date" placeholder="Date" />
       </div>
-      <FeeNotes isFee={isFee} setFee={setFee} />
     </div>
   );
 };
