@@ -164,7 +164,7 @@ Heroku: http://coincheckerproj.herokuapp.com/
 │   └── routes.js
 ├── services
 │   ├── ChangeTitle.jsx
-│   ├── only3AfterDot.js
+│   ├── onlyNumAfterDot.js
 │   └── title.js
 ├── styles
 │   ├── index.css
