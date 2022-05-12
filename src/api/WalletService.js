@@ -2,16 +2,16 @@ import axios from "axios";
 
 export default class WalletService {
   static async getAllWallets() {
-    return axios.get("http://159.223.218.84:8000/api/core/wallets");
+    return axios.get("/api/core/wallets");
   }
   static async getWalletById(walletId) {
-    return axios.get("http://159.223.218.84:8000/api/core/wallets/" + walletId);
+    return axios.get("/api/core/wallets/" + walletId);
   }
   static async getTransactionsById(walletId) {
-    return axios.get(`http://159.223.218.84:8000/api/core/wallets/${walletId}/transactions`);
+    return axios.get(`/api/core/wallets/${walletId}/transactions`);
   }
   static async createWallet(name) {
-    return axios.post("http://159.223.218.84:8000/api/core/wallets", {
+    return axios.post("/api/core/wallets", {
       name,
     });
   }
@@ -22,12 +22,12 @@ export default class WalletService {
 
 
   static async buyCoinInWalletId(walletId, buyCoinInputDto) {
-    return axios.post(`http://159.223.218.84:8000/api/core/wallets/${walletId}/buy`, buyCoinInputDto);
+    return axios.post(`/api/core/wallets/${walletId}/buy`, buyCoinInputDto);
   }
   static async withdrawCoinsWalletId(walletId, coinInputDto) {
-    return axios.post(`http://159.223.218.84:8000/api/core/wallets/${walletId}/withdraw`, coinInputDto);
+    return axios.post(`/api/core/wallets/${walletId}/withdraw`, coinInputDto);
   }
   static async swapCoinsWalletId(walletId, coinInputDto) {
-    return axios.post(`http://159.223.218.84:8000/api/core/wallets/${walletId}/swap`, coinInputDto);
+    return axios.post(`/api/core/wallets/${walletId}/swap`, coinInputDto);
   }
 }
