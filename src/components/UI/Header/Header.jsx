@@ -84,7 +84,7 @@ export const HeaderSection = ({isAuth = false, logOut, blueMode}) => {
             <LangSelect currLang='EN' />
             <div className={s.element_btn}>
             {isAuth 
-            ? <button onClick={logOut}>Sign Out</button>
+            ? <button onClick={logOut} className={s.btn_singin}>Sign Out</button>
             : <LinkWithPending link="/login"><span className={s.btn_singin}>Sign In</span></LinkWithPending>}
             </div>
           </nav>
