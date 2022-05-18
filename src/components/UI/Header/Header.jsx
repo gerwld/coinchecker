@@ -68,7 +68,7 @@ export const HeaderSection = ({isAuth = false, logOut, blueMode}) => {
               <NavLink to="/" className={(e) => e.isActive ? 'active_a' : ''}><span>Main</span></NavLink>
             </div>
             <div className={s.element}>
-              <NavLink to="/dashboard" className={(e) => e.isActive ? 'active_a' : ''}><span>Dashboard</span></NavLink>
+            <LinkWithPending link="/dashboard"><span className={s.a_link}>Dashboard</span></LinkWithPending>
             </div>
             <div className={s.element}>
               <NavLink to="/" className={(e) => e.isActive ? 'active_a' : ''}><span>Budget</span></NavLink>
@@ -85,7 +85,7 @@ export const HeaderSection = ({isAuth = false, logOut, blueMode}) => {
             <div className={s.element_btn}>
             {isAuth 
             ? <button onClick={logOut}>Sign Out</button>
-            : <LinkWithPending link="/login"><span>Sign In</span></LinkWithPending>}
+            : <LinkWithPending link="/login"><span className={s.btn_singin}>Sign In</span></LinkWithPending>}
             </div>
           </nav>
         </div>

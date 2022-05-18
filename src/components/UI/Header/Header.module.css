@@ -146,6 +146,12 @@
     margin-right: 5px;
   }
 
+  .main_nav .element > span {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: stretch;
+  }
+
   .element:nth-last-child(1) {
       margin-right: 0;
   }
@@ -157,7 +163,8 @@
     display: flex;
   }
 
-  .main_nav a {
+  .main_nav a,
+  .main_nav .a_link {
     display: flex;
     -ms-align-items: center;
     align-items: center;
@@ -165,21 +172,21 @@
   }
   
   .main_nav a,
-  .element_btn div {
+  .main_nav .a_link,
+  .element_btn .btn_singin {
     position: relative;
     padding: 10px 20px;
     text-decoration: none;
     color: var(--color-primary-black);
   }
 
-  .element_btn div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 0;
+  .element_btn .btn_singin {
+    display: block;
+    line-height: 1em;
   }
 
-  .main_nav .element a::after {
+  .main_nav .element a::after,
+  .main_nav .element .a_link::after {
       content: "";
       opacity: 0;
       position: absolute;
@@ -191,19 +198,23 @@
       transition: opacity 0.15s ease-in;
     }
 
-    .blue_mode .main_nav .element a::after {
+    .blue_mode .main_nav .element a::after,
+    .blue_mode .main_nav .element .a_link::after  {
       background-color: #fff;
     }
 
-  .main_nav .element a:hover:after {
+  .main_nav .element a:hover:after,
+  .main_nav .element .a_link:hover:after {
       opacity: 1;
   }
 
-  .main_nav .element a:active {
+  .main_nav .element a:active,
+  .main_nav .element .a_link:active {
     background-color: var(--color-primary-lightgray2); 
   }
 
-  .blue_mode .main_nav .element a:active {
+  .blue_mode .main_nav .element a:active,
+  .blue_mode .main_nav .element .a_link:active {
     background-color: rgba(0, 0, 0, 0.1);
   }
   
@@ -275,7 +286,7 @@
   }
 
   .element_btn a,
-  .element_btn div {
+  .element_btn .btn_singin {
     color: #fff;
     background-color: var(--color-primary-blue);
     height: 50%;
@@ -298,7 +309,7 @@
   /* Btn hovers */
   .explore:hover,
   .element_btn a:hover,
-  .element_btn div:hover {
+  .element_btn .btn_singin:hover {
     background-color: var(--color-primary-darkblue);
   }
   
@@ -428,12 +439,12 @@
     .main_nav__2 {
       margin-top: 20px;
     }
-
+    .main_nav .element .a_link::after,
     .main_nav .element a::after {
       width: 100%;
       left: 0%;
     }
-
+    .main_nav .a_link,
     .main_nav a {
       flex: 0 0 auto;
       padding: 17px 10px 17px 0;

@@ -4,6 +4,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
+import { LinkWithPending } from "../../UI/LoaderPending/LoadWithPending";
 import s from "./Login.module.css";
 
 const Login = (props) => {
@@ -13,7 +14,7 @@ const Login = (props) => {
   }))
   return (
     <div className={s.login_content}>
-      <NavLink to="/" className={s.btn_back}><BsArrowLeft/>Back</NavLink>
+      <LinkWithPending link="/" pending={250}><div className={s.btn_back}><BsArrowLeft/>Back</div></LinkWithPending>
       <div className={s.sect_overlay}>
         <h1 className={s.title}>Sign in to CoinChecker</h1>
         <div className={s.login_block}>

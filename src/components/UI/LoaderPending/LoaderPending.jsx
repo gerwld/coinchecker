@@ -17,7 +17,7 @@ const LoaderPending = () => {
   }, [isPending]);
 
   return (
-    <div className={`${s.pending_block} ${isPending ? s.show_pending : ""}`}>
+    <div className={`${s.pending_block} ${isPending ? s.show_pending : ""}`} id="loader_pending">
       <Loader />
     </div>
   );
