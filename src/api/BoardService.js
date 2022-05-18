@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://159.223.218.84:8000/api/core/",
+  baseURL: "http://159.223.218.84/api/core/",
 });
 
 export default class BoardService {
   static async getData(showLast = 15, page = 0) {
-    return axios.get("http://159.223.218.84:8000/api/core/coins", {
+    return axios.get("http://159.223.218.84/api/core/coins", {
       params: {
         size: showLast,
         page
@@ -15,7 +15,7 @@ export default class BoardService {
   }
 
   static async searchCoin(name) {
-    return axios.get("http://159.223.218.84:8000/api/core/coins", {
+    return axios.get("http://159.223.218.84/api/core/coins", {
       params: {
         name,
         size: 10
@@ -24,20 +24,20 @@ export default class BoardService {
   }
 
   static async getFavCoins(size = 10, page = 0) {
-    return axios.get("http://159.223.218.84:8000/api/core/coins/favorites", {
+    return axios.get("http://159.223.218.84/api/core/coins/favorites", {
       params: {
         page,
         size,
       }}).then(r => r.data)
   }
   static async setFavCoin(coinId) {
-    return axios.put(`http://159.223.218.84:8000/api/core/coins/${coinId}/add-to-favorites`);
+    return axios.put(`http://159.223.218.84/api/core/coins/${coinId}/add-to-favorites`);
   }
   static async delFavCoin(coinId) {
-    return axios.delete(`http://159.223.218.84:8000/api/core/coins/${coinId}/delete-from-favorites`);
+    return axios.delete(`http://159.223.218.84/api/core/coins/${coinId}/delete-from-favorites`);
   }
   static async getCoinById(coinId) {
-    return axios.get(`http://159.223.218.84:8000/api/core/coins/${coinId}`);
+    return axios.get(`http://159.223.218.84/api/core/coins/${coinId}`);
   }
 }
 

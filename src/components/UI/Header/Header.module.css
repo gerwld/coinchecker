@@ -165,14 +165,17 @@
   }
   
   .main_nav a,
-  .element_btn button {
+  .element_btn div {
     position: relative;
     padding: 10px 20px;
     text-decoration: none;
     color: var(--color-primary-black);
   }
 
-  .element_btn button {
+  .element_btn div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     line-height: 0;
   }
 
@@ -272,7 +275,7 @@
   }
 
   .element_btn a,
-  .element_btn button {
+  .element_btn div {
     color: #fff;
     background-color: var(--color-primary-blue);
     height: 50%;
@@ -295,7 +298,7 @@
   /* Btn hovers */
   .explore:hover,
   .element_btn a:hover,
-  .element_btn button:hover {
+  .element_btn div:hover {
     background-color: var(--color-primary-darkblue);
   }
   
@@ -324,7 +327,7 @@
 
   .explore {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 12px 20px;
       margin-top: 3vh;
       font-size: 1em;
       text-decoration: none;

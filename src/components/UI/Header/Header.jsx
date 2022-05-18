@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Pl, Ua, Us } from 'react-flags-select';
 import { NavLink } from 'react-router-dom';
-import { HashLink as Link } from 'react-router-hash-link';
 import withClickOutside from '../../../hoc/withClickOutside';
+import { LinkWithPending } from '../LoaderPending/LoadWithPending';
 import s from './Header.module.css';
 
 const HeaderMain = ({isAuth, logOut}) => {
@@ -13,7 +13,8 @@ const HeaderMain = ({isAuth, logOut}) => {
         <div className="content-wrapper">
           <h1 className={s.header_title}>Start and Build Your Crypto Portfolio Here</h1>
           <p className={s.header_subtitle}><span>Only at CoinChecker, you can build a good portfolio and learn</span><span>best practices about cryptocurrency.</span></p>
-          <Link to="#about_us" className={s.explore}>Get started</Link>
+          <LinkWithPending link="/login"><button className={s.explore}>Get started</button></LinkWithPending>
+
         </div>
       </div>
     </>
@@ -84,7 +85,7 @@ export const HeaderSection = ({isAuth = false, logOut, blueMode}) => {
             <div className={s.element_btn}>
             {isAuth 
             ? <button onClick={logOut}>Sign Out</button>
-            : <NavLink to="/login"><span>Sign In</span></NavLink>}
+            : <LinkWithPending link="/login"><span>Sign In</span></LinkWithPending>}
             </div>
           </nav>
         </div>
