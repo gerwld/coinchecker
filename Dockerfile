@@ -1,17 +1,3 @@
-# Using node version 14.18
-# Create context directory
-#
-# Copy required files that required to build to context
-# Install all dependencies except optional
-#
-# Copy required source files to context
-# Build project
-# Pass only production dependencies using npm prune
-# Remove source and service files from container
-#
-# PORT must be specfied in .env
-# Run production version
-
 FROM node:14.18-alpine as builder
 WORKDIR /app
 
@@ -24,12 +10,7 @@ RUN npm run build
 RUN npm prune --production
 RUN rm -rf src package-lock.json
 
-# Using stable nginx
-#
-# Remove default nginx configuration
-# Copy custom configuration to nginx configuration directory
-# Copy builded project to nginx host directory
-# Run nginx in foreground
+
 FROM nginx:latest
 
 
