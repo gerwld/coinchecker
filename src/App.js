@@ -2,6 +2,7 @@ import React from "react";
 import { connect, Provider } from "react-redux";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Loader from "./components/UI/Loader/Loader";
+import LoaderPending from "./components/UI/LoaderPending/LoaderPending";
 import useSession from "./hooks/useSession";
 import { setLoading } from "./redux/reducers/app-reducer";
 import { getUser } from "./redux/reducers/auth-reducer";
@@ -41,6 +42,7 @@ function App({ isAuth, getUser, setLoading, isLoading }) {
           ))}
       </Routes>
       <ChangeTitle/>
+      <LoaderPending />
     </div>
   );
 }

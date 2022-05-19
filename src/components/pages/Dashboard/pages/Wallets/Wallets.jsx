@@ -62,7 +62,7 @@ const Wallets = () => {
     setPage(page - 1);
   };
 
-  if(content && content[walletId]) return (
+  if(content) return (
     <div className={s.content_block}>
       <h2 className={s.title}>Wallets</h2>
       {content ? (
@@ -118,7 +118,7 @@ const Wallets = () => {
         <EmbeddedLoader />
       )}
     </div>
-  );
+  ); 
   return <Loader/>
 };
 

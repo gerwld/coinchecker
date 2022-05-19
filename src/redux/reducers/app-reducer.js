@@ -1,9 +1,13 @@
 const SET_LOAD = 'coinchecker/app-reducer/SET_LOAD';
+const SET_PENDING = 'coinchecker/app-reducer/SET_PENDING';
+
 export const setLoading = (isLoad) => ({ type: SET_LOAD, isLoad });
+export const setGlobalPending = (payload) => ({ type: SET_PENDING, payload });
 
 
 let initialState = {
     isLoading: true,
+    isGlobalPending: false,
     headTrends: [
         {
             id: 1,
@@ -42,6 +46,11 @@ const appReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: action.isLoad
+            }
+        case SET_PENDING:
+            return {
+                ...state,
+                isGlobalPending: action.payload
             }
         default:
             return state;

@@ -1,3 +1,4 @@
+import moment from "moment";
 import Pagination from "rc-pagination";
 import React, { useEffect } from "react";
 import { BiEdit } from "react-icons/bi";
@@ -109,6 +110,11 @@ const TransactionsTable = ({ currPrice }) => {
   const pageSize = 10;
   const transactions = items ? items.slice(page * pageSize, (page + 1) * pageSize) : [];
 
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+});
+
   const onSetPage = (i) => {
     setPage(i - 1);
   }
@@ -122,8 +128,7 @@ const TransactionsTable = ({ currPrice }) => {
               <th>Price</th>
               <th>Amount</th>
               <th>Date</th>
-              <th>Fees</th>
-              <th>Cost</th>
+              <th>Costs</th>
               <th>Proceeds</th>
               <th>PNL</th>
               <th>Notes</th>
@@ -133,16 +138,18 @@ const TransactionsTable = ({ currPrice }) => {
             ? <td colspan="100%" className={s.noitems}>No items to show.</td>
             : transactions.map((e, i) => {
               const profitLose = e.toAmount * e.usdAmount - currPrice * e.toAmount;
+              let usdAmountFm = formatter.format(e.usdAmount).replace(/\D00(?=\D*$)/, '');
+              let prNLoans = formatter.format(profitLose).replace(/\D00(?=\D*$)/, '');
               return (
                 <tr className={`${s.tr_row} ${s[i]}`} key={e.comment + e.usdAmount + i + "_trtb"}>
                   <TransTypeElem type={e.type}/>
-                  <td>{e.usdAmount}$</td>
+                  
+                  <td>{usdAmountFm}$</td>
                   <td className={e.toAmount < 0 ? "red" : ""}>{e.toAmount?.toFixed(1)}</td>
-                  <td>26 Apr 2022 01:23 PM UTC</td>
-                  <td>0.0$</td>
-                  <td>{e.type === "BUY" ? e.usdAmount + "$" : "-"}</td>
-                  {e.type === "WITHDRAW" ? <td className="black">{e.usdAmount}$</td> : <td>-</td>}
-                  <td>{profitLose}$</td>
+                  <td>{moment("26 Apr 2022 01:23 PM UTC").format('LL HH:mm')}</td>
+                  <td>{e.type === "BUY" ? usdAmountFm + "$" : "-"}</td>
+                  {e.type === "WITHDRAW" ? <td className="black">{usdAmountFm}$</td> : <td>-</td>}
+                  <td>{prNLoans}$</td>
                   <td>{e.comment}</td>
                   <td>
                     <div className={s.trans_btns}>

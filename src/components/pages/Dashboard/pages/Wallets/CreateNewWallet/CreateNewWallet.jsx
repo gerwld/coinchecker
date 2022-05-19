@@ -5,13 +5,13 @@ import { getAllWalletsTC } from '../../../../../../redux/reducers/wallets-reduce
 import s from "../Wallets.module.css";
 
 
-export const CreateWalletBtn = ({name}) => {
+export const CreateWalletBtn = ({name, classn}) => {
  const dispatch = useDispatch();
  const onCreateWallet = async () => {
    await WalletService.createWallet("My Portfolio");
    dispatch(getAllWalletsTC());
  };
- return <button onClick={onCreateWallet} type="button">{name}</button>
+ return <button onClick={onCreateWallet} type="button" className={classn ? classn : ''}>{name}</button>
 }
 
 const CreateNewWallet = () => {

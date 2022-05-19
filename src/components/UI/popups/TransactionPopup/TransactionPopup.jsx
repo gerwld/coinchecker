@@ -113,7 +113,7 @@ const TransactionPopup = ({ onCallback }) => {
                         </label>
 
                         {wallets.length === 0 ? (
-                          <CreateWalletBtn name={"Create New Wallet"} />
+                          <CreateWalletBtn name={"Create New Wallet"} classn={'btn_newWallet'} />
                         ) : (
                           <div className="select-wrapper">
                             <Field name="walletId" component="select" defaultValue={wallets[0]?.id} required>

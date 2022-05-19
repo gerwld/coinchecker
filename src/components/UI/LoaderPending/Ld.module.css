@@ -1,0 +1,27 @@
+.pending_block {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100vh;
+ z-index: 10000;
+ background-color: rgb(255, 255, 255, 0.4);
+ opacity: 0;
+ transition: opacity 0.3s ease;
+ pointer-events: none;
+}
+
+.pending_block.show_pending {
+ opacity: 1;
+ pointer-events: all;
+}
+
+.pending_block > div {
+position: static;
+background-color: transparent;
+}
+
+.withpending_block {
+ display: inline-block;
+ cursor: pointer;
+}
