@@ -1,22 +1,14 @@
-# pull official base image
-FROM node:13.12.0-alpine
+FROM nginx:latest
 
 # set working directory
 WORKDIR /app
+RUN npm install
+RUN npm run build
+COPY ./build .
+RUN  rm -rf /usr/share/nginx/html/* && cp -R /app/* /usr/share/nginx/html/
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+ENV CORE_SERVICE_HOST='127.0.0.1'
+COPY run.sh /run.sh
+COPY nginx.conf.tpl /nginx.conf.tpl
 
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install --silent
-RUN npm install react-scripts@3.4.1 -g --silent
-
-# add app
-COPY . ./
-
-EXPOSE 3000
-
-# start app
-CMD ["npm", "run", "build"]
+ENTRYPOINT ["sh","/run.sh"]
