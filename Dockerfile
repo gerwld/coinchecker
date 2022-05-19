@@ -1,21 +1,44 @@
-FROM node:12
+# Using node version 14.18
+# Create context directory
+#
+# Copy required files that required to build to context
+# Install all dependencies except optional
+#
+# Copy required source files to context
+# Build project
+# Pass only production dependencies using npm prune
+# Remove source and service files from container
+#
+# PORT must be specfied in .env
+# Run production version
 
+FROM node:14.18-alpine as builder
 WORKDIR /app
-COPY . /app
 
-RUN npm install
+COPY package.json package-lock.json ./
+RUN npm install --ignore-optional
+
+COPY ./src ./src
+COPY ./public ./public
 RUN npm run build
+RUN npm prune --production
+RUN rm -rf src package-lock.json
 
-COPY ./build .
+# Using stable nginx
+#
+# Remove default nginx configuration
+# Copy custom configuration to nginx configuration directory
+# Copy builded project to nginx host directory
+# Run nginx in foreground
+FROM nginx:stable-alpine
 
-FROM nginx:latest
-
-WORKDIR /app
-
-RUN  rm -rf /usr/share/nginx/html/* && cp -R /app/* /usr/share/nginx/html/
 
 ENV CORE_SERVICE_HOST='127.0.0.1'
 COPY run.sh /run.sh
 COPY nginx.conf.tpl /nginx.conf.tpl
 
+RUN  rm -rf /usr/share/nginx/html/*
+COPY --from=builder /app/build/. /usr/share/nginx/html/
+
+EXPOSE 80
 ENTRYPOINT ["sh","/run.sh"]
