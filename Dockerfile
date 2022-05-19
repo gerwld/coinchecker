@@ -30,7 +30,7 @@ RUN rm -rf src package-lock.json
 # Copy custom configuration to nginx configuration directory
 # Copy builded project to nginx host directory
 # Run nginx in foreground
-FROM nginx:stable-alpine
+FROM nginx:latest
 
 
 ENV CORE_SERVICE_HOST='127.0.0.1'
@@ -41,4 +41,5 @@ RUN  rm -rf /usr/share/nginx/html/*
 COPY --from=builder /app/build/. /usr/share/nginx/html/
 
 EXPOSE 80
+EXPOSE 443
 ENTRYPOINT ["sh","/run.sh"]
